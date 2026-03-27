@@ -6,126 +6,296 @@ import Image from "next/image";
 
 type Department = "operational" | "marketing" | "data";
 
-interface DepartmentItem {
+interface DepartmentConfig {
+  key: Department;
   icon: string;
   labelKey: string;
+  items: string[];
 }
 
-const DEPARTMENT_ITEMS: Record<Department, DepartmentItem[]> = {
-  operational: [
-    { icon: "/images/Building.svg", labelKey: "invoicing" },
-    { icon: "/images/Checkpoint.svg", labelKey: "projectManagement" },
-    { icon: "/images/Delivery.svg", labelKey: "communication" },
-  ],
-  marketing: [
-    { icon: "/images/Discovery.svg", labelKey: "invoicing" },
-    { icon: "/images/Inspiration.svg", labelKey: "projectManagement" },
-    { icon: "/images/Tech.svg", labelKey: "communication" },
-  ],
-  data: [
-    { icon: "/images/Fundamentals.svg", labelKey: "invoicing" },
-    { icon: "/images/Kickstart.svg", labelKey: "projectManagement" },
-    { icon: "/images/Solution.svg", labelKey: "communication" },
-  ],
-};
-
-const DEPARTMENTS: { key: Department; icon: string; labelKey: string }[] = [
-  { key: "marketing", icon: "/images/Discovery.svg", labelKey: "marketing" },
-  { key: "data", icon: "/images/Tech.svg", labelKey: "data" },
-  { key: "operational", icon: "/images/Building.svg", labelKey: "operational" },
+const DEPARTMENTS: DepartmentConfig[] = [
+  {
+    key: "operational",
+    icon: "/images/Building.svg",
+    labelKey: "operational",
+    items: ["operationalItem1", "operationalItem2", "operationalItem3"],
+  },
+  {
+    key: "marketing",
+    icon: "/images/Discovery.svg",
+    labelKey: "marketing",
+    items: ["marketingItem1", "marketingItem2", "marketingItem3"],
+  },
+  {
+    key: "data",
+    icon: "/images/Tech.svg",
+    labelKey: "data",
+    items: ["dataItem1", "dataItem2", "dataItem3"],
+  },
 ];
+
+function CheckIcon() {
+  return (
+    <svg
+      width="20"
+      height="20"
+      viewBox="0 0 20 20"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+    >
+      <path
+        d="M16.667 5L7.5 14.167 3.333 10"
+        stroke="#badad5"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+function PlusIcon() {
+  return (
+    <svg
+      width="20"
+      height="20"
+      viewBox="0 0 20 20"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+    >
+      <path
+        d="M10 4.167v11.666M4.167 10h11.666"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+function MinusIcon() {
+  return (
+    <svg
+      width="20"
+      height="20"
+      viewBox="0 0 20 20"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+    >
+      <path
+        d="M4.167 10h11.666"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
 
 export function DiscoverySection() {
   const t = useTranslations("discovery");
-  const [activeDept, setActiveDept] = useState<Department>("operational");
+  const [expanded, setExpanded] = useState<Department>("operational");
 
-  const activeItems = DEPARTMENT_ITEMS[activeDept];
+  function toggle(key: Department) {
+    setExpanded((prev) => (prev === key ? prev : key));
+  }
 
   return (
     <section className="bg-white" style={{ padding: "80px 40px" }}>
       <div className="mx-auto" style={{ maxWidth: "1080px" }}>
-        {/* Section header */}
-        <div className="mb-12 text-center">
-          <h2 className="font-heading text-[32px] font-thin text-spaik-black">
-            {t("title")}
-          </h2>
-          <p className="mx-auto mt-4 max-w-2xl font-sans text-base text-spaik-black/80">
-            {t("subtitle")}
-          </p>
-        </div>
-
-        {/* Department selector cards */}
-        <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:gap-6">
-          {DEPARTMENTS.map((dept) => (
-            <button
-              key={dept.key}
-              type="button"
-              onClick={() => setActiveDept(dept.key)}
-              className={`flex flex-col items-center gap-3 rounded-xl border bg-white p-6 transition-all hover:shadow-md ${
-                activeDept === dept.key
-                  ? "border-spaik-orange shadow-sm"
-                  : "border-spaik-clay-light"
-              }`}
+        <div className="flex flex-col gap-12 lg:flex-row lg:gap-16">
+          {/* Left column — title, subtitle, node diagram */}
+          <div className="flex flex-col lg:w-[40%]">
+            <h2
+              className="font-heading text-spaik-black"
+              style={{ fontSize: "32px", fontWeight: 100 }}
             >
-              <div className="relative size-12">
-                <Image
-                  src={dept.icon}
-                  alt={t(dept.labelKey)}
-                  fill
-                  className="object-contain"
-                />
-              </div>
-              <span className="font-sans text-sm font-medium text-spaik-black">
-                {t(dept.labelKey)}
-              </span>
-            </button>
-          ))}
-        </div>
+              {t("title")}
+            </h2>
+            <p
+              className="mt-4 font-sans text-spaik-black/70"
+              style={{ fontSize: "16px", lineHeight: "1.6" }}
+            >
+              {t("subtitle")}
+            </p>
 
-        {/* Content panel for selected department */}
-        <div className="mt-8 overflow-hidden rounded-xl border border-spaik-clay-light bg-white p-6 transition-all sm:p-8">
-          <div
-            key={activeDept}
-            className="flex flex-col gap-6 sm:flex-row sm:items-center sm:gap-8"
-            style={{ animation: "fadeInUp 0.3s ease-out" }}
-          >
-            {activeItems.map((item) => (
-              <div
-                key={item.labelKey}
-                className="flex items-center gap-4"
+            {/* Node diagram — decorative department connections */}
+            <div
+              className="relative mt-10 hidden lg:block"
+              style={{ height: "220px" }}
+            >
+              {/* Connecting lines */}
+              <svg
+                className="absolute inset-0"
+                width="100%"
+                height="100%"
+                aria-hidden="true"
               >
-                <div className="relative size-12 shrink-0">
-                  <Image
-                    src={item.icon}
-                    alt={t(item.labelKey)}
-                    fill
-                    className="object-contain"
-                  />
-                </div>
-                <span className="font-sans text-base text-spaik-black">
-                  {t(item.labelKey)}
-                </span>
-              </div>
-            ))}
+                {/* Line from Operational to Marketing & Sales */}
+                <line
+                  x1="40"
+                  y1="40"
+                  x2="160"
+                  y2="110"
+                  stroke="#dedccc"
+                  strokeWidth="1.5"
+                />
+                {/* Line from Marketing & Sales to Data */}
+                <line
+                  x1="160"
+                  y1="110"
+                  x2="80"
+                  y2="180"
+                  stroke="#dedccc"
+                  strokeWidth="1.5"
+                />
+                {/* Line from Operational to Data */}
+                <line
+                  x1="40"
+                  y1="40"
+                  x2="80"
+                  y2="180"
+                  stroke="#dedccc"
+                  strokeWidth="1.5"
+                />
+              </svg>
+
+              {/* Node: Operational */}
+              <button
+                type="button"
+                onClick={() => toggle("operational")}
+                className={`absolute flex items-center gap-2 rounded-full border px-4 py-2 font-sans text-sm transition-all ${
+                  expanded === "operational"
+                    ? "border-spaik-orange bg-spaik-orange-50 text-spaik-black"
+                    : "border-spaik-clay bg-white text-spaik-black/70 hover:border-spaik-orange"
+                }`}
+                style={{ left: "0px", top: "20px" }}
+              >
+                <Image
+                  src="/images/Building.svg"
+                  alt=""
+                  width={20}
+                  height={20}
+                />
+                {t("operational")}
+              </button>
+
+              {/* Node: Marketing & Sales */}
+              <button
+                type="button"
+                onClick={() => toggle("marketing")}
+                className={`absolute flex items-center gap-2 rounded-full border px-4 py-2 font-sans text-sm transition-all ${
+                  expanded === "marketing"
+                    ? "border-spaik-orange bg-spaik-orange-50 text-spaik-black"
+                    : "border-spaik-clay bg-white text-spaik-black/70 hover:border-spaik-orange"
+                }`}
+                style={{ left: "120px", top: "90px" }}
+              >
+                <Image
+                  src="/images/Discovery.svg"
+                  alt=""
+                  width={20}
+                  height={20}
+                />
+                {t("marketing")}
+              </button>
+
+              {/* Node: Data */}
+              <button
+                type="button"
+                onClick={() => toggle("data")}
+                className={`absolute flex items-center gap-2 rounded-full border px-4 py-2 font-sans text-sm transition-all ${
+                  expanded === "data"
+                    ? "border-spaik-orange bg-spaik-orange-50 text-spaik-black"
+                    : "border-spaik-clay bg-white text-spaik-black/70 hover:border-spaik-orange"
+                }`}
+                style={{ left: "40px", top: "160px" }}
+              >
+                <Image
+                  src="/images/Tech.svg"
+                  alt=""
+                  width={20}
+                  height={20}
+                />
+                {t("data")}
+              </button>
+            </div>
+          </div>
+
+          {/* Right column — accordion */}
+          <div className="lg:w-[60%]">
+            <div className="divide-y divide-spaik-clay-light border-y border-spaik-clay-light">
+              {DEPARTMENTS.map((dept) => {
+                const isExpanded = expanded === dept.key;
+
+                return (
+                  <div key={dept.key}>
+                    <button
+                      type="button"
+                      onClick={() => toggle(dept.key)}
+                      className="flex w-full items-center justify-between py-5 text-left transition-colors"
+                    >
+                      <div className="flex items-center gap-3">
+                        <Image
+                          src={dept.icon}
+                          alt=""
+                          width={24}
+                          height={24}
+                        />
+                        <span
+                          className="font-sans text-spaik-black"
+                          style={{ fontSize: "18px", fontWeight: 500 }}
+                        >
+                          {t(dept.labelKey)}
+                        </span>
+                      </div>
+                      <span className="text-spaik-black/40">
+                        {isExpanded ? <MinusIcon /> : <PlusIcon />}
+                      </span>
+                    </button>
+
+                    {/* Expanded content */}
+                    <div
+                      className="overflow-hidden transition-all duration-300 ease-in-out"
+                      style={{
+                        maxHeight: isExpanded ? "200px" : "0px",
+                        opacity: isExpanded ? 1 : 0,
+                      }}
+                    >
+                      <div className="flex flex-col gap-3 pb-5 pl-9">
+                        {dept.items.map((itemKey) => (
+                          <div
+                            key={itemKey}
+                            className="flex items-center gap-3"
+                          >
+                            <CheckIcon />
+                            <span
+                              className="font-sans text-spaik-black/80"
+                              style={{ fontSize: "15px" }}
+                            >
+                              {t(itemKey)}
+                            </span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
           </div>
         </div>
 
-        {/* Collapsed department names as clickable text */}
-        <div className="mt-6 flex flex-wrap items-center justify-center gap-4">
-          {DEPARTMENTS.filter((dept) => dept.key !== activeDept).map((dept) => (
-            <button
-              key={dept.key}
-              type="button"
-              onClick={() => setActiveDept(dept.key)}
-              className="font-sans text-sm text-spaik-black/60 underline-offset-2 transition-colors hover:text-spaik-orange hover:underline"
-            >
-              {t(dept.labelKey)}
-            </button>
-          ))}
-        </div>
-
-        {/* Other challenge text */}
-        <p className="mt-8 text-center font-sans text-sm text-spaik-black/60">
+        {/* Bottom text */}
+        <p
+          className="mt-12 font-sans text-spaik-black/60"
+          style={{ fontSize: "14px" }}
+        >
           {t("otherChallenge")}
         </p>
       </div>

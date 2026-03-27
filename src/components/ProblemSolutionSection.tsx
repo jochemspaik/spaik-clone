@@ -1,44 +1,31 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import { RollingTextButton } from "./RollingTextButton";
+import { RollingTextButton } from "@/components/RollingTextButton";
 
-function CheckIcon() {
+function CrossIcon() {
   return (
-    <svg
-      width="20"
-      height="20"
-      viewBox="0 0 20 20"
-      fill="none"
-      className="flex-shrink-0 mt-1"
-    >
-      <circle cx="10" cy="10" r="10" fill="#ff7150" />
+    <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+      <circle cx="16" cy="16" r="14" stroke="#ff7150" strokeWidth="2" />
       <path
-        d="M6 10L9 13L14 7"
-        stroke="white"
+        d="M11 11L21 21M21 11L11 21"
+        stroke="#ff7150"
         strokeWidth="2"
         strokeLinecap="round"
-        strokeLinejoin="round"
       />
     </svg>
   );
 }
 
-function CrossIcon() {
+function CheckIcon() {
   return (
-    <svg
-      width="20"
-      height="20"
-      viewBox="0 0 20 20"
-      fill="none"
-      className="flex-shrink-0 mt-1"
-    >
-      <circle cx="10" cy="10" r="10" fill="#0b0b0b" />
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
       <path
-        d="M7 7L13 13M13 7L7 13"
-        stroke="white"
-        strokeWidth="2"
+        d="M4 12L9 18L20 6"
+        stroke="#7c8dff"
+        strokeWidth="2.5"
         strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </svg>
   );
@@ -47,13 +34,19 @@ function CrossIcon() {
 export function ProblemSolutionSection() {
   const t = useTranslations();
 
+  const solutionImages = [
+    "/images/product-mockup-1.png",
+    "/images/product-mockup-2.png",
+    "/images/product-mockup-3.png",
+  ];
+
   return (
     <section
       id="probleem"
       className="relative w-full overflow-hidden"
       style={{ backgroundColor: "rgb(243, 237, 237)" }}
     >
-      {/* Decorative dot pattern - rotated */}
+      {/* Decorative dot pattern */}
       <div
         className="absolute -left-20 top-1/3 pointer-events-none opacity-10"
         style={{
@@ -63,7 +56,11 @@ export function ProblemSolutionSection() {
           overflow: "hidden",
         }}
       >
-        <img src="/images/product-dot-pattern.png" alt="" className="w-full h-full object-contain" />
+        <img
+          src="/images/product-dot-pattern.png"
+          alt=""
+          className="w-full h-full object-contain"
+        />
       </div>
 
       <div
@@ -74,123 +71,134 @@ export function ProblemSolutionSection() {
           gap: "120px",
         }}
       >
-        {/* Problems block */}
-        <div className="flex flex-col md:flex-row gap-16">
-          <div className="md:w-2/5">
-            <p
-              className="font-heading"
-              style={{
-                fontSize: "32px",
-                fontWeight: 100,
-                lineHeight: "35.2px",
-                color: "#0a0a0a",
-              }}
-            >
-              {t("problem.title")}
-            </p>
-            <p
-              className="mt-4"
-              style={{
-                fontSize: "16px",
-                lineHeight: "24px",
-                color: "rgba(0,0,0,0.6)",
-              }}
-            >
-              {t("problem.subtitle")}
-            </p>
-          </div>
+        {/* Problems block — centered title + 3 columns */}
+        <div className="flex flex-col items-center">
+          <p
+            className="font-heading text-center"
+            style={{
+              fontSize: "32px",
+              fontWeight: 100,
+              lineHeight: "35.2px",
+              color: "#0a0a0a",
+            }}
+          >
+            {t("problem.title")}
+          </p>
+          <p
+            className="mt-4 text-center"
+            style={{
+              fontSize: "16px",
+              lineHeight: "24px",
+              color: "rgba(0,0,0,0.6)",
+              maxWidth: "600px",
+            }}
+          >
+            {t("problem.subtitle")}
+          </p>
 
-          <div className="md:w-3/5 flex flex-col gap-6">
+          <div
+            className="grid grid-cols-1 md:grid-cols-3 w-full"
+            style={{ gap: "40px", marginTop: "48px" }}
+          >
             {[1, 2, 3].map((i) => (
-              <div
-                key={i}
-                className="rounded-2xl p-6"
-                style={{ backgroundColor: "rgba(255,255,255,0.7)" }}
-              >
-                <div className="flex gap-3">
-                  <CrossIcon />
-                  <div>
-                    <p
-                      className="font-medium"
-                      style={{
-                        fontSize: "16px",
-                        lineHeight: "24px",
-                        color: "#0b0b0b",
-                      }}
-                    >
-                      {t(`problem.problem${i}title`)}
-                    </p>
-                    <p
-                      className="mt-1"
-                      style={{
-                        fontSize: "16px",
-                        lineHeight: "24px",
-                        color: "rgba(0,0,0,0.6)",
-                      }}
-                    >
-                      {t(`problem.problem${i}text`)}
-                    </p>
-                  </div>
-                </div>
+              <div key={i} className="flex flex-col items-center text-center">
+                <CrossIcon />
+                <p
+                  className="font-medium"
+                  style={{
+                    fontSize: "16px",
+                    lineHeight: "24px",
+                    color: "#0b0b0b",
+                    marginTop: "16px",
+                  }}
+                >
+                  {t(`problem.problem${i}title`)}
+                </p>
+                <p
+                  style={{
+                    fontSize: "16px",
+                    lineHeight: "24px",
+                    color: "rgba(0,0,0,0.6)",
+                    marginTop: "8px",
+                  }}
+                >
+                  {t(`problem.problem${i}text`)}
+                </p>
               </div>
             ))}
           </div>
         </div>
 
-        {/* Solutions block */}
-        <div className="flex flex-col md:flex-row gap-16">
-          <div className="md:w-2/5">
-            <p
-              className="font-heading"
-              style={{
-                fontSize: "32px",
-                fontWeight: 100,
-                lineHeight: "35.2px",
-                color: "#0a0a0a",
-              }}
-            >
-              {t("solution.title")}
-            </p>
-          </div>
+        {/* Solutions block — left-aligned title + 3 cards in a row */}
+        <div className="flex flex-col">
+          <p
+            className="font-heading"
+            style={{
+              fontSize: "32px",
+              fontWeight: 100,
+              lineHeight: "35.2px",
+              color: "#0a0a0a",
+            }}
+          >
+            {t("solution.title")}
+          </p>
 
-          <div className="md:w-3/5 flex flex-col gap-6">
+          <div
+            className="grid grid-cols-1 md:grid-cols-3"
+            style={{ gap: "24px", marginTop: "48px" }}
+          >
             {[1, 2, 3].map((i) => (
               <div
                 key={i}
-                className="rounded-2xl p-6"
-                style={{ backgroundColor: "rgba(255,255,255,0.7)" }}
+                className="rounded-2xl overflow-hidden"
+                style={{
+                  backgroundColor: "rgba(255,255,255,0.85)",
+                  border: "1px solid rgba(0,0,0,0.06)",
+                }}
               >
-                <div className="flex gap-3">
+                {/* Card banner image */}
+                <div
+                  className="w-full overflow-hidden"
+                  style={{ height: "160px" }}
+                >
+                  <img
+                    src={solutionImages[i - 1]}
+                    alt=""
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+
+                {/* Card body */}
+                <div style={{ padding: "24px" }}>
                   <CheckIcon />
-                  <div>
-                    <p
-                      className="font-medium"
-                      style={{
-                        fontSize: "16px",
-                        lineHeight: "24px",
-                        color: "#0b0b0b",
-                      }}
-                    >
-                      {t(`solution.item${i}title`)}
-                    </p>
-                    <p
-                      className="mt-1"
-                      style={{
-                        fontSize: "16px",
-                        lineHeight: "24px",
-                        color: "rgba(0,0,0,0.6)",
-                      }}
-                    >
-                      {t(`solution.item${i}text`)}
-                    </p>
-                  </div>
+                  <p
+                    className="font-medium"
+                    style={{
+                      fontSize: "16px",
+                      lineHeight: "24px",
+                      color: "#0b0b0b",
+                      marginTop: "12px",
+                    }}
+                  >
+                    {t(`solution.item${i}title`)}
+                  </p>
+                  <p
+                    style={{
+                      fontSize: "16px",
+                      lineHeight: "24px",
+                      color: "rgba(0,0,0,0.6)",
+                      marginTop: "8px",
+                    }}
+                  >
+                    {t(`solution.item${i}text`)}
+                  </p>
                 </div>
               </div>
             ))}
           </div>
         </div>
 
-        {/* Testimonial */}
+        {/* Testimonial + CTAs */}
         <div className="flex flex-col items-center text-center">
           <h3
             className="font-heading"

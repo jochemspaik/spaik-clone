@@ -2,6 +2,7 @@
 
 import { useTranslations } from "next-intl";
 import Image from "next/image";
+import { RollingTextButton } from "@/components/RollingTextButton";
 
 function LinkedInIcon() {
   return (
@@ -25,88 +26,88 @@ export function CTASection() {
   const t = useTranslations("cta");
 
   return (
-    <section
-      className="relative bg-white"
-      style={{ padding: "80px 40px" }}
-    >
-      {/* Background video */}
-      <div className="absolute inset-0 overflow-hidden">
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="w-full h-full object-cover"
-        >
-          <source src="/videos/secondary-animation.mp4" type="video/mp4" />
-        </video>
-        <div
-          className="absolute inset-0"
-          style={{
-            background: "radial-gradient(50% 50%, rgba(255,255,255,0) 37%, rgb(255,255,255) 100%)",
-          }}
-        />
-      </div>
-
-      <div className="relative z-1 mx-auto flex max-w-2xl flex-col items-center text-center">
-        <h2
-          className="font-heading text-spaik-black"
-          style={{ fontSize: "32px", fontWeight: 100 }}
-        >
-          {t("title")}
-        </h2>
-        <p
-          className="mt-4 text-spaik-black/70"
-          style={{ fontSize: "16px", maxWidth: "600px" }}
-        >
-          {t("description")}
-        </p>
-
-        {/* CTA button */}
-        <a
-          href="https://calendar.app.google/mGYhtUUjgSdZhePw8"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="mt-8 inline-block rounded-xl bg-spaik-orange px-8 py-4 font-sans text-white transition-opacity hover:opacity-90"
-          style={{ fontSize: "16px", fontWeight: 500 }}
-        >
-          {t("button")}
-        </a>
-
-        {/* Author info */}
-        <div className="mt-8 flex items-center gap-3">
-          <div className="relative h-12 w-12 overflow-hidden rounded-full">
-            <Image
-              src="/images/team-jochem.jpg"
-              alt={t("name")}
-              fill
-              className="object-cover"
-              sizes="48px"
-            />
-          </div>
-          <div className="text-left">
-            <p
-              className="font-sans text-spaik-black"
-              style={{ fontSize: "14px", fontWeight: 600 }}
+    <section className="bg-white" style={{ padding: "80px 40px" }}>
+      <div className="mx-auto" style={{ maxWidth: "1080px" }}>
+        <div className="flex flex-col gap-10 lg:flex-row lg:items-center lg:gap-16">
+          {/* Left column — video */}
+          <div className="lg:w-1/2">
+            <div
+              className="overflow-hidden rounded-2xl"
+              style={{ aspectRatio: "1 / 1" }}
             >
-              {t("name")}
-            </p>
-            <p
-              className="font-sans text-spaik-black/60"
-              style={{ fontSize: "14px" }}
-            >
-              {t("role")}
-            </p>
+              <video
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="h-full w-full object-cover"
+                src="/videos/secondary-animation.mp4"
+              />
+            </div>
           </div>
-          <a
-            href="https://www.linkedin.com/in/jochemvanlaren/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="ml-1 text-spaik-black/40 transition-colors hover:text-spaik-orange"
-            aria-label="Jochem van Laren on LinkedIn"
-          >
-            <LinkedInIcon />
-          </a>
+
+          {/* Right column — text content */}
+          <div className="flex flex-col lg:w-1/2">
+            <h2
+              className="font-heading text-spaik-black"
+              style={{ fontSize: "32px", fontWeight: 100 }}
+            >
+              {t("title")}
+            </h2>
+            <p
+              className="mt-4 font-sans text-spaik-black/70"
+              style={{ fontSize: "16px", lineHeight: "1.6", maxWidth: "480px" }}
+            >
+              {t("description")}
+            </p>
+
+            {/* CTA button */}
+            <div className="mt-8">
+              <RollingTextButton
+                text={t("button")}
+                href="https://calendar.app.google/mGYhtUUjgSdZhePw8"
+              />
+            </div>
+
+            {/* Author info */}
+            <div className="mt-8 flex items-center gap-3">
+              <div
+                className="relative shrink-0 overflow-hidden rounded-full"
+                style={{ width: "56px", height: "56px" }}
+              >
+                <Image
+                  src="/images/team-jochem.jpg"
+                  alt={t("name")}
+                  fill
+                  className="object-cover"
+                  sizes="56px"
+                />
+              </div>
+              <div className="text-left">
+                <p
+                  className="font-sans text-spaik-black"
+                  style={{ fontSize: "14px", fontWeight: 600 }}
+                >
+                  {t("name")}
+                </p>
+                <p
+                  className="font-sans text-spaik-black/60"
+                  style={{ fontSize: "14px" }}
+                >
+                  {t("role")}
+                </p>
+              </div>
+              <a
+                href="https://www.linkedin.com/in/jochemvanlaren/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="ml-1 text-spaik-black/40 transition-colors hover:text-spaik-orange"
+                aria-label="Jochem van Laren on LinkedIn"
+              >
+                <LinkedInIcon />
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </section>
