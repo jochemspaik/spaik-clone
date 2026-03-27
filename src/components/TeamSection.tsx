@@ -128,10 +128,23 @@ export function TeamSection() {
   return (
     <section
       id="team"
-      className="bg-white"
+      className="relative overflow-hidden bg-white"
       style={{ padding: "80px 40px" }}
     >
-      <div className="mx-auto max-w-7xl">
+      {/* Decorative dot pattern */}
+      <div
+        className="absolute -top-14 -right-8 pointer-events-none opacity-[0.06]"
+        style={{
+          width: "548px",
+          height: "476px",
+          transform: "rotate(-25deg)",
+          zIndex: 0,
+        }}
+      >
+        <img src="/images/product-mockup-4.png" alt="" className="w-full h-full object-contain" />
+      </div>
+
+      <div className="relative z-1 mx-auto max-w-7xl">
         {/* Section header */}
         <div className="mb-12 text-center">
           <h2

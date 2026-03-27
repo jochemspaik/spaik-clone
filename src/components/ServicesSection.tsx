@@ -109,8 +109,21 @@ export function ServicesSection() {
   const t = useTranslations("services");
 
   return (
-    <section id="services" className="bg-white" style={{ padding: "80px 40px" }}>
-      <div className="mx-auto max-w-6xl">
+    <section id="services" className="relative overflow-hidden bg-white" style={{ padding: "80px 40px" }}>
+      {/* Decorative rotated mockup */}
+      <div
+        className="absolute -right-24 -bottom-4 pointer-events-none opacity-[0.08]"
+        style={{
+          width: "725px",
+          height: "629px",
+          transform: "rotate(-25deg)",
+          zIndex: 0,
+        }}
+      >
+        <img src="/images/product-mockup-2.png" alt="" className="w-full h-full object-contain" />
+      </div>
+
+      <div className="relative z-1 mx-auto max-w-6xl">
         {/* Section header */}
         <div className="mb-12 text-center">
           <h2 className="font-heading text-[32px] font-thin text-spaik-black">

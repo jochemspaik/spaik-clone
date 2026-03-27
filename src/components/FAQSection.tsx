@@ -52,7 +52,7 @@ export function FAQSection() {
       className="bg-white"
       style={{ padding: "80px 40px" }}
     >
-      <div className="mx-auto max-w-3xl">
+      <div className="mx-auto" style={{ maxWidth: "1000px" }}>
         <h2
           className="mb-10 text-center font-heading text-spaik-black"
           style={{ fontSize: "32px", fontWeight: 100 }}

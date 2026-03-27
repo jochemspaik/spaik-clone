@@ -43,7 +43,7 @@ export function DiscoverySection() {
 
   return (
     <section className="bg-white" style={{ padding: "80px 40px" }}>
-      <div className="mx-auto max-w-6xl">
+      <div className="mx-auto" style={{ maxWidth: "1080px" }}>
         {/* Section header */}
         <div className="mb-12 text-center">
           <h2 className="font-heading text-[32px] font-thin text-spaik-black">

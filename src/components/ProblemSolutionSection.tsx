@@ -49,9 +49,22 @@ export function ProblemSolutionSection() {
   return (
     <section
       id="probleem"
-      className="w-full"
+      className="relative w-full overflow-hidden"
       style={{ backgroundColor: "rgb(243, 237, 237)" }}
     >
+      {/* Decorative dot pattern - rotated */}
+      <div
+        className="absolute -left-20 top-1/3 pointer-events-none opacity-10"
+        style={{
+          width: "600px",
+          height: "600px",
+          transform: "rotate(-25deg)",
+          overflow: "hidden",
+        }}
+      >
+        <img src="/images/product-dot-pattern.png" alt="" className="w-full h-full object-contain" />
+      </div>
+
       <div
         className="mx-auto flex flex-col"
         style={{

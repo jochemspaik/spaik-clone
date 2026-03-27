@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { useTranslations } from "next-intl";
 
 export function HeroSection() {
@@ -74,13 +73,22 @@ export function HeroSection() {
         {/* Right Column */}
         <div className="mt-12 w-full md:mt-0 md:w-2/5">
           <div className="relative flex justify-center md:justify-end">
-            <Image
-              src="/images/hero-graphic.png"
-              alt=""
-              width={500}
-              height={619}
-              className="h-auto w-full max-w-[500px]"
-              priority
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="w-full max-w-[500px] h-auto"
+              style={{ borderRadius: "16px" }}
+            >
+              <source src="/videos/hero-animation.mp4" type="video/mp4" />
+            </video>
+            <div
+              className="absolute inset-0 pointer-events-none"
+              style={{
+                background:
+                  "radial-gradient(44% 44%, rgba(153, 238, 255, 0) 44%, rgb(255, 255, 255) 100%)",
+              }}
             />
           </div>
         </div>

@@ -26,10 +26,29 @@ export function CTASection() {
 
   return (
     <section
-      className="bg-white"
+      className="relative bg-white"
       style={{ padding: "80px 40px" }}
     >
-      <div className="mx-auto flex max-w-2xl flex-col items-center text-center">
+      {/* Background video */}
+      <div className="absolute inset-0 overflow-hidden">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="w-full h-full object-cover"
+        >
+          <source src="/videos/secondary-animation.mp4" type="video/mp4" />
+        </video>
+        <div
+          className="absolute inset-0"
+          style={{
+            background: "radial-gradient(50% 50%, rgba(255,255,255,0) 37%, rgb(255,255,255) 100%)",
+          }}
+        />
+      </div>
+
+      <div className="relative z-1 mx-auto flex max-w-2xl flex-col items-center text-center">
         <h2
           className="font-heading text-spaik-black"
           style={{ fontSize: "32px", fontWeight: 100 }}

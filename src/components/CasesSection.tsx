@@ -20,10 +20,10 @@ interface CaseCardProps {
   roi: string;
   bgClass: string;
   accentColor: string;
+  photoPosition: "left" | "right";
 }
 
 function CaseCard({
-  companyName,
   companyType,
   logoSrc,
   logoAlt,
@@ -34,16 +34,79 @@ function CaseCard({
   roi,
   bgClass,
   accentColor,
+  photoPosition,
 }: CaseCardProps) {
+  const isLeft = photoPosition === "left";
+
   return (
     <div
-      className={`relative w-full rounded-2xl overflow-hidden ${bgClass}`}
+      className={`relative w-full rounded-2xl overflow-visible ${bgClass}`}
       style={{ padding: "40px 40px 32px 40px" }}
     >
-      <div className="flex flex-col md:flex-row gap-6">
-        {/* Person photo - overlapping left edge on desktop */}
-        <div className="hidden md:flex flex-shrink-0 items-start -ml-10">
-          <div className="relative w-28 h-36 rounded-xl overflow-hidden">
+      {/* Overlapping person photo - desktop */}
+      <div
+        className="hidden md:block absolute top-0 bottom-0"
+        style={{
+          [isLeft ? "left" : "right"]: "-80px",
+          width: "280px",
+          zIndex: 2,
+        }}
+      >
+        <Image
+          src={personSrc}
+          alt={author}
+          fill
+          className="object-cover object-top"
+          style={{ borderRadius: "20px" }}
+        />
+      </div>
+
+      <div className={`${isLeft ? "md:pl-[220px]" : "md:pr-[220px]"}`}>
+        {/* Top bar: company info + accent */}
+        <div className="flex items-center gap-3 mb-5">
+          <div
+            className="w-3 h-3 rounded-full flex-shrink-0"
+            style={{ backgroundColor: accentColor }}
+          />
+          <div className="relative h-6 w-24 flex-shrink-0">
+            <Image
+              src={logoSrc}
+              alt={logoAlt}
+              fill
+              className="object-contain object-left"
+            />
+          </div>
+          <span
+            className="font-sans text-sm"
+            style={{ color: "rgba(0,0,0,0.5)" }}
+          >
+            {companyType}
+          </span>
+        </div>
+
+        {/* Quote */}
+        <p
+          className="font-sans mb-3"
+          style={{
+            fontSize: "15px",
+            lineHeight: "1.6",
+            color: "rgba(0,0,0,0.8)",
+          }}
+        >
+          &ldquo;{quote}&rdquo;
+        </p>
+
+        {/* Author */}
+        <p
+          className="font-sans font-medium mb-6"
+          style={{ fontSize: "14px", color: "#0a0a0a" }}
+        >
+          {author}
+        </p>
+
+        {/* Person photo - mobile only */}
+        <div className="flex md:hidden mb-6">
+          <div className="relative w-20 h-24 rounded-xl overflow-hidden">
             <Image
               src={personSrc}
               alt={author}
@@ -53,99 +116,43 @@ function CaseCard({
           </div>
         </div>
 
-        <div className="flex-1 min-w-0">
-          {/* Top bar: company info + accent */}
-          <div className="flex items-center gap-3 mb-5">
-            <div
-              className="w-3 h-3 rounded-full flex-shrink-0"
-              style={{ backgroundColor: accentColor }}
-            />
-            <div className="relative h-6 w-24 flex-shrink-0">
-              <Image
-                src={logoSrc}
-                alt={logoAlt}
-                fill
-                className="object-contain object-left"
-              />
+        {/* Stats row */}
+        <div className="flex flex-wrap gap-6 mb-5">
+          {stats.map((stat) => (
+            <div key={stat.label} className="min-w-0">
+              <p
+                className="font-sans font-bold"
+                style={{ fontSize: "32px", lineHeight: "1.1", color: "#0a0a0a" }}
+              >
+                {stat.value}
+              </p>
+              <p
+                className="font-sans mt-1"
+                style={{ fontSize: "14px", color: "rgba(0,0,0,0.5)" }}
+              >
+                {stat.label}
+              </p>
             </div>
-            <span
-              className="font-sans text-sm"
-              style={{ color: "rgba(0,0,0,0.5)" }}
-            >
-              {companyType}
-            </span>
-          </div>
+          ))}
+        </div>
 
-          {/* Quote */}
-          <p
-            className="font-sans mb-3"
-            style={{
-              fontSize: "15px",
-              lineHeight: "1.6",
-              color: "rgba(0,0,0,0.8)",
-            }}
+        {/* ROI badge */}
+        <div
+          className="inline-flex items-center gap-2 rounded-full px-4 py-2"
+          style={{ backgroundColor: "rgba(0,0,0,0.05)" }}
+        >
+          <span
+            className="font-sans font-medium"
+            style={{ fontSize: "13px", color: "rgba(0,0,0,0.5)" }}
           >
-            &ldquo;{quote}&rdquo;
-          </p>
-
-          {/* Author */}
-          <p
-            className="font-sans font-medium mb-6"
-            style={{ fontSize: "14px", color: "#0a0a0a" }}
+            ROI:
+          </span>
+          <span
+            className="font-sans font-medium"
+            style={{ fontSize: "13px", color: "#0a0a0a" }}
           >
-            {author}
-          </p>
-
-          {/* Person photo - mobile only */}
-          <div className="flex md:hidden mb-6">
-            <div className="relative w-20 h-24 rounded-xl overflow-hidden">
-              <Image
-                src={personSrc}
-                alt={author}
-                fill
-                className="object-cover"
-              />
-            </div>
-          </div>
-
-          {/* Stats row */}
-          <div className="flex flex-wrap gap-6 mb-5">
-            {stats.map((stat) => (
-              <div key={stat.label} className="min-w-0">
-                <p
-                  className="font-sans font-bold"
-                  style={{ fontSize: "32px", lineHeight: "1.1", color: "#0a0a0a" }}
-                >
-                  {stat.value}
-                </p>
-                <p
-                  className="font-sans mt-1"
-                  style={{ fontSize: "14px", color: "rgba(0,0,0,0.5)" }}
-                >
-                  {stat.label}
-                </p>
-              </div>
-            ))}
-          </div>
-
-          {/* ROI badge */}
-          <div
-            className="inline-flex items-center gap-2 rounded-full px-4 py-2"
-            style={{ backgroundColor: "rgba(0,0,0,0.05)" }}
-          >
-            <span
-              className="font-sans font-medium"
-              style={{ fontSize: "13px", color: "rgba(0,0,0,0.5)" }}
-            >
-              ROI:
-            </span>
-            <span
-              className="font-sans font-medium"
-              style={{ fontSize: "13px", color: "#0a0a0a" }}
-            >
-              {roi}
-            </span>
-          </div>
+            {roi}
+          </span>
         </div>
       </div>
     </div>
@@ -155,7 +162,7 @@ function CaseCard({
 export function CasesSection() {
   const t = useTranslations();
 
-  const cases: Omit<CaseCardProps, "personSrc">[] = [
+  const cases: Omit<CaseCardProps, "personSrc" | "photoPosition">[] = [
     {
       companyName: "Movir",
       companyType: "Insurer - 400+",
@@ -209,9 +216,18 @@ export function CasesSection() {
   return (
     <section
       id="cases"
-      className="w-full bg-white"
+      className="relative w-full bg-white overflow-hidden"
     >
-      <div className="mx-auto max-w-[1080px]" style={{ padding: "0 40px 80px" }}>
+      {/* Decorative background */}
+      <div
+        className="absolute inset-0 pointer-events-none opacity-[0.03]"
+        style={{
+          backgroundImage: "url('/images/Texture 1.png')",
+          backgroundSize: "800px",
+          backgroundRepeat: "repeat",
+        }}
+      />
+      <div className="relative mx-auto max-w-[1080px]" style={{ padding: "0 40px 80px" }}>
         {/* Section header */}
         <div className="mb-12 text-center">
           <h2
@@ -235,11 +251,12 @@ export function CasesSection() {
 
         {/* Case cards */}
         <div className="flex flex-col gap-8">
-          {cases.map((caseData) => (
+          {cases.map((caseData, index) => (
             <CaseCard
               key={caseData.companyName}
               {...caseData}
               personSrc="/images/case-person.png"
+              photoPosition={index % 2 === 0 ? "left" : "right"}
             />
           ))}
         </div>

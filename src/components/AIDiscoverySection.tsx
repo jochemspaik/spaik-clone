@@ -33,6 +33,16 @@ export function AIDiscoverySection() {
       className="relative bg-white"
       style={{ padding: "80px 40px" }}
     >
+      {/* Subtle gradient texture */}
+      <div
+        className="absolute inset-0 pointer-events-none opacity-[0.15]"
+        style={{
+          backgroundImage: "url('/images/Gradient 01.png')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      />
+
       {/* Optional decorative dot pattern */}
       <div className="pointer-events-none absolute right-0 top-0 hidden h-full w-1/3 opacity-10 lg:block">
         <Image

@@ -225,3 +225,118 @@
 .animate-count-up {
   animation: countUp 0.4s ease-out forwards;
 }
+
+/* Section heading style — IvyPresto */
+.section-heading {
+  font-family: "IvyPresto Headline", Georgia, serif;
+  font-weight: 100;
+  font-size: 32px;
+  line-height: 35.2px;
+  letter-spacing: -0.64px;
+  color: #0a0a0a;
+}
+
+/* Large serif heading (hero) */
+.hero-heading {
+  font-family: "IvyPresto Headline", Georgia, serif;
+  font-weight: 100;
+  font-size: 60px;
+  line-height: 66px;
+  color: #000;
+}
+
+@media (max-width: 768px) {
+  .hero-heading {
+    font-size: 36px;
+    line-height: 40px;
+  }
+}
+
+/* Body text — SF Pro */
+.body-text {
+  font-family: "SF Pro Text", -apple-system, sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  color: rgba(0, 0, 0, 0.8);
+}
+
+/* CTA button base */
+.cta-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "SF Pro Text", -apple-system, sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  border-radius: 12px;
+  padding: 14px 28px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.cta-button:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+.cta-button-primary {
+  background-color: #ff7150;
+  color: #ffffff;
+}
+
+.cta-button-secondary {
+  background-color: rgba(255, 151, 128, 0.75);
+  color: #ffffff;
+}
+
+/* Decorative dot grid pattern */
+.dot-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 12px;
+}
+
+.dot-grid-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.06);
+}
+
+/* Subtle noise texture overlay */
+.texture-overlay::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("/images/Texture 1.png");
+  background-size: 800px;
+  background-repeat: repeat;
+  opacity: 0.02;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Selection color */
+::selection {
+  background-color: rgba(255, 113, 80, 0.2);
+  color: #0b0b0b;
+}
+
+/* Smooth scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.25);
+}
