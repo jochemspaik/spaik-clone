@@ -1,0 +1,116 @@
+---
+session: spaik-clone
+date: 2026-03-28
+status: partial
+outcome: PARTIAL_PLUS
+---
+
+goal: Polish SPAIK clone visual fidelity + complete compound engineering review
+now: Fix remaining visual differences vs original (backgrounds, gradients, scroll animations, images)
+
+test: npm run build && npm run dev
+
+done_this_session:
+  - task: Fixed rolling text button double-text bug
+    files: [src/components/RollingTextButton.tsx]
+  - task: Fixed discovery section icons (were person photos, now brand SVGs)
+    files: [src/components/DiscoverySection.tsx]
+  - task: Rewrote ProblemSolution (3-col problems + 3-card solutions + Johanneke testimonial card)
+    files: [src/components/ProblemSolutionSection.tsx]
+  - task: Rewrote Discovery (split layout + node diagram + accordion)
+    files: [src/components/DiscoverySection.tsx]
+  - task: Rewrote CTA (two-column video + text)
+    files: [src/components/CTASection.tsx]
+  - task: Services cards cleaned (removed mockup images, added dot grid icons + dividers)
+    files: [src/components/ServicesSection.tsx]
+  - task: Counter count-up animations on case stats
+    files: [src/components/CasesSection.tsx]
+  - task: Team card hover polish + mobile menu slide animation + discovery tab transitions
+    files: [src/components/TeamSection.tsx, src/components/Header.tsx, src/components/DiscoverySection.tsx]
+  - task: Cases carousel redesign with tabs and auto-advance
+    files: [src/components/CasesSection.tsx]
+  - task: Lenis smooth scroll + ScrollReveal animations
+    files: [src/components/SmoothScroll.tsx, src/components/ScrollReveal.tsx]
+  - task: SectionWrapper extraction + NavLink extraction + backdrop-blur Tailwind conversion
+    files: [src/components/SectionWrapper.tsx, src/components/Header.tsx]
+  - task: URL constants centralized (zero hardcoded URLs remaining)
+    files: [src/lib/constants.ts, 6 component files updated]
+  - task: Simplify review — fixed rAF leak, DRY timer, dead variable, static data, ServicesSection width
+    files: [src/components/SmoothScroll.tsx, src/components/CasesSection.tsx, src/components/FAQSection.tsx]
+  - task: Compound engineering review — architecture, security, performance, simplicity
+    files: [4 review reports completed]
+  - task: Security headers added, dead code deleted, blog CTA added
+    files: [next.config.ts, blog pages, deleted button.tsx + useScrollReveal.ts]
+
+blockers: []
+
+questions:
+  - Scroll animations — Jochem reports they don't seem to work. ScrollReveal uses IntersectionObserver but Lenis may interfere. Needs debugging in real browser.
+  - Problem/Solution section background — original has warm gray with animated gradient overlay. Clone has flat warm gray. Need to add moving gradient effect.
+  - Font subsetting — SF Pro fonts are 8.5MB total. Need to subset to Latin characters (~200KB). Use pyftsubset tool.
+  - Texture PNGs — 15.7MB for decorative backgrounds at 2% opacity. Replace with CSS gradients or tiny compressed tiles.
+
+decisions:
+  - carousel_over_stacked: Cases use carousel with tabs instead of overlapping stacked cards
+  - services_clean_cards: Services cards are text-only with dividers (matching original, no mockup images)
+  - testimonial_gradient_card: Johanneke testimonial is two-column card with gradient bg
+  - url_constants: All external URLs in src/lib/constants.ts single source of truth
+
+findings:
+  - font_weight: SF Pro font files are full Unicode (8.5MB) — must subset for Latin only
+  - texture_weight: Texture PNGs 15.7MB — absurd for 2% opacity decorative elements
+  - scroll_animations_not_visible: Jochem reports scroll animations not working. Likely Lenis interferes with IntersectionObserver timing
+  - footer_links_blog: Footer links on blog pages use #section anchors that only work on homepage. Need absolute /#section paths.
+  - missing_cookie_consent: No Cookiebot integration — GDPR requirement
+  - middleware_deprecated: Next.js 16 warns middleware.ts is deprecated, should be proxy.ts (blocked on next-intl support)
+
+worked:
+  - Compound engineering review with 4 specialized agents gives comprehensive findings
+  - Parallel agent dispatch for reviews is very efficient
+  - SectionWrapper extraction reduces code duplication
+  - NavLink extraction eliminates desktop/mobile duplication
+
+failed:
+  - ScrollReveal visibility in Playwright screenshots — Lenis prevents synchronous scroll triggering
+  - Full-page screenshots always miss below-fold animated sections
+
+next:
+  - Fix scroll animations — debug why IntersectionObserver not triggering with Lenis
+  - Fix Problem/Solution background — add animated gradient overlay matching original
+  - Subset SF Pro fonts (pyftsubset) — 8.5MB → ~200KB
+  - Replace texture PNGs with CSS gradients or compressed tiny tiles — 15.7MB → ~50KB
+  - Add Cookiebot cookie consent script
+  - Fix footer links on blog pages (use absolute /#section paths)
+  - Add missing decorative dot pattern to hero section (left side)
+  - Verify and fix all remaining visual differences vs original side-by-side
+  - Deploy to Vercel for real-device testing
+
+files:
+  created:
+    - src/components/SectionWrapper.tsx
+    - thoughts/shared/handoffs/spaik-clone/2026-03-28_00-15_session-2-review-polish.yaml
+  modified:
+    - src/components/Header.tsx
+    - src/components/HeroSection.tsx
+    - src/components/CasesSection.tsx
+    - src/components/ProblemSolutionSection.tsx
+    - src/components/DiscoverySection.tsx
+    - src/components/CTASection.tsx
+    - src/components/ServicesSection.tsx
+    - src/components/TeamSection.tsx
+    - src/components/FAQSection.tsx
+    - src/components/InsightsSection.tsx
+    - src/components/RollingTextButton.tsx
+    - src/components/SmoothScroll.tsx
+    - src/components/ScrollReveal.tsx
+    - src/components/AIDiscoverySection.tsx
+    - src/app/[locale]/blog/page.tsx
+    - src/app/[locale]/blog/[slug]/page.tsx
+    - src/app/globals.css
+    - src/lib/constants.ts
+    - next.config.ts
+    - messages/en.json
+    - messages/nl.json
+  deleted:
+    - src/hooks/useScrollReveal.ts
+    - src/components/ui/button.tsx
