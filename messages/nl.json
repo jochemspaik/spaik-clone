@@ -88,9 +88,15 @@
     "data": "Data",
     "operational": "Operationeel",
     "otherChallenge": "Op zoek naar een andere uitdaging? We hebben meer dan 35 implementaties gedaan. Laten we kijken wat past.",
-    "invoicing": "Facturatie en orderverwerking",
-    "projectManagement": "Projectmanagement",
-    "communication": "Communicatie"
+    "operationalItem1": "Facturatie en orderverwerking",
+    "operationalItem2": "Projectmanagement",
+    "operationalItem3": "Communicatie",
+    "marketingItem1": "Contentcreatie en distributie",
+    "marketingItem2": "Leadkwalificatie en outreach",
+    "marketingItem3": "Campagneanalyse en rapportage",
+    "dataItem1": "Dataverzameling en integratie",
+    "dataItem2": "Rapportage en dashboards",
+    "dataItem3": "Datakwaliteit en governance"
   },
   "services": {
     "title": "Kies je startpunt",

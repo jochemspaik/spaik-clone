@@ -88,9 +88,15 @@
     "data": "Data",
     "operational": "Operational",
     "otherChallenge": "Looking for a different challenge? We have completed over 35 implementations. Let's see what fits.",
-    "invoicing": "Invoicing and order processing",
-    "projectManagement": "Projectmanagement",
-    "communication": "Communication"
+    "operationalItem1": "Invoicing and order processing",
+    "operationalItem2": "Project management",
+    "operationalItem3": "Communication",
+    "marketingItem1": "Content creation and distribution",
+    "marketingItem2": "Lead qualification and outreach",
+    "marketingItem3": "Campaign analysis and reporting",
+    "dataItem1": "Data collection and integration",
+    "dataItem2": "Reporting and dashboards",
+    "dataItem3": "Data quality and governance"
   },
   "services": {
     "title": "Choose your starting point",
