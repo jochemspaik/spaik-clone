@@ -62,9 +62,8 @@ export function FAQSection() {
 
         <div className="divide-y divide-spaik-clay-light">
           {Array.from({ length: FAQ_COUNT }, (_, i) => {
-            const index = i;
             const num = i + 1;
-            const isOpen = openItems.has(index);
+            const isOpen = openItems.has(i);
             const questionKey = `q${num}` as const;
             const answerKey = `a${num}` as const;
 
@@ -72,7 +71,7 @@ export function FAQSection() {
               <div key={num}>
                 <button
                   type="button"
-                  onClick={() => toggle(index)}
+                  onClick={() => toggle(i)}
                   className="flex w-full items-center justify-between text-left"
                   style={{ padding: "20px 0" }}
                   aria-expanded={isOpen}

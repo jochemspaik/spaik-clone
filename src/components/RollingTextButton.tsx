@@ -34,25 +34,17 @@ export function RollingTextButton({
       <span className="relative block overflow-hidden" style={{ lineHeight: "1.2em" }}>
         {/* Default text — slides up on hover */}
         <span
-          className="block transition-transform duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:-translate-y-full"
-          style={{
-            fontFamily: '"SF Pro Text", -apple-system, sans-serif',
-            fontSize: "16px",
-            fontWeight: 500,
-          }}
+          className="block font-sans transition-transform duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:-translate-y-full"
+          style={{ fontSize: "16px", fontWeight: 500 }}
         >
           {text}
         </span>
 
         {/* Duplicate — starts below, slides into view on hover */}
         <span
-          className="absolute inset-x-0 top-full block transition-transform duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:-translate-y-full"
+          className="absolute inset-x-0 top-full block font-sans transition-transform duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:-translate-y-full"
           aria-hidden="true"
-          style={{
-            fontFamily: '"SF Pro Text", -apple-system, sans-serif',
-            fontSize: "16px",
-            fontWeight: 500,
-          }}
+          style={{ fontSize: "16px", fontWeight: 500 }}
         >
           {text}
         </span>

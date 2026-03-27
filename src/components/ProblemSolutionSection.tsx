@@ -32,14 +32,14 @@ function CheckIcon() {
   );
 }
 
+const SOLUTION_IMAGES = [
+  "/images/product-mockup-1.png",
+  "/images/product-mockup-2.png",
+  "/images/product-mockup-3.png",
+];
+
 export function ProblemSolutionSection() {
   const t = useTranslations();
-
-  const solutionImages = [
-    "/images/product-mockup-1.png",
-    "/images/product-mockup-2.png",
-    "/images/product-mockup-3.png",
-  ];
 
   return (
     <section
@@ -163,7 +163,7 @@ export function ProblemSolutionSection() {
                   style={{ height: "48px" }}
                 >
                   <img
-                    src={solutionImages[i - 1]}
+                    src={SOLUTION_IMAGES[i - 1]}
                     alt=""
                     className="w-full h-full object-cover"
                   />

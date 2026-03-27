@@ -120,12 +120,18 @@ export function CasesSection() {
 
   const current = cases[active];
 
-  // Auto-advance
-  React.useEffect(() => {
+  const SLIDE_MS = 6000;
+
+  function startTimer() {
+    if (timerRef.current) clearInterval(timerRef.current);
     timerRef.current = setInterval(() => {
       setDirection("right");
       setActive((prev) => (prev + 1) % cases.length);
-    }, 6000);
+    }, SLIDE_MS);
+  }
+
+  React.useEffect(() => {
+    startTimer();
     return () => { if (timerRef.current) clearInterval(timerRef.current); };
   }, [cases.length]);
 
@@ -133,11 +139,7 @@ export function CasesSection() {
     if (index === active) return;
     setDirection(index > active ? "right" : "left");
     setActive(index);
-    if (timerRef.current) clearInterval(timerRef.current);
-    timerRef.current = setInterval(() => {
-      setDirection("right");
-      setActive((prev) => (prev + 1) % cases.length);
-    }, 6000);
+    startTimer();
   }
 
   const slideAnim = direction === "right"
