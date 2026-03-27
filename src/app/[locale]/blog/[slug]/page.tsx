@@ -3,6 +3,7 @@ import { Link } from "@/i18n/navigation";
 import Image from "next/image";
 import { blogPosts, getBlogPost, getAllSlugs } from "@/data/blog-posts";
 import { Header } from "@/components/Header";
+import { CTASection } from "@/components/CTASection";
 import { Footer } from "@/components/Footer";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
@@ -46,6 +47,7 @@ export default async function BlogPostPage({
     <>
       <Header />
       <BlogPostContent slug={slug} />
+      <CTASection />
       <Footer />
     </>
   );

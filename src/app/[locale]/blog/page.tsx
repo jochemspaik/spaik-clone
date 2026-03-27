@@ -3,6 +3,7 @@ import { Link } from "@/i18n/navigation";
 import Image from "next/image";
 import { blogPosts } from "@/data/blog-posts";
 import { Header } from "@/components/Header";
+import { CTASection } from "@/components/CTASection";
 import { Footer } from "@/components/Footer";
 import type { Metadata } from "next";
 
@@ -105,6 +106,7 @@ export default function BlogPage() {
         </div>
       </section>
     </main>
+    <CTASection />
     <Footer />
     </>
   );
