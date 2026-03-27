@@ -2,6 +2,8 @@ import { useTranslations, useLocale } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import Image from "next/image";
 import { blogPosts, getBlogPost, getAllSlugs } from "@/data/blog-posts";
+import { Header } from "@/components/Header";
+import { Footer } from "@/components/Footer";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 
@@ -40,7 +42,13 @@ export default async function BlogPostPage({
   const post = getBlogPost(slug);
   if (!post) notFound();
 
-  return <BlogPostContent slug={slug} />;
+  return (
+    <>
+      <Header />
+      <BlogPostContent slug={slug} />
+      <Footer />
+    </>
+  );
 }
 
 function BlogPostContent({ slug }: { slug: string }) {

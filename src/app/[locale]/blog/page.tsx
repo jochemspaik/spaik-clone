@@ -2,6 +2,8 @@ import { useTranslations, useLocale } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import Image from "next/image";
 import { blogPosts } from "@/data/blog-posts";
+import { Header } from "@/components/Header";
+import { Footer } from "@/components/Footer";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -16,6 +18,8 @@ export default function BlogPage() {
   const allPosts = blogPosts;
 
   return (
+    <>
+    <Header />
     <main className="min-h-screen">
       {/* Header */}
       <section className="px-6 pt-32 pb-16 max-w-[1200px] mx-auto">
@@ -101,6 +105,8 @@ export default function BlogPage() {
         </div>
       </section>
     </main>
+    <Footer />
+    </>
   );
 }
 

@@ -1,4 +1,6 @@
 import { useLocale } from "next-intl";
+import { Header } from "@/components/Header";
+import { Footer } from "@/components/Footer";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -8,7 +10,13 @@ export const metadata: Metadata = {
 
 export default function LegalPage() {
   const locale = useLocale();
-  return locale === "nl" ? <LegalNL /> : <LegalEN />;
+  return (
+    <>
+      <Header />
+      {locale === "nl" ? <LegalNL /> : <LegalEN />}
+      <Footer />
+    </>
+  );
 }
 
 function LegalEN() {
