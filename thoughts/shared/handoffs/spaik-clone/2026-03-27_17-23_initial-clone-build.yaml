@@ -1,0 +1,112 @@
+---
+session: spaik-clone
+date: 2026-03-27
+status: partial
+outcome: PARTIAL_PLUS
+---
+
+goal: Clone spaik.io as bilingual Next.js site with full content, SEO, and visual polish
+now: Run /design-review on localhost:3000, then fix remaining visual gaps section-by-section against original
+
+test: npm run build && npm run dev
+
+done_this_session:
+  - task: Foundation — next-intl i18n (nl default + en), fonts (IvyPresto, SF Pro), brand colors, asset download
+    files: [src/i18n/routing.ts, src/i18n/request.ts, src/middleware.ts, src/app/globals.css, next.config.ts, messages/en.json, messages/nl.json]
+  - task: 13 homepage sections built and assembled
+    files: [src/components/Header.tsx, src/components/HeroSection.tsx, src/components/LogoTicker.tsx, src/components/CasesSection.tsx, src/components/ProblemSolutionSection.tsx, src/components/DiscoverySection.tsx, src/components/ServicesSection.tsx, src/components/TeamSection.tsx, src/components/InsightsSection.tsx, src/components/AIDiscoverySection.tsx, src/components/FAQSection.tsx, src/components/CTASection.tsx, src/components/Footer.tsx]
+  - task: Blog system — index + 3 full posts (SSG) + dynamic [slug] routes, bilingual content
+    files: [src/app/[locale]/blog/page.tsx, src/app/[locale]/blog/[slug]/page.tsx, src/data/blog-posts.ts]
+  - task: Legal page — full terms in NL + EN
+    files: [src/app/[locale]/legal/page.tsx]
+  - task: SEO — sitemap.xml, robots.txt, JSON-LD, generateMetadata
+    files: [src/app/sitemap.ts, src/app/robots.ts, src/components/JsonLd.tsx]
+  - task: Visual polish — hero video, gradient overlays, decorative patterns, brand textures
+    files: [src/components/HeroSection.tsx, src/components/LogoTicker.tsx, public/images/Gradient*.png, public/images/Texture*.png]
+  - task: Interactions — Lenis smooth scroll, scroll-reveal, counter count-up, rolling text buttons, FAQ accordion, carousel
+    files: [src/components/SmoothScroll.tsx, src/components/ScrollReveal.tsx, src/hooks/useScrollReveal.ts, src/components/RollingTextButton.tsx]
+  - task: Rewrote 3 sections to match original structure (ProblemSolution, Discovery, CTA)
+    files: [src/components/ProblemSolutionSection.tsx, src/components/DiscoverySection.tsx, src/components/CTASection.tsx]
+
+blockers: []
+
+questions:
+  - Services card fold/unfold animation — how close to Framer's implementation do we need?
+  - Team section — 8 of 14 members use placeholder initials (no photos). Download from LinkedIn or accept?
+
+decisions:
+  - cases_carousel: Replaced stacked cards with interactive carousel — more impactful, better mobile, avoids Framer positioning complexity
+  - warm_gray_bg: ProblemSolution section uses rgb(243,237,237) not dark/light split — matches original
+  - rolling_text_simplified: Single text slide instead of per-letter cascade — more reliable, still premium feel
+  - lenis_smooth_scroll: Installed lenis package for native-feeling smooth scroll matching Framer original
+
+findings:
+  - original_is_framer: spaik.io is built in Framer with Lenis smooth scroll, custom @font-face (IvyPresto, SF Pro), and many absolutely-positioned decorative layers
+  - person_photos_layered: Original cases section layers watercolor overlay PNG on top of actual person photos
+  - max_width_pattern: Every section on original uses maxWidth 1080px with padding 80px 40px — the consistent layout rhythm
+  - framer_uses_display_contents: Many wrapper divs use display:contents which complicates DOM extraction
+
+worked:
+  - Parallel worktree agents for component building (4 agents, each 3-5 components)
+  - Browser extraction via Playwright evaluate for exact computed styles
+  - Brand assets folder (/Users/jochemvanlaren/Documents/SPAIK/SPAIK Branding (1)/) has SVG icons, gradients, textures
+  - ScrollReveal with viewport check on mount prevents blank sections
+
+failed:
+  - First pass builder agents got high-level descriptions instead of exact CSS — produced generic components
+  - case-person.png was semi-transparent watercolor, not actual person photo — needed separate downloads per CEO
+  - icon-marketing.png was actually Joran's headshot, not a department icon — Framer CDN naming is misleading
+  - ScrollReveal initially hid all sections including above-fold content — needed SSR-safe implementation
+
+next:
+  - Run gstack /design-review on localhost:3000 for systematic visual audit with scoring
+  - Fix Services section — cards are static, original has fold/unfold animation with image headers
+  - Mobile responsive polish — test at 390px, fix any overflow or stacking issues
+  - Side-by-side comparison of each section against original screenshots in docs/design-references/
+  - Typography fine-tuning — verify heading sizes, line-heights, letter-spacing per section
+  - Consider deploying to Vercel for real-device testing
+
+files:
+  created:
+    - src/i18n/routing.ts
+    - src/i18n/request.ts
+    - src/i18n/navigation.ts
+    - src/middleware.ts
+    - src/components/Header.tsx
+    - src/components/HeroSection.tsx
+    - src/components/LogoTicker.tsx
+    - src/components/CasesSection.tsx
+    - src/components/ProblemSolutionSection.tsx
+    - src/components/DiscoverySection.tsx
+    - src/components/ServicesSection.tsx
+    - src/components/TeamSection.tsx
+    - src/components/InsightsSection.tsx
+    - src/components/AIDiscoverySection.tsx
+    - src/components/FAQSection.tsx
+    - src/components/CTASection.tsx
+    - src/components/Footer.tsx
+    - src/components/RollingTextButton.tsx
+    - src/components/ScrollReveal.tsx
+    - src/components/SmoothScroll.tsx
+    - src/components/JsonLd.tsx
+    - src/hooks/useScrollReveal.ts
+    - src/data/blog-posts.ts
+    - src/app/[locale]/layout.tsx
+    - src/app/[locale]/page.tsx
+    - src/app/[locale]/blog/page.tsx
+    - src/app/[locale]/blog/[slug]/page.tsx
+    - src/app/[locale]/legal/page.tsx
+    - src/app/sitemap.ts
+    - src/app/robots.ts
+    - messages/en.json
+    - messages/nl.json
+    - scripts/download-assets.mjs
+    - docs/research/QA_REPORT.md
+  modified:
+    - src/app/layout.tsx
+    - src/app/page.tsx
+    - src/app/globals.css
+    - next.config.ts
+    - package.json
+    - .gitignore
+    - TARGET.md
