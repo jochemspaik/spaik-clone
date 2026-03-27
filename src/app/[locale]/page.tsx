@@ -12,6 +12,7 @@ import { AIDiscoverySection } from "@/components/AIDiscoverySection";
 import { FAQSection } from "@/components/FAQSection";
 import { CTASection } from "@/components/CTASection";
 import { Footer } from "@/components/Footer";
+import { ScrollReveal } from "@/components/ScrollReveal";
 
 export default function HomePage() {
   return (
@@ -21,15 +22,33 @@ export default function HomePage() {
       <main>
         <HeroSection />
         <LogoTicker />
-        <CasesSection />
-        <ProblemSolutionSection />
-        <DiscoverySection />
-        <ServicesSection />
-        <TeamSection />
-        <InsightsSection />
-        <AIDiscoverySection />
-        <FAQSection />
-        <CTASection />
+        <ScrollReveal>
+          <CasesSection />
+        </ScrollReveal>
+        <ScrollReveal>
+          <ProblemSolutionSection />
+        </ScrollReveal>
+        <ScrollReveal>
+          <DiscoverySection />
+        </ScrollReveal>
+        <ScrollReveal>
+          <ServicesSection />
+        </ScrollReveal>
+        <ScrollReveal>
+          <TeamSection />
+        </ScrollReveal>
+        <ScrollReveal>
+          <InsightsSection />
+        </ScrollReveal>
+        <ScrollReveal>
+          <AIDiscoverySection />
+        </ScrollReveal>
+        <ScrollReveal>
+          <FAQSection />
+        </ScrollReveal>
+        <ScrollReveal>
+          <CTASection />
+        </ScrollReveal>
       </main>
       <Footer />
     </>
