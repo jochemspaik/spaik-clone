@@ -136,7 +136,10 @@
   "insights": {
     "title": "Insights",
     "subtitle": "What we learn from 35+ AI implementations",
-    "allBlogs": "All blogs"
+    "allBlogs": "All blogs",
+    "post1Title": "Becoming AI-ready without replacing your entire IT landscape",
+    "post2Title": "From AI pilot to production: why scaling is almost always a human challenge",
+    "post3Title": "Why 95% of AI projects fail (and what the successful 5% do differently)"
   },
   "aiDiscovery": {
     "title": "Discover your AI opportunities in 15 minutes",
