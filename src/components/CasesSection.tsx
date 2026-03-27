@@ -4,7 +4,8 @@ import React from "react";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 
-function AnimatedCounter({ value, suffix = "" }: { value: string; suffix?: string }) {
+/* ── Animated counter ── */
+function AnimatedCounter({ value }: { value: string }) {
   const ref = React.useRef<HTMLParagraphElement>(null);
   const [display, setDisplay] = React.useState("0");
   const [hasAnimated, setHasAnimated] = React.useState(false);
@@ -12,218 +13,66 @@ function AnimatedCounter({ value, suffix = "" }: { value: string; suffix?: strin
   React.useEffect(() => {
     const el = ref.current;
     if (!el) return;
-
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting && !hasAnimated) {
           setHasAnimated(true);
-          // Parse the numeric part
           const numMatch = value.match(/(\d+)/);
-          if (!numMatch) {
-            setDisplay(value);
-            return;
-          }
+          if (!numMatch) { setDisplay(value); return; }
           const target = parseInt(numMatch[1], 10);
           const prefix = value.slice(0, value.indexOf(numMatch[1]));
           const postfix = value.slice(value.indexOf(numMatch[1]) + numMatch[1].length);
-
           let current = 0;
-          const duration = 1500;
           const steps = 40;
           const increment = target / steps;
-          const interval = duration / steps;
-
           const timer = setInterval(() => {
             current += increment;
-            if (current >= target) {
-              current = target;
-              clearInterval(timer);
-            }
+            if (current >= target) { current = target; clearInterval(timer); }
             setDisplay(`${prefix}${Math.round(current)}${postfix}`);
-          }, interval);
-
+          }, 1500 / steps);
           observer.unobserve(el);
         }
       },
       { threshold: 0.3 }
     );
-
     observer.observe(el);
     return () => observer.disconnect();
   }, [value, hasAnimated]);
 
   return (
-    <p
-      ref={ref}
-      className="font-sans font-bold"
-      style={{ fontSize: "32px", lineHeight: "1.1", color: "#0a0a0a" }}
-    >
-      {display}{suffix}
+    <p ref={ref} className="font-sans font-bold" style={{ fontSize: "28px", lineHeight: "1.1", color: "#0a0a0a" }}>
+      {display}
     </p>
   );
 }
 
-interface CaseStat {
-  value: string;
-  label: string;
-}
-
-interface CaseCardProps {
+/* ── Types ── */
+interface CaseData {
   companyName: string;
   companyType: string;
   logoSrc: string;
-  logoAlt: string;
   personSrc: string;
   quote: string;
   author: string;
-  stats: CaseStat[];
+  stats: { value: string; label: string }[];
   roi: string;
-  bgClass: string;
+  bgColor: string;
   accentColor: string;
-  photoPosition: "left" | "right";
 }
 
-function CaseCard({
-  companyType,
-  logoSrc,
-  logoAlt,
-  personSrc,
-  quote,
-  author,
-  stats,
-  roi,
-  bgClass,
-  accentColor,
-  photoPosition,
-}: CaseCardProps) {
-  const isLeft = photoPosition === "left";
-
-  return (
-    <div
-      className={`relative w-full rounded-2xl overflow-visible ${bgClass}`}
-      style={{ padding: "40px 40px 32px 40px" }}
-    >
-      {/* Overlapping person photo - desktop */}
-      <div
-        className="hidden md:block absolute top-0 bottom-0"
-        style={{
-          [isLeft ? "left" : "right"]: "-80px",
-          width: "280px",
-          zIndex: 2,
-        }}
-      >
-        <Image
-          src={personSrc}
-          alt={author}
-          fill
-          className="object-cover object-top"
-          style={{ borderRadius: "20px" }}
-        />
-      </div>
-
-      <div className={`${isLeft ? "md:pl-[220px]" : "md:pr-[220px]"}`}>
-        {/* Top bar: company info + accent */}
-        <div className="flex items-center gap-3 mb-5">
-          <div
-            className="w-3 h-3 rounded-full flex-shrink-0"
-            style={{ backgroundColor: accentColor }}
-          />
-          <div className="relative h-6 w-24 flex-shrink-0">
-            <Image
-              src={logoSrc}
-              alt={logoAlt}
-              fill
-              className="object-contain object-left"
-            />
-          </div>
-          <span
-            className="font-sans text-sm"
-            style={{ color: "rgba(0,0,0,0.5)" }}
-          >
-            {companyType}
-          </span>
-        </div>
-
-        {/* Quote */}
-        <p
-          className="font-sans mb-3"
-          style={{
-            fontSize: "15px",
-            lineHeight: "1.6",
-            color: "rgba(0,0,0,0.8)",
-          }}
-        >
-          &ldquo;{quote}&rdquo;
-        </p>
-
-        {/* Author */}
-        <p
-          className="font-sans font-medium mb-6"
-          style={{ fontSize: "14px", color: "#0a0a0a" }}
-        >
-          {author}
-        </p>
-
-        {/* Person photo - mobile only */}
-        <div className="flex md:hidden mb-6">
-          <div className="relative w-20 h-24 rounded-xl overflow-hidden">
-            <Image
-              src={personSrc}
-              alt={author}
-              fill
-              className="object-cover"
-            />
-          </div>
-        </div>
-
-        {/* Stats row */}
-        <div className="flex flex-wrap gap-6 mb-5">
-          {stats.map((stat) => (
-            <div key={stat.label} className="min-w-0">
-              <AnimatedCounter value={stat.value} />
-              <p
-                className="font-sans mt-1"
-                style={{ fontSize: "14px", color: "rgba(0,0,0,0.5)" }}
-              >
-                {stat.label}
-              </p>
-            </div>
-          ))}
-        </div>
-
-        {/* ROI badge */}
-        <div
-          className="inline-flex items-center gap-2 rounded-full px-4 py-2"
-          style={{ backgroundColor: "rgba(0,0,0,0.05)" }}
-        >
-          <span
-            className="font-sans font-medium"
-            style={{ fontSize: "13px", color: "rgba(0,0,0,0.5)" }}
-          >
-            ROI:
-          </span>
-          <span
-            className="font-sans font-medium"
-            style={{ fontSize: "13px", color: "#0a0a0a" }}
-          >
-            {roi}
-          </span>
-        </div>
-      </div>
-    </div>
-  );
-}
-
+/* ── Main component ── */
 export function CasesSection() {
   const t = useTranslations();
+  const [active, setActive] = React.useState(0);
+  const [direction, setDirection] = React.useState<"left" | "right">("right");
+  const timerRef = React.useRef<ReturnType<typeof setInterval> | null>(null);
 
-  const personPhotos = ["/images/case-maurick.jpg", "/images/case-vincent.jpg", "/images/case-joran.png"];
-  const cases: Omit<CaseCardProps, "personSrc" | "photoPosition">[] = [
+  const cases: CaseData[] = [
     {
       companyName: "Movir",
-      companyType: "Insurer - 400+",
+      companyType: t("cases.movir.type"),
       logoSrc: "/images/logo-movir.png",
-      logoAlt: "Movir logo",
+      personSrc: "/images/case-maurick.jpg",
       quote: t("cases.movir.quote"),
       author: t("cases.movir.author"),
       stats: [
@@ -232,14 +81,14 @@ export function CasesSection() {
         { value: "5", label: t("cases.movir.stat3label") },
       ],
       roi: t("cases.movir.roiText"),
-      bgClass: "bg-[#fef5f3]",
+      bgColor: "#fef5f3",
       accentColor: "#ff7150",
     },
     {
       companyName: "Euphoria Mobility",
-      companyType: "SaaS - 60+",
+      companyType: t("cases.euphoria.type"),
       logoSrc: "/images/logo-euphoria.png",
-      logoAlt: "Euphoria Mobility logo",
+      personSrc: "/images/case-vincent.jpg",
       quote: t("cases.euphoria.quote"),
       author: t("cases.euphoria.author"),
       stats: [
@@ -248,72 +97,175 @@ export function CasesSection() {
         { value: "6", label: t("cases.euphoria.stat3label") },
       ],
       roi: t("cases.euphoria.roiText"),
-      bgClass: "bg-[#f7f4ff]",
+      bgColor: "#f7f4ff",
       accentColor: "#a78bfa",
     },
     {
       companyName: "Reditus",
-      companyType: "Marketing - 10+",
+      companyType: t("cases.reditus.type"),
       logoSrc: "/images/logo-reditus.jpg",
-      logoAlt: "Reditus logo",
+      personSrc: "/images/case-joran.png",
       quote: t("cases.reditus.quote"),
       author: t("cases.reditus.author"),
       stats: [
         { value: "5x", label: t("cases.reditus.stat1label") },
-        { value: "5mins", label: t("cases.reditus.stat2label") },
+        { value: "5min", label: t("cases.reditus.stat2label") },
         { value: "5", label: t("cases.reditus.stat3label") },
       ],
       roi: t("cases.reditus.roiText"),
-      bgClass: "bg-[#eef6f5]",
+      bgColor: "#eef6f5",
       accentColor: "#34d399",
     },
   ];
 
+  const current = cases[active];
+
+  // Auto-advance
+  React.useEffect(() => {
+    timerRef.current = setInterval(() => {
+      setDirection("right");
+      setActive((prev) => (prev + 1) % cases.length);
+    }, 6000);
+    return () => { if (timerRef.current) clearInterval(timerRef.current); };
+  }, [cases.length]);
+
+  function goTo(index: number) {
+    if (index === active) return;
+    setDirection(index > active ? "right" : "left");
+    setActive(index);
+    if (timerRef.current) clearInterval(timerRef.current);
+    timerRef.current = setInterval(() => {
+      setDirection("right");
+      setActive((prev) => (prev + 1) % cases.length);
+    }, 6000);
+  }
+
+  const slideAnim = direction === "right"
+    ? "slideInRight 0.5s ease-out"
+    : "slideInLeft 0.5s ease-out";
+
   return (
-    <section
-      id="cases"
-      className="relative w-full bg-white overflow-hidden"
-    >
-      {/* Decorative background */}
+    <section id="cases" className="relative w-full overflow-hidden">
+      {/* Decorative texture */}
       <div
         className="absolute inset-0 pointer-events-none opacity-[0.03]"
-        style={{
-          backgroundImage: "url('/images/Texture 1.png')",
-          backgroundSize: "800px",
-          backgroundRepeat: "repeat",
-        }}
+        style={{ backgroundImage: "url('/images/Texture 1.png')", backgroundSize: "800px", backgroundRepeat: "repeat" }}
       />
-      <div className="relative mx-auto max-w-[1080px]" style={{ padding: "0 40px 80px" }}>
-        {/* Section header */}
-        <div className="mb-12 text-center">
+
+      <div className="relative mx-auto" style={{ maxWidth: "1080px", padding: "80px 40px" }}>
+        {/* Header */}
+        <div className="mb-12">
           <h2
             className="font-heading"
-            style={{
-              fontSize: "32px",
-              fontWeight: 100,
-              color: "#0a0a0a",
-              lineHeight: "1.3",
-            }}
+            style={{ fontSize: "32px", fontWeight: 100, color: "#0a0a0a", lineHeight: "35.2px" }}
           >
             {t("cases.sectionTitle")}
           </h2>
-          <p
-            className="font-sans mt-4"
-            style={{ fontSize: "16px", color: "rgba(0,0,0,0.8)" }}
-          >
+          <p className="mt-3" style={{ fontSize: "16px", color: "rgba(0,0,0,0.6)", lineHeight: "24px" }}>
             {t("cases.sectionSubtitle")}
           </p>
         </div>
 
-        {/* Case cards */}
-        <div className="flex flex-col gap-8">
-          {cases.map((caseData, index) => (
-            <CaseCard
-              key={caseData.companyName}
-              {...caseData}
-              personSrc={personPhotos[index]}
-              photoPosition={index % 2 === 0 ? "left" : "right"}
-            />
+        {/* Carousel */}
+        <div
+          key={`${active}-${direction}`}
+          className="rounded-3xl overflow-hidden"
+          style={{ backgroundColor: current.bgColor, animation: slideAnim }}
+        >
+          <div className="flex flex-col md:flex-row">
+            {/* Person photo */}
+            <div className="relative w-full md:w-[340px] h-[280px] md:h-auto flex-shrink-0">
+              <Image
+                src={current.personSrc}
+                alt={current.author}
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 340px"
+              />
+              {/* Gradient overlay on bottom (mobile) / right (desktop) */}
+              <div
+                className="absolute inset-0 md:hidden"
+                style={{ background: `linear-gradient(to top, ${current.bgColor}, transparent 40%)` }}
+              />
+              <div
+                className="absolute inset-0 hidden md:block"
+                style={{ background: `linear-gradient(to left, ${current.bgColor}, transparent 30%)` }}
+              />
+            </div>
+
+            {/* Content */}
+            <div className="flex-1 p-8 md:p-10 flex flex-col justify-between">
+              {/* Company bar */}
+              <div>
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="relative h-7 w-28 flex-shrink-0">
+                    <Image src={current.logoSrc} alt={current.companyName} fill className="object-contain object-left" />
+                  </div>
+                  <span className="text-sm" style={{ color: "rgba(0,0,0,0.4)" }}>{current.companyType}</span>
+                </div>
+
+                {/* Quote */}
+                <blockquote
+                  className="font-heading"
+                  style={{ fontSize: "24px", fontWeight: 100, lineHeight: "30px", letterSpacing: "-0.3px", color: "#0b0b0b" }}
+                >
+                  {current.quote}
+                </blockquote>
+                <p className="mt-3 font-medium" style={{ fontSize: "14px", color: "#0a0a0a" }}>
+                  {current.author}
+                </p>
+              </div>
+
+              {/* Stats + ROI */}
+              <div className="mt-8">
+                <div className="flex flex-wrap gap-8 mb-5">
+                  {current.stats.map((stat) => (
+                    <div key={stat.label}>
+                      <AnimatedCounter value={stat.value} />
+                      <p className="mt-1" style={{ fontSize: "13px", color: "rgba(0,0,0,0.5)" }}>{stat.label}</p>
+                    </div>
+                  ))}
+                </div>
+
+                <div
+                  className="inline-flex items-center gap-2 rounded-full px-4 py-2"
+                  style={{ backgroundColor: "rgba(0,0,0,0.06)" }}
+                >
+                  <span className="font-medium" style={{ fontSize: "13px", color: "rgba(0,0,0,0.4)" }}>ROI:</span>
+                  <span className="font-medium" style={{ fontSize: "13px", color: "#0a0a0a" }}>{current.roi}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Navigation dots */}
+        <div className="flex items-center justify-center gap-3 mt-8">
+          {cases.map((c, i) => (
+            <button
+              key={c.companyName}
+              type="button"
+              onClick={() => goTo(i)}
+              className="group flex items-center gap-2"
+              aria-label={`View ${c.companyName} case`}
+            >
+              <div
+                className="rounded-full transition-all duration-300"
+                style={{
+                  width: i === active ? "32px" : "10px",
+                  height: "10px",
+                  backgroundColor: i === active ? c.accentColor : "rgba(0,0,0,0.15)",
+                }}
+              />
+              {i === active && (
+                <span
+                  className="text-sm font-medium transition-opacity"
+                  style={{ color: "#0a0a0a" }}
+                >
+                  {c.companyName}
+                </span>
+              )}
+            </button>
           ))}
         </div>
       </div>

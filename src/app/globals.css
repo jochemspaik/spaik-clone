@@ -238,6 +238,17 @@
   animation: countUp 0.4s ease-out forwards;
 }
 
+/* Carousel slide animations */
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(60px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-60px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
 /* Section heading style — IvyPresto */
 .section-heading {
   font-family: "IvyPresto Headline", Georgia, serif;
