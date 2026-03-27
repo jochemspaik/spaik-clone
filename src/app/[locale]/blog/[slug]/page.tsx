@@ -87,6 +87,18 @@ function BlogPostContent({ slug }: { slug: string }) {
           {post.title[locale]}
         </h1>
 
+        {/* Featured image */}
+        <div className="mt-8 rounded-2xl overflow-hidden">
+          <Image
+            src={post.image}
+            alt={post.title[locale]}
+            width={800}
+            height={450}
+            className="w-full h-auto"
+            priority
+          />
+        </div>
+
         <div className="mt-6 flex flex-wrap items-center gap-4 text-sm text-[#6f6e66]">
           <span className="flex items-center gap-1">
             <ClockIcon /> {post.readTime}{" "}

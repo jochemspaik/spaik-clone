@@ -1,21 +1,18 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import Image from "next/image";
 import { Check } from "lucide-react";
 
 const BOOK_CALL_URL = "https://calendar.app.google/mGYhtUUjgSdZhePw8";
 
 interface ServiceCardProps {
   translationPrefix: string;
-  mockupImage: string;
   readMoreUrl: string;
   highlighted?: boolean;
 }
 
 function ServiceCard({
   translationPrefix,
-  mockupImage,
   readMoreUrl,
   highlighted = false,
 }: ServiceCardProps) {
@@ -35,6 +32,19 @@ function ServiceCard({
           : "border border-spaik-clay-light"
       }`}
     >
+      {/* Decorative dot grid */}
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="absolute top-6 right-6 opacity-40">
+        <circle cx="4" cy="4" r="1.5" fill="#ff7150" />
+        <circle cx="12" cy="4" r="1.5" fill="#ff7150" />
+        <circle cx="20" cy="4" r="1.5" fill="#ff7150" />
+        <circle cx="4" cy="12" r="1.5" fill="#ff7150" />
+        <circle cx="12" cy="12" r="1.5" fill="#ff7150" />
+        <circle cx="20" cy="12" r="1.5" fill="#ff7150" />
+        <circle cx="4" cy="20" r="1.5" fill="#ff7150" />
+        <circle cx="12" cy="20" r="1.5" fill="#ff7150" />
+        <circle cx="20" cy="20" r="1.5" fill="#ff7150" />
+      </svg>
+
       {highlighted && (
         <span className="absolute -top-3 left-6 rounded-full bg-spaik-orange px-3 py-1 text-xs font-medium text-white">
           {t("kickstart.badge")}
@@ -53,15 +63,7 @@ function ServiceCard({
         {t(`${translationPrefix}.description`)}
       </p>
 
-      <div className="relative mt-6 aspect-[4/3] w-full overflow-hidden rounded-xl" style={{ backgroundColor: "#e8effb" }}>
-        <Image
-          src={mockupImage}
-          alt={t(`${translationPrefix}.name`)}
-          fill
-          className="object-contain"
-          style={{ mixBlendMode: "multiply", opacity: 0.85 }}
-        />
-      </div>
+      <hr className="mt-6 border-t border-spaik-clay-light" />
 
       <p className="mt-6 font-sans text-sm text-spaik-black/70">
         {t(`${translationPrefix}.detail`)}
@@ -139,18 +141,15 @@ export function ServicesSection() {
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           <ServiceCard
             translationPrefix="inspiration"
-            mockupImage="/images/product-mockup-2.png"
             readMoreUrl="https://inspiratie.spaik.io/"
           />
           <ServiceCard
             translationPrefix="kickstart"
-            mockupImage="/images/product-mockup-3.png"
             readMoreUrl="https://kickstart.spaik.io/"
             highlighted
           />
           <ServiceCard
             translationPrefix="fundamentals"
-            mockupImage="/images/product-mockup-4.png"
             readMoreUrl="https://fundamentals.spaik.io/"
           />
         </div>

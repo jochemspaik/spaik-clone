@@ -1,16 +1,16 @@
 "use client";
 
 import { useTranslations } from "next-intl";
+import Image from "next/image";
 import { RollingTextButton } from "@/components/RollingTextButton";
 
 function CrossIcon() {
   return (
-    <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
-      <circle cx="16" cy="16" r="14" stroke="#ff7150" strokeWidth="2" />
+    <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
       <path
-        d="M11 11L21 21M21 11L11 21"
+        d="M8 8L20 20M20 8L8 20"
         stroke="#ff7150"
-        strokeWidth="2"
+        strokeWidth="2.5"
         strokeLinecap="round"
       />
     </svg>
@@ -21,11 +21,12 @@ function CheckIcon() {
   return (
     <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
       <path
-        d="M4 12L9 18L20 6"
-        stroke="#7c8dff"
-        strokeWidth="2.5"
+        d="M4 13L9 18L20 6"
+        stroke="#8aa1cc"
+        strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
+        strokeDasharray="2 3"
       />
     </svg>
   );
@@ -156,10 +157,10 @@ export function ProblemSolutionSection() {
                   border: "1px solid rgba(0,0,0,0.06)",
                 }}
               >
-                {/* Card banner image */}
+                {/* Blue texture banner */}
                 <div
                   className="w-full overflow-hidden"
-                  style={{ height: "160px" }}
+                  style={{ height: "48px" }}
                 >
                   <img
                     src={solutionImages[i - 1]}
@@ -198,46 +199,49 @@ export function ProblemSolutionSection() {
           </div>
         </div>
 
-        {/* Testimonial + CTAs */}
-        <div className="flex flex-col items-center text-center">
-          <h3
-            className="font-heading"
-            style={{
-              fontSize: "32px",
-              fontWeight: 100,
-              lineHeight: "35.2px",
-              letterSpacing: "-0.64px",
-              color: "#0b0b0b",
-              maxWidth: "700px",
-            }}
-          >
-            {t("solution.testimonial")}
-          </h3>
-          <div className="mt-6">
-            <p
-              className="font-medium"
-              style={{ fontSize: "15px", color: "#0b0b0b" }}
-            >
+        {/* Testimonial card */}
+        <div
+          className="rounded-3xl overflow-hidden flex flex-col md:flex-row"
+          style={{
+            background: "linear-gradient(135deg, #eef6f5 0%, #e8effb 40%, #f7f4ff 100%)",
+          }}
+        >
+          {/* Photo */}
+          <div className="relative w-full md:w-[320px] h-[300px] md:h-auto flex-shrink-0">
+            <Image
+              src="/images/Photo 1.png"
+              alt="Johanneke Behrend"
+              fill
+              className="object-cover"
+            />
+          </div>
+          {/* Quote content */}
+          <div style={{ padding: "40px" }} className="flex flex-col justify-center">
+            <Image src="/images/logo-movir.png" alt="Movir" width={100} height={30} className="mb-4" />
+            <h3 className="font-heading" style={{ fontSize: "28px", fontWeight: 100, lineHeight: "34px", color: "#0b0b0b" }}>
+              {t("solution.testimonial")}
+            </h3>
+            <p className="mt-4 font-medium" style={{ fontSize: "15px", color: "#0b0b0b" }}>
               {t("solution.testimonialAuthor")}
             </p>
             <p style={{ fontSize: "14px", color: "rgba(0,0,0,0.5)" }}>
               {t("solution.testimonialRole")}
             </p>
           </div>
+        </div>
 
-          {/* CTA buttons */}
-          <div className="flex flex-col sm:flex-row gap-3 mt-10">
-            <RollingTextButton
-              text={t("hero.ctaPrimary")}
-              href="https://intake.spaik.io/"
-              variant="primary"
-            />
-            <RollingTextButton
-              text={t("hero.ctaSecondary")}
-              href="https://calendar.app.google/mGYhtUUjgSdZhePw8"
-              variant="secondary"
-            />
-          </div>
+        {/* CTA buttons */}
+        <div className="flex flex-col sm:flex-row gap-3 items-center justify-center">
+          <RollingTextButton
+            text={t("hero.ctaPrimary")}
+            href="https://intake.spaik.io/"
+            variant="primary"
+          />
+          <RollingTextButton
+            text={t("hero.ctaSecondary")}
+            href="https://calendar.app.google/mGYhtUUjgSdZhePw8"
+            variant="secondary"
+          />
         </div>
       </div>
     </section>
