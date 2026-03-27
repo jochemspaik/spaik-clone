@@ -164,11 +164,11 @@ export function CasesSection() {
       quote: t("cases.movir.quote"),
       author: t("cases.movir.author"),
       stats: [
-        { value: "10x", label: t("cases.movir.stat1Label") },
-        { value: "100", label: t("cases.movir.stat2Label") },
-        { value: "5", label: t("cases.movir.stat3Label") },
+        { value: "10x", label: t("cases.movir.stat1label") },
+        { value: "100", label: t("cases.movir.stat2label") },
+        { value: "5", label: t("cases.movir.stat3label") },
       ],
-      roi: t("cases.movir.roi"),
+      roi: t("cases.movir.roiText"),
       bgClass: "bg-[#fef5f3]",
       accentColor: "#ff7150",
     },
@@ -180,11 +180,11 @@ export function CasesSection() {
       quote: t("cases.euphoria.quote"),
       author: t("cases.euphoria.author"),
       stats: [
-        { value: "10+", label: t("cases.euphoria.stat1Label") },
-        { value: "5X", label: t("cases.euphoria.stat2Label") },
-        { value: "6", label: t("cases.euphoria.stat3Label") },
+        { value: "10+", label: t("cases.euphoria.stat1label") },
+        { value: "5X", label: t("cases.euphoria.stat2label") },
+        { value: "6", label: t("cases.euphoria.stat3label") },
       ],
-      roi: t("cases.euphoria.roi"),
+      roi: t("cases.euphoria.roiText"),
       bgClass: "bg-[#f7f4ff]",
       accentColor: "#a78bfa",
     },
@@ -196,11 +196,11 @@ export function CasesSection() {
       quote: t("cases.reditus.quote"),
       author: t("cases.reditus.author"),
       stats: [
-        { value: "5x", label: t("cases.reditus.stat1Label") },
-        { value: "5mins", label: t("cases.reditus.stat2Label") },
-        { value: "5", label: t("cases.reditus.stat3Label") },
+        { value: "5x", label: t("cases.reditus.stat1label") },
+        { value: "5mins", label: t("cases.reditus.stat2label") },
+        { value: "5", label: t("cases.reditus.stat3label") },
       ],
-      roi: t("cases.reditus.roi"),
+      roi: t("cases.reditus.roiText"),
       bgClass: "bg-[#eef6f5]",
       accentColor: "#34d399",
     },
@@ -210,9 +210,8 @@ export function CasesSection() {
     <section
       id="cases"
       className="w-full bg-white"
-      style={{ padding: "80px 24px" }}
     >
-      <div className="mx-auto max-w-[900px]">
+      <div className="mx-auto max-w-[1080px]" style={{ padding: "0 40px 80px" }}>
         {/* Section header */}
         <div className="mb-12 text-center">
           <h2
