@@ -3,6 +3,7 @@
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { RollingTextButton } from "@/components/RollingTextButton";
+import { BOOK_CALL_URL } from "@/lib/constants";
 import { SectionWrapper } from "@/components/SectionWrapper";
 
 function LinkedInIcon() {
@@ -65,7 +66,7 @@ export function CTASection() {
             <div className="mt-8">
               <RollingTextButton
                 text={t("button")}
-                href="https://calendar.app.google/mGYhtUUjgSdZhePw8"
+                href={BOOK_CALL_URL}
               />
             </div>
 

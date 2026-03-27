@@ -6,6 +6,7 @@ import { useTranslations } from "next-intl";
 import { Link, usePathname, useRouter } from "@/i18n/navigation";
 import { Menu, X } from "lucide-react";
 import { RollingTextButton } from "./RollingTextButton";
+import { BOOK_CALL_URL } from "@/lib/constants";
 
 interface NavItem {
   key: string;
@@ -106,7 +107,7 @@ export function Header() {
         <div className="hidden md:block">
           <RollingTextButton
             text={t("nav.schedule")}
-            href="https://calendar.app.google/mGYhtUUjgSdZhePw8"
+            href={BOOK_CALL_URL}
             variant="primary"
           />
         </div>
@@ -166,7 +167,7 @@ export function Header() {
             {/* Mobile CTA */}
             <RollingTextButton
               text={t("nav.schedule")}
-              href="https://calendar.app.google/mGYhtUUjgSdZhePw8"
+              href={BOOK_CALL_URL}
               variant="primary"
             />
           </nav>
