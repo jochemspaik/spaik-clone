@@ -126,7 +126,7 @@ export function ServicesSection() {
         <img src="/images/product-mockup-2.png" alt="" className="w-full h-full object-contain" />
       </div>
 
-      <div className="relative z-1 mx-auto max-w-6xl">
+      <div className="relative z-1 mx-auto" style={{ maxWidth: "1080px" }}>
         {/* Section header */}
         <div className="mb-12 text-center">
           <h2 className="font-heading text-[32px] font-thin text-spaik-black">
