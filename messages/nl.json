@@ -136,7 +136,10 @@
   "insights": {
     "title": "Insights",
     "subtitle": "Wat we leren van 35+ AI-implementaties",
-    "allBlogs": "Alle blogs"
+    "allBlogs": "Alle blogs",
+    "post1Title": "AI-ready worden zonder je hele IT-landschap te vervangen",
+    "post2Title": "Van AI-pilot naar productie: waarom opschalen bijna altijd een menselijke uitdaging is",
+    "post3Title": "Waarom 95% van AI-projecten faalt (en wat de succesvolle 5% anders doet)"
   },
   "aiDiscovery": {
     "title": "Ontdek je AI-kansen in 15 minuten",
