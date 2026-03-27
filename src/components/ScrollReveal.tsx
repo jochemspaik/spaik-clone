@@ -11,8 +11,8 @@ interface ScrollRevealProps {
 }
 
 /**
- * Wraps children in a fade-in animation triggered by scroll.
- * Elements already in the viewport on mount are shown immediately.
+ * Subtle scroll-reveal: only animates elements that start BELOW the fold.
+ * Elements within the initial viewport show immediately — no flash of invisible content.
  */
 export function ScrollReveal({
   children,
@@ -22,49 +22,44 @@ export function ScrollReveal({
   direction = "up",
 }: ScrollRevealProps) {
   const ref = useRef<HTMLDivElement>(null);
-  const [isVisible, setIsVisible] = useState(false);
-  const [ready, setReady] = useState(false);
+  const [state, setState] = useState<"idle" | "hidden" | "visible">("idle");
 
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
 
-    // Check if already in viewport on mount — if so, show immediately
     const rect = el.getBoundingClientRect();
-    if (rect.top < window.innerHeight && rect.bottom > 0) {
-      setIsVisible(true);
-      setReady(true);
+    const isAboveFold = rect.top < window.innerHeight * 1.1;
+
+    // If element is near the viewport on mount, show it immediately
+    if (isAboveFold) {
+      setState("visible");
       return;
     }
 
-    // Not in viewport — set up observer
-    setReady(true);
+    // Below the fold — set up scroll observation
+    setState("hidden");
 
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setIsVisible(true);
+          setState("visible");
           observer.unobserve(el);
         }
       },
-      { threshold: 0.1 }
+      { threshold: 0.05, rootMargin: "50px" }
     );
 
     observer.observe(el);
     return () => observer.disconnect();
   }, []);
 
-  const baseTransform = {
-    up: "translateY(30px)",
-    left: "translateX(-30px)",
-    right: "translateX(30px)",
+  const transforms = {
+    up: "translateY(24px)",
+    left: "translateX(-24px)",
+    right: "translateX(24px)",
     none: "none",
   };
-
-  // Before ready (SSR + first paint): show everything
-  // After ready but not visible: hide with transform
-  // After visible: show with animation
-  const shouldHide = ready && !isVisible;
 
   return (
     <div
@@ -72,11 +67,12 @@ export function ScrollReveal({
       className={className}
       style={{
         ...style,
-        opacity: shouldHide ? 0 : 1,
-        transform: shouldHide ? baseTransform[direction] : "none",
-        transition: ready
-          ? `opacity 0.7s ease ${delay}ms, transform 0.7s ease ${delay}ms`
-          : "none",
+        opacity: state === "hidden" ? 0 : 1,
+        transform: state === "hidden" ? transforms[direction] : "none",
+        transition:
+          state !== "idle"
+            ? `opacity 0.6s ease ${delay}ms, transform 0.6s ease ${delay}ms`
+            : "none",
       }}
     >
       {children}
