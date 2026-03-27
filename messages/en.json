@@ -1,0 +1,196 @@
+{
+  "nav": {
+    "cases": "Cases",
+    "services": "Services",
+    "trainings": "Trainings",
+    "team": "Team",
+    "faq": "FAQ",
+    "schedule": "Schedule a conversation"
+  },
+  "hero": {
+    "title1": "Your best people.",
+    "title2": "Stuck in manual work.",
+    "subtitle": "We build AI solutions that your people actually use.",
+    "subtitleHighlight": "Results in 4 weeks · Positive ROI in 4 months",
+    "ctaPrimary": "Discover AI use cases",
+    "ctaSecondary": "Book a call"
+  },
+  "cases": {
+    "sectionTitle": "Proven in adoption & technology",
+    "sectionSubtitle": "From insurance to real estate and marketing. Solutions that continue to work, even when we're gone.",
+    "roi": "ROI:",
+    "movir": {
+      "name": "Movir",
+      "type": "Insurer - 400+",
+      "quote": "\"SPAIK first trained our management team, then the entire company. Now everyone uses AI daily, with effective results, and the focus is on Marketing & Sales.\"",
+      "author": "Maurick Schellekens - CEO",
+      "stat1value": "10x",
+      "stat1label": "Faster content creation",
+      "stat2value": "100",
+      "stat2label": "People trained",
+      "stat3value": "5",
+      "stat3label": "Trained Internal Experts",
+      "roiText": "Earned back in 4 months"
+    },
+    "euphoria": {
+      "name": "Euphoria Mobility",
+      "type": "SaaS - 60+",
+      "quote": "\"Our developers built in hours what would normally take weeks. Even the skeptics became enthusiastic. No theory, just building. Two days later: 6 working prototypes.\"",
+      "author": "Vincent Bekker - CTO",
+      "stat1value": "10+",
+      "stat1label": "Engineers at hackathon",
+      "stat2value": "5X",
+      "stat2label": "Faster coding",
+      "stat3value": "6",
+      "stat3label": "Working prototypes",
+      "roiText": "6 prototypes, 2 in production - 12X ROI"
+    },
+    "reditus": {
+      "name": "Reditus",
+      "type": "Marketing - 10+",
+      "quote": "\"What set SPAIK apart was their pragmatic approach and seniority. Experienced individuals who add value from day one.\"",
+      "author": "Joran Hofman - CEO",
+      "stat1value": "5x",
+      "stat1label": "Find affiliates faster",
+      "stat2value": "5mins",
+      "stat2label": "4 PM",
+      "stat3value": "5",
+      "stat3label": "New AI propositions",
+      "roiText": "New revenue stream + recouped in 3 months"
+    }
+  },
+  "problem": {
+    "title": "Why AI projects fail",
+    "subtitle": "Not by the technology. Due to lack of adoption.",
+    "problem1title": "Results take months",
+    "problem1text": "Endless processes, presentations, and pilots leading nowhere.",
+    "problem2title": "Doesn't work with what you already have.",
+    "problem2text": "Yet another standalone tool. Doesn't fit into daily work. Nobody uses it.",
+    "problem3title": "No ownership.",
+    "problem3text": "Experts build, leave. Your people can't take over."
+  },
+  "solution": {
+    "title": "How we make a difference",
+    "item1title": "In 4 weeks: the first automation is up and running.",
+    "item1text": "No months of research. By week 1, map out your processes and by week 4, have automation in production.",
+    "item2title": "We integrate with what you already have.",
+    "item2text": "We build within your systems and use your data so that it becomes an integral part of your daily operations.",
+    "item3title": "After 6 months: you manage and continue building on your own.",
+    "item3text": "We train your people until they understand it themselves and can manage it. No lasting dependency.",
+    "testimonial": "\"I have collaborated with multiple parties, but I truly see SPAIK as a partner who thinks along with us and acts proactively, my team is engaged and faster than ever.\"",
+    "testimonialAuthor": "Johanneke Behrend",
+    "testimonialRole": "Commercial Director, Movir"
+  },
+  "discovery": {
+    "title": "Where do you see opportunities?",
+    "subtitle": "Choose your department. We'll show you what we automate there.",
+    "marketing": "Marketing & Sales",
+    "data": "Data",
+    "operational": "Operational",
+    "otherChallenge": "Looking for a different challenge? We have completed over 35 implementations. Let's see what fits.",
+    "invoicing": "Invoicing and order processing",
+    "projectManagement": "Projectmanagement",
+    "communication": "Communication"
+  },
+  "services": {
+    "title": "Choose your starting point",
+    "subtitle": "Senior expertise for ambitious firms",
+    "inspiration": {
+      "name": "Inspiration Session",
+      "price": "€3,000 / 15 people",
+      "description": "A solid understanding of AI and what it can mean for your organization.",
+      "detail": "No dry presentation. We'll energetically guide you through the latest AI developments, share concrete applications, and explore together what AI can bring to your organization.",
+      "feature1": "AI fundamentals you need",
+      "feature2": "Relevant Applications",
+      "feature3": "AI opportunities for your organization"
+    },
+    "kickstart": {
+      "name": "AI Kickstart",
+      "price": "€10,000 / 4 weeks",
+      "badge": "Chosen by 20+ companies",
+      "description": "Concrete insight into where AI accelerates processes and the first automation goes live.",
+      "detail": "We analyze your processes, determine where AI adds the most value backed by ROI, and implement one automation in production.",
+      "feature1": "Prioritized AI Opportunities + Roadmap",
+      "feature2": "1 automation in production",
+      "feature3": "Half-day training (10 people)",
+      "paymentNote": "€5k upfront, €5k after roadmap approval."
+    },
+    "fundamentals": {
+      "name": "AI Fundamentals",
+      "price": "€7,500 / 10 people",
+      "description": "10 people who truly understand AI. Compliant with the EU AI Act in 6 weeks.",
+      "detail": "No theory that everyone forgets as soon as they're back. Training with your own processes, 6 weeks of guidance, and time savings from week 1.",
+      "feature1": "Workshop about your context",
+      "feature2": "6-week challenges + coaching",
+      "feature3": "9.1 out - 700 participant evaluations"
+    },
+    "bookCall": "Book a call",
+    "readMore": "Read more",
+    "allTrainings": "Do you want to train individual employees? Check out our full range of training courses.",
+    "seeAllTrainings": "See all trainings"
+  },
+  "team": {
+    "title": "The SPAIK Team",
+    "subtitle": "Senior experts with over 10 years of experience in tech and transformation. More than 35 implementations. No juniors learning at your expense, we deliver from day one."
+  },
+  "insights": {
+    "title": "Insights",
+    "subtitle": "What we learn from 35+ AI implementations",
+    "allBlogs": "All blogs"
+  },
+  "aiDiscovery": {
+    "title": "Discover your AI opportunities in 15 minutes",
+    "subtitle": "Our AI poses targeted questions about your work processes. You immediately receive a report with a maturity score, pinpointing challenges and providing concrete next steps. Free of charge, with no obligations.",
+    "feature1": "A needs analysis: where is the most time wasted?",
+    "feature2": "A maturity score: where do you stand with AI now",
+    "feature3": "Concrete next steps you can apply tomorrow",
+    "cta": "Start AI Discovery"
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "q1": "How long does a full implementation take?",
+    "a1": "The Kickstart lasts 4 weeks. Fully independent teams typically take 6 months on average.",
+    "q2": "How do you ensure it continues to work after departure?",
+    "a2": "We train key figures in your team—people who take ownership. They not only learn how it works but also how to manage it and build new automations themselves.",
+    "q3": "What if our data or systems are not yet ready for AI?",
+    "a3": "That's why we start with a Tech assessment. We analyze your data and systems and prepare them for AI as we build.",
+    "q4": "Does this work with our current legacy systems?",
+    "a4": "We maintain the old system intact, but build a smart, flexible layer on top. This approach always works.",
+    "q5": "What if it doesn't work?",
+    "a5": "We always start with a proof of concept in the Kickstart. If it doesn't work, you know within 4 weeks — before you've invested heavily.",
+    "q6": "Can we start small?",
+    "a6": "That's exactly what we recommend. Start with one process, prove the value, then scale.",
+    "q7": "What happens after 6 months?",
+    "a7": "Your team manages it independently. We remain available for questions, but you no longer need us for daily operations.",
+    "q8": "Do we need internal tech people to get started?",
+    "a8": "Not necessarily. We bring the technical expertise. What you need are people who know the processes and are motivated to improve them.",
+    "q9": "Do your training courses comply with the EU AI Act?",
+    "a9": "Yes. Our Fundamentals training covers AI literacy as required by the EU AI Act, including responsible use and risk classification.",
+    "q10": "Are you replacing people with AI?",
+    "a10": "No. We automate tasks, not jobs. The goal is to free up your people to do more valuable work."
+  },
+  "cta": {
+    "title": "Discover if we're a match?",
+    "description": "I will review your situation alongside you and walk through a few relevant cases. After 30 minutes, you'll know exactly what is possible and whether we are the right fit. No sales pitch—I'll assess the situation honestly and be upfront about what does and doesn't fit.",
+    "button": "Let's figure it out together",
+    "name": "Jochem van Laren",
+    "role": "Founder & CEO"
+  },
+  "footer": {
+    "cases": "Cases",
+    "services": "Services",
+    "whySpaik": "Why SPAIK",
+    "team": "Team",
+    "questions": "Questions",
+    "linkedin": "LinkedIn SPAIK",
+    "terms": "Terms and Conditions",
+    "kvk": "KVK: 95243763",
+    "privacy": "Privacy & Cookie Statement"
+  },
+  "blog": {
+    "title": "Blogs and insights",
+    "subtitle": "Stay up to date with the latest trends in AI agents, venture capital, and automation",
+    "readTime": "MINUTES",
+    "relatedArticles": "Related articles"
+  }
+}

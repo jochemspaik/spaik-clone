@@ -1,0 +1,196 @@
+{
+  "nav": {
+    "cases": "Cases",
+    "services": "Diensten",
+    "trainings": "Trainingen",
+    "team": "Team",
+    "faq": "FAQ",
+    "schedule": "Plan een gesprek"
+  },
+  "hero": {
+    "title1": "Je beste mensen.",
+    "title2": "Vast in handmatig werk.",
+    "subtitle": "Wij bouwen AI-oplossingen die je mensen écht gebruiken.",
+    "subtitleHighlight": "Resultaat in 4 weken · Positieve ROI in 4 maanden",
+    "ctaPrimary": "Ontdek AI use cases",
+    "ctaSecondary": "Plan een gesprek"
+  },
+  "cases": {
+    "sectionTitle": "Bewezen in adoptie & technologie",
+    "sectionSubtitle": "Van verzekeringen tot vastgoed en marketing. Oplossingen die blijven werken, ook als wij weg zijn.",
+    "roi": "ROI:",
+    "movir": {
+      "name": "Movir",
+      "type": "Verzekeraar - 400+",
+      "quote": "\"SPAIK heeft eerst ons managementteam getraind, daarna het hele bedrijf. Nu gebruikt iedereen dagelijks AI, met effectieve resultaten, en de focus ligt op Marketing & Sales.\"",
+      "author": "Maurick Schellekens - CEO",
+      "stat1value": "10x",
+      "stat1label": "Sneller content creëren",
+      "stat2value": "100",
+      "stat2label": "Mensen getraind",
+      "stat3value": "5",
+      "stat3label": "Interne experts opgeleid",
+      "roiText": "Terugverdiend in 4 maanden"
+    },
+    "euphoria": {
+      "name": "Euphoria Mobility",
+      "type": "SaaS - 60+",
+      "quote": "\"Onze developers bouwden in uren wat normaal weken kost. Zelfs de sceptici werden enthousiast. Geen theorie, gewoon bouwen. Twee dagen later: 6 werkende prototypes.\"",
+      "author": "Vincent Bekker - CTO",
+      "stat1value": "10+",
+      "stat1label": "Engineers bij hackathon",
+      "stat2value": "5X",
+      "stat2label": "Sneller coderen",
+      "stat3value": "6",
+      "stat3label": "Werkende prototypes",
+      "roiText": "6 prototypes, 2 in productie - 12X ROI"
+    },
+    "reditus": {
+      "name": "Reditus",
+      "type": "Marketing - 10+",
+      "quote": "\"Wat SPAIK onderscheidt is hun pragmatische aanpak en senioriteit. Ervaren mensen die vanaf dag één waarde toevoegen.\"",
+      "author": "Joran Hofman - CEO",
+      "stat1value": "5x",
+      "stat1label": "Sneller affiliates vinden",
+      "stat2value": "5min",
+      "stat2label": "per PM",
+      "stat3value": "5",
+      "stat3label": "Nieuwe AI-proposities",
+      "roiText": "Nieuwe omzetstroom + terugverdiend in 3 maanden"
+    }
+  },
+  "problem": {
+    "title": "Waarom AI-projecten falen",
+    "subtitle": "Niet door de technologie. Door gebrek aan adoptie.",
+    "problem1title": "Resultaat laat maanden op zich wachten",
+    "problem1text": "Eindeloze processen, presentaties en pilots die nergens toe leiden.",
+    "problem2title": "Werkt niet met wat je al hebt.",
+    "problem2text": "Weer een losse tool. Past niet in het dagelijks werk. Niemand gebruikt het.",
+    "problem3title": "Geen eigenaarschap.",
+    "problem3text": "Experts bouwen, vertrekken. Je mensen kunnen het niet overnemen."
+  },
+  "solution": {
+    "title": "Hoe wij het verschil maken",
+    "item1title": "In 4 weken: de eerste automatisering draait.",
+    "item1text": "Geen maanden onderzoek. In week 1 brengen we je processen in kaart, in week 4 draait de automatisering in productie.",
+    "item2title": "We integreren met wat je al hebt.",
+    "item2text": "We bouwen binnen je systemen en gebruiken je data zodat het onderdeel wordt van je dagelijkse werkzaamheden.",
+    "item3title": "Na 6 maanden: je beheert en bouwt zelf verder.",
+    "item3text": "We leiden je mensen op tot ze het zelf begrijpen en kunnen beheren. Geen blijvende afhankelijkheid.",
+    "testimonial": "\"Ik heb met meerdere partijen samengewerkt, maar ik zie SPAIK echt als een partner die met ons meedenkt en proactief handelt, mijn team is betrokken en sneller dan ooit.\"",
+    "testimonialAuthor": "Johanneke Behrend",
+    "testimonialRole": "Commercieel Directeur, Movir"
+  },
+  "discovery": {
+    "title": "Waar zie jij kansen?",
+    "subtitle": "Kies je afdeling. We laten zien wat we daar automatiseren.",
+    "marketing": "Marketing & Sales",
+    "data": "Data",
+    "operational": "Operationeel",
+    "otherChallenge": "Op zoek naar een andere uitdaging? We hebben meer dan 35 implementaties gedaan. Laten we kijken wat past.",
+    "invoicing": "Facturatie en orderverwerking",
+    "projectManagement": "Projectmanagement",
+    "communication": "Communicatie"
+  },
+  "services": {
+    "title": "Kies je startpunt",
+    "subtitle": "Senior expertise voor ambitieuze bedrijven",
+    "inspiration": {
+      "name": "Inspiratiesessie",
+      "price": "€3.000 / 15 personen",
+      "description": "Een goed begrip van AI en wat het voor jouw organisatie kan betekenen.",
+      "detail": "Geen droge presentatie. We nemen je energiek mee door de laatste AI-ontwikkelingen, delen concrete toepassingen en verkennen samen wat AI jouw organisatie kan brengen.",
+      "feature1": "AI-fundamenten die je nodig hebt",
+      "feature2": "Relevante toepassingen",
+      "feature3": "AI-kansen voor jouw organisatie"
+    },
+    "kickstart": {
+      "name": "AI Kickstart",
+      "price": "€10.000 / 4 weken",
+      "badge": "Gekozen door 20+ bedrijven",
+      "description": "Concreet inzicht in waar AI processen versnelt en de eerste automatisering gaat live.",
+      "detail": "We analyseren je processen, bepalen waar AI de meeste waarde toevoegt onderbouwd met ROI, en implementeren één automatisering in productie.",
+      "feature1": "Geprioriteerde AI-kansen + Roadmap",
+      "feature2": "1 automatisering in productie",
+      "feature3": "Halve dag training (10 personen)",
+      "paymentNote": "€5k vooraf, €5k na goedkeuring roadmap."
+    },
+    "fundamentals": {
+      "name": "AI Fundamentals",
+      "price": "€7.500 / 10 personen",
+      "description": "10 mensen die AI écht begrijpen. Compliant met de EU AI Act in 6 weken.",
+      "detail": "Geen theorie die iedereen vergeet zodra ze terug zijn. Training met je eigen processen, 6 weken begeleiding en tijdsbesparing vanaf week 1.",
+      "feature1": "Workshop over jouw context",
+      "feature2": "6-weken challenges + coaching",
+      "feature3": "9,1 uit - 700 deelnemersevaluaties"
+    },
+    "bookCall": "Plan een gesprek",
+    "readMore": "Lees meer",
+    "allTrainings": "Wil je individuele medewerkers trainen? Bekijk ons volledige trainingsaanbod.",
+    "seeAllTrainings": "Bekijk alle trainingen"
+  },
+  "team": {
+    "title": "Het SPAIK Team",
+    "subtitle": "Senior experts met meer dan 10 jaar ervaring in tech en transformatie. Meer dan 35 implementaties. Geen junioren die op jouw kosten leren, wij leveren vanaf dag één."
+  },
+  "insights": {
+    "title": "Insights",
+    "subtitle": "Wat we leren van 35+ AI-implementaties",
+    "allBlogs": "Alle blogs"
+  },
+  "aiDiscovery": {
+    "title": "Ontdek je AI-kansen in 15 minuten",
+    "subtitle": "Onze AI stelt gerichte vragen over je werkprocessen. Je ontvangt direct een rapport met een maturity score, concrete uitdagingen en volgende stappen. Gratis en vrijblijvend.",
+    "feature1": "Een behoefteanalyse: waar gaat de meeste tijd verloren?",
+    "feature2": "Een maturity score: waar sta je nu met AI?",
+    "feature3": "Concrete vervolgstappen die je morgen kunt toepassen",
+    "cta": "Start AI Discovery"
+  },
+  "faq": {
+    "title": "Veelgestelde Vragen",
+    "q1": "Hoe lang duurt een volledige implementatie?",
+    "a1": "De Kickstart duurt 4 weken. Volledig zelfstandige teams zijn gemiddeld na 6 maanden operationeel.",
+    "q2": "Hoe zorgen jullie dat het blijft werken na vertrek?",
+    "a2": "We leiden sleutelfiguren in je team op — mensen die eigenaarschap nemen. Ze leren niet alleen hoe het werkt, maar ook hoe ze het beheren en zelf nieuwe automatiseringen bouwen.",
+    "q3": "Wat als onze data of systemen nog niet klaar zijn voor AI?",
+    "a3": "Daarom beginnen we met een Tech assessment. We analyseren je data en systemen en maken ze klaar voor AI terwijl we bouwen.",
+    "q4": "Werkt dit met onze huidige legacy-systemen?",
+    "a4": "We houden het oude systeem intact, maar bouwen er een slimme, flexibele laag bovenop. Deze aanpak werkt altijd.",
+    "q5": "Wat als het niet werkt?",
+    "a5": "We beginnen altijd met een proof of concept in de Kickstart. Als het niet werkt, weet je dat binnen 4 weken — voordat je zwaar hebt geïnvesteerd.",
+    "q6": "Kunnen we klein beginnen?",
+    "a6": "Dat is precies wat we aanraden. Begin met één proces, bewijs de waarde, en schaal dan op.",
+    "q7": "Wat gebeurt er na 6 maanden?",
+    "a7": "Je team beheert het zelfstandig. We blijven beschikbaar voor vragen, maar je hebt ons niet meer nodig voor dagelijkse operaties.",
+    "q8": "Hebben we interne techneuten nodig om te starten?",
+    "a8": "Niet per se. Wij brengen de technische expertise. Wat je nodig hebt zijn mensen die de processen kennen en gemotiveerd zijn om ze te verbeteren.",
+    "q9": "Voldoen jullie trainingen aan de EU AI Act?",
+    "a9": "Ja. Onze Fundamentals-training behandelt AI-geletterdheid zoals vereist door de EU AI Act, inclusief verantwoord gebruik en risicoclassificatie.",
+    "q10": "Vervangen jullie mensen door AI?",
+    "a10": "Nee. We automatiseren taken, geen banen. Het doel is om je mensen vrij te maken voor waardevoller werk."
+  },
+  "cta": {
+    "title": "Ontdek of we een match zijn?",
+    "description": "Ik bekijk je situatie samen met je en loop een aantal relevante cases door. Na 30 minuten weet je precies wat er mogelijk is en of wij de juiste partij zijn. Geen verkooppraatje — ik beoordeel de situatie eerlijk en ben open over wat wel en niet past.",
+    "button": "Laten we het samen uitzoeken",
+    "name": "Jochem van Laren",
+    "role": "Oprichter & CEO"
+  },
+  "footer": {
+    "cases": "Cases",
+    "services": "Diensten",
+    "whySpaik": "Waarom SPAIK",
+    "team": "Team",
+    "questions": "Vragen",
+    "linkedin": "LinkedIn SPAIK",
+    "terms": "Algemene Voorwaarden",
+    "kvk": "KVK: 95243763",
+    "privacy": "Privacy & Cookie Verklaring"
+  },
+  "blog": {
+    "title": "Blogs en insights",
+    "subtitle": "Blijf op de hoogte van de laatste trends in AI-agenten, durfkapitaal en automatisering",
+    "readTime": "LEESTIJD",
+    "relatedArticles": "Gerelateerde artikelen"
+  }
+}
