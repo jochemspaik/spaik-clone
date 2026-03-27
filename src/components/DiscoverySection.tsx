@@ -13,26 +13,26 @@ interface DepartmentItem {
 
 const DEPARTMENT_ITEMS: Record<Department, DepartmentItem[]> = {
   operational: [
-    { icon: "/images/dept-invoicing.png", labelKey: "invoicing" },
-    { icon: "/images/dept-project.png", labelKey: "projectManagement" },
-    { icon: "/images/dept-communication.png", labelKey: "communication" },
+    { icon: "/images/Building.svg", labelKey: "invoicing" },
+    { icon: "/images/Checkpoint.svg", labelKey: "projectManagement" },
+    { icon: "/images/Delivery.svg", labelKey: "communication" },
   ],
   marketing: [
-    { icon: "/images/dept-invoicing.png", labelKey: "invoicing" },
-    { icon: "/images/dept-project.png", labelKey: "projectManagement" },
-    { icon: "/images/dept-communication.png", labelKey: "communication" },
+    { icon: "/images/Discovery.svg", labelKey: "invoicing" },
+    { icon: "/images/Inspiration.svg", labelKey: "projectManagement" },
+    { icon: "/images/Tech.svg", labelKey: "communication" },
   ],
   data: [
-    { icon: "/images/dept-invoicing.png", labelKey: "invoicing" },
-    { icon: "/images/dept-project.png", labelKey: "projectManagement" },
-    { icon: "/images/dept-communication.png", labelKey: "communication" },
+    { icon: "/images/Fundamentals.svg", labelKey: "invoicing" },
+    { icon: "/images/Kickstart.svg", labelKey: "projectManagement" },
+    { icon: "/images/Solution.svg", labelKey: "communication" },
   ],
 };
 
 const DEPARTMENTS: { key: Department; icon: string; labelKey: string }[] = [
-  { key: "marketing", icon: "/images/icon-marketing.png", labelKey: "marketing" },
-  { key: "data", icon: "/images/icon-data.png", labelKey: "data" },
-  { key: "operational", icon: "/images/dept-icon-1.png", labelKey: "operational" },
+  { key: "marketing", icon: "/images/Discovery.svg", labelKey: "marketing" },
+  { key: "data", icon: "/images/Tech.svg", labelKey: "data" },
+  { key: "operational", icon: "/images/Building.svg", labelKey: "operational" },
 ];
 
 export function DiscoverySection() {
