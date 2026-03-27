@@ -3,7 +3,7 @@
 import { useTranslations } from "next-intl";
 import { Check } from "lucide-react";
 
-const BOOK_CALL_URL = "https://calendar.app.google/mGYhtUUjgSdZhePw8";
+import { BOOK_CALL_URL } from "@/lib/constants";
 
 interface ServiceCardProps {
   translationPrefix: string;

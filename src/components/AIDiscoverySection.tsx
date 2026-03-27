@@ -1,6 +1,7 @@
 "use client";
 
 import { useTranslations } from "next-intl";
+import { INTAKE_URL } from "@/lib/constants";
 import Image from "next/image";
 
 function CheckIcon() {
@@ -86,7 +87,7 @@ export function AIDiscoverySection() {
 
           {/* CTA button */}
           <a
-            href="https://intake.spaik.io/"
+            href={INTAKE_URL}
             target="_blank"
             rel="noopener noreferrer"
             className="mt-8 inline-block rounded-xl bg-spaik-orange px-8 py-4 font-sans text-white transition-opacity hover:opacity-90"

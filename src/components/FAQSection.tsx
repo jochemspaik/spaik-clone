@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useTranslations } from "next-intl";
+import { SectionWrapper } from "@/components/SectionWrapper";
 
 const FAQ_COUNT = 10;
 const INITIALLY_OPEN = new Set([0, 1, 2, 3]);
@@ -47,12 +48,7 @@ export function FAQSection() {
   }
 
   return (
-    <section
-      id="faq"
-      className="bg-white"
-      style={{ padding: "80px 40px" }}
-    >
-      <div className="mx-auto" style={{ maxWidth: "1000px" }}>
+    <SectionWrapper id="faq" className="bg-white">
         <h2
           className="mb-10 text-center font-heading text-spaik-black"
           style={{ fontSize: "32px", fontWeight: 100 }}
@@ -107,7 +103,6 @@ export function FAQSection() {
             );
           })}
         </div>
-      </div>
-    </section>
+    </SectionWrapper>
   );
 }

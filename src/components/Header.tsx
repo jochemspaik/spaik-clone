@@ -21,6 +21,19 @@ const NAV_ITEMS: NavItem[] = [
   { key: "faq", href: "/#faq" },
 ];
 
+function NavLink({ item, onClick }: { item: NavItem; onClick?: () => void }) {
+  const t = useTranslations();
+  const linkProps = {
+    key: item.key,
+    href: item.href,
+    onClick,
+    className: "inline-flex items-center transition-opacity hover:opacity-60",
+    style: { fontSize: 15, fontWeight: 400, color: "#0b0b0b", minHeight: "44px" } as const,
+    ...(item.external ? { target: "_blank" as const, rel: "noopener noreferrer" } : {}),
+  };
+  return <a {...linkProps}>{t(`nav.${item.key}`)}</a>;
+}
+
 export function Header() {
   const t = useTranslations();
   const pathname = usePathname();
@@ -42,14 +55,9 @@ export function Header() {
 
   return (
     <header
-      className="sticky top-0 z-50 w-full transition-all duration-200"
-      style={{
-        backgroundColor: scrolled
-          ? "rgba(255, 255, 255, 0.85)"
-          : "rgba(255, 255, 255, 1)",
-        backdropFilter: scrolled ? "blur(12px)" : "none",
-        WebkitBackdropFilter: scrolled ? "blur(12px)" : "none",
-      }}
+      className={`sticky top-0 z-50 w-full transition-all duration-200 ${
+        scrolled ? "bg-white/85 backdrop-blur-md" : "bg-white"
+      }`}
     >
       <div
         className="mx-auto flex items-center justify-between"
@@ -68,39 +76,9 @@ export function Header() {
 
         {/* Desktop Navigation */}
         <nav className="hidden items-center gap-6 md:flex">
-          {NAV_ITEMS.map((item) =>
-            item.external ? (
-              <a
-                key={item.key}
-                href={item.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center transition-opacity hover:opacity-60"
-                style={{
-                  fontSize: 15,
-                  fontWeight: 400,
-                  color: "#0b0b0b",
-                  minHeight: "44px",
-                }}
-              >
-                {t(`nav.${item.key}`)}
-              </a>
-            ) : (
-              <a
-                key={item.key}
-                href={item.href}
-                className="inline-flex items-center transition-opacity hover:opacity-60"
-                style={{
-                  fontSize: 15,
-                  fontWeight: 400,
-                  color: "#0b0b0b",
-                  minHeight: "44px",
-                }}
-              >
-                {t(`nav.${item.key}`)}
-              </a>
-            ),
-          )}
+          {NAV_ITEMS.map((item) => (
+            <NavLink key={item.key} item={item} />
+          ))}
 
           {/* Language Switcher */}
           <div className="flex items-center gap-0.5" style={{ fontSize: 13 }}>
@@ -156,37 +134,9 @@ export function Header() {
       >
         <div className="border-t border-gray-100 bg-white px-6 py-6">
           <nav className="flex flex-col gap-5">
-            {NAV_ITEMS.map((item) =>
-              item.external ? (
-                <a
-                  key={item.key}
-                  href={item.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={() => setMobileMenuOpen(false)}
-                  style={{
-                    fontSize: 15,
-                    fontWeight: 400,
-                    color: "#0b0b0b",
-                  }}
-                >
-                  {t(`nav.${item.key}`)}
-                </a>
-              ) : (
-                <a
-                  key={item.key}
-                  href={item.href}
-                  onClick={() => setMobileMenuOpen(false)}
-                  style={{
-                    fontSize: 15,
-                    fontWeight: 400,
-                    color: "#0b0b0b",
-                  }}
-                >
-                  {t(`nav.${item.key}`)}
-                </a>
-              ),
-            )}
+            {NAV_ITEMS.map((item) => (
+              <NavLink key={item.key} item={item} onClick={() => setMobileMenuOpen(false)} />
+            ))}
 
             {/* Mobile Language Switcher */}
             <div className="flex items-center gap-2" style={{ fontSize: 15 }}>
@@ -214,21 +164,11 @@ export function Header() {
             </div>
 
             {/* Mobile CTA */}
-            <a
+            <RollingTextButton
+              text={t("nav.schedule")}
               href="https://calendar.app.google/mGYhtUUjgSdZhePw8"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="rolling-text inline-flex rounded-xl text-center text-white"
-              data-text={t("nav.schedule")}
-              style={{
-                backgroundColor: "#ff7150",
-                padding: "12px 24px",
-                fontSize: 15,
-                fontWeight: 500,
-              }}
-            >
-              <span>{t("nav.schedule")}</span>
-            </a>
+              variant="primary"
+            />
           </nav>
         </div>
       </div>

@@ -3,6 +3,7 @@
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
+import { SectionWrapper } from "@/components/SectionWrapper";
 
 const BLOG_POSTS = [
   {
@@ -26,11 +27,7 @@ export function InsightsSection() {
   const t = useTranslations("insights");
 
   return (
-    <section
-      className="bg-white"
-      style={{ padding: "80px 40px" }}
-    >
-      <div className="mx-auto" style={{ maxWidth: "1080px" }}>
+    <SectionWrapper className="bg-white">
         {/* Header row */}
         <div className="mb-10 flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-end">
           <div>
@@ -100,7 +97,6 @@ export function InsightsSection() {
             </Link>
           ))}
         </div>
-      </div>
-    </section>
+    </SectionWrapper>
   );
 }

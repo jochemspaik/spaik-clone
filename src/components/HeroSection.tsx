@@ -2,6 +2,7 @@
 
 import { useTranslations } from "next-intl";
 import { RollingTextButton } from "./RollingTextButton";
+import { BOOK_CALL_URL, INTAKE_URL } from "@/lib/constants";
 
 export function HeroSection() {
   const t = useTranslations();
@@ -40,12 +41,12 @@ export function HeroSection() {
           <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:gap-4">
             <RollingTextButton
               text={t("hero.ctaPrimary")}
-              href="https://intake.spaik.io/"
+              href={INTAKE_URL}
               variant="primary"
             />
             <RollingTextButton
               text={t("hero.ctaSecondary")}
-              href="https://calendar.app.google/mGYhtUUjgSdZhePw8"
+              href={BOOK_CALL_URL}
               variant="secondary"
             />
           </div>

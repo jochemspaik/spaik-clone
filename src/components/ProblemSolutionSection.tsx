@@ -3,6 +3,7 @@
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { RollingTextButton } from "@/components/RollingTextButton";
+import { BOOK_CALL_URL, INTAKE_URL } from "@/lib/constants";
 
 function CrossIcon() {
   return (
@@ -234,12 +235,12 @@ export function ProblemSolutionSection() {
         <div className="flex flex-col sm:flex-row gap-3 items-center justify-center">
           <RollingTextButton
             text={t("hero.ctaPrimary")}
-            href="https://intake.spaik.io/"
+            href={INTAKE_URL}
             variant="primary"
           />
           <RollingTextButton
             text={t("hero.ctaSecondary")}
-            href="https://calendar.app.google/mGYhtUUjgSdZhePw8"
+            href={BOOK_CALL_URL}
             variant="secondary"
           />
         </div>

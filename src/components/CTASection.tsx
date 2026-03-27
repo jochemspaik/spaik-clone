@@ -3,6 +3,7 @@
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { RollingTextButton } from "@/components/RollingTextButton";
+import { SectionWrapper } from "@/components/SectionWrapper";
 
 function LinkedInIcon() {
   return (
@@ -26,8 +27,7 @@ export function CTASection() {
   const t = useTranslations("cta");
 
   return (
-    <section className="bg-white" style={{ padding: "80px 40px" }}>
-      <div className="mx-auto" style={{ maxWidth: "1080px" }}>
+    <SectionWrapper className="bg-white">
         <div className="flex flex-col gap-10 lg:flex-row lg:items-center lg:gap-16">
           {/* Left column — video */}
           <div className="lg:w-1/2">
@@ -109,7 +109,6 @@ export function CTASection() {
             </div>
           </div>
         </div>
-      </div>
-    </section>
+    </SectionWrapper>
   );
 }
