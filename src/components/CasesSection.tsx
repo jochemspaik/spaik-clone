@@ -239,31 +239,41 @@ export function CasesSection() {
           </div>
         </div>
 
-        {/* Navigation dots */}
-        <div className="flex items-center justify-center gap-3 mt-8">
+        {/* Case selector tabs — always visible so user knows there are multiple */}
+        <div className="flex items-center gap-2 mt-8">
           {cases.map((c, i) => (
             <button
               key={c.companyName}
               type="button"
               onClick={() => goTo(i)}
-              className="group flex items-center gap-2"
-              aria-label={`View ${c.companyName} case`}
+              className="relative flex-1 text-left rounded-xl px-5 py-4 transition-all duration-300"
+              style={{
+                backgroundColor: i === active ? c.bgColor : "rgba(0,0,0,0.03)",
+                border: i === active ? `2px solid ${c.accentColor}` : "2px solid transparent",
+              }}
             >
-              <div
-                className="rounded-full transition-all duration-300"
-                style={{
-                  width: i === active ? "32px" : "10px",
-                  height: "10px",
-                  backgroundColor: i === active ? c.accentColor : "rgba(0,0,0,0.15)",
-                }}
-              />
+              <span
+                className="block text-sm font-medium"
+                style={{ color: i === active ? "#0a0a0a" : "rgba(0,0,0,0.4)" }}
+              >
+                {c.companyName}
+              </span>
+              <span
+                className="block text-xs mt-0.5"
+                style={{ color: "rgba(0,0,0,0.3)" }}
+              >
+                {c.companyType}
+              </span>
+              {/* Progress bar for active tab */}
               {i === active && (
-                <span
-                  className="text-sm font-medium transition-opacity"
-                  style={{ color: "#0a0a0a" }}
-                >
-                  {c.companyName}
-                </span>
+                <div
+                  className="absolute bottom-0 left-0 h-0.5 rounded-full"
+                  style={{
+                    backgroundColor: c.accentColor,
+                    animation: "progressBar 6s linear",
+                    width: "100%",
+                  }}
+                />
               )}
             </button>
           ))}

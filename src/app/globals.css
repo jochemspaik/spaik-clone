@@ -238,6 +238,12 @@
   animation: countUp 0.4s ease-out forwards;
 }
 
+/* Progress bar for carousel auto-advance */
+@keyframes progressBar {
+  from { width: 0%; }
+  to { width: 100%; }
+}
+
 /* Carousel slide animations */
 @keyframes slideInRight {
   from { opacity: 0; transform: translateX(60px); }
