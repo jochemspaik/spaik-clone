@@ -162,6 +162,7 @@ function CaseCard({
 export function CasesSection() {
   const t = useTranslations();
 
+  const personPhotos = ["/images/case-maurick.jpg", "/images/case-vincent.jpg", "/images/case-joran.png"];
   const cases: Omit<CaseCardProps, "personSrc" | "photoPosition">[] = [
     {
       companyName: "Movir",
@@ -255,7 +256,7 @@ export function CasesSection() {
             <CaseCard
               key={caseData.companyName}
               {...caseData}
-              personSrc="/images/case-person.png"
+              personSrc={personPhotos[index]}
               photoPosition={index % 2 === 0 ? "left" : "right"}
             />
           ))}
