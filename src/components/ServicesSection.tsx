@@ -109,7 +109,7 @@ export function ServicesSection() {
   const t = useTranslations("services");
 
   return (
-    <section id="services" className="bg-white" style={{ padding: "80px 24px" }}>
+    <section id="services" className="bg-white" style={{ padding: "80px 40px" }}>
       <div className="mx-auto max-w-6xl">
         {/* Section header */}
         <div className="mb-12 text-center">

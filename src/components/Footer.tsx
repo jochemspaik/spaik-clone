@@ -16,7 +16,7 @@ export function Footer() {
     >
       <div
         className="mx-auto px-6"
-        style={{ maxWidth: 1200, padding: "48px 24px" }}
+        style={{ maxWidth: 1080, padding: "48px 40px" }}
       >
         {/* Main content: three columns */}
         <div className="flex flex-col gap-10 md:flex-row md:items-start md:justify-between">

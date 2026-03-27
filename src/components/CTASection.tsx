@@ -27,7 +27,7 @@ export function CTASection() {
   return (
     <section
       className="bg-white"
-      style={{ padding: "80px 24px" }}
+      style={{ padding: "80px 40px" }}
     >
       <div className="mx-auto flex max-w-2xl flex-col items-center text-center">
         <h2

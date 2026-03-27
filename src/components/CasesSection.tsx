@@ -191,7 +191,7 @@ export function CasesSection() {
     {
       companyName: "Reditus",
       companyType: "Marketing - 10+",
-      logoSrc: "/images/logo-reditus.png",
+      logoSrc: "/images/logo-reditus.jpg",
       logoAlt: "Reditus logo",
       quote: t("cases.reditus.quote"),
       author: t("cases.reditus.author"),

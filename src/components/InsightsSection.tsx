@@ -28,7 +28,7 @@ export function InsightsSection() {
   return (
     <section
       className="bg-white"
-      style={{ padding: "80px 24px" }}
+      style={{ padding: "80px 40px" }}
     >
       <div className="mx-auto max-w-7xl">
         {/* Header row */}

@@ -129,7 +129,7 @@ export function TeamSection() {
     <section
       id="team"
       className="bg-white"
-      style={{ padding: "80px 24px" }}
+      style={{ padding: "80px 40px" }}
     >
       <div className="mx-auto max-w-7xl">
         {/* Section header */}

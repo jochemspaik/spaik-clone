@@ -31,7 +31,7 @@ export function AIDiscoverySection() {
   return (
     <section
       className="relative bg-white"
-      style={{ padding: "80px 24px" }}
+      style={{ padding: "80px 40px" }}
     >
       {/* Optional decorative dot pattern */}
       <div className="pointer-events-none absolute right-0 top-0 hidden h-full w-1/3 opacity-10 lg:block">

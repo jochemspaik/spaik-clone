@@ -13,11 +13,11 @@ interface NavItem {
 }
 
 const NAV_ITEMS: NavItem[] = [
-  { key: "cases", href: "#cases" },
-  { key: "services", href: "#services" },
+  { key: "cases", href: "/#cases" },
+  { key: "services", href: "/#services" },
   { key: "trainings", href: "https://traininghub.spaik.io/", external: true },
-  { key: "team", href: "#team" },
-  { key: "faq", href: "#faq" },
+  { key: "team", href: "/#team" },
+  { key: "faq", href: "/#faq" },
 ];
 
 export function Header() {
@@ -51,8 +51,8 @@ export function Header() {
       }}
     >
       <div
-        className="mx-auto flex items-center justify-between px-6"
-        style={{ maxWidth: 1200, height: 72 }}
+        className="mx-auto flex items-center justify-between"
+        style={{ maxWidth: 1080, height: 87, padding: "20px 40px" }}
       >
         {/* Logo */}
         <Link href="/">
@@ -99,22 +99,22 @@ export function Header() {
             ),
           )}
 
-          {/* Language Switcher */}
-          <div className="flex items-center gap-1" style={{ fontSize: 15 }}>
+          {/* Language Switcher — subtle */}
+          <div className="flex items-center gap-1" style={{ fontSize: 13 }}>
             <button
               type="button"
               onClick={() => switchLocale("nl")}
-              className="transition-opacity hover:opacity-60"
-              style={{ color: "#0b0b0b" }}
+              className="transition-opacity hover:opacity-80"
+              style={{ color: "rgba(0,0,0,0.4)" }}
             >
               NL
             </button>
-            <span style={{ color: "#0b0b0b" }}>|</span>
+            <span style={{ color: "rgba(0,0,0,0.2)" }}>/</span>
             <button
               type="button"
               onClick={() => switchLocale("en")}
-              className="transition-opacity hover:opacity-60"
-              style={{ color: "#0b0b0b" }}
+              className="transition-opacity hover:opacity-80"
+              style={{ color: "rgba(0,0,0,0.4)" }}
             >
               EN
             </button>
