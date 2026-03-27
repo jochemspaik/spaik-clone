@@ -84,7 +84,11 @@ export function DiscoverySection() {
 
         {/* Content panel for selected department */}
         <div className="mt-8 overflow-hidden rounded-xl border border-spaik-clay-light bg-white p-6 transition-all sm:p-8">
-          <div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:gap-8">
+          <div
+            key={activeDept}
+            className="flex flex-col gap-6 sm:flex-row sm:items-center sm:gap-8"
+            style={{ animation: "fadeInUp 0.3s ease-out" }}
+          >
             {activeItems.map((item) => (
               <div
                 key={item.labelKey}

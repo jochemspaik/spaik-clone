@@ -1,7 +1,67 @@
 "use client";
 
+import React from "react";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
+
+function AnimatedCounter({ value, suffix = "" }: { value: string; suffix?: string }) {
+  const ref = React.useRef<HTMLParagraphElement>(null);
+  const [display, setDisplay] = React.useState("0");
+  const [hasAnimated, setHasAnimated] = React.useState(false);
+
+  React.useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !hasAnimated) {
+          setHasAnimated(true);
+          // Parse the numeric part
+          const numMatch = value.match(/(\d+)/);
+          if (!numMatch) {
+            setDisplay(value);
+            return;
+          }
+          const target = parseInt(numMatch[1], 10);
+          const prefix = value.slice(0, value.indexOf(numMatch[1]));
+          const postfix = value.slice(value.indexOf(numMatch[1]) + numMatch[1].length);
+
+          let current = 0;
+          const duration = 1500;
+          const steps = 40;
+          const increment = target / steps;
+          const interval = duration / steps;
+
+          const timer = setInterval(() => {
+            current += increment;
+            if (current >= target) {
+              current = target;
+              clearInterval(timer);
+            }
+            setDisplay(`${prefix}${Math.round(current)}${postfix}`);
+          }, interval);
+
+          observer.unobserve(el);
+        }
+      },
+      { threshold: 0.3 }
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [value, hasAnimated]);
+
+  return (
+    <p
+      ref={ref}
+      className="font-sans font-bold"
+      style={{ fontSize: "32px", lineHeight: "1.1", color: "#0a0a0a" }}
+    >
+      {display}{suffix}
+    </p>
+  );
+}
 
 interface CaseStat {
   value: string;
@@ -120,12 +180,7 @@ function CaseCard({
         <div className="flex flex-wrap gap-6 mb-5">
           {stats.map((stat) => (
             <div key={stat.label} className="min-w-0">
-              <p
-                className="font-sans font-bold"
-                style={{ fontSize: "32px", lineHeight: "1.1", color: "#0a0a0a" }}
-              >
-                {stat.value}
-              </p>
+              <AnimatedCounter value={stat.value} />
               <p
                 className="font-sans mt-1"
                 style={{ fontSize: "14px", color: "rgba(0,0,0,0.5)" }}

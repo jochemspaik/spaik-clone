@@ -147,8 +147,12 @@ export function Header() {
       </div>
 
       {/* Mobile Slide-out Panel */}
-      {mobileMenuOpen && (
-        <div className="border-t border-gray-100 bg-white px-6 py-6 md:hidden">
+      <div
+        className={`overflow-hidden transition-all duration-300 ease-in-out md:hidden ${
+          mobileMenuOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
+        }`}
+      >
+        <div className="border-t border-gray-100 bg-white px-6 py-6">
           <nav className="flex flex-col gap-5">
             {NAV_ITEMS.map((item) =>
               item.external ? (
@@ -225,7 +229,7 @@ export function Header() {
             </a>
           </nav>
         </div>
-      )}
+      </div>
     </header>
   );
 }

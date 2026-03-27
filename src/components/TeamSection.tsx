@@ -166,11 +166,11 @@ export function TeamSection() {
           {TEAM_MEMBERS.map((member) => (
             <div
               key={member.name}
-              className="group flex flex-col items-center rounded-xl p-6 transition-transform duration-200 hover:scale-[1.02]"
+              className="group flex flex-col items-center rounded-xl p-6 transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
             >
               {/* Photo or placeholder */}
               {member.photo ? (
-                <div className="relative mb-4 aspect-square w-full overflow-hidden rounded-xl">
+                <div className="relative mb-4 aspect-square w-full overflow-hidden rounded-xl transition-transform duration-300 group-hover:scale-105">
                   <Image
                     src={member.photo}
                     alt={member.name}
@@ -181,7 +181,7 @@ export function TeamSection() {
                 </div>
               ) : (
                 <div
-                  className="mb-4 flex aspect-square w-full items-center justify-center rounded-xl bg-spaik-clay-light"
+                  className="mb-4 flex aspect-square w-full items-center justify-center rounded-xl bg-spaik-clay-light transition-transform duration-300 group-hover:scale-105"
                 >
                   <span
                     className="font-sans text-spaik-black/50"
