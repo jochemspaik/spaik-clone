@@ -30,7 +30,7 @@ export function InsightsSection() {
       className="bg-white"
       style={{ padding: "80px 40px" }}
     >
-      <div className="mx-auto max-w-7xl">
+      <div className="mx-auto" style={{ maxWidth: "1080px" }}>
         {/* Header row */}
         <div className="mb-10 flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-end">
           <div>

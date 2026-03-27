@@ -67,7 +67,7 @@ export function Header() {
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden items-center gap-8 md:flex">
+        <nav className="hidden items-center gap-6 md:flex">
           {NAV_ITEMS.map((item) =>
             item.external ? (
               <a
@@ -75,11 +75,12 @@ export function Header() {
                 href={item.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="transition-opacity hover:opacity-60"
+                className="inline-flex items-center transition-opacity hover:opacity-60"
                 style={{
                   fontSize: 15,
                   fontWeight: 400,
                   color: "#0b0b0b",
+                  minHeight: "44px",
                 }}
               >
                 {t(`nav.${item.key}`)}
@@ -88,11 +89,12 @@ export function Header() {
               <a
                 key={item.key}
                 href={item.href}
-                className="transition-opacity hover:opacity-60"
+                className="inline-flex items-center transition-opacity hover:opacity-60"
                 style={{
                   fontSize: 15,
                   fontWeight: 400,
                   color: "#0b0b0b",
+                  minHeight: "44px",
                 }}
               >
                 {t(`nav.${item.key}`)}
@@ -100,13 +102,13 @@ export function Header() {
             ),
           )}
 
-          {/* Language Switcher — subtle */}
-          <div className="flex items-center gap-1" style={{ fontSize: 13 }}>
+          {/* Language Switcher */}
+          <div className="flex items-center gap-0.5" style={{ fontSize: 13 }}>
             <button
               type="button"
               onClick={() => switchLocale("nl")}
-              className="transition-opacity hover:opacity-80"
-              style={{ color: "rgba(0,0,0,0.4)" }}
+              className="inline-flex items-center justify-center transition-opacity hover:opacity-80"
+              style={{ color: "rgba(0,0,0,0.4)", minWidth: "32px", minHeight: "44px" }}
             >
               NL
             </button>
@@ -114,8 +116,8 @@ export function Header() {
             <button
               type="button"
               onClick={() => switchLocale("en")}
-              className="transition-opacity hover:opacity-80"
-              style={{ color: "rgba(0,0,0,0.4)" }}
+              className="inline-flex items-center justify-center transition-opacity hover:opacity-80"
+              style={{ color: "rgba(0,0,0,0.4)", minWidth: "32px", minHeight: "44px" }}
             >
               EN
             </button>

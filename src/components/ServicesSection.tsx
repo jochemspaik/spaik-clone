@@ -53,12 +53,13 @@ function ServiceCard({
         {t(`${translationPrefix}.description`)}
       </p>
 
-      <div className="relative mt-6 aspect-[4/3] w-full overflow-hidden rounded-xl bg-spaik-clay-50">
+      <div className="relative mt-6 aspect-[4/3] w-full overflow-hidden rounded-xl" style={{ backgroundColor: "#e8effb" }}>
         <Image
           src={mockupImage}
           alt={t(`${translationPrefix}.name`)}
           fill
           className="object-contain"
+          style={{ mixBlendMode: "multiply", opacity: 0.85 }}
         />
       </div>
 
