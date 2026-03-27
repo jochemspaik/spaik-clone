@@ -9,8 +9,8 @@ export function HeroSection() {
   return (
     <section className="w-full bg-white">
       <div
-        className="mx-auto flex flex-col items-center md:flex-row md:items-start"
-        style={{ maxWidth: 1080, padding: "80px 40px" }}
+        className="mx-auto flex flex-col items-center px-6 pt-12 pb-8 md:flex-row md:items-start md:px-10 md:pt-20 md:pb-20"
+        style={{ maxWidth: 1080 }}
       >
         {/* Left Column */}
         <div className="w-full pt-10 md:w-3/5">
