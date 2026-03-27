@@ -1,4 +1,5 @@
 import { Header } from "@/components/Header";
+import { OrganizationJsonLd } from "@/components/JsonLd";
 import { HeroSection } from "@/components/HeroSection";
 import { LogoTicker } from "@/components/LogoTicker";
 import { CasesSection } from "@/components/CasesSection";
@@ -15,6 +16,7 @@ import { Footer } from "@/components/Footer";
 export default function HomePage() {
   return (
     <>
+      <OrganizationJsonLd />
       <Header />
       <main>
         <HeroSection />

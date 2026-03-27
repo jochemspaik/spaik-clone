@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.spaik.io"),
   title: {
     default: "SPAIK — AI Solutions That People Actually Use",
     template: "%s | SPAIK",
