@@ -5,6 +5,7 @@ import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { Link, usePathname, useRouter } from "@/i18n/navigation";
 import { Menu, X } from "lucide-react";
+import { RollingTextButton } from "./RollingTextButton";
 
 interface NavItem {
   key: string;
@@ -122,21 +123,13 @@ export function Header() {
         </nav>
 
         {/* Desktop CTA */}
-        <a
-          href="https://calendar.app.google/mGYhtUUjgSdZhePw8"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="rolling-text hidden rounded-xl text-white md:inline-flex"
-          data-text={t("nav.schedule")}
-          style={{
-            backgroundColor: "#ff7150",
-            padding: "12px 24px",
-            fontSize: 15,
-            fontWeight: 500,
-          }}
-        >
-          <span>{t("nav.schedule")}</span>
-        </a>
+        <div className="hidden md:block">
+          <RollingTextButton
+            text={t("nav.schedule")}
+            href="https://calendar.app.google/mGYhtUUjgSdZhePw8"
+            variant="primary"
+          />
+        </div>
 
         {/* Mobile Hamburger */}
         <button

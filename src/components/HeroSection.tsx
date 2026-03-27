@@ -1,6 +1,7 @@
 "use client";
 
 import { useTranslations } from "next-intl";
+import { RollingTextButton } from "./RollingTextButton";
 
 export function HeroSection() {
   const t = useTranslations();
@@ -37,36 +38,16 @@ export function HeroSection() {
           </p>
 
           <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:gap-4">
-            <a
+            <RollingTextButton
+              text={t("hero.ctaPrimary")}
               href="https://intake.spaik.io/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="rolling-text inline-flex items-center justify-center rounded-xl text-white"
-              data-text={t("hero.ctaPrimary")}
-              style={{
-                backgroundColor: "#ff7150",
-                padding: "14px 28px",
-                fontSize: 15,
-                fontWeight: 500,
-              }}
-            >
-              <span>{t("hero.ctaPrimary")}</span>
-            </a>
-            <a
+              variant="primary"
+            />
+            <RollingTextButton
+              text={t("hero.ctaSecondary")}
               href="https://calendar.app.google/mGYhtUUjgSdZhePw8"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="rolling-text inline-flex items-center justify-center rounded-xl text-white"
-              data-text={t("hero.ctaSecondary")}
-              style={{
-                backgroundColor: "rgba(255, 151, 128, 0.75)",
-                padding: "14px 28px",
-                fontSize: 15,
-                fontWeight: 500,
-              }}
-            >
-              <span>{t("hero.ctaSecondary")}</span>
-            </a>
+              variant="secondary"
+            />
           </div>
         </div>
 

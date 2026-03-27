@@ -1,6 +1,7 @@
 "use client";
 
 import { useTranslations } from "next-intl";
+import { RollingTextButton } from "./RollingTextButton";
 
 function CheckIcon() {
   return (
@@ -218,28 +219,16 @@ export function ProblemSolutionSection() {
 
           {/* CTA buttons */}
           <div className="flex flex-col sm:flex-row gap-3 mt-10">
-            <a
+            <RollingTextButton
+              text={t("hero.ctaPrimary")}
               href="https://intake.spaik.io/"
-              className="inline-flex items-center justify-center font-medium rounded-xl px-6 py-3 transition-opacity hover:opacity-90"
-              style={{
-                fontSize: "16px",
-                backgroundColor: "#ff7150",
-                color: "#ffffff",
-              }}
-            >
-              {t("hero.ctaPrimary")}
-            </a>
-            <a
+              variant="primary"
+            />
+            <RollingTextButton
+              text={t("hero.ctaSecondary")}
               href="https://calendar.app.google/mGYhtUUjgSdZhePw8"
-              className="inline-flex items-center justify-center font-medium rounded-xl px-6 py-3 transition-opacity hover:opacity-90"
-              style={{
-                fontSize: "16px",
-                backgroundColor: "rgba(255, 151, 128, 0.75)",
-                color: "#ffffff",
-              }}
-            >
-              {t("hero.ctaSecondary")}
-            </a>
+              variant="secondary"
+            />
           </div>
         </div>
       </div>
