@@ -24,15 +24,17 @@ const NAV_ITEMS: NavItem[] = [
 
 function NavLink({ item, onClick }: { item: NavItem; onClick?: () => void }) {
   const t = useTranslations();
-  const linkProps = {
-    key: item.key,
-    href: item.href,
-    onClick,
-    className: "inline-flex items-center transition-opacity hover:opacity-60",
-    style: { fontSize: 15, fontWeight: 400, color: "#0b0b0b", minHeight: "44px" } as const,
-    ...(item.external ? { target: "_blank" as const, rel: "noopener noreferrer" } : {}),
-  };
-  return <a {...linkProps}>{t(`nav.${item.key}`)}</a>;
+  return (
+    <a
+      href={item.href}
+      onClick={onClick}
+      className="inline-flex items-center transition-opacity hover:opacity-60"
+      style={{ fontSize: 15, fontWeight: 400, color: "#0b0b0b", minHeight: "44px" }}
+      {...(item.external ? { target: "_blank" as const, rel: "noopener noreferrer" } : {})}
+    >
+      {t(`nav.${item.key}`)}
+    </a>
+  );
 }
 
 export function Header() {
