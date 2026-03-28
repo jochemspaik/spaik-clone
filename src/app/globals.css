@@ -370,6 +370,7 @@
 .grain-overlay {
   position: relative;
   isolation: isolate;
+  overflow: hidden;
 }
 .grain-overlay::after {
   content: "";
