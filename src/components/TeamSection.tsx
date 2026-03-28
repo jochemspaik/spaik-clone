@@ -7,13 +7,13 @@ const TEAM_MEMBERS = [
   {
     name: "Jochem van Laren",
     role: "Co-founder & CEO · Strategy",
-    photo: "/images/team-jochem.jpg",
+    photo: "/images/team-jochem.png",
     linkedin: "https://www.linkedin.com/in/jochemvanlaren/",
   },
   {
     name: "Thijs Bongertman",
     role: "Co-founder · CTO · Development",
-    photo: "/images/team-thijs.jpeg",
+    photo: "/images/team-thijs.png",
     linkedin: "https://www.linkedin.com/in/thijsbongertman",
   },
   {
@@ -25,19 +25,19 @@ const TEAM_MEMBERS = [
   {
     name: "Ted Blankers",
     role: "Adoption Lead",
-    photo: "/images/team-ted.jpg",
+    photo: "/images/team-ted.png",
     linkedin: "https://www.linkedin.com/in/ted-b-312b3263/",
   },
   {
     name: "Philip de Leeuwe",
     role: "Commercial Lead",
-    photo: "/images/team-philip.jpg",
+    photo: "/images/team-philip.png",
     linkedin: "https://www.linkedin.com/in/philip-de-leeuwe-b9601928/",
   },
   {
     name: "Gwen Roelofs",
     role: "Business Development",
-    photo: "/images/team-gwen.jpg",
+    photo: "/images/team-gwen.png",
     linkedin: "https://www.linkedin.com/in/gwen-roelofs-a132295",
   },
   {
@@ -56,12 +56,13 @@ const TEAM_MEMBERS = [
     name: "Jasmijn de Groot",
     role: "Facilitation",
     photo: "/images/team-jasmijn.jpg",
+
     linkedin: "https://www.linkedin.com/in/jasmijndegroot/",
   },
   {
     name: "Duco Gaillard",
     role: "Data Scientist",
-    photo: "/images/team-duco.jpg",
+    photo: "/images/team-duco.jpeg",
     linkedin: "https://www.linkedin.com/in/dhk-gaillard/",
   },
   {

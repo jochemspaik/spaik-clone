@@ -89,7 +89,7 @@ export function CTASection() {
                 style={{ width: "56px", height: "56px" }}
               >
                 <Image
-                  src="/images/team-jochem.jpg"
+                  src="/images/team-jochem.png"
                   alt={t("name")}
                   fill
                   className="object-cover"
