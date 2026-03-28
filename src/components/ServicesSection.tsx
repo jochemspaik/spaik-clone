@@ -2,6 +2,7 @@
 
 import { useTranslations } from "next-intl";
 import { Check } from "lucide-react";
+import Image from "next/image";
 
 import { BOOK_CALL_URL } from "@/lib/constants";
 
@@ -9,12 +10,14 @@ interface ServiceCardProps {
   translationPrefix: string;
   readMoreUrl: string;
   highlighted?: boolean;
+  icon: string;
 }
 
 function ServiceCard({
   translationPrefix,
   readMoreUrl,
   highlighted = false,
+  icon,
 }: ServiceCardProps) {
   const t = useTranslations("services");
 
@@ -32,18 +35,10 @@ function ServiceCard({
           : "border border-spaik-clay-light"
       }`}
     >
-      {/* Decorative dot grid */}
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="absolute top-6 right-6 opacity-40">
-        <circle cx="4" cy="4" r="1.5" fill="#ff7150" />
-        <circle cx="12" cy="4" r="1.5" fill="#ff7150" />
-        <circle cx="20" cy="4" r="1.5" fill="#ff7150" />
-        <circle cx="4" cy="12" r="1.5" fill="#ff7150" />
-        <circle cx="12" cy="12" r="1.5" fill="#ff7150" />
-        <circle cx="20" cy="12" r="1.5" fill="#ff7150" />
-        <circle cx="4" cy="20" r="1.5" fill="#ff7150" />
-        <circle cx="12" cy="20" r="1.5" fill="#ff7150" />
-        <circle cx="20" cy="20" r="1.5" fill="#ff7150" />
-      </svg>
+      {/* Brand icon — top-right */}
+      <div className="absolute top-6 right-6" style={{ width: 36, height: 36 }}>
+        <Image src={icon} alt="" width={36} height={36} className="opacity-70" style={{ filter: "brightness(0) saturate(100%) invert(52%) sepia(72%) saturate(1632%) hue-rotate(334deg) brightness(101%) contrast(101%)" }} />
+      </div>
 
       {highlighted && (
         <span className="absolute -top-3 left-6 rounded-full bg-spaik-orange px-3 py-1 text-xs font-medium text-white">
@@ -153,15 +148,18 @@ export function ServicesSection() {
           <ServiceCard
             translationPrefix="inspiration"
             readMoreUrl="https://inspiratie.spaik.io/"
+            icon="/images/icon-inspiration.svg"
           />
           <ServiceCard
             translationPrefix="kickstart"
             readMoreUrl="https://kickstart.spaik.io/"
             highlighted
+            icon="/images/icon-kickstart.svg"
           />
           <ServiceCard
             translationPrefix="fundamentals"
             readMoreUrl="https://fundamentals.spaik.io/"
+            icon="/images/icon-fundamentals.svg"
           />
         </div>
 

@@ -12,12 +12,13 @@ export function HeroSection() {
       {/* Decorative dot-grid pattern — left side, behind hero text */}
       <div
         className="pointer-events-none absolute left-0 top-0 h-full"
-        style={{ width: "45%", opacity: 0.10, zIndex: 0 }}
+        style={{ width: "45%", opacity: 0.06, zIndex: 0 }}
       >
         <img
           src="/images/hero-graphic.png"
           alt=""
           className="h-full w-full object-cover object-right"
+          style={{ maskImage: "linear-gradient(to right, black 40%, transparent 100%)", WebkitMaskImage: "linear-gradient(to right, black 40%, transparent 100%)" }}
         />
       </div>
 

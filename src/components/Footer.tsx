@@ -104,18 +104,18 @@ export function Footer() {
           </div>
         </div>
 
-        {/* Decorative dot-grid texture — bottom-right corner */}
+        {/* Enlarged SPAIK logomark — half-visible at bottom-right */}
         <div
-          className="absolute bottom-0 right-0 pointer-events-none"
-          style={{ width: "25%", height: "55%", zIndex: 0, opacity: 0.10 }}
+          className="absolute pointer-events-none"
+          style={{ bottom: "-40%", right: "-5%", width: 320, height: 320, opacity: 0.06, zIndex: 0 }}
           aria-hidden="true"
         >
           <Image
-            src="/images/product-dot-pattern.png"
+            src="/images/Logomark.svg"
             alt=""
             fill
-            className="object-cover object-bottom-right"
-            sizes="25vw"
+            className="object-contain"
+            sizes="320px"
           />
         </div>
 
