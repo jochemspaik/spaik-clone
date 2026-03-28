@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState, type ReactNode, type CSSProperties } from "react";
+import { useEffect, useRef, type ReactNode, type CSSProperties } from "react";
 
 interface ScrollRevealProps {
   children: ReactNode;
@@ -10,9 +10,17 @@ interface ScrollRevealProps {
   direction?: "up" | "left" | "right" | "none";
 }
 
+const transforms: Record<string, string> = {
+  up: "translateY(24px)",
+  left: "translateX(-24px)",
+  right: "translateX(24px)",
+  none: "none",
+};
+
 /**
- * Subtle scroll-reveal: only animates elements that start BELOW the fold.
- * Elements within the initial viewport show immediately — no flash of invisible content.
+ * Scroll-reveal using CSS classes + IntersectionObserver.
+ * Elements start invisible via CSS and reveal when scrolled into view.
+ * Elements already in viewport on mount are revealed immediately (no flash).
  */
 export function ScrollReveal({
   children,
@@ -22,28 +30,33 @@ export function ScrollReveal({
   direction = "up",
 }: ScrollRevealProps) {
   const ref = useRef<HTMLDivElement>(null);
-  const [state, setState] = useState<"idle" | "hidden" | "visible">("idle");
 
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
 
-    const rect = el.getBoundingClientRect();
-    const isAboveFold = rect.top < window.innerHeight * 1.1;
+    // Apply initial hidden state via direct style (avoids SSR mismatch)
+    el.style.opacity = "0";
+    el.style.transform = transforms[direction];
 
-    // If element is near the viewport on mount, show it immediately
-    if (isAboveFold) {
-      setState("visible");
+    const reveal = () => {
+      el.style.transition = `opacity 0.6s ease ${delay}ms, transform 0.6s ease ${delay}ms`;
+      el.style.opacity = "1";
+      el.style.transform = "none";
+    };
+
+    // Check if already in viewport — reveal immediately (next frame for paint)
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight + 50) {
+      requestAnimationFrame(() => reveal());
       return;
     }
 
-    // Below the fold — set up scroll observation
-    setState("hidden");
-
+    // Below viewport — use IntersectionObserver
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setState("visible");
+          reveal();
           observer.unobserve(el);
         }
       },
@@ -51,30 +64,27 @@ export function ScrollReveal({
     );
 
     observer.observe(el);
-    return () => observer.disconnect();
-  }, []);
 
-  const transforms = {
-    up: "translateY(24px)",
-    left: "translateX(-24px)",
-    right: "translateX(24px)",
-    none: "none",
-  };
+    // Backup: also listen for scroll events in case IO doesn't fire with smooth scroll
+    const checkVisibility = () => {
+      const r = el.getBoundingClientRect();
+      if (r.top < window.innerHeight + 50) {
+        reveal();
+        observer.unobserve(el);
+        window.removeEventListener("scroll", checkVisibility);
+      }
+    };
+
+    window.addEventListener("scroll", checkVisibility, { passive: true });
+
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("scroll", checkVisibility);
+    };
+  }, [delay, direction]);
 
   return (
-    <div
-      ref={ref}
-      className={className}
-      style={{
-        ...style,
-        opacity: state === "hidden" ? 0 : 1,
-        transform: state === "hidden" ? transforms[direction] : "none",
-        transition:
-          state !== "idle"
-            ? `opacity 0.6s ease ${delay}ms, transform 0.6s ease ${delay}ms`
-            : "none",
-      }}
-    >
+    <div ref={ref} className={className} style={style}>
       {children}
     </div>
   );
