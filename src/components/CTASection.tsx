@@ -41,6 +41,7 @@ export function CTASection() {
                 loop
                 muted
                 playsInline
+                poster="/images/cta-poster.jpg"
                 className="h-full w-full object-cover"
                 src="/videos/secondary-animation.mp4"
               />

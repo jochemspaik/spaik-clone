@@ -38,7 +38,7 @@ export function AIDiscoverySection() {
       <div
         className="absolute inset-0 pointer-events-none opacity-[0.15]"
         style={{
-          backgroundImage: "url('/images/Gradient 01.png')",
+          backgroundImage: "url('/images/Gradient 01.webp')",
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}

@@ -124,7 +124,7 @@ export function TeamSection() {
         aria-hidden="true"
       >
         <Image
-          src="/images/Texture 1.png"
+          src="/images/Texture 1.webp"
           alt=""
           width={600}
           height={600}

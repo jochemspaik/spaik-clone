@@ -52,7 +52,7 @@ export function ProblemSolutionSection() {
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
-          backgroundImage: "url('/images/Texture 1.png')",
+          backgroundImage: "url('/images/Texture 1.webp')",
           backgroundSize: "800px",
           opacity: 0.08,
         }}

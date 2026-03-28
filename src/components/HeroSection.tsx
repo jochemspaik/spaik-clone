@@ -72,6 +72,7 @@ export function HeroSection() {
               loop
               muted
               playsInline
+              poster="/images/hero-poster.jpg"
               className="w-full max-w-[500px] h-auto"
               style={{ borderRadius: "16px" }}
             >

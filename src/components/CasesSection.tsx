@@ -151,7 +151,7 @@ export function CasesSection() {
       {/* Decorative texture */}
       <div
         className="absolute inset-0 pointer-events-none opacity-[0.03]"
-        style={{ backgroundImage: "url('/images/Texture 1.png')", backgroundSize: "800px", backgroundRepeat: "repeat" }}
+        style={{ backgroundImage: "url('/images/Texture 1.webp')", backgroundSize: "800px", backgroundRepeat: "repeat" }}
       />
 
       <div className="relative mx-auto" style={{ maxWidth: "1080px", padding: "80px 40px" }}>

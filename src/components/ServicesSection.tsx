@@ -119,7 +119,7 @@ export function ServicesSection() {
         style={{ opacity: 0.10, zIndex: 0 }}
       >
         <img
-          src="/images/Texture 1.png"
+          src="/images/Texture 1.webp"
           alt=""
           className="h-full w-full object-cover"
         />
@@ -131,7 +131,7 @@ export function ServicesSection() {
         style={{ width: "50%", opacity: 0.14, zIndex: 0 }}
       >
         <img
-          src="/images/Gradient 03.png"
+          src="/images/Gradient 03.webp"
           alt=""
           className="h-auto w-full object-contain object-bottom-right"
         />
