@@ -150,9 +150,9 @@ export function TeamSection() {
           </p>
         </div>
 
-        {/* Core team — prominent 3-column grid */}
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {TEAM_MEMBERS.slice(0, 9).map((member) => (
+        {/* Core team — 4-column grid matching original */}
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {TEAM_MEMBERS.slice(0, 12).map((member) => (
             <div
               key={member.name}
               className="group flex flex-col items-center rounded-xl p-6 transition-shadow duration-200 hover:shadow-sm"
@@ -193,7 +193,7 @@ export function TeamSection() {
 
         {/* Extended team — compact row */}
         <div className="mt-10 flex flex-wrap items-center justify-center gap-8">
-          {TEAM_MEMBERS.slice(9).map((member) => (
+          {TEAM_MEMBERS.slice(12).map((member) => (
             <a
               key={member.name}
               href={member.linkedin}
