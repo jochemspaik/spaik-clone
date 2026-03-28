@@ -35,28 +35,28 @@ export function Footer() {
           {/* Center: Navigation Links */}
           <nav className="flex flex-col gap-3">
             <a
-              href="#cases"
+              href="/#cases"
               className="transition-opacity hover:opacity-60"
               style={{ fontSize: 15, color: "#0b0b0b" }}
             >
               {t("footer.cases")}
             </a>
             <a
-              href="#services"
+              href="/#services"
               className="transition-opacity hover:opacity-60"
               style={{ fontSize: 15, color: "#0b0b0b" }}
             >
               {t("footer.services")}
             </a>
             <a
-              href="#why-spaik"
+              href="/#why-spaik"
               className="transition-opacity hover:opacity-60"
               style={{ fontSize: 15, color: "#0b0b0b" }}
             >
               {t("footer.whySpaik")}
             </a>
             <a
-              href="#team"
+              href="/#team"
               className="transition-opacity hover:opacity-60"
               style={{ fontSize: 15, color: "#0b0b0b" }}
             >
