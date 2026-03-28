@@ -116,7 +116,7 @@ export function ServicesSection() {
       {/* Texture overlay — full bleed at low opacity */}
       <div
         className="pointer-events-none absolute inset-0"
-        style={{ opacity: 0.04, zIndex: 0 }}
+        style={{ opacity: 0.10, zIndex: 0 }}
       >
         <img
           src="/images/Texture 1.png"
@@ -128,7 +128,7 @@ export function ServicesSection() {
       {/* Gradient blob — bottom-right accent */}
       <div
         className="pointer-events-none absolute bottom-0 right-0"
-        style={{ width: "50%", opacity: 0.08, zIndex: 0 }}
+        style={{ width: "50%", opacity: 0.14, zIndex: 0 }}
       >
         <img
           src="/images/Gradient 03.png"

@@ -54,7 +54,7 @@ export function ProblemSolutionSection() {
         style={{
           backgroundImage: "url('/images/Texture 1.png')",
           backgroundSize: "800px",
-          opacity: 0.03,
+          opacity: 0.08,
         }}
       />
 
@@ -211,7 +211,7 @@ export function ProblemSolutionSection() {
         <div
           className="rounded-3xl overflow-hidden flex flex-col md:flex-row"
           style={{
-            background: "linear-gradient(135deg, #eef6f5 0%, #e8effb 40%, #f7f4ff 100%)",
+            background: "linear-gradient(135deg, #c5d5f0 0%, #bbc8e8 40%, #d8dff5 100%)",
           }}
         >
           {/* Photo */}

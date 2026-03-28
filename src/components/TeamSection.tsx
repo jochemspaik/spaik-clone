@@ -120,7 +120,7 @@ export function TeamSection() {
       {/* Decorative dot-grid texture — top-right */}
       <div
         className="absolute top-0 right-0 pointer-events-none"
-        style={{ width: "40%", zIndex: 0, opacity: 0.07 }}
+        style={{ width: "40%", zIndex: 0, opacity: 0.12 }}
         aria-hidden="true"
       >
         <Image
@@ -151,20 +151,20 @@ export function TeamSection() {
         </div>
 
         {/* Team grid */}
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {TEAM_MEMBERS.map((member) => (
             <div
               key={member.name}
-              className="group flex flex-col items-center rounded-xl p-6 transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
+              className="group flex flex-col items-center rounded-xl p-6 transition-all duration-200 hover:shadow-sm"
             >
               {/* Photo */}
-              <div className="relative mb-4 aspect-square w-full overflow-hidden rounded-xl transition-transform duration-300 group-hover:scale-105">
+              <div className="relative mb-4 aspect-square w-full overflow-hidden rounded-xl transition-transform duration-200 group-hover:scale-[1.02]">
                 <Image
                   src={member.photo}
                   alt={member.name}
                   fill
                   className="object-cover"
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 />
               </div>
 

@@ -81,7 +81,7 @@ export function HeroSection() {
               className="absolute inset-0 pointer-events-none"
               style={{
                 background:
-                  "radial-gradient(44% 44%, rgba(153, 238, 255, 0) 44%, rgb(255, 255, 255) 100%)",
+                  "radial-gradient(58% 58%, rgba(153, 238, 255, 0) 50%, rgb(255, 255, 255) 100%)",
               }}
             />
           </div>
