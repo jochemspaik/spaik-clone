@@ -215,13 +215,13 @@ export function ProblemSolutionSection() {
           }}
         >
           {/* Photo */}
-          <div className="relative w-full md:w-[320px] h-[300px] md:h-auto flex-shrink-0">
+          <div className="relative w-full md:w-[400px] h-[340px] md:h-auto flex-shrink-0">
             <Image
               src="/images/case-johanneke.jpg"
               alt="Johanneke Behrend"
               fill
               className="object-cover"
-              sizes="280px"
+              sizes="(max-width: 768px) 100vw, 400px"
             />
           </div>
           {/* Quote content */}

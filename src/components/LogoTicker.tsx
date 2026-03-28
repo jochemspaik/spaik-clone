@@ -8,10 +8,10 @@ const logos = Array.from({ length: LOGO_COUNT }, (_, i) => ({
 
 export function LogoTicker() {
   return (
-    <section className="w-full" style={{ backgroundColor: "rgba(0, 0, 0, 0.05)" }}>
+    <section className="w-full bg-white">
       <div
         className="relative mx-auto overflow-hidden"
-        style={{ maxWidth: 1200, height: 200 }}
+        style={{ maxWidth: 1200, height: 120 }}
       >
         {/* Left fade */}
         <div
@@ -48,8 +48,8 @@ export function LogoTicker() {
                 alt={logo.alt}
                 width={100}
                 height={40}
-                className="grayscale"
-                style={{ width: 100, height: "auto" }}
+                className="grayscale opacity-60"
+                style={{ width: 100, height: "auto", mixBlendMode: "multiply" }}
               />
             </div>
           ))}
@@ -65,8 +65,8 @@ export function LogoTicker() {
                 alt={logo.alt}
                 width={100}
                 height={40}
-                className="grayscale"
-                style={{ width: 100, height: "auto" }}
+                className="grayscale opacity-60"
+                style={{ width: 100, height: "auto", mixBlendMode: "multiply" }}
               />
             </div>
           ))}

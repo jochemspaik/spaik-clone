@@ -133,7 +133,7 @@ export function TeamSection() {
         />
       </div>
 
-      <div className="relative z-1 mx-auto max-w-7xl">
+      <div className="relative z-1 mx-auto" style={{ maxWidth: "1080px" }}>
         {/* Section header */}
         <div className="mb-12 text-center">
           <h2
