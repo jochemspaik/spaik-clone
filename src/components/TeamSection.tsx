@@ -150,14 +150,13 @@ export function TeamSection() {
           </p>
         </div>
 
-        {/* Team grid */}
+        {/* Core team — prominent 3-column grid */}
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {TEAM_MEMBERS.map((member) => (
+          {TEAM_MEMBERS.slice(0, 9).map((member) => (
             <div
               key={member.name}
               className="group flex flex-col items-center rounded-xl p-6 transition-shadow duration-200 hover:shadow-sm"
             >
-              {/* Photo */}
               <div className="relative mb-4 aspect-square w-full overflow-hidden rounded-xl transition-transform duration-200 group-hover:scale-[1.02]">
                 <Image
                   src={member.photo}
@@ -167,8 +166,6 @@ export function TeamSection() {
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 />
               </div>
-
-              {/* Info */}
               <p
                 className="font-sans text-spaik-black"
                 style={{ fontSize: "16px", fontWeight: 700 }}
@@ -181,8 +178,6 @@ export function TeamSection() {
               >
                 {member.role}
               </p>
-
-              {/* LinkedIn */}
               <a
                 href={member.linkedin}
                 target="_blank"
@@ -193,6 +188,35 @@ export function TeamSection() {
                 <LinkedInIcon />
               </a>
             </div>
+          ))}
+        </div>
+
+        {/* Extended team — compact row */}
+        <div className="mt-10 flex flex-wrap items-center justify-center gap-8">
+          {TEAM_MEMBERS.slice(9).map((member) => (
+            <a
+              key={member.name}
+              href={member.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex flex-col items-center gap-2"
+            >
+              <div className="relative overflow-hidden rounded-full transition-transform duration-200 group-hover:scale-105" style={{ width: 72, height: 72 }}>
+                <Image
+                  src={member.photo}
+                  alt={member.name}
+                  fill
+                  className="object-cover"
+                  sizes="72px"
+                />
+              </div>
+              <p className="font-sans text-spaik-black/80" style={{ fontSize: "13px", fontWeight: 500 }}>
+                {member.name}
+              </p>
+              <p className="font-sans text-spaik-black/40" style={{ fontSize: "12px" }}>
+                {member.role}
+              </p>
+            </a>
           ))}
         </div>
       </div>

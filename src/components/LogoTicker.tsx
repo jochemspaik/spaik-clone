@@ -11,7 +11,7 @@ export function LogoTicker() {
     <section className="w-full bg-white">
       <div
         className="relative mx-auto overflow-hidden"
-        style={{ maxWidth: 1200, height: 120 }}
+        style={{ maxWidth: 1200, height: 150 }}
       >
         {/* Left fade */}
         <div

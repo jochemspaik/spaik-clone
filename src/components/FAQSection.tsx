@@ -48,7 +48,7 @@ export function FAQSection() {
   }
 
   return (
-    <SectionWrapper id="faq" className="bg-white">
+    <SectionWrapper id="faq" className="bg-[#faf9f7]">
         <h2
           className="mb-10 text-center font-heading text-spaik-black"
           style={{ fontSize: "32px", fontWeight: 100 }}

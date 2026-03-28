@@ -106,8 +106,15 @@ export function DiscoverySection() {
   }
 
   return (
-    <section className="bg-white" style={{ padding: "80px 40px" }}>
-      <div className="mx-auto" style={{ maxWidth: "1080px" }}>
+    <section className="relative overflow-hidden" style={{ padding: "80px 40px", backgroundColor: "#faf9f7" }}>
+      {/* Subtle gradient accent */}
+      <div
+        className="pointer-events-none absolute bottom-0 left-0"
+        style={{ width: "40%", height: "60%", opacity: 0.08, zIndex: 0 }}
+      >
+        <img src="/images/Gradient 02.webp" alt="" className="h-full w-full object-cover" />
+      </div>
+      <div className="relative z-1 mx-auto" style={{ maxWidth: "1080px" }}>
         <div className="flex flex-col gap-12 lg:flex-row lg:gap-16">
           {/* Left column — title, subtitle, node diagram */}
           <div className="flex flex-col lg:w-[40%]">

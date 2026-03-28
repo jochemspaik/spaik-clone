@@ -63,19 +63,19 @@ export function CTASection() {
           <div className="flex flex-col lg:w-1/2">
             <h2
               className="font-heading text-spaik-black"
-              style={{ fontSize: "32px", fontWeight: 100 }}
+              style={{ fontSize: "36px", fontWeight: 100, lineHeight: "1.2" }}
             >
               {t("title")}
             </h2>
             <p
-              className="mt-4 font-sans text-spaik-black/70"
-              style={{ fontSize: "16px", lineHeight: "1.6", maxWidth: "480px" }}
+              className="mt-5 font-sans text-spaik-black/70"
+              style={{ fontSize: "17px", lineHeight: "1.7", maxWidth: "480px" }}
             >
               {t("description")}
             </p>
 
             {/* CTA button */}
-            <div className="mt-8">
+            <div className="mt-10">
               <RollingTextButton
                 text={t("button")}
                 href={BOOK_CALL_URL}
