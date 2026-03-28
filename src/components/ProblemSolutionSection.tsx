@@ -168,9 +168,9 @@ export function ProblemSolutionSection() {
                   border: "1px solid rgba(0,0,0,0.06)",
                 }}
               >
-                {/* Blue/lavender gradient strip */}
+                {/* Blue/lavender gradient strip with grain dither */}
                 <div
-                  className="w-full"
+                  className="grain-overlay w-full"
                   style={{
                     height: "48px",
                     background: SOLUTION_GRADIENTS[i - 1],
@@ -209,7 +209,7 @@ export function ProblemSolutionSection() {
 
         {/* Testimonial card */}
         <div
-          className="rounded-3xl overflow-hidden flex flex-col md:flex-row"
+          className="grain-overlay rounded-3xl overflow-hidden flex flex-col md:flex-row"
           style={{
             background: "linear-gradient(135deg, #c5d5f0 0%, #bbc8e8 40%, #d8dff5 100%)",
           }}
