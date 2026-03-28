@@ -9,98 +9,84 @@ const TEAM_MEMBERS = [
     role: "Co-founder & CEO · Strategy",
     photo: "/images/team-jochem.jpg",
     linkedin: "https://www.linkedin.com/in/jochemvanlaren/",
-    initials: "JL",
   },
   {
     name: "Thijs Bongertman",
     role: "Co-founder · CTO · Development",
     photo: "/images/team-thijs.jpeg",
     linkedin: "https://www.linkedin.com/in/thijsbongertman",
-    initials: "TB",
   },
   {
     name: "Jan Bolle",
     role: "Co-founder · CCO · Commercial",
     photo: "/images/team-jan.png",
     linkedin: "https://www.linkedin.com/in/janbolle",
-    initials: "JB",
   },
   {
     name: "Ted Blankers",
     role: "Adoption Lead",
     photo: "/images/team-ted.jpg",
     linkedin: "https://www.linkedin.com/in/ted-b-312b3263/",
-    initials: "TB",
   },
   {
     name: "Philip de Leeuwe",
     role: "Commercial Lead",
     photo: "/images/team-philip.jpg",
     linkedin: "https://www.linkedin.com/in/philip-de-leeuwe-b9601928/",
-    initials: "PL",
   },
   {
     name: "Gwen Roelofs",
     role: "Business Development",
     photo: "/images/team-gwen.jpg",
     linkedin: "https://www.linkedin.com/in/gwen-roelofs-a132295",
-    initials: "GR",
   },
   {
     name: "Brahma Behrend",
     role: "Automation Specialist",
-    photo: null,
+    photo: "/images/team-brahma.png",
     linkedin: "https://www.linkedin.com/in/brahma-behrend-2aa46b204/",
-    initials: "BB",
   },
   {
     name: "Mike Krom",
     role: "Lead Development",
-    photo: null,
+    photo: "/images/team-mike.png",
     linkedin: "https://www.linkedin.com/in/mike-krom-9031638b/",
-    initials: "MK",
   },
   {
     name: "Jasmijn de Groot",
     role: "Facilitation",
-    photo: null,
+    photo: "/images/team-jasmijn.jpg",
     linkedin: "https://www.linkedin.com/in/jasmijndegroot/",
-    initials: "JG",
   },
   {
     name: "Duco Gaillard",
     role: "Data Scientist",
-    photo: null,
+    photo: "/images/team-duco.jpg",
     linkedin: "https://www.linkedin.com/in/dhk-gaillard/",
-    initials: "DG",
   },
   {
     name: "Booy van Hees",
     role: "Facilitation & Change",
-    photo: null,
+    photo: "/images/team-booy.png",
     linkedin: "https://www.linkedin.com/in/booyvanhees/",
-    initials: "BH",
   },
   {
     name: "Aron Rikels",
     role: "Marketing Analyst",
-    photo: null,
+    photo: "/images/team-aron.jpg",
     linkedin: "https://www.linkedin.com/in/aronrikels/",
-    initials: "AR",
   },
   {
     name: "Mirjam Cassee",
     role: "Facilitation & Projects",
-    photo: null,
+    photo: "/images/team-mirjam.jpg",
     linkedin: "https://www.linkedin.com/in/mirjamcass%C3%A9e/",
-    initials: "MC",
   },
   {
     name: "Jeroen Donders",
     role: "AI Engineer",
-    photo: null,
+    photo: "/images/team-jeroen.jpg",
     linkedin: "https://www.linkedin.com/in/jeroen-donders-6a77ab4b/",
-    initials: "JD",
   },
 ] as const;
 
@@ -168,29 +154,16 @@ export function TeamSection() {
               key={member.name}
               className="group flex flex-col items-center rounded-xl p-6 transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
             >
-              {/* Photo or placeholder */}
-              {member.photo ? (
-                <div className="relative mb-4 aspect-square w-full overflow-hidden rounded-xl transition-transform duration-300 group-hover:scale-105">
-                  <Image
-                    src={member.photo}
-                    alt={member.name}
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                  />
-                </div>
-              ) : (
-                <div
-                  className="mb-4 flex aspect-square w-full items-center justify-center rounded-xl bg-spaik-clay-light transition-transform duration-300 group-hover:scale-105"
-                >
-                  <span
-                    className="font-sans text-spaik-black/50"
-                    style={{ fontSize: "32px", fontWeight: 500 }}
-                  >
-                    {member.initials}
-                  </span>
-                </div>
-              )}
+              {/* Photo */}
+              <div className="relative mb-4 aspect-square w-full overflow-hidden rounded-xl transition-transform duration-300 group-hover:scale-105">
+                <Image
+                  src={member.photo}
+                  alt={member.name}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                />
+              </div>
 
               {/* Info */}
               <p

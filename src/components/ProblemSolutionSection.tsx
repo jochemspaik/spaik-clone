@@ -210,7 +210,7 @@ export function ProblemSolutionSection() {
           {/* Photo */}
           <div className="relative w-full md:w-[320px] h-[300px] md:h-auto flex-shrink-0">
             <Image
-              src="/images/Photo 1.png"
+              src="/images/case-johanneke.jpg"
               alt="Johanneke Behrend"
               fill
               className="object-cover"
