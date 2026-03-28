@@ -55,8 +55,22 @@ export function AIDiscoverySection() {
         />
       </div>
 
-      <div className="relative mx-auto max-w-7xl">
-        <div className="max-w-2xl">
+      <div className="relative mx-auto flex flex-col gap-12 lg:flex-row lg:items-center lg:gap-16" style={{ maxWidth: 1080 }}>
+        {/* Left: Product screenshot */}
+        <div className="lg:w-1/2">
+          <div className="relative overflow-hidden rounded-2xl shadow-sm" style={{ aspectRatio: "4 / 3" }}>
+            <Image
+              src="/images/ai-discovery-product.png"
+              alt={t("title")}
+              fill
+              className="object-contain"
+              sizes="(max-width: 1024px) 100vw, 50vw"
+            />
+          </div>
+        </div>
+
+        {/* Right: Text content */}
+        <div className="lg:w-1/2">
           <h2
             className="font-heading text-spaik-black"
             style={{ fontSize: "32px", fontWeight: 100 }}
@@ -65,7 +79,7 @@ export function AIDiscoverySection() {
           </h2>
           <p
             className="mt-4 text-spaik-black/70"
-            style={{ fontSize: "16px", maxWidth: "700px" }}
+            style={{ fontSize: "16px", maxWidth: "480px" }}
           >
             {t("subtitle")}
           </p>
