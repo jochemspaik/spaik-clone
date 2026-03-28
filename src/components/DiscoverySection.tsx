@@ -169,7 +169,7 @@ export function DiscoverySection() {
               <button
                 type="button"
                 onClick={() => toggle("operational")}
-                className={`absolute flex items-center gap-2 rounded-full border px-4 py-2 font-sans text-sm transition-all ${
+                className={`absolute flex items-center gap-2 rounded-full border px-4 py-2 font-sans text-sm transition-colors duration-200 ${
                   expanded === "operational"
                     ? "border-spaik-orange bg-spaik-orange-50 text-spaik-black"
                     : "border-spaik-clay bg-white text-spaik-black/70 hover:border-spaik-orange"
@@ -189,7 +189,7 @@ export function DiscoverySection() {
               <button
                 type="button"
                 onClick={() => toggle("marketing")}
-                className={`absolute flex items-center gap-2 rounded-full border px-4 py-2 font-sans text-sm transition-all ${
+                className={`absolute flex items-center gap-2 rounded-full border px-4 py-2 font-sans text-sm transition-colors duration-200 ${
                   expanded === "marketing"
                     ? "border-spaik-orange bg-spaik-orange-50 text-spaik-black"
                     : "border-spaik-clay bg-white text-spaik-black/70 hover:border-spaik-orange"
@@ -209,7 +209,7 @@ export function DiscoverySection() {
               <button
                 type="button"
                 onClick={() => toggle("data")}
-                className={`absolute flex items-center gap-2 rounded-full border px-4 py-2 font-sans text-sm transition-all ${
+                className={`absolute flex items-center gap-2 rounded-full border px-4 py-2 font-sans text-sm transition-colors duration-200 ${
                   expanded === "data"
                     ? "border-spaik-orange bg-spaik-orange-50 text-spaik-black"
                     : "border-spaik-clay bg-white text-spaik-black/70 hover:border-spaik-orange"
@@ -261,7 +261,7 @@ export function DiscoverySection() {
 
                     {/* Expanded content */}
                     <div
-                      className="overflow-hidden transition-all duration-300 ease-in-out"
+                      className="overflow-hidden transition-[max-height,opacity] duration-300 ease-in-out"
                       style={{
                         maxHeight: isExpanded ? "200px" : "0px",
                         opacity: isExpanded ? 1 : 0,
