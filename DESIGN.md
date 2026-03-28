@@ -34,6 +34,16 @@ Extracted from the SPAIK Brand Guidelines (November 2025) and the live site at s
 - Orange **never** as a background color — designs remain light
 - Gradients **always** contain Off-White to balance and keep a clear background
 - Pair max 2 secondary colors with Off-White in gradients
+- Orange is used **specifically** to highlight information — CTAs, icons, the logo on Off-White backgrounds. It is the dominant accent by design, chosen for impact and effectiveness.
+
+### Logo Background Rules
+| Context | Logo color |
+|---------|-----------|
+| Off-White backgrounds | Off-Black logo |
+| Off-White backgrounds (accent) | Orange logo |
+| Textured backgrounds | Off-Black logo |
+| Gradient backgrounds | Off-Black logo |
+| Over images | White or Black only — never brand colors |
 
 ## Typography
 
@@ -92,6 +102,19 @@ Extracted from the SPAIK Brand Guidelines (November 2025) and the live site at s
 - The dot-grid is the brand's signature visual element — use it deliberately
 
 ## Animations
+
+### Animation Tokens (CSS Custom Properties)
+```css
+--duration-instant: 100ms;   /* Button states, toggles */
+--duration-fast: 150ms;      /* Hover effects, simple fades */
+--duration-normal: 250ms;    /* Most UI transitions */
+--duration-slow: 400ms;      /* Complex transitions */
+--duration-slower: 600ms;    /* Scroll reveals, hero animations */
+--ease-default: cubic-bezier(0.4, 0, 0.2, 1);  /* Standard Material motion */
+--ease-in: cubic-bezier(0.4, 0, 1, 1);          /* Elements leaving */
+--ease-out: cubic-bezier(0, 0, 0.2, 1);         /* Elements entering */
+--ease-bounce: cubic-bezier(0.68, -0.55, 0.27, 1.55); /* Playful entrances */
+```
 
 ### Scroll Reveal
 - Duration: `0.6s`

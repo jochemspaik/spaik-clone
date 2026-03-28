@@ -153,6 +153,17 @@
   --sidebar-accent-foreground: #0b0b0b;
   --sidebar-border: #efede5;
   --sidebar-ring: #ff7150;
+
+  /* Animation tokens (ui-animation skill) */
+  --duration-instant: 100ms;
+  --duration-fast: 150ms;
+  --duration-normal: 250ms;
+  --duration-slow: 400ms;
+  --duration-slower: 600ms;
+  --ease-default: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --ease-bounce: cubic-bezier(0.68, -0.55, 0.27, 1.55);
 }
 
 @layer base {
@@ -163,6 +174,10 @@
     @apply bg-background text-foreground;
     font-family: "SF Pro Text", "SF Pro Display", -apple-system, BlinkMacSystemFont, sans-serif;
     overflow-x: hidden;
+  }
+  /* Faster tap response on mobile (ui-animation skill) */
+  a, button, [role="button"] {
+    touch-action: manipulation;
   }
   html {
     /* Lenis handles smooth scroll — no CSS smooth needed */

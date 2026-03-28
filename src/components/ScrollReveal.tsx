@@ -48,7 +48,7 @@ export function ScrollReveal({
     el.style.transform = transforms[direction];
 
     const reveal = () => {
-      el.style.transition = `opacity 0.6s ease ${delay}ms, transform 0.6s ease ${delay}ms`;
+      el.style.transition = `opacity var(--duration-slower, 0.6s) var(--ease-default, ease) ${delay}ms, transform var(--duration-slower, 0.6s) var(--ease-default, ease) ${delay}ms`;
       el.style.opacity = "1";
       el.style.transform = "none";
     };
