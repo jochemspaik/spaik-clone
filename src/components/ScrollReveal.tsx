@@ -35,6 +35,14 @@ export function ScrollReveal({
     const el = ref.current;
     if (!el) return;
 
+    // Respect prefers-reduced-motion
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (prefersReducedMotion) {
+      el.style.opacity = "1";
+      el.style.transform = "none";
+      return;
+    }
+
     // Apply initial hidden state via direct style (avoids SSR mismatch)
     el.style.opacity = "0";
     el.style.transform = transforms[direction];

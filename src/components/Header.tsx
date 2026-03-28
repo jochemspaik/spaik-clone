@@ -58,7 +58,7 @@ export function Header() {
 
   return (
     <header
-      className={`sticky top-0 z-50 w-full transition-all duration-200 ${
+      className={`sticky top-0 z-50 w-full transition-[background-color,backdrop-filter] duration-200 ${
         scrolled ? "bg-white/85 backdrop-blur-md" : "bg-white"
       }`}
     >
@@ -131,7 +131,7 @@ export function Header() {
 
       {/* Mobile Slide-out Panel */}
       <div
-        className={`overflow-hidden transition-all duration-300 ease-in-out md:hidden ${
+        className={`overflow-hidden transition-[max-height,opacity] duration-300 ease-in-out md:hidden ${
           mobileMenuOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
         }`}
       >

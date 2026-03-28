@@ -221,6 +221,7 @@ export function ProblemSolutionSection() {
               alt="Johanneke Behrend"
               fill
               className="object-cover"
+              sizes="280px"
             />
           </div>
           {/* Quote content */}

@@ -300,7 +300,7 @@
   font-size: 16px;
   border-radius: 12px;
   padding: 14px 28px;
-  transition: all 0.2s ease;
+  transition: opacity 0.2s ease, transform 0.2s ease;
   cursor: pointer;
   text-decoration: none;
 }
@@ -308,6 +308,10 @@
 .cta-button:hover {
   opacity: 0.9;
   transform: translateY(-1px);
+}
+
+.cta-button:active {
+  transform: scale(0.98);
 }
 
 .cta-button-primary {
@@ -345,6 +349,37 @@
   opacity: 0.02;
   pointer-events: none;
   z-index: 0;
+}
+
+/* Reduced motion: disable non-essential animations */
+@media (prefers-reduced-motion: reduce) {
+  .animate-ticker {
+    animation: none;
+  }
+  .animate-fade-in-up,
+  .animate-count-up {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+  .rolling-text span {
+    transition: none;
+  }
+  .rolling-text:hover span {
+    transform: none;
+  }
+  .cta-button {
+    transition: none;
+  }
+}
+
+/* Focus-visible: accessible keyboard focus indicators */
+a:focus-visible,
+button:focus-visible,
+[role="button"]:focus-visible {
+  outline: 2px solid var(--color-spaik-orange);
+  outline-offset: 2px;
+  border-radius: 4px;
 }
 
 /* Selection color */

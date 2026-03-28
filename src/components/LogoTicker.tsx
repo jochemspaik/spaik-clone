@@ -48,8 +48,8 @@ export function LogoTicker() {
                 alt={logo.alt}
                 width={100}
                 height={40}
-                className="h-auto grayscale"
-                style={{ width: 100 }}
+                className="grayscale"
+                style={{ width: 100, height: "auto" }}
               />
             </div>
           ))}
@@ -65,8 +65,8 @@ export function LogoTicker() {
                 alt={logo.alt}
                 width={100}
                 height={40}
-                className="h-auto grayscale"
-                style={{ width: 100 }}
+                className="grayscale"
+                style={{ width: 100, height: "auto" }}
               />
             </div>
           ))}

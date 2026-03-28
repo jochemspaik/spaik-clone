@@ -155,7 +155,7 @@ export function TeamSection() {
           {TEAM_MEMBERS.map((member) => (
             <div
               key={member.name}
-              className="group flex flex-col items-center rounded-xl p-6 transition-all duration-200 hover:shadow-sm"
+              className="group flex flex-col items-center rounded-xl p-6 transition-shadow duration-200 hover:shadow-sm"
             >
               {/* Photo */}
               <div className="relative mb-4 aspect-square w-full overflow-hidden rounded-xl transition-transform duration-200 group-hover:scale-[1.02]">
