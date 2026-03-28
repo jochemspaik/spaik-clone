@@ -121,7 +121,7 @@ export function TeamSection() {
       {/* Decorative dot-grid texture — top-right */}
       <div
         className="absolute top-0 right-0 pointer-events-none"
-        style={{ width: "40%", zIndex: 0, opacity: 0.12 }}
+        style={{ width: "40%", zIndex: 0, opacity: 0.05 }}
         aria-hidden="true"
       >
         <Image

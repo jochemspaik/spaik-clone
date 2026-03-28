@@ -120,17 +120,6 @@ export function ServicesSection() {
         />
       </div>
 
-      {/* Gradient blob — bottom-right accent */}
-      <div
-        className="pointer-events-none absolute bottom-0 right-0"
-        style={{ width: "50%", opacity: 0.14, zIndex: 0 }}
-      >
-        <img
-          src="/images/Gradient 03.webp"
-          alt=""
-          className="h-auto w-full object-contain object-bottom-right"
-        />
-      </div>
 
       <div className="relative z-1 mx-auto" style={{ maxWidth: "1080px" }}>
         {/* Section header */}

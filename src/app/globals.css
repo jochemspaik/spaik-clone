@@ -386,6 +386,21 @@
   background-size: 200px;
 }
 
+/* SPAIK dot-grid dither pattern for solution card strips */
+.solution-dither-strip {
+  position: relative;
+}
+.solution-dither-strip::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  background-image:
+    radial-gradient(circle at center, rgba(255,255,255,0.7) 1.4px, transparent 1.4px);
+  background-size: 5px 5px;
+}
+
 /* Reduced motion: disable non-essential animations */
 @media (prefers-reduced-motion: reduce) {
   .animate-ticker {

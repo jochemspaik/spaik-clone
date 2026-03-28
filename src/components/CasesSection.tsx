@@ -248,7 +248,7 @@ export function CasesSection() {
               key={c.companyName}
               type="button"
               onClick={() => goTo(i)}
-              className="relative flex-1 text-left rounded-xl px-5 py-4 transition-[background-color,border-color] duration-300"
+              className="relative flex-1 text-left rounded-xl px-5 py-4 overflow-hidden transition-[background-color,border-color] duration-300"
               style={{
                 backgroundColor: i === active ? c.bgColor : "rgba(0,0,0,0.03)",
                 border: i === active ? `2px solid ${c.accentColor}` : "2px solid transparent",

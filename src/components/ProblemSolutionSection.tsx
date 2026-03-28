@@ -34,9 +34,9 @@ function CheckIcon() {
 }
 
 const SOLUTION_GRADIENTS = [
-  "linear-gradient(135deg, #c5d5f0 0%, #d8dff0 60%, #e8effb 100%)",
-  "linear-gradient(135deg, #d0d8f0 0%, #dce3f2 60%, #eaf0fb 100%)",
-  "linear-gradient(135deg, #d8dff0 0%, #e4eaf5 60%, #eef4fc 100%)",
+  "linear-gradient(135deg, #8ba4d4 0%, #a2b8e4 50%, #bccef0 100%)",
+  "linear-gradient(135deg, #92aad6 0%, #a8bde6 50%, #c2d2f0 100%)",
+  "linear-gradient(135deg, #9ab0d8 0%, #aec4e8 50%, #c8d8f2 100%)",
 ];
 
 export function ProblemSolutionSection() {
@@ -168,11 +168,11 @@ export function ProblemSolutionSection() {
                   border: "1px solid rgba(0,0,0,0.06)",
                 }}
               >
-                {/* Blue/lavender gradient strip with grain dither */}
+                {/* Blue/lavender gradient strip with SPAIK dot-grid dither */}
                 <div
-                  className="grain-overlay w-full"
+                  className="solution-dither-strip relative w-full overflow-hidden"
                   style={{
-                    height: "48px",
+                    height: "56px",
                     background: SOLUTION_GRADIENTS[i - 1],
                   }}
                 />
