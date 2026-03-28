@@ -117,17 +117,20 @@ export function TeamSection() {
       className="relative overflow-hidden bg-white"
       style={{ padding: "80px 40px" }}
     >
-      {/* Decorative dot pattern */}
+      {/* Decorative dot-grid texture — top-right */}
       <div
-        className="absolute -top-14 -right-8 pointer-events-none opacity-[0.06]"
-        style={{
-          width: "548px",
-          height: "476px",
-          transform: "rotate(-25deg)",
-          zIndex: 0,
-        }}
+        className="absolute top-0 right-0 pointer-events-none"
+        style={{ width: "40%", zIndex: 0, opacity: 0.07 }}
+        aria-hidden="true"
       >
-        <img src="/images/product-mockup-4.png" alt="" className="w-full h-full object-contain" />
+        <Image
+          src="/images/Texture 1.png"
+          alt=""
+          width={600}
+          height={600}
+          className="w-full h-auto object-contain"
+          sizes="40vw"
+        />
       </div>
 
       <div className="relative z-1 mx-auto max-w-7xl">

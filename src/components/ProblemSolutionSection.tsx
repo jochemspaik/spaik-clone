@@ -33,10 +33,10 @@ function CheckIcon() {
   );
 }
 
-const SOLUTION_IMAGES = [
-  "/images/product-mockup-1.png",
-  "/images/product-mockup-2.png",
-  "/images/product-mockup-3.png",
+const SOLUTION_GRADIENTS = [
+  "linear-gradient(135deg, #c5d5f0 0%, #d8dff0 60%, #e8effb 100%)",
+  "linear-gradient(135deg, #d0d8f0 0%, #dce3f2 60%, #eaf0fb 100%)",
+  "linear-gradient(135deg, #d8dff0 0%, #e4eaf5 60%, #eef4fc 100%)",
 ];
 
 export function ProblemSolutionSection() {
@@ -48,6 +48,16 @@ export function ProblemSolutionSection() {
       className="relative w-full overflow-hidden"
       style={{ backgroundColor: "rgb(243, 237, 237)" }}
     >
+      {/* Subtle texture overlay */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          backgroundImage: "url('/images/Texture 1.png')",
+          backgroundSize: "800px",
+          opacity: 0.03,
+        }}
+      />
+
       {/* Decorative dot pattern */}
       <div
         className="absolute -left-20 top-1/3 pointer-events-none opacity-10"
@@ -158,17 +168,14 @@ export function ProblemSolutionSection() {
                   border: "1px solid rgba(0,0,0,0.06)",
                 }}
               >
-                {/* Blue texture banner */}
+                {/* Blue/lavender gradient strip */}
                 <div
-                  className="w-full overflow-hidden"
-                  style={{ height: "48px" }}
-                >
-                  <img
-                    src={SOLUTION_IMAGES[i - 1]}
-                    alt=""
-                    className="w-full h-full object-cover"
-                  />
-                </div>
+                  className="w-full"
+                  style={{
+                    height: "48px",
+                    background: SOLUTION_GRADIENTS[i - 1],
+                  }}
+                />
 
                 {/* Card body */}
                 <div style={{ padding: "24px" }}>

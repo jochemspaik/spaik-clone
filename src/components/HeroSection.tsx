@@ -8,9 +8,21 @@ export function HeroSection() {
   const t = useTranslations();
 
   return (
-    <section className="w-full bg-white">
+    <section className="relative w-full overflow-hidden bg-white">
+      {/* Decorative dot-grid pattern — left side, behind hero text */}
       <div
-        className="mx-auto flex flex-col items-center px-6 pt-12 pb-8 md:flex-row md:items-start md:px-10 md:pt-20 md:pb-20"
+        className="pointer-events-none absolute left-0 top-0 h-full"
+        style={{ width: "45%", opacity: 0.10, zIndex: 0 }}
+      >
+        <img
+          src="/images/hero-graphic.png"
+          alt=""
+          className="h-full w-full object-cover object-right"
+        />
+      </div>
+
+      <div
+        className="relative z-10 mx-auto flex flex-col items-center px-6 pt-12 pb-8 md:flex-row md:items-start md:px-10 md:pt-20 md:pb-20"
         style={{ maxWidth: 1080 }}
       >
         {/* Left Column */}

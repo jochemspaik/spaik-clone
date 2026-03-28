@@ -113,17 +113,28 @@ export function ServicesSection() {
 
   return (
     <section id="services" className="relative overflow-hidden bg-white" style={{ padding: "80px 40px" }}>
-      {/* Decorative rotated mockup */}
+      {/* Texture overlay — full bleed at low opacity */}
       <div
-        className="absolute -right-24 -bottom-4 pointer-events-none opacity-[0.08]"
-        style={{
-          width: "725px",
-          height: "629px",
-          transform: "rotate(-25deg)",
-          zIndex: 0,
-        }}
+        className="pointer-events-none absolute inset-0"
+        style={{ opacity: 0.04, zIndex: 0 }}
       >
-        <img src="/images/product-mockup-2.png" alt="" className="w-full h-full object-contain" />
+        <img
+          src="/images/Texture 1.png"
+          alt=""
+          className="h-full w-full object-cover"
+        />
+      </div>
+
+      {/* Gradient blob — bottom-right accent */}
+      <div
+        className="pointer-events-none absolute bottom-0 right-0"
+        style={{ width: "50%", opacity: 0.08, zIndex: 0 }}
+      >
+        <img
+          src="/images/Gradient 03.png"
+          alt=""
+          className="h-auto w-full object-contain object-bottom-right"
+        />
       </div>
 
       <div className="relative z-1 mx-auto" style={{ maxWidth: "1080px" }}>

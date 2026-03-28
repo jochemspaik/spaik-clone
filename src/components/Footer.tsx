@@ -11,7 +11,7 @@ export function Footer() {
 
   return (
     <footer
-      className="w-full bg-white"
+      className="relative overflow-hidden w-full bg-white"
       style={{ borderTop: "1px solid #efede5" }}
     >
       <div
@@ -102,6 +102,21 @@ export function Footer() {
               ),
             )}
           </div>
+        </div>
+
+        {/* Decorative dot-grid texture — bottom-right corner */}
+        <div
+          className="absolute bottom-0 right-0 pointer-events-none"
+          style={{ width: "25%", height: "55%", zIndex: 0, opacity: 0.10 }}
+          aria-hidden="true"
+        >
+          <Image
+            src="/images/product-dot-pattern.png"
+            alt=""
+            fill
+            className="object-cover object-bottom-right"
+            sizes="25vw"
+          />
         </div>
 
         {/* Bottom Row: Legal */}

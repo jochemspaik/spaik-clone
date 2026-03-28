@@ -30,10 +30,10 @@ export function CTASection() {
   return (
     <SectionWrapper className="bg-white">
         <div className="flex flex-col gap-10 lg:flex-row lg:items-center lg:gap-16">
-          {/* Left column — video */}
+          {/* Left column — video with dot-grid overlay */}
           <div className="lg:w-1/2">
             <div
-              className="overflow-hidden rounded-2xl"
+              className="relative overflow-hidden rounded-2xl"
               style={{ aspectRatio: "1 / 1" }}
             >
               <video
@@ -44,6 +44,17 @@ export function CTASection() {
                 className="h-full w-full object-cover"
                 src="/videos/secondary-animation.mp4"
               />
+              {/* Dot-grid overlay — SPAIK signature texture */}
+              <div className="absolute inset-0 pointer-events-none" style={{ opacity: 0.15 }}>
+                <Image
+                  src="/images/product-dot-pattern.png"
+                  alt=""
+                  fill
+                  className="object-cover"
+                  sizes="50vw"
+                  aria-hidden="true"
+                />
+              </div>
             </div>
           </div>
 
