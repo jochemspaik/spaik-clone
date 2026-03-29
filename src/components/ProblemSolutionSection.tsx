@@ -48,13 +48,13 @@ export function ProblemSolutionSection() {
       className="relative w-full overflow-hidden"
       style={{ backgroundColor: "rgb(243, 237, 237)" }}
     >
-      {/* Subtle texture overlay */}
+      {/* Subtle texture overlay — large tile + fade-out to avoid visible repeat seam */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
           backgroundImage: "url('/images/Texture 1.webp')",
-          backgroundSize: "800px",
-          opacity: 0.08,
+          backgroundSize: "1200px",
+          opacity: 0.04,
         }}
       />
 

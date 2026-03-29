@@ -58,12 +58,12 @@ export function AIDiscoverySection() {
       <div className="relative mx-auto flex flex-col gap-12 lg:flex-row lg:items-center lg:gap-16" style={{ maxWidth: 1080 }}>
         {/* Left: Product screenshot */}
         <div className="lg:w-1/2">
-          <div className="relative overflow-hidden rounded-2xl shadow-sm" style={{ aspectRatio: "4 / 3" }}>
+          <div className="relative overflow-hidden" style={{ aspectRatio: "4 / 3" }}>
             <Image
               src="/images/ai-discovery-product.png"
               alt={t("title")}
               fill
-              className="object-contain"
+              className="object-cover"
               sizes="(max-width: 1024px) 100vw, 50vw"
             />
           </div>

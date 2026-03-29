@@ -4,8 +4,6 @@ import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 
-const DOT_GRID_SIZE = 5;
-
 export function Footer() {
   const t = useTranslations();
 
@@ -80,43 +78,16 @@ export function Footer() {
             </a>
           </nav>
 
-          {/* Right: Decorative dot grid */}
-          <div
-            className="hidden md:grid"
-            style={{
-              gridTemplateColumns: `repeat(${DOT_GRID_SIZE}, 12px)`,
-              gap: 8,
-            }}
-          >
-            {Array.from({ length: DOT_GRID_SIZE * DOT_GRID_SIZE }).map(
-              (_, i) => (
-                <div
-                  key={i}
-                  className="rounded-full"
-                  style={{
-                    width: 12,
-                    height: 12,
-                    backgroundColor: "#e5e5e0",
-                  }}
-                />
-              ),
-            )}
+          {/* Right: SPAIK logomark */}
+          <div className="hidden md:block" style={{ width: 80, height: 80, opacity: 0.08 }}>
+            <Image
+              src="/images/Logomark.svg"
+              alt=""
+              width={80}
+              height={80}
+              className="object-contain"
+            />
           </div>
-        </div>
-
-        {/* Enlarged SPAIK logomark — half-visible at bottom-right */}
-        <div
-          className="absolute pointer-events-none"
-          style={{ bottom: "-40%", right: "-5%", width: 320, height: 320, opacity: 0.06, zIndex: 0 }}
-          aria-hidden="true"
-        >
-          <Image
-            src="/images/Logomark.svg"
-            alt=""
-            fill
-            className="object-contain"
-            sizes="320px"
-          />
         </div>
 
         {/* Bottom Row: Legal */}
