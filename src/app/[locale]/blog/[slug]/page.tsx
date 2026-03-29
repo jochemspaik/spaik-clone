@@ -23,15 +23,33 @@ export async function generateMetadata({
   const post = getBlogPost(slug);
   if (!post) return {};
   const lang = locale as "en" | "nl";
+  const baseUrl = "https://www.spaik.io";
+  const path = locale === "nl" ? `/blog/${slug}` : `/${locale}/blog/${slug}`;
   return {
     title: post.title[lang],
     description: post.title[lang],
+    alternates: {
+      canonical: `${baseUrl}${path}`,
+      languages: {
+        nl: `${baseUrl}/blog/${slug}`,
+        en: `${baseUrl}/en/blog/${slug}`,
+      },
+    },
     openGraph: {
       title: post.title[lang],
-      images: [{ url: post.image }],
+      description: post.title[lang],
+      images: [{ url: `${baseUrl}${post.image}` }],
       type: "article",
       publishedTime: post.date,
       authors: [post.author],
+      locale: locale === "nl" ? "nl_NL" : "en_US",
+      url: `${baseUrl}${path}`,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.title[lang],
+      description: post.title[lang],
+      images: [`${baseUrl}${post.image}`],
     },
   };
 }

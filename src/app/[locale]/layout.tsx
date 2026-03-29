@@ -25,12 +25,29 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const m = META[locale] ?? META.nl;
+  const baseUrl = "https://www.spaik.io";
   return {
+    metadataBase: new URL(baseUrl),
     title: { absolute: m.title },
     description: m.description,
     alternates: {
-      canonical: locale === "nl" ? "/" : `/${locale}`,
-      languages: { nl: "/", en: "/en" },
+      canonical: locale === "nl" ? baseUrl : `${baseUrl}/${locale}`,
+      languages: { nl: baseUrl, en: `${baseUrl}/en` },
+    },
+    openGraph: {
+      title: m.title,
+      description: m.description,
+      url: locale === "nl" ? baseUrl : `${baseUrl}/${locale}`,
+      siteName: "SPAIK",
+      locale: locale === "nl" ? "nl_NL" : "en_US",
+      type: "website",
+      images: [{ url: `${baseUrl}/seo/og-image.png`, width: 1200, height: 630 }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: m.title,
+      description: m.description,
+      images: [`${baseUrl}/seo/og-image.png`],
     },
   };
 }
