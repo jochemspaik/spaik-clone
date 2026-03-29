@@ -153,6 +153,18 @@ export function CasesSection() {
         className="absolute inset-0 pointer-events-none opacity-[0.03]"
         style={{ backgroundImage: "url('/images/Texture 1.webp')", backgroundSize: "800px", backgroundRepeat: "repeat" }}
       />
+      {/* Dot-grid decoration — right edge */}
+      <div
+        className="pointer-events-none absolute right-0 top-0 hidden h-full md:block"
+        style={{ width: "30%", opacity: 0.06, zIndex: 0 }}
+      >
+        <img
+          src="/images/hero-graphic.png"
+          alt=""
+          className="h-full w-full object-cover object-left"
+          style={{ maskImage: "linear-gradient(to left, black 30%, transparent 100%)", WebkitMaskImage: "linear-gradient(to left, black 30%, transparent 100%)" }}
+        />
+      </div>
 
       <div className="relative mx-auto" style={{ maxWidth: "1080px", padding: "80px 40px" }}>
         {/* Header */}

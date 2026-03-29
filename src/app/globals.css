@@ -401,6 +401,19 @@
   background-size: 5px 5px;
 }
 
+/* Slowly shifting blue/lilac gradient for testimonial card */
+@keyframes testimonialShift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.testimonial-gradient {
+  background: linear-gradient(135deg, #c5d5f0, #bbc8e8, #d5cef5, #c5d5f0);
+  background-size: 300% 300%;
+  animation: testimonialShift 8s ease infinite;
+}
+
 /* Reduced motion: disable non-essential animations */
 @media (prefers-reduced-motion: reduce) {
   .animate-ticker {
@@ -420,6 +433,10 @@
   }
   .cta-button {
     transition: none;
+  }
+  .testimonial-gradient {
+    animation: none;
+    background: linear-gradient(135deg, #c5d5f0 0%, #bbc8e8 40%, #d8dff5 100%);
   }
 }
 

@@ -209,10 +209,7 @@ export function ProblemSolutionSection() {
 
         {/* Testimonial card */}
         <div
-          className="grain-overlay rounded-3xl overflow-hidden flex flex-col md:flex-row"
-          style={{
-            background: "linear-gradient(135deg, #c5d5f0 0%, #bbc8e8 40%, #d8dff5 100%)",
-          }}
+          className="testimonial-gradient grain-overlay rounded-3xl overflow-hidden flex flex-col md:flex-row"
         >
           {/* Photo */}
           <div className="relative w-full md:w-[400px] h-[340px] md:h-auto flex-shrink-0">

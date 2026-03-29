@@ -119,6 +119,18 @@ export function ServicesSection() {
           className="h-full w-full object-cover"
         />
       </div>
+      {/* Dot-grid decoration — left edge */}
+      <div
+        className="pointer-events-none absolute left-0 top-0 hidden h-full md:block"
+        style={{ width: "25%", opacity: 0.05, zIndex: 0 }}
+      >
+        <img
+          src="/images/hero-graphic.png"
+          alt=""
+          className="h-full w-full object-cover object-right"
+          style={{ maskImage: "linear-gradient(to right, black 30%, transparent 100%)", WebkitMaskImage: "linear-gradient(to right, black 30%, transparent 100%)" }}
+        />
+      </div>
 
 
       <div className="relative z-1 mx-auto" style={{ maxWidth: "1080px" }}>
