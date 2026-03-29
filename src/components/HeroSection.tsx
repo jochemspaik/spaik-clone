@@ -45,7 +45,8 @@ export function HeroSection() {
               lineHeight: 1.6,
             }}
           >
-            {t("hero.subtitle")}{" "}
+            {t("hero.subtitle")}
+            <br />
             <span style={{ fontWeight: 500 }}>
               {t("hero.subtitleHighlight")}
             </span>
