@@ -1,107 +1,91 @@
-# AI Website Cloner Template
+# SPAIK Clone
 
-A reusable template for reverse-engineering any website and rebuilding it as a pixel-perfect clone using [Claude Code](https://docs.anthropic.com/en/docs/claude-code).
+Pixel-perfect clone of [spaik.io](https://www.spaik.io) built with Next.js 16, React 19, TypeScript, and Tailwind CSS v4.
 
-Point it at a URL, run `/clone-website`, and Claude Code will inspect the site via Chrome MCP, extract design tokens and assets, write component specs, and dispatch parallel builder agents to reconstruct every section — all in isolated git worktrees that merge automatically.
-
-## Demo
-
-[![Watch the demo](docs/design-references/comparison.png)](https://youtu.be/O669pVZ_qr0)
-
-> Click the image above to watch the full demo on YouTube.
+Bilingual (NL/EN), fully responsive, production-ready for Vercel deployment.
 
 ## Quick Start
 
-1. **Clone this repo**
-   ```bash
-   git clone https://github.com/JCodesMore/ai-website-cloner-template.git my-clone
-   cd my-clone
-   ```
-2. **Install dependencies**
-   ```bash
-   npm install
-   ```
-3. **Start Claude Code** with Chrome MCP enabled:
-   ```bash
-   claude --chrome
-   ```
-4. **Run the skill**:
-   ```
-   /clone-website <target-url>
-   ```
-5. **Customize** (optional) — after the base clone is built, modify as needed
-
-> **Tip:** You can optionally edit `TARGET.md` before cloning to specify pages, fidelity level, and scope — but it's not required. The `/clone-website` skill will handle everything from just the URL.
-
-## Prerequisites
-
-- [Node.js](https://nodejs.org/) 20+
-- [Claude Code](https://docs.anthropic.com/en/docs/claude-code)
+```bash
+npm install
+npm run dev        # http://localhost:3000
+npm run build      # Production build (zero errors)
+```
 
 ## Tech Stack
 
-- **Next.js 16** — App Router, React 19, TypeScript strict
-- **shadcn/ui** — Radix primitives + Tailwind CSS v4
-- **Tailwind CSS v4** — oklch design tokens
-- **Lucide React** — default icons (replaced by extracted SVGs during cloning)
+- **Next.js 16** (App Router, React 19, TypeScript strict)
+- **Tailwind CSS v4** with oklch design tokens
+- **next-intl** for i18n (NL default, EN at /en/)
+- **Lenis** for smooth scroll
+- Custom fonts: IvyPresto Headline, SF Pro Text/Display, PP Agrandir Tight
 
-## How It Works
+## Pages
 
-The `/clone-website` skill runs a multi-phase pipeline:
+| Route | Description |
+|-------|-------------|
+| `/` | Dutch homepage (hero, cases, problem/solution, services, team, insights, AI discovery, FAQ, CTA) |
+| `/en/` | English homepage |
+| `/blog` | Blog index with 3 posts |
+| `/en/blog` | English blog index |
+| `/blog/[slug]` | Individual blog posts (SSG) |
+| `/legal` | Terms & conditions |
+| `/en/legal` | English legal |
+| `/sitemap.xml` | Dynamic sitemap with hreflang |
+| `/robots.txt` | Search engine directives |
 
-1. **Reconnaissance** — screenshots, design token extraction, interaction sweep (scroll, click, hover, responsive)
-2. **Foundation** — updates fonts, colors, globals, downloads all assets
-3. **Component Specs** — writes detailed spec files (`docs/research/components/`) with exact computed CSS values, states, behaviors, and content
-4. **Parallel Build** — dispatches builder agents in git worktrees, one per section/component
-5. **Assembly & QA** — merges worktrees, wires up the page, runs visual diff against the original
+## Features
 
-Each builder agent receives the full component specification inline — exact `getComputedStyle()` values, interaction models, multi-state content, responsive breakpoints, and asset paths. No guessing.
+- Bilingual content with language switcher (NL/EN)
+- Carousel with auto-advance, progress bars, and animated counters
+- Scroll-reveal animations with IntersectionObserver
+- Animated gradient on testimonial card
+- SPAIK dot-grid decorative patterns throughout
+- Grain/dither texture overlays
+- Rolling text button hover effects
+- FAQ accordion with smooth height transitions
+- Sticky header with backdrop blur on scroll
+- Custom error (500) and not-found (404) pages
+- JSON-LD structured data (Organization + BlogPosting)
+- OG tags, twitter cards, hreflang, canonical URLs
+- Security headers (HSTS, X-Frame-Options, CSP-adjacent, Permissions-Policy)
+
+## Team
+
+12 core team members + 2 advisors (Joep de Caluwe, Jan van Casteren) with LinkedIn links and photos.
 
 ## Project Structure
 
 ```
 src/
-  app/              # Next.js routes
-  components/       # React components
-    ui/             # shadcn/ui primitives
-    icons.tsx       # Extracted SVG icons
-  lib/utils.ts      # cn() utility
-  types/            # TypeScript interfaces
-  hooks/            # Custom React hooks
+  app/[locale]/        # Next.js i18n routes
+  components/          # 18 React components
+    icons.tsx          # Shared SVG icons
+  data/blog-posts.ts   # Static blog content (NL + EN)
+  i18n/                # next-intl config, routing, typed locale
+  lib/constants.ts     # External URLs
 public/
-  images/           # Downloaded images from target
-  videos/           # Downloaded videos from target
-  seo/              # Favicons, OG images
-docs/
-  research/         # Extraction output & component specs
-  design-references/ # Screenshots
-scripts/            # Asset download scripts
-TARGET.md           # Clone target configuration
-AGENTS.md           # Agent instructions & code style
+  images/              # Optimized images (~3.8MB)
+  videos/              # Hero + CTA animations
+  fonts/               # IvyPresto, SF Pro, PP Agrandir (woff2)
+  seo/                 # Favicons, OG image
+messages/
+  nl.json              # Dutch translations
+  en.json              # English translations
+docs/solutions/        # Compound learnings from development
 ```
 
-## Commands
+## Design System
+
+See [DESIGN.md](DESIGN.md) for the full design system: colors, typography, spacing, textures, animations, and section backgrounds.
+
+## Deployment
+
+Zero-config Vercel deployment. Connect the repo and it deploys automatically.
 
 ```bash
-npm run dev    # Start dev server
-npm run build  # Production build
-npm run lint   # ESLint check
+npm run build    # Verify locally first
 ```
-
-## Configuration (Optional)
-
-Edit **`TARGET.md`** before cloning if you want fine-grained control:
-
-- **Pages** — which pages to replicate (default: home page)
-- **Fidelity** — pixel-perfect, high fidelity, or structural
-- **Scope** — what's in/out of scope
-- **Customization plans** — modifications to apply after the base clone
-
-If you skip this, `/clone-website <url>` will default to a pixel-perfect clone of the home page.
-
-## Star History
-
-[![Star History Chart](https://api.star-history.com/svg?repos=JCodesMore/ai-website-cloner-template&type=Date)](https://star-history.com/#JCodesMore/ai-website-cloner-template&Date)
 
 ## License
 
