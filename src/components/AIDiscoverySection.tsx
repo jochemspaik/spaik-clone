@@ -58,12 +58,19 @@ export function AIDiscoverySection() {
       <div className="relative mx-auto flex flex-col gap-12 lg:flex-row lg:items-center lg:gap-16" style={{ maxWidth: 1080 }}>
         {/* Left: Product screenshot */}
         <div className="lg:w-1/2">
-          <div className="relative overflow-hidden" style={{ aspectRatio: "4 / 3" }}>
+          <div
+            className="relative overflow-hidden rounded-2xl"
+            style={{
+              aspectRatio: "4 / 3",
+              background: "linear-gradient(135deg, #f0eef8 0%, #e8e4f4 30%, #f5f3fb 70%, #edeaf6 100%)",
+            }}
+          >
             <Image
               src="/images/ai-discovery-product.png"
               alt={t("title")}
               fill
-              className="object-cover"
+              className="object-contain"
+              style={{ padding: "16px" }}
               sizes="(max-width: 1024px) 100vw, 50vw"
             />
           </div>

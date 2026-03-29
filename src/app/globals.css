@@ -409,9 +409,9 @@
 }
 
 .testimonial-gradient {
-  background: linear-gradient(135deg, #c5d5f0, #bbc8e8, #d5cef5, #c5d5f0);
-  background-size: 300% 300%;
-  animation: testimonialShift 8s ease infinite;
+  background: linear-gradient(135deg, #b8cce8, #c8b8e8, #a8c4e8, #d0c0f0, #b8cce8);
+  background-size: 400% 400%;
+  animation: testimonialShift 12s ease infinite;
 }
 
 /* Reduced motion: disable non-essential animations */
@@ -436,7 +436,7 @@
   }
   .testimonial-gradient {
     animation: none;
-    background: linear-gradient(135deg, #c5d5f0 0%, #bbc8e8 40%, #d8dff5 100%);
+    background: linear-gradient(135deg, #b8cce8 0%, #c8b8e8 50%, #a8c4e8 100%);
   }
 }
 

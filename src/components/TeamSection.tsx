@@ -104,7 +104,7 @@ const ADVISORS = [
   {
     name: "Jan van Casteren",
     role: "Strategy Advisor",
-    photo: "/images/team-jan-advisor.jpg",
+    photo: "/images/team-jan-advisor.png",
     linkedin: "https://nl.linkedin.com/in/jan-van-casteren",
   },
 ] as const;
