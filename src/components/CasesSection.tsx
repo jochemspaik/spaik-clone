@@ -40,7 +40,7 @@ function AnimatedCounter({ value, color }: { value: string; color?: string }) {
   }, [value, hasAnimated]);
 
   return (
-    <p ref={ref} className="font-sans font-bold" style={{ fontSize: "28px", lineHeight: "1.1", color: color || "#0b0b0b" }}>
+    <p ref={ref} className="font-sans font-bold" style={{ fontSize: "28px", lineHeight: "1.1", color: color || "#0b0b0b", fontVariantNumeric: "tabular-nums" }}>
       {display}
     </p>
   );
@@ -162,6 +162,9 @@ export function CasesSection() {
         <img
           src="/images/hero-graphic.png"
           alt=""
+          aria-hidden="true"
+          width={800}
+          height={800}
           className="h-full w-full object-cover object-left"
           style={{ maskImage: "linear-gradient(to left, black 30%, transparent 100%)", WebkitMaskImage: "linear-gradient(to left, black 30%, transparent 100%)" }}
         />

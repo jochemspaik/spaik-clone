@@ -280,3 +280,13 @@ button:focus-visible,
 ::-webkit-scrollbar-thumb:hover {
   background: rgba(0, 0, 0, 0.25);
 }
+
+/* Web Interface Guidelines: prevent heading widows */
+h1, h2 {
+  text-wrap: balance;
+}
+
+/* Web Interface Guidelines: tabular nums for counters */
+.font-mono, [data-tabular] {
+  font-variant-numeric: tabular-nums;
+}

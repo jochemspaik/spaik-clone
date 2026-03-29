@@ -33,10 +33,10 @@ export function CTASection() {
                 <Image
                   src="/images/product-dot-pattern.png"
                   alt=""
+                  aria-hidden="true"
                   fill
                   className="object-cover"
                   sizes="50vw"
-                  aria-hidden="true"
                 />
               </div>
             </div>

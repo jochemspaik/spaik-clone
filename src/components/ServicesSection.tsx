@@ -116,6 +116,9 @@ export function ServicesSection() {
         <img
           src="/images/Texture 1.webp"
           alt=""
+          aria-hidden="true"
+          width={800}
+          height={800}
           className="h-full w-full object-cover"
         />
       </div>
@@ -127,6 +130,9 @@ export function ServicesSection() {
         <img
           src="/images/hero-graphic.png"
           alt=""
+          aria-hidden="true"
+          width={800}
+          height={800}
           className="h-full w-full object-cover object-right"
           style={{ maskImage: "linear-gradient(to right, black 30%, transparent 100%)", WebkitMaskImage: "linear-gradient(to right, black 30%, transparent 100%)" }}
         />

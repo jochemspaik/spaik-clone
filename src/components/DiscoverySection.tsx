@@ -93,7 +93,7 @@ export function DiscoverySection() {
         className="pointer-events-none absolute bottom-0 left-0"
         style={{ width: "40%", height: "60%", opacity: 0.08, zIndex: 0 }}
       >
-        <img src="/images/Gradient 02.webp" alt="" className="h-full w-full object-cover" />
+        <img src="/images/Gradient 02.webp" alt="" aria-hidden="true" width={600} height={400} className="h-full w-full object-cover" />
       </div>
       <div className="relative z-1 mx-auto" style={{ maxWidth: "1080px" }}>
         <div className="flex flex-col gap-12 lg:flex-row lg:gap-16">
@@ -166,7 +166,7 @@ export function DiscoverySection() {
               >
                 <Image
                   src="/images/Building.svg"
-                  alt=""
+                  alt="" aria-hidden="true"
                   width={20}
                   height={20}
                 />
@@ -186,7 +186,7 @@ export function DiscoverySection() {
               >
                 <Image
                   src="/images/Discovery.svg"
-                  alt=""
+                  alt="" aria-hidden="true"
                   width={20}
                   height={20}
                 />
@@ -206,7 +206,7 @@ export function DiscoverySection() {
               >
                 <Image
                   src="/images/Tech.svg"
-                  alt=""
+                  alt="" aria-hidden="true"
                   width={20}
                   height={20}
                 />
@@ -231,7 +231,7 @@ export function DiscoverySection() {
                       <div className="flex items-center gap-3">
                         <Image
                           src={dept.icon}
-                          alt=""
+                          alt="" aria-hidden="true"
                           width={24}
                           height={24}
                         />

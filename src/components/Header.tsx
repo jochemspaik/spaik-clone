@@ -28,7 +28,7 @@ function NavLink({ item, onClick }: { item: NavItem; onClick?: () => void }) {
     <a
       href={item.href}
       onClick={onClick}
-      className="inline-flex items-center transition-opacity hover:opacity-60"
+      className="inline-flex items-center transition-colors hover:text-spaik-orange"
       style={{ fontSize: 15, fontWeight: 400, color: "#0b0b0b", minHeight: "44px" }}
       {...(item.external ? { target: "_blank" as const, rel: "noopener noreferrer" } : {})}
     >
@@ -136,7 +136,7 @@ export function Header() {
           mobileMenuOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
         }`}
       >
-        <div className="border-t border-gray-100 bg-white px-6 py-6">
+        <div className="border-t border-gray-100 bg-white px-6 py-6" style={{ overscrollBehavior: "contain" }}>
           <nav className="flex flex-col gap-5">
             {NAV_ITEMS.map((item) => (
               <NavLink key={item.key} item={item} onClick={() => setMobileMenuOpen(false)} />
