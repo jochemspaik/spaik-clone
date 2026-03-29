@@ -21,7 +21,7 @@ export default function BlogPage() {
   return (
     <>
     <Header />
-    <main className="min-h-screen">
+    <main className="min-h-[100dvh]">
       {/* Header */}
       <section className="px-6 pt-32 pb-16 max-w-[1200px] mx-auto">
         <h1

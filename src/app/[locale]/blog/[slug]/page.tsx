@@ -62,7 +62,7 @@ function BlogPostContent({ slug }: { slug: string }) {
   const relatedPosts = blogPosts.filter((p) => p.slug !== slug).slice(0, 3);
 
   return (
-    <main className="min-h-screen">
+    <main className="min-h-[100dvh]">
       {/* Back link + header */}
       <section className="px-6 pt-32 pb-8 max-w-[800px] mx-auto">
         <Link

@@ -281,11 +281,10 @@ export function CasesSection() {
               {/* Progress bar for active tab */}
               {i === active && (
                 <div
-                  className="absolute bottom-0 left-0 h-0.5 rounded-full"
+                  className="absolute bottom-0 left-0 h-0.5 w-full rounded-full origin-left"
                   style={{
                     backgroundColor: c.accentColor,
                     animation: "progressBar 6s linear",
-                    width: "100%",
                   }}
                 />
               )}

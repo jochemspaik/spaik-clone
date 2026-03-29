@@ -21,7 +21,7 @@ export default function LegalPage() {
 
 function LegalEN() {
   return (
-    <main className="min-h-screen px-6 pt-32 pb-24 max-w-[800px] mx-auto">
+    <main className="min-h-[100dvh] px-6 pt-32 pb-24 max-w-[800px] mx-auto">
       <h1
         className="font-heading text-[40px] leading-[44px] font-thin mb-8"
         style={{ fontWeight: 100 }}
@@ -130,7 +130,7 @@ function LegalEN() {
 
 function LegalNL() {
   return (
-    <main className="min-h-screen px-6 pt-32 pb-24 max-w-[800px] mx-auto">
+    <main className="min-h-[100dvh] px-6 pt-32 pb-24 max-w-[800px] mx-auto">
       <h1
         className="font-heading text-[40px] leading-[44px] font-thin mb-8"
         style={{ fontWeight: 100 }}

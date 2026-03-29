@@ -254,10 +254,10 @@
   animation: countUp 0.4s ease-out forwards;
 }
 
-/* Progress bar for carousel auto-advance */
+/* Progress bar for carousel auto-advance — GPU-only via scaleX */
 @keyframes progressBar {
-  from { width: 0%; }
-  to { width: 100%; }
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
 }
 
 /* Carousel slide animations */
@@ -287,7 +287,7 @@
   font-weight: 100;
   font-size: 60px;
   line-height: 66px;
-  color: #000;
+  color: #0b0b0b;
 }
 
 @media (max-width: 768px) {

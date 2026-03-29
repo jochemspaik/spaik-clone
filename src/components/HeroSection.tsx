@@ -30,7 +30,7 @@ export function HeroSection() {
         <div className="w-full pt-10 md:w-3/5">
           <h1
             className="font-heading text-4xl md:text-[60px] md:leading-[66px]"
-            style={{ fontWeight: 100, color: "#000" }}
+            style={{ fontWeight: 100, color: "#0b0b0b" }}
           >
             {t("hero.title1")}
             <br />
