@@ -3,10 +3,33 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import type { Metadata } from "next";
 
-export const metadata: Metadata = {
-  title: "Terms and Conditions",
-  description: "General Terms and Conditions of Spaik B.V.",
+const META: Record<string, { title: string; description: string }> = {
+  nl: {
+    title: "Algemene Voorwaarden — SPAIK",
+    description: "Algemene voorwaarden van Spaik B.V.",
+  },
+  en: {
+    title: "Terms and Conditions — SPAIK",
+    description: "General Terms and Conditions of Spaik B.V.",
+  },
 };
+
+export function generateStaticParams() {
+  return [{ locale: "nl" }, { locale: "en" }];
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const m = META[locale] ?? META.nl;
+  return {
+    title: m.title,
+    description: m.description,
+  };
+}
 
 export default function LegalPage() {
   const locale = useLocale();

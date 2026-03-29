@@ -7,10 +7,33 @@ import { CTASection } from "@/components/CTASection";
 import { Footer } from "@/components/Footer";
 import type { Metadata } from "next";
 
-export const metadata: Metadata = {
-  title: "Blog",
-  description: "Insights from 35+ AI implementations",
+const META: Record<string, { title: string; description: string }> = {
+  nl: {
+    title: "Blog — SPAIK",
+    description: "Inzichten uit 35+ AI-implementaties",
+  },
+  en: {
+    title: "Blog — SPAIK",
+    description: "Insights from 35+ AI implementations",
+  },
 };
+
+export function generateStaticParams() {
+  return [{ locale: "nl" }, { locale: "en" }];
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const m = META[locale] ?? META.nl;
+  return {
+    title: m.title,
+    description: m.description,
+  };
+}
 
 export default function BlogPage() {
   const t = useTranslations("blog");
