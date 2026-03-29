@@ -4,6 +4,7 @@ import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { RollingTextButton } from "@/components/RollingTextButton";
 import { BOOK_CALL_URL, INTAKE_URL } from "@/lib/constants";
+import { DashedCheckIcon } from "@/components/icons";
 
 function CrossIcon() {
   return (
@@ -18,20 +19,6 @@ function CrossIcon() {
   );
 }
 
-function CheckIcon() {
-  return (
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-      <path
-        d="M4 13L9 18L20 6"
-        stroke="#8aa1cc"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeDasharray="2 3"
-      />
-    </svg>
-  );
-}
 
 const SOLUTION_GRADIENTS = [
   "linear-gradient(135deg, #8ba4d4 0%, #a2b8e4 50%, #bccef0 100%)",
@@ -91,7 +78,7 @@ export function ProblemSolutionSection() {
               fontSize: "32px",
               fontWeight: 100,
               lineHeight: "35.2px",
-              color: "#0a0a0a",
+              color: "#0b0b0b",
             }}
           >
             {t("problem.title")}
@@ -149,7 +136,7 @@ export function ProblemSolutionSection() {
               fontSize: "32px",
               fontWeight: 100,
               lineHeight: "35.2px",
-              color: "#0a0a0a",
+              color: "#0b0b0b",
             }}
           >
             {t("solution.title")}
@@ -179,7 +166,7 @@ export function ProblemSolutionSection() {
 
                 {/* Card body */}
                 <div style={{ padding: "24px" }}>
-                  <CheckIcon />
+                  <DashedCheckIcon />
                   <p
                     className="font-medium"
                     style={{

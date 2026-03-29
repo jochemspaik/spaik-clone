@@ -3,28 +3,7 @@
 import { useTranslations } from "next-intl";
 import { INTAKE_URL } from "@/lib/constants";
 import Image from "next/image";
-
-function CheckIcon() {
-  return (
-    <svg
-      width="20"
-      height="20"
-      viewBox="0 0 20 20"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      aria-hidden="true"
-      className="shrink-0"
-    >
-      <path
-        d="M16.667 5L7.5 14.167 3.333 10"
-        stroke="#ff7150"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-}
+import { CheckIcon } from "@/components/icons";
 
 export function AIDiscoverySection() {
   const t = useTranslations("aiDiscovery");
@@ -96,7 +75,7 @@ export function AIDiscoverySection() {
           <ul className="mt-8 flex flex-col gap-4">
             {(["feature1", "feature2", "feature3"] as const).map((key) => (
               <li key={key} className="flex items-start gap-3">
-                <CheckIcon />
+                <CheckIcon color="#ff7150" className="shrink-0" />
                 <span
                   className="font-sans text-spaik-black"
                   style={{ fontSize: "16px" }}

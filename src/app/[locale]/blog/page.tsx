@@ -6,6 +6,7 @@ import { Header } from "@/components/Header";
 import { CTASection } from "@/components/CTASection";
 import { Footer } from "@/components/Footer";
 import type { Metadata } from "next";
+import { ClockIcon } from "@/components/icons";
 
 const META: Record<string, { title: string; description: string }> = {
   nl: {
@@ -39,7 +40,7 @@ export default function BlogPage() {
   const t = useTranslations("blog");
   const locale = useLocale() as "en" | "nl";
   const featured = blogPosts[0];
-  const allPosts = blogPosts;
+  const allPosts = blogPosts.slice(1);
 
   return (
     <>
@@ -132,23 +133,5 @@ export default function BlogPage() {
     <CTASection />
     <Footer />
     </>
-  );
-}
-
-function ClockIcon() {
-  return (
-    <svg
-      width="14"
-      height="14"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <circle cx="12" cy="12" r="10" />
-      <polyline points="12 6 12 12 16 14" />
-    </svg>
   );
 }

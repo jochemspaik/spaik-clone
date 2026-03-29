@@ -21,8 +21,8 @@ export function RollingTextButton({
   return (
     <a
       href={href}
-      target={href.startsWith("http") ? "_blank" : undefined}
-      rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
+      target={href.startsWith("https://") || href.startsWith("http://") ? "_blank" : undefined}
+      rel={href.startsWith("https://") || href.startsWith("http://") ? "noopener noreferrer" : undefined}
       className={`group relative inline-flex items-center justify-center overflow-hidden rounded-xl text-white transition-shadow duration-200 hover:shadow-lg active:scale-[0.98] ${className}`}
       style={{
         backgroundColor: bgColor,

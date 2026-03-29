@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
+import { CheckIcon } from "@/components/icons";
 
 type Department = "operational" | "marketing" | "data";
 
@@ -34,26 +35,6 @@ const DEPARTMENTS: DepartmentConfig[] = [
   },
 ];
 
-function CheckIcon() {
-  return (
-    <svg
-      width="20"
-      height="20"
-      viewBox="0 0 20 20"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      aria-hidden="true"
-    >
-      <path
-        d="M16.667 5L7.5 14.167 3.333 10"
-        stroke="#badad5"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-}
 
 function PlusIcon() {
   return (

@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useMemo, useCallback } from "react";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 
@@ -40,7 +40,7 @@ function AnimatedCounter({ value, color }: { value: string; color?: string }) {
   }, [value, hasAnimated]);
 
   return (
-    <p ref={ref} className="font-sans font-bold" style={{ fontSize: "28px", lineHeight: "1.1", color: color || "#0a0a0a" }}>
+    <p ref={ref} className="font-sans font-bold" style={{ fontSize: "28px", lineHeight: "1.1", color: color || "#0b0b0b" }}>
       {display}
     </p>
   );
@@ -121,19 +121,20 @@ export function CasesSection() {
   const current = cases[active];
 
   const SLIDE_MS = 6000;
+  const caseCount = cases.length;
 
-  function startTimer() {
+  const startTimer = useCallback(() => {
     if (timerRef.current) clearInterval(timerRef.current);
     timerRef.current = setInterval(() => {
       setDirection("right");
-      setActive((prev) => (prev + 1) % cases.length);
+      setActive((prev) => (prev + 1) % caseCount);
     }, SLIDE_MS);
-  }
+  }, [caseCount]);
 
   React.useEffect(() => {
     startTimer();
     return () => { if (timerRef.current) clearInterval(timerRef.current); };
-  }, [cases.length]);
+  }, [startTimer]);
 
   function goTo(index: number) {
     if (index === active) return;
@@ -171,7 +172,7 @@ export function CasesSection() {
         <div className="mb-12">
           <h2
             className="font-heading"
-            style={{ fontSize: "32px", fontWeight: 100, color: "#0a0a0a", lineHeight: "35.2px" }}
+            style={{ fontSize: "32px", fontWeight: 100, color: "#0b0b0b", lineHeight: "35.2px" }}
           >
             {t("cases.sectionTitle")}
           </h2>
@@ -182,9 +183,8 @@ export function CasesSection() {
 
         {/* Carousel */}
         <div
-          key={`${active}-${direction}`}
-          className="grain-overlay rounded-3xl overflow-hidden"
-          style={{ backgroundColor: current.bgColor, animation: slideAnim }}
+          className="grain-overlay rounded-3xl overflow-hidden transition-colors duration-500"
+          style={{ backgroundColor: current.bgColor }}
         >
           <div className="flex flex-col md:flex-row">
             {/* Person photo */}
@@ -225,7 +225,7 @@ export function CasesSection() {
                 >
                   {current.quote}
                 </blockquote>
-                <p className="mt-3 font-medium" style={{ fontSize: "14px", color: "#0a0a0a" }}>
+                <p className="mt-3 font-medium" style={{ fontSize: "14px", color: "#0b0b0b" }}>
                   {current.author}
                 </p>
               </div>
@@ -246,7 +246,7 @@ export function CasesSection() {
                   style={{ backgroundColor: "rgba(0,0,0,0.06)" }}
                 >
                   <span className="font-medium" style={{ fontSize: "13px", color: "rgba(0,0,0,0.4)" }}>ROI:</span>
-                  <span className="font-medium" style={{ fontSize: "13px", color: "#0a0a0a" }}>{current.roi}</span>
+                  <span className="font-medium" style={{ fontSize: "13px", color: "#0b0b0b" }}>{current.roi}</span>
                 </div>
               </div>
             </div>
@@ -268,7 +268,7 @@ export function CasesSection() {
             >
               <span
                 className="block text-sm font-medium"
-                style={{ color: i === active ? "#0a0a0a" : "rgba(0,0,0,0.4)" }}
+                style={{ color: i === active ? "#0b0b0b" : "rgba(0,0,0,0.4)" }}
               >
                 {c.companyName}
               </span>
