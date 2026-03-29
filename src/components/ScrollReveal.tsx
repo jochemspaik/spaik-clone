@@ -73,21 +73,8 @@ export function ScrollReveal({
 
     observer.observe(el);
 
-    // Backup: also listen for scroll events in case IO doesn't fire with smooth scroll
-    const checkVisibility = () => {
-      const r = el.getBoundingClientRect();
-      if (r.top < window.innerHeight + 50) {
-        reveal();
-        observer.unobserve(el);
-        window.removeEventListener("scroll", checkVisibility);
-      }
-    };
-
-    window.addEventListener("scroll", checkVisibility, { passive: true });
-
     return () => {
       observer.disconnect();
-      window.removeEventListener("scroll", checkVisibility);
     };
   }, [delay, direction]);
 

@@ -52,6 +52,10 @@ export default async function LocaleLayout({
 
   return (
     <html lang={locale} className="h-full antialiased">
+      <head>
+        <link rel="preload" href="/fonts/IvyPrestoHeadlineThin.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+        <link rel="preload" href="/fonts/SFProTextRegular.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+      </head>
       <body className="min-h-full flex flex-col">
         <NextIntlClientProvider messages={messages}>
           <SmoothScroll>{children}</SmoothScroll>
