@@ -176,7 +176,7 @@ export function DiscoverySection() {
               <button
                 type="button"
                 onClick={() => toggle("operational")}
-                className={`absolute flex items-center gap-2 rounded-full border px-4 py-2 font-sans text-sm transition-colors duration-200 ${
+                className={`absolute flex items-center gap-2 rounded-full border px-4 py-2.5 font-sans text-sm transition-colors duration-200 ${
                   expanded === "operational"
                     ? "border-spaik-orange bg-spaik-orange-50 text-spaik-black"
                     : "border-spaik-clay bg-white text-spaik-black/70 hover:border-spaik-orange"
@@ -196,7 +196,7 @@ export function DiscoverySection() {
               <button
                 type="button"
                 onClick={() => toggle("marketing")}
-                className={`absolute flex items-center gap-2 rounded-full border px-4 py-2 font-sans text-sm transition-colors duration-200 ${
+                className={`absolute flex items-center gap-2 rounded-full border px-4 py-2.5 font-sans text-sm transition-colors duration-200 ${
                   expanded === "marketing"
                     ? "border-spaik-orange bg-spaik-orange-50 text-spaik-black"
                     : "border-spaik-clay bg-white text-spaik-black/70 hover:border-spaik-orange"
@@ -216,7 +216,7 @@ export function DiscoverySection() {
               <button
                 type="button"
                 onClick={() => toggle("data")}
-                className={`absolute flex items-center gap-2 rounded-full border px-4 py-2 font-sans text-sm transition-colors duration-200 ${
+                className={`absolute flex items-center gap-2 rounded-full border px-4 py-2.5 font-sans text-sm transition-colors duration-200 ${
                   expanded === "data"
                     ? "border-spaik-orange bg-spaik-orange-50 text-spaik-black"
                     : "border-spaik-clay bg-white text-spaik-black/70 hover:border-spaik-orange"

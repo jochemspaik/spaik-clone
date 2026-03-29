@@ -173,7 +173,7 @@ export function ServicesSection() {
             href="https://traininghub.spaik.io/"
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-3 inline-flex items-center justify-center rounded-lg border border-spaik-clay-light bg-white px-6 py-2.5 font-sans text-sm font-medium text-spaik-black transition-colors hover:bg-spaik-clay-50"
+            className="mt-3 inline-flex items-center justify-center rounded-lg border border-spaik-clay-light bg-white px-6 py-3 font-sans text-sm font-medium text-spaik-black transition-colors hover:bg-spaik-clay-50"
           >
             {t("seeAllTrainings")}
           </a>

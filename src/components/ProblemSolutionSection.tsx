@@ -223,7 +223,7 @@ export function ProblemSolutionSection() {
           </div>
           {/* Quote content */}
           <div style={{ padding: "40px" }} className="flex flex-col justify-center">
-            <Image src="/images/logo-movir.png" alt="Movir" width={100} height={30} className="mb-4" />
+            <Image src="/images/logo-movir.png" alt="Movir" width={100} height={30} style={{ height: "auto" }} className="mb-4" />
             <h3 className="font-heading" style={{ fontSize: "28px", fontWeight: 100, lineHeight: "34px", color: "#0b0b0b" }}>
               {t("solution.testimonial")}
             </h3>

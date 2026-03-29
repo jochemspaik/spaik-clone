@@ -90,7 +90,7 @@ export function InsightsSection() {
               </div>
               <h3
                 className="mt-4 font-sans text-spaik-black transition-colors group-hover:text-spaik-orange"
-                style={{ fontSize: "16px", fontWeight: 700 }}
+                style={{ fontSize: "18px", fontWeight: 700, lineHeight: "1.4" }}
               >
                 {t(post.titleKey)}
               </h3>

@@ -51,6 +51,7 @@ export function AIDiscoverySection() {
           alt=""
           fill
           className="object-cover object-left"
+          sizes="33vw"
           aria-hidden="true"
         />
       </div>

@@ -23,10 +23,10 @@ export default function HomePage() {
         <HeroSection />
         <LogoTicker />
         <ScrollReveal>
-          <CasesSection />
+          <ProblemSolutionSection />
         </ScrollReveal>
         <ScrollReveal>
-          <ProblemSolutionSection />
+          <CasesSection />
         </ScrollReveal>
         <ScrollReveal>
           <DiscoverySection />
