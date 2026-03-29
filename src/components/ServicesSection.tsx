@@ -107,7 +107,7 @@ export function ServicesSection() {
   const t = useTranslations("services");
 
   return (
-    <section id="services" className="relative overflow-hidden bg-white" style={{ padding: "80px 40px" }}>
+    <section id="services" className="relative overflow-hidden bg-white px-6 py-16 md:px-10 md:py-20">
       {/* Texture overlay — full bleed at low opacity */}
       <div
         className="pointer-events-none absolute inset-0"

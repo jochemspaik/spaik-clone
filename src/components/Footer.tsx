@@ -32,39 +32,39 @@ export function Footer() {
           </div>
 
           {/* Center: Navigation Links */}
-          <nav className="flex flex-col gap-3">
+          <nav className="flex flex-col gap-1">
             <a
               href="/#cases"
-              className="transition-opacity hover:opacity-60"
-              style={{ fontSize: 15, color: "#0b0b0b" }}
+              className="inline-flex items-center transition-opacity hover:opacity-60"
+              style={{ fontSize: 15, color: "#0b0b0b", minHeight: 44 }}
             >
               {t("footer.cases")}
             </a>
             <a
               href="/#services"
-              className="transition-opacity hover:opacity-60"
-              style={{ fontSize: 15, color: "#0b0b0b" }}
+              className="inline-flex items-center transition-opacity hover:opacity-60"
+              style={{ fontSize: 15, color: "#0b0b0b", minHeight: 44 }}
             >
               {t("footer.services")}
             </a>
             <a
               href="/#why-spaik"
-              className="transition-opacity hover:opacity-60"
-              style={{ fontSize: 15, color: "#0b0b0b" }}
+              className="inline-flex items-center transition-opacity hover:opacity-60"
+              style={{ fontSize: 15, color: "#0b0b0b", minHeight: 44 }}
             >
               {t("footer.whySpaik")}
             </a>
             <a
               href="/#team"
-              className="transition-opacity hover:opacity-60"
-              style={{ fontSize: 15, color: "#0b0b0b" }}
+              className="inline-flex items-center transition-opacity hover:opacity-60"
+              style={{ fontSize: 15, color: "#0b0b0b", minHeight: 44 }}
             >
               {t("footer.team")}
             </a>
             <a
               href="mailto:info@spaik.io?subject=Vraag%20van%20Website"
-              className="transition-opacity hover:opacity-60"
-              style={{ fontSize: 15, color: "#0b0b0b" }}
+              className="inline-flex items-center transition-opacity hover:opacity-60"
+              style={{ fontSize: 15, color: "#0b0b0b", minHeight: 44 }}
             >
               {t("footer.questions")}
             </a>
@@ -72,8 +72,8 @@ export function Footer() {
               href="https://www.linkedin.com/company/spaik-ai/"
               target="_blank"
               rel="noopener noreferrer"
-              className="transition-opacity hover:opacity-60"
-              style={{ fontSize: 15, color: "#0b0b0b" }}
+              className="inline-flex items-center transition-opacity hover:opacity-60"
+              style={{ fontSize: 15, color: "#0b0b0b", minHeight: 44 }}
             >
               {t("footer.linkedin")}
             </a>

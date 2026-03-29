@@ -118,7 +118,7 @@ export function Header() {
         {/* Mobile Hamburger */}
         <button
           type="button"
-          className="md:hidden"
+          className="flex h-11 w-11 items-center justify-center md:hidden"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           aria-label="Toggle menu"
         >
@@ -146,6 +146,7 @@ export function Header() {
             <div className="flex items-center gap-2" style={{ fontSize: 15 }}>
               <button
                 type="button"
+                className="inline-flex h-11 items-center px-2"
                 onClick={() => {
                   switchLocale("nl");
                   setMobileMenuOpen(false);
@@ -157,6 +158,7 @@ export function Header() {
               <span style={{ color: "#0b0b0b" }}>|</span>
               <button
                 type="button"
+                className="inline-flex h-11 items-center px-2"
                 onClick={() => {
                   switchLocale("en");
                   setMobileMenuOpen(false);

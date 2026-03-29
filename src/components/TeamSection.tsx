@@ -133,8 +133,7 @@ export function TeamSection() {
   return (
     <section
       id="team"
-      className="relative overflow-hidden bg-white"
-      style={{ padding: "80px 40px" }}
+      className="relative overflow-hidden bg-white px-6 py-16 md:px-10 md:py-20"
     >
       {/* Decorative dot-grid texture — top-right */}
       <div
