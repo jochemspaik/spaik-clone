@@ -77,6 +77,9 @@ const TEAM_MEMBERS = [
     photo: "/images/team-aron.jpg",
     linkedin: "https://www.linkedin.com/in/aronrikels/",
   },
+] as const;
+
+const EXTENDED_MEMBERS = [
   {
     name: "Mirjam Cassee",
     role: "Facilitation & Projects",
@@ -88,6 +91,21 @@ const TEAM_MEMBERS = [
     role: "AI Engineer",
     photo: "/images/team-jeroen.jpg",
     linkedin: "https://www.linkedin.com/in/jeroen-donders-6a77ab4b/",
+  },
+] as const;
+
+const ADVISORS = [
+  {
+    name: "Joep de Caluwé",
+    role: "GTM Advisor",
+    photo: "/images/team-joep-advisor.png",
+    linkedin: "https://nl.linkedin.com/in/joepdecaluwe",
+  },
+  {
+    name: "Jan van Casteren",
+    role: "Strategy Advisor",
+    photo: "/images/team-jan-advisor.jpg",
+    linkedin: "https://nl.linkedin.com/in/jan-van-casteren",
   },
 ] as const;
 
@@ -153,7 +171,7 @@ export function TeamSection() {
 
         {/* Core team — 4-column grid matching original */}
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {TEAM_MEMBERS.slice(0, 12).map((member) => (
+          {TEAM_MEMBERS.map((member) => (
             <div
               key={member.name}
               className="group flex flex-col items-center rounded-xl p-6 transition-shadow duration-200 hover:shadow-sm"
@@ -164,7 +182,7 @@ export function TeamSection() {
                   alt={member.name}
                   fill
                   className="object-cover"
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                 />
               </div>
               <p
@@ -192,9 +210,10 @@ export function TeamSection() {
           ))}
         </div>
 
-        {/* Extended team — compact row */}
-        <div className="mt-10 flex flex-wrap items-center justify-center gap-8">
-          {TEAM_MEMBERS.slice(12).map((member) => (
+        {/* Extended team + Advisors row */}
+        <div className="mt-10 flex flex-wrap items-start justify-center gap-10">
+          {/* Extended team members */}
+          {EXTENDED_MEMBERS.map((member) => (
             <a
               key={member.name}
               href={member.linkedin}
@@ -216,6 +235,45 @@ export function TeamSection() {
               </p>
               <p className="font-sans text-spaik-black/40" style={{ fontSize: "12px" }}>
                 {member.role}
+              </p>
+            </a>
+          ))}
+
+          {/* Divider dot */}
+          <div className="flex items-center self-center" style={{ height: 72 }}>
+            <div className="rounded-full" style={{ width: 4, height: 4, backgroundColor: "rgba(0,0,0,0.15)" }} />
+          </div>
+
+          {/* Advisors — distinct style with label + border ring */}
+          {ADVISORS.map((advisor) => (
+            <a
+              key={advisor.name}
+              href={advisor.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex flex-col items-center gap-2"
+            >
+              <div
+                className="relative overflow-hidden rounded-full transition-transform duration-200 group-hover:scale-105"
+                style={{
+                  width: 72,
+                  height: 72,
+                  boxShadow: "0 0 0 2px rgba(162, 189, 240, 0.5)",
+                }}
+              >
+                <Image
+                  src={advisor.photo}
+                  alt={advisor.name}
+                  fill
+                  className="object-cover"
+                  sizes="72px"
+                />
+              </div>
+              <p className="font-sans text-spaik-black/80" style={{ fontSize: "13px", fontWeight: 500 }}>
+                {advisor.name}
+              </p>
+              <p className="font-sans" style={{ fontSize: "11px", color: "rgba(162, 189, 240, 0.9)", fontWeight: 500 }}>
+                {advisor.role}
               </p>
             </a>
           ))}

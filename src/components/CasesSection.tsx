@@ -5,7 +5,7 @@ import { useTranslations } from "next-intl";
 import Image from "next/image";
 
 /* ── Animated counter ── */
-function AnimatedCounter({ value }: { value: string }) {
+function AnimatedCounter({ value, color }: { value: string; color?: string }) {
   const ref = React.useRef<HTMLParagraphElement>(null);
   const [display, setDisplay] = React.useState("0");
   const [hasAnimated, setHasAnimated] = React.useState(false);
@@ -40,7 +40,7 @@ function AnimatedCounter({ value }: { value: string }) {
   }, [value, hasAnimated]);
 
   return (
-    <p ref={ref} className="font-sans font-bold" style={{ fontSize: "28px", lineHeight: "1.1", color: "#0a0a0a" }}>
+    <p ref={ref} className="font-sans font-bold" style={{ fontSize: "28px", lineHeight: "1.1", color: color || "#0a0a0a" }}>
       {display}
     </p>
   );
@@ -183,7 +183,7 @@ export function CasesSection() {
         {/* Carousel */}
         <div
           key={`${active}-${direction}`}
-          className="rounded-3xl overflow-hidden"
+          className="grain-overlay rounded-3xl overflow-hidden"
           style={{ backgroundColor: current.bgColor, animation: slideAnim }}
         >
           <div className="flex flex-col md:flex-row">
@@ -235,7 +235,7 @@ export function CasesSection() {
                 <div className="flex flex-wrap gap-8 mb-5">
                   {current.stats.map((stat) => (
                     <div key={stat.label}>
-                      <AnimatedCounter value={stat.value} />
+                      <AnimatedCounter value={stat.value} color={current.accentColor} />
                       <p className="mt-1" style={{ fontSize: "13px", color: "rgba(0,0,0,0.5)" }}>{stat.label}</p>
                     </div>
                   ))}
