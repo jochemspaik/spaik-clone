@@ -21,9 +21,9 @@ function CrossIcon() {
 
 
 const SOLUTION_GRADIENTS = [
-  "linear-gradient(135deg, #8ba4d4 0%, #a2b8e4 50%, #bccef0 100%)",
-  "linear-gradient(135deg, #92aad6 0%, #a8bde6 50%, #c2d2f0 100%)",
-  "linear-gradient(135deg, #9ab0d8 0%, #aec4e8 50%, #c8d8f2 100%)",
+  "linear-gradient(135deg, #7b96cc 0%, #8faad8 50%, #a8c0e8 100%)",
+  "linear-gradient(135deg, #8198ce 0%, #95aeda 50%, #aec6ea 100%)",
+  "linear-gradient(135deg, #879ed0 0%, #9bb4dc 50%, #b4ccec 100%)",
 ];
 
 export function ProblemSolutionSection() {
@@ -131,8 +131,14 @@ export function ProblemSolutionSection() {
           </div>
         </div>
 
-        {/* Solutions block — left-aligned title + 3 cards in a row */}
-        <div className="flex flex-col">
+        {/* Solutions + Testimonial — unified gradient wash */}
+        <div
+          className="rounded-3xl overflow-hidden"
+          style={{
+            background: "linear-gradient(160deg, #c8d5ee 0%, #b8c8e8 25%, #c5bde8 50%, #d0c8f0 75%, #c5d0ee 100%)",
+            padding: "48px 40px 0",
+          }}
+        >
           <p
             className="font-heading"
             style={{
@@ -147,22 +153,19 @@ export function ProblemSolutionSection() {
 
           <div
             className="grid grid-cols-1 md:grid-cols-3"
-            style={{ gap: "24px", marginTop: "48px" }}
+            style={{ gap: "24px", marginTop: "40px" }}
           >
             {[1, 2, 3].map((i) => (
               <div
                 key={i}
                 className="rounded-2xl overflow-hidden"
-                style={{
-                  backgroundColor: "rgba(255,255,255,0.85)",
-                  border: "1px solid rgba(0,0,0,0.06)",
-                }}
+                style={{ backgroundColor: "rgba(255,255,255,0.9)" }}
               >
-                {/* Blue/lavender gradient strip with SPAIK dot-grid dither */}
+                {/* Bold dither strip — taller and more vibrant */}
                 <div
                   className="solution-dither-strip relative w-full overflow-hidden"
                   style={{
-                    height: "56px",
+                    height: "96px",
                     background: SOLUTION_GRADIENTS[i - 1],
                   }}
                 />
@@ -195,12 +198,12 @@ export function ProblemSolutionSection() {
               </div>
             ))}
           </div>
-        </div>
 
-        {/* Testimonial card */}
-        <div
-          className="testimonial-gradient grain-overlay rounded-3xl overflow-hidden flex flex-col md:flex-row"
-        >
+          {/* Testimonial inside the same gradient wash */}
+          <div
+            className="grain-overlay rounded-3xl overflow-hidden flex flex-col md:flex-row mt-10 mb-10"
+            style={{ backgroundColor: "rgba(255,255,255,0.15)" }}
+          >
           {/* Photo */}
           <div className="relative w-full md:w-[400px] h-[340px] md:h-auto flex-shrink-0">
             <Image
@@ -224,6 +227,7 @@ export function ProblemSolutionSection() {
               {t("solution.testimonialRole")}
             </p>
           </div>
+        </div>
         </div>
 
         {/* CTA buttons */}
