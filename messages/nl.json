@@ -213,12 +213,12 @@
     },
     "mostChosen": "Meest gekozen",
     "moreAbout": "Meer over",
-    "onRamp": {
-      "title": "Begin hier",
-      "subtitle": "De beste AI-transitie begint met begrip. Training is de laagdrempeligste instap. Bedrijven die eerst trainen, durven sneller te bouwen."
+    "learnSection": {
+      "title": "Leren",
+      "subtitle": "Begrijp wat AI voor jullie organisatie kan betekenen. Voor teams die willen starten met kennis."
     },
     "buildSection": {
-      "title": "Bouw met ons",
+      "title": "Bouwen",
       "subtitle": "Van eerste bewijs naar volledige zelfstandigheid. Altijd senior-led, altijd in jullie systemen."
     },
     "quote": {

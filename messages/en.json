@@ -213,12 +213,12 @@
     },
     "mostChosen": "Most chosen",
     "moreAbout": "More about",
-    "onRamp": {
-      "title": "Start here",
-      "subtitle": "The best AI transition starts with understanding. Training is the most accessible entry point. Companies that train first, build faster."
+    "learnSection": {
+      "title": "Learn",
+      "subtitle": "Understand what AI can mean for your organization. For teams that want to start with knowledge."
     },
     "buildSection": {
-      "title": "Build with us",
+      "title": "Build",
       "subtitle": "From first proof to full independence. Always senior-led, always within your systems."
     },
     "quote": {
@@ -235,17 +235,17 @@
       "strategie": {
         "title": "Strategy",
         "tagline": "Discover where AI delivers the most value for your organization.",
-        "price": "From \u20ac3,000 \u00b7 Half day"
+        "price": "From €3,000 · Half day"
       },
       "fundamentals": {
         "title": "AI Fundamentals",
         "tagline": "AI literacy for your whole team. EU AI Act compliant.",
-        "price": "\u20ac7,500 \u00b7 10 people \u00b7 6 weeks"
+        "price": "€7,500 · 10 people · 6 weeks"
       },
       "kickstart": {
         "title": "Kickstart",
         "tagline": "In 4 weeks: first automation live, roadmap for the rest, team of 10 trained.",
-        "price": "\u20ac10,000 \u00b7 4 weeks",
+        "price": "€10,000 · 4 weeks",
         "deliverable1": "AI and infrastructure roadmap",
         "deliverable2": "1 working automation in production",
         "deliverable3": "10 people trained"
@@ -253,7 +253,7 @@
       "adoptie": {
         "title": "Adoption",
         "tagline": "Your team learns to do it themselves. Dedicated team, continuous handover.",
-        "price": "Retainer \u00b7 6-8 months"
+        "price": "Retainer · 6-8 months"
       },
       "zelfstandig": {
         "title": "Independent",
@@ -275,8 +275,8 @@
         "metaDescription": "In half a day, go from vague ideas to a concrete AI roadmap with prioritized opportunities.",
         "title": "Strategy",
         "phase": "Phase 0",
-        "price": "From \u20ac3,000",
-        "duration": "Half day \u00b7 Up to 50 people",
+        "price": "From €3,000",
+        "duration": "Half day · Up to 50 people",
         "pitch": "In one afternoon, go from vague ideas to a concrete AI roadmap with prioritized opportunities and ROI estimates. No dry presentation, but energetic, interactive and hands-on.",
         "cta": "Schedule a session",
         "metric1value": "20+",
@@ -297,22 +297,31 @@
         "get3": "Concrete next steps",
         "get4": "Hands-on experience with AI tools",
         "nextStepText": "After the Strategy Session you know where the opportunities are. Next step is the Kickstart: first automation live in 4 weeks.",
-        "nextStepSlug": "kickstart"
+        "nextStepSlug": "kickstart",
+        "afterStat": "70% continue to Kickstart or Fundamentals. 30% start with the quick wins themselves.",
+        "get1detail": "Ranked by impact and feasibility for your specific situation.",
+        "get2detail": "Not 'AI can do a lot', but 'this saves you X hours per week.'",
+        "get3detail": "Your team practices directly with AI tools. No slides, just results.",
+        "get4detail": "Things you can already do differently tomorrow.",
+        "nextStepSlug2": "fundamentals",
+        "testimonialQuote": "We thought we came to listen. We left with a plan.",
+        "testimonialAuthor": "",
+        "testimonialRole": ""
       },
       "kickstart": {
         "metaTitle": "Kickstart",
-        "metaDescription": "First automation live in 4 weeks, roadmap for the rest, team of 10 trained. \u20ac10,000.",
+        "metaDescription": "First automation live in 4 weeks, roadmap for the rest, team of 10 trained. €10,000.",
         "title": "Kickstart",
         "phase": "Phase 1",
-        "price": "\u20ac10,000",
+        "price": "€10,000",
         "duration": "4 weeks",
-        "pitch": "In 4 weeks: first automation live, roadmap for the rest, team of 10 trained. \u20ac5k upfront, \u20ac5k after roadmap approval. Stop after week 1 if it doesn't work.",
+        "pitch": "In 4 weeks: first automation live, roadmap for the rest, team of 10 trained. €5k upfront, €5k after roadmap approval. Stop after week 1 if it doesn't work.",
         "cta": "Schedule a conversation",
         "metric1value": "35+",
         "metric1label": "kickstarts completed",
         "metric2value": "4",
         "metric2label": "weeks turnaround",
-        "metric3value": "\u20ac5k",
+        "metric3value": "€5k",
         "metric3label": "upfront, low risk",
         "yes1": "You want concrete proof that AI works for your organization",
         "yes2": "You have processes that are time-consuming and manual",
@@ -333,7 +342,21 @@
         "week34": "Build + deliver",
         "week34detail": "We build the first automation and deliver to production",
         "nextStepText": "After the Kickstart you have proof and a roadmap. Next step is Adoption: 6 months of follow-through until your team can do it themselves.",
-        "nextStepSlug": "adoptie"
+        "nextStepSlug": "adoptie",
+        "get1detail": "Prioritized opportunities with ROI estimates. What is possible, what is missing, what is needed.",
+        "get2detail": "Live in your systems, with your data. 5-8 hours saved per week.",
+        "get3detail": "Half-day hands-on. Prompting, use cases, AI fundamentals.",
+        "get4detail": "Everything handed over. Clear advice for the next step.",
+        "pricingAmount": "€10,000",
+        "pricingLabel": "all-in",
+        "pricingRisk": "Stop after week 1 if it doesn't work. Pay only €5k. Handshake, done.",
+        "pricingSplit1": "€5,000 upfront",
+        "pricingSplit1detail": "Week 1: Discovery + Training",
+        "pricingSplit2": "€5,000 after roadmap approval",
+        "pricingSplit2detail": "Week 2-4: Build + Deliver",
+        "testimonialQuote": "Our developers built in hours what normally takes weeks. Even the skeptics became enthusiastic. No theory, just building and deploying.",
+        "testimonialAuthor": "Vincent Bekker",
+        "testimonialRole": "CTO, Euphoria Mobility"
       },
       "adoptie": {
         "metaTitle": "Adoption",
@@ -362,15 +385,32 @@
         "get3": "Champions trained in your team",
         "get4": "Full handover after 6 months",
         "nextStepText": "After Adoption you manage everything yourselves. Continuing with us is a choice, not a necessity.",
-        "nextStepSlug": ""
+        "nextStepSlug": "",
+        "get1detail": "A senior lead + specialists, integrated in your daily work.",
+        "get2detail": "Progress, roadmap updates, course corrections where needed. No surprises.",
+        "get3detail": "Key people who drive it internally. They learn not just how, but also why.",
+        "get4detail": "Not one but multiple workflows automated. More impact every month.",
+        "get5": "Full handover",
+        "get5detail": "Documentation, training materials, everything needed to continue independently.",
+        "processMonth12": "Month 1-2: Laying the foundation",
+        "processMonth12detail": "Develop roadmap, build first automations, identify and train Champions.",
+        "processMonth34": "Month 3-4: Turning point",
+        "processMonth34detail": "Champions take over more and more. SPAIK guides, you do increasingly more yourself.",
+        "processMonth56": "Month 5-6: Handover",
+        "processMonth56detail": "Champions are self-sufficient. SPAIK available for questions, no longer leading.",
+        "processMonth78": "Month 7-8: Aftercare (optional)",
+        "processMonth78detail": "Monthly check-in. Ad-hoc support as needed.",
+        "testimonialQuote": "I've worked with multiple parties, but I see SPAIK as a true partner that thinks along with us and proactively acts.",
+        "testimonialAuthor": "Johanneke Behrend",
+        "testimonialRole": "Commercial Director, Movir"
       },
       "fundamentals": {
         "metaTitle": "AI Fundamentals",
         "metaDescription": "10 people who truly understand AI. Training with your own processes, 6 weeks of guidance. EU AI Act compliant.",
         "title": "AI Fundamentals",
         "phase": "Phase 0",
-        "price": "\u20ac7,500",
-        "duration": "10 people \u00b7 6 weeks",
+        "price": "€7,500",
+        "duration": "10 people · 6 weeks",
         "pitch": "10 people who truly understand AI. No theory everyone forgets. Training with your own processes, 6 weeks of guidance, time savings from week 1.",
         "cta": "Schedule a conversation",
         "metric1value": "9.1/10",
@@ -391,7 +431,24 @@
         "get3": "EU AI Act compliance",
         "get4": "Time savings from week 1",
         "nextStepText": "After Fundamentals your team understands AI. Next step is the Kickstart: first automation live in 4 weeks.",
-        "nextStepSlug": "kickstart"
+        "nextStepSlug": "kickstart",
+        "bigStat": "9.1/10",
+        "bigStatLabel": "average score from 700+ participant evaluations",
+        "get1detail": "Not generic but with your own processes, data and challenges. Hands-on, not slides.",
+        "get2detail": "Each week a concrete assignment. Personal guidance per participant.",
+        "get3detail": "Your team knows what is allowed, what is not, and how to responsibly use AI.",
+        "get4detail": "Participants apply it directly in their work. No waiting until the end.",
+        "processWeek0": "Intake",
+        "processWeek0detail": "Mapping your context: processes, tools, challenges. Preparing a tailored workshop.",
+        "processWeek1": "Kickoff Workshop (half day, on location)",
+        "processWeek1detail": "AI fundamentals, hands-on prompting with your own examples, identifying use cases per participant.",
+        "processWeek25": "Challenges + Coaching (week 2-5)",
+        "processWeek25detail": "Each week a concrete assignment. Apply in daily work. 1-on-1 or group coaching.",
+        "processWeek6": "Wrap-up",
+        "processWeek6detail": "Share results, lessons learned, advice for next steps.",
+        "testimonialQuote": "SPAIK first trained our management team, then the whole company. Now everyone uses AI daily, with effective guardrails and compliance.",
+        "testimonialAuthor": "Maurick Schellekens",
+        "testimonialRole": "CEO, Movir"
       }
     }
   }

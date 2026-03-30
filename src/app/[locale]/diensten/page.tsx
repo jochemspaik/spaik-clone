@@ -16,12 +16,12 @@ const META: Record<string, { title: string; description: string }> = {
   nl: {
     title: "Diensten — SPAIK",
     description:
-      "Jullie AI-transitie in drie fasen. Van eerste bewijs naar volledige zelfstandigheid.",
+      "Jullie AI-transitie, stap voor stap. Van training tot volledige zelfstandigheid.",
   },
   en: {
     title: "Services — SPAIK",
     description:
-      "Your AI transition in three phases. From first proof to full independence.",
+      "Your AI transition, step by step. From training to full independence.",
   },
 };
 
@@ -67,62 +67,6 @@ function CheckIcon() {
   );
 }
 
-/** Small phase label pill */
-function PhaseLabel({ label }: { label: string }) {
-  return (
-    <span
-      className="inline-block text-xs font-medium uppercase tracking-wider"
-      style={{ color: "rgba(0,0,0,0.5)" }}
-    >
-      {label}
-    </span>
-  );
-}
-
-/** Phase circle on the timeline */
-function TimelineCircle({
-  variant,
-}: {
-  variant: "outline" | "filled" | "endpoint";
-}) {
-  const size = 16;
-  if (variant === "filled") {
-    return (
-      <span
-        className="block rounded-full shrink-0"
-        style={{
-          width: size,
-          height: size,
-          backgroundColor: "#FF7150",
-        }}
-      />
-    );
-  }
-  if (variant === "endpoint") {
-    return (
-      <span
-        className="block rounded-full shrink-0"
-        style={{
-          width: size,
-          height: size,
-          backgroundColor: "#0b0b0b",
-        }}
-      />
-    );
-  }
-  return (
-    <span
-      className="block rounded-full shrink-0"
-      style={{
-        width: size,
-        height: size,
-        border: "2px solid #DEDCCC",
-        backgroundColor: "#fff",
-      }}
-    />
-  );
-}
-
 /* ------------------------------------------------------------------ */
 /*  Main page                                                         */
 /* ------------------------------------------------------------------ */
@@ -155,256 +99,252 @@ export default function DienstenPage() {
           </ScrollReveal>
         </section>
 
-        {/* -------- Journey Timeline -------- */}
+        {/* -------- Begin hier / Start here (on-ramp) -------- */}
         <section
           className="px-6 md:px-10 pb-20"
           style={{ maxWidth: 1080, margin: "0 auto" }}
         >
-          {/* Timeline wrapper — line on the left (hidden mobile) */}
-          <div className="relative">
-            {/* Vertical connecting line — desktop only */}
-            <div
-              className="hidden md:block absolute top-0 bottom-0"
-              style={{
-                left: 7,
-                width: 2,
-                backgroundColor: "#DEDCCC",
-              }}
-            />
+          <ScrollReveal>
+            <h2
+              className="font-heading text-[32px] leading-[36px]"
+              style={{ fontWeight: 100, color: "#0b0b0b" }}
+            >
+              {t("learnSection.title")}
+            </h2>
+            <p
+              className="mt-3 text-base max-w-[640px]"
+              style={{ color: "rgba(0,0,0,0.7)" }}
+            >
+              {t("learnSection.subtitle")}
+            </p>
+          </ScrollReveal>
 
-            {/* ===== Phase 0 ===== */}
-            <ScrollReveal>
-              <div className="relative md:pl-12 mb-12">
-                {/* Circle */}
-                <div className="hidden md:flex absolute left-0 top-1 items-center justify-center">
-                  <TimelineCircle variant="outline" />
-                </div>
-
-                <PhaseLabel label={t("phase0label")} />
-
-                {/* Two sub-cards side by side */}
-                <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-4">
-                  {/* Strategie */}
-                  <Link
-                    href="/diensten/strategie"
-                    className="group block rounded-2xl border border-[#DEDCCC] bg-white p-6 transition-shadow hover:shadow-lg"
-                  >
-                    <h3
-                      className="font-heading text-[24px] leading-[28px]"
-                      style={{ fontWeight: 100, color: "#0b0b0b" }}
-                    >
-                      {t("overview.strategie.title")}
-                    </h3>
-                    <p
-                      className="mt-2 text-sm"
-                      style={{ color: "rgba(0,0,0,0.7)" }}
-                    >
-                      {t("overview.strategie.tagline")}
-                    </p>
-                    <p
-                      className="mt-3 text-sm"
-                      style={{ color: "rgba(0,0,0,0.5)" }}
-                    >
-                      {t("overview.strategie.price")}
-                    </p>
-                    <span
-                      className="mt-4 inline-flex items-center gap-1 text-sm font-medium group-hover:gap-2 transition-all"
-                      style={{ color: "#FF7150" }}
-                    >
-                      {t("moreAbout")} {t("overview.strategie.title")}{" "}
-                      <span aria-hidden="true">&rarr;</span>
-                    </span>
-                  </Link>
-
-                  {/* Fundamentals */}
-                  <Link
-                    href="/diensten/fundamentals"
-                    className="group block rounded-2xl border border-[#DEDCCC] bg-white p-6 transition-shadow hover:shadow-lg"
-                  >
-                    <h3
-                      className="font-heading text-[24px] leading-[28px]"
-                      style={{ fontWeight: 100, color: "#0b0b0b" }}
-                    >
-                      {t("overview.fundamentals.title")}
-                    </h3>
-                    <p
-                      className="mt-2 text-sm"
-                      style={{ color: "rgba(0,0,0,0.7)" }}
-                    >
-                      {t("overview.fundamentals.tagline")}
-                    </p>
-                    <p
-                      className="mt-3 text-sm"
-                      style={{ color: "rgba(0,0,0,0.5)" }}
-                    >
-                      {t("overview.fundamentals.price")}
-                    </p>
-                    <span
-                      className="mt-4 inline-flex items-center gap-1 text-sm font-medium group-hover:gap-2 transition-all"
-                      style={{ color: "#FF7150" }}
-                    >
-                      {t("moreAbout")} {t("overview.fundamentals.title")}{" "}
-                      <span aria-hidden="true">&rarr;</span>
-                    </span>
-                  </Link>
-                </div>
-              </div>
-            </ScrollReveal>
-
-            {/* ===== Phase 1 — Kickstart (featured) ===== */}
-            <ScrollReveal delay={100}>
-              <div className="relative md:pl-12 mb-12">
-                {/* Circle — filled orange */}
-                <div className="hidden md:flex absolute left-0 top-1 items-center justify-center">
-                  <TimelineCircle variant="filled" />
-                </div>
-
-                <PhaseLabel label={t("phase1label")} />
-
-                <Link
-                  href="/diensten/kickstart"
-                  className="group block mt-4 relative rounded-2xl overflow-hidden min-h-[200px] md:min-h-[280px] transition-shadow hover:shadow-xl"
+          {/* Two on-ramp cards */}
+          <ScrollReveal>
+            <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-5">
+              {/* AI Fundamentals */}
+              <Link
+                href="/diensten/fundamentals"
+                className="group relative block rounded-2xl overflow-hidden min-h-[220px] transition-shadow hover:shadow-xl"
+                style={{
+                  backgroundImage: "url('/images/Gradient 04.webp')",
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
+                }}
+              >
+                <div
+                  className="absolute inset-0"
                   style={{
-                    backgroundImage: "url('/images/Gradient 03.webp')",
-                    backgroundSize: "cover",
-                    backgroundPosition: "center",
+                    background:
+                      "linear-gradient(180deg, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.35) 100%)",
                   }}
-                >
-                  {/* Dark gradient overlay */}
-                  <div
-                    className="absolute inset-0"
-                    style={{
-                      background:
-                        "linear-gradient(to bottom, transparent 30%, rgba(0,0,0,0.5) 100%)",
-                    }}
-                  />
-
-                  {/* "Most chosen" badge */}
-                  <span
-                    className="absolute top-4 right-4 text-xs font-medium text-white px-3 py-1 rounded-full"
-                    style={{ backgroundColor: "#FF7150" }}
-                  >
-                    {t("mostChosen")}
-                  </span>
-
-                  {/* Content */}
-                  <div className="relative z-10 flex flex-col justify-end h-full p-6 md:p-8 min-h-[200px] md:min-h-[280px]">
-                    <h3
-                      className="font-heading text-[28px] leading-[32px] md:text-[36px] md:leading-[40px] text-white"
-                      style={{ fontWeight: 100 }}
-                    >
-                      {t("overview.kickstart.title")}
-                    </h3>
-                    <p className="mt-2 text-sm text-white/80 max-w-[520px]">
-                      {t("overview.kickstart.tagline")}
-                    </p>
-                    <p className="mt-3 text-sm text-white/60">
-                      {t("overview.kickstart.price")}
-                    </p>
-
-                    {/* Deliverables */}
-                    <ul className="mt-4 flex flex-col gap-2">
-                      <li className="flex items-center gap-2 text-sm text-white/90">
-                        <CheckIcon />
-                        {t("overview.kickstart.deliverable1")}
-                      </li>
-                      <li className="flex items-center gap-2 text-sm text-white/90">
-                        <CheckIcon />
-                        {t("overview.kickstart.deliverable2")}
-                      </li>
-                      <li className="flex items-center gap-2 text-sm text-white/90">
-                        <CheckIcon />
-                        {t("overview.kickstart.deliverable3")}
-                      </li>
-                    </ul>
-
-                    <span className="mt-5 inline-flex items-center gap-1 text-sm font-medium text-white group-hover:gap-2 transition-all">
-                      {t("moreAbout")} {t("overview.kickstart.title")}{" "}
-                      <span aria-hidden="true">&rarr;</span>
-                    </span>
-                  </div>
-                </Link>
-              </div>
-            </ScrollReveal>
-
-            {/* ===== Phase 2 — Adoptie ===== */}
-            <ScrollReveal delay={200}>
-              <div className="relative md:pl-12 mb-12">
-                {/* Circle */}
-                <div className="hidden md:flex absolute left-0 top-1 items-center justify-center">
-                  <TimelineCircle variant="outline" />
-                </div>
-
-                <PhaseLabel label={t("phase2label")} />
-
-                <Link
-                  href="/diensten/adoptie"
-                  className="group block mt-4 relative rounded-2xl overflow-hidden min-h-[200px] md:min-h-[240px] transition-shadow hover:shadow-xl"
-                  style={{
-                    backgroundImage: "url('/images/Gradient 02.webp')",
-                    backgroundSize: "cover",
-                    backgroundPosition: "center",
-                  }}
-                >
-                  {/* Dark gradient overlay */}
-                  <div
-                    className="absolute inset-0"
-                    style={{
-                      background:
-                        "linear-gradient(to bottom, transparent 30%, rgba(0,0,0,0.5) 100%)",
-                    }}
-                  />
-
-                  {/* Content */}
-                  <div className="relative z-10 flex flex-col justify-end h-full p-6 md:p-8 min-h-[200px] md:min-h-[240px]">
-                    <h3
-                      className="font-heading text-[28px] leading-[32px] md:text-[36px] md:leading-[40px] text-white"
-                      style={{ fontWeight: 100 }}
-                    >
-                      {t("overview.adoptie.title")}
-                    </h3>
-                    <p className="mt-2 text-sm text-white/80 max-w-[520px]">
-                      {t("overview.adoptie.tagline")}
-                    </p>
-                    <p className="mt-3 text-sm text-white/60">
-                      {t("overview.adoptie.price")}
-                    </p>
-                    <span className="mt-5 inline-flex items-center gap-1 text-sm font-medium text-white group-hover:gap-2 transition-all">
-                      {t("moreAbout")} {t("overview.adoptie.title")}{" "}
-                      <span aria-hidden="true">&rarr;</span>
-                    </span>
-                  </div>
-                </Link>
-              </div>
-            </ScrollReveal>
-
-            {/* ===== Phase 3 — Zelfstandig (endpoint) ===== */}
-            <ScrollReveal delay={300}>
-              <div className="relative md:pl-12">
-                {/* Circle — filled dark endpoint */}
-                <div className="hidden md:flex absolute left-0 top-1 items-center justify-center">
-                  <TimelineCircle variant="endpoint" />
-                </div>
-
-                <PhaseLabel label={t("phase3label")} />
-
-                <div className="mt-4">
+                />
+                <div className="relative z-10 flex flex-col justify-end h-full p-6 min-h-[220px]">
                   <h3
-                    className="font-heading text-[24px] leading-[28px]"
-                    style={{ fontWeight: 100, color: "#0b0b0b" }}
+                    className="font-heading text-[24px] leading-[28px] text-white"
+                    style={{ fontWeight: 100 }}
                   >
-                    {t("overview.zelfstandig.title")}
+                    {t("overview.fundamentals.title")}
                   </h3>
-                  <p
-                    className="mt-2 text-base"
-                    style={{ color: "rgba(0,0,0,0.7)" }}
-                  >
-                    {t("overview.zelfstandig.tagline")}
+                  <p className="mt-2 text-sm text-white/80">
+                    {t("overview.fundamentals.tagline")}
                   </p>
+                  <p className="mt-2 text-sm text-white/60">
+                    {t("overview.fundamentals.price")}
+                  </p>
+                  <span className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-white group-hover:gap-2 transition-all">
+                    {t("moreAbout")} {t("overview.fundamentals.title")}{" "}
+                    <span aria-hidden="true">&rarr;</span>
+                  </span>
                 </div>
+              </Link>
+
+              {/* Strategie Sessie */}
+              <Link
+                href="/diensten/strategie"
+                className="group relative block rounded-2xl overflow-hidden min-h-[220px] transition-shadow hover:shadow-xl"
+                style={{
+                  backgroundImage: "url('/images/Gradient 01.webp')",
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
+                }}
+              >
+                <div
+                  className="absolute inset-0"
+                  style={{
+                    background:
+                      "linear-gradient(180deg, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.35) 100%)",
+                  }}
+                />
+                <div className="relative z-10 flex flex-col justify-end h-full p-6 min-h-[220px]">
+                  <h3
+                    className="font-heading text-[24px] leading-[28px] text-white"
+                    style={{ fontWeight: 100 }}
+                  >
+                    {t("overview.strategie.title")}
+                  </h3>
+                  <p className="mt-2 text-sm text-white/80">
+                    {t("overview.strategie.tagline")}
+                  </p>
+                  <p className="mt-2 text-sm text-white/60">
+                    {t("overview.strategie.price")}
+                  </p>
+                  <span className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-white group-hover:gap-2 transition-all">
+                    {t("moreAbout")} {t("overview.strategie.title")}{" "}
+                    <span aria-hidden="true">&rarr;</span>
+                  </span>
+                </div>
+              </Link>
+            </div>
+          </ScrollReveal>
+        </section>
+
+        {/* -------- Bouw met ons / Build with us -------- */}
+        <section
+          className="px-6 md:px-10 pb-20"
+          style={{ maxWidth: 1080, margin: "0 auto" }}
+        >
+          <ScrollReveal>
+            <h2
+              className="font-heading text-[32px] leading-[36px]"
+              style={{ fontWeight: 100, color: "#0b0b0b" }}
+            >
+              {t("buildSection.title")}
+            </h2>
+            <p
+              className="mt-3 text-base max-w-[640px]"
+              style={{ color: "rgba(0,0,0,0.7)" }}
+            >
+              {t("buildSection.subtitle")}
+            </p>
+          </ScrollReveal>
+
+          {/* Kickstart — featured large card */}
+          <ScrollReveal>
+            <Link
+              href="/diensten/kickstart"
+              className="group block mt-8 relative rounded-2xl overflow-hidden min-h-[200px] md:min-h-[280px] transition-shadow hover:shadow-xl"
+              style={{
+                backgroundImage: "url('/images/Gradient 03.webp')",
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+              }}
+            >
+              {/* Subtle gradient overlay */}
+              <div
+                className="absolute inset-0"
+                style={{
+                  background:
+                    "linear-gradient(180deg, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.35) 100%)",
+                }}
+              />
+
+              {/* "Most chosen" badge */}
+              <span
+                className="absolute top-4 right-4 z-20 text-xs font-medium text-white px-3 py-1 rounded-full"
+                style={{ backgroundColor: "#FF7150" }}
+              >
+                {t("mostChosen")}
+              </span>
+
+              {/* Content */}
+              <div className="relative z-10 flex flex-col justify-end h-full p-6 md:p-8 min-h-[200px] md:min-h-[280px]">
+                <h3
+                  className="font-heading text-[28px] leading-[32px] md:text-[36px] md:leading-[40px] text-white"
+                  style={{ fontWeight: 100 }}
+                >
+                  {t("overview.kickstart.title")}
+                </h3>
+                <p className="mt-2 text-sm text-white/80 max-w-[520px]">
+                  {t("overview.kickstart.tagline")}
+                </p>
+                <p className="mt-3 text-sm text-white/60">
+                  {t("overview.kickstart.price")}
+                </p>
+
+                {/* Deliverables */}
+                <ul className="mt-4 flex flex-col gap-2">
+                  <li className="flex items-center gap-2 text-sm text-white/90">
+                    <CheckIcon />
+                    {t("overview.kickstart.deliverable1")}
+                  </li>
+                  <li className="flex items-center gap-2 text-sm text-white/90">
+                    <CheckIcon />
+                    {t("overview.kickstart.deliverable2")}
+                  </li>
+                  <li className="flex items-center gap-2 text-sm text-white/90">
+                    <CheckIcon />
+                    {t("overview.kickstart.deliverable3")}
+                  </li>
+                </ul>
+
+                <span className="mt-5 inline-flex items-center gap-1 text-sm font-medium text-white group-hover:gap-2 transition-all">
+                  {t("moreAbout")} {t("overview.kickstart.title")}{" "}
+                  <span aria-hidden="true">&rarr;</span>
+                </span>
               </div>
-            </ScrollReveal>
-          </div>
+            </Link>
+          </ScrollReveal>
+
+          {/* Adoptie */}
+          <ScrollReveal>
+            <Link
+              href="/diensten/adoptie"
+              className="group block mt-5 relative rounded-2xl overflow-hidden min-h-[180px] md:min-h-[220px] transition-shadow hover:shadow-xl"
+              style={{
+                backgroundImage: "url('/images/Gradient 02.webp')",
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+              }}
+            >
+              {/* Subtle gradient overlay */}
+              <div
+                className="absolute inset-0"
+                style={{
+                  background:
+                    "linear-gradient(180deg, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.35) 100%)",
+                }}
+              />
+
+              {/* Content */}
+              <div className="relative z-10 flex flex-col justify-end h-full p-6 md:p-8 min-h-[180px] md:min-h-[220px]">
+                <h3
+                  className="font-heading text-[28px] leading-[32px] md:text-[36px] md:leading-[40px] text-white"
+                  style={{ fontWeight: 100 }}
+                >
+                  {t("overview.adoptie.title")}
+                </h3>
+                <p className="mt-2 text-sm text-white/80 max-w-[520px]">
+                  {t("overview.adoptie.tagline")}
+                </p>
+                <p className="mt-3 text-sm text-white/60">
+                  {t("overview.adoptie.price")}
+                </p>
+                <span className="mt-5 inline-flex items-center gap-1 text-sm font-medium text-white group-hover:gap-2 transition-all">
+                  {t("moreAbout")} {t("overview.adoptie.title")}{" "}
+                  <span aria-hidden="true">&rarr;</span>
+                </span>
+              </div>
+            </Link>
+          </ScrollReveal>
+
+          {/* Zelfstandig — endpoint, no card */}
+          <ScrollReveal>
+            <div className="mt-10">
+              <h3
+                className="font-heading text-[24px] leading-[28px]"
+                style={{ fontWeight: 100, color: "#0b0b0b" }}
+              >
+                {t("overview.zelfstandig.title")}
+              </h3>
+              <p
+                className="mt-2 text-base"
+                style={{ color: "rgba(0,0,0,0.7)" }}
+              >
+                {t("overview.zelfstandig.tagline")}
+              </p>
+            </div>
+          </ScrollReveal>
         </section>
 
         {/* -------- Quote Strip -------- */}
