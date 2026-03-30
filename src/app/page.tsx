@@ -1,5 +1,5 @@
-import { redirect } from "next/navigation";
-
+// next-intl middleware rewrites / → [locale=nl] with localePrefix: "as-needed"
+// This fallback should never be reached in production
 export default function RootPage() {
-  redirect("/nl");
+  return null;
 }

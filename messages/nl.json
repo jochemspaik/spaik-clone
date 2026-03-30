@@ -10,9 +10,9 @@
   "hero": {
     "title1": "Je beste mensen.",
     "title2": "Vast in handmatig werk.",
-    "subtitle": "Wij bouwen AI-oplossingen die je mensen écht gebruiken.",
-    "subtitleHighlight": "Resultaat in 4 weken · Positieve ROI in 4 maanden",
-    "ctaPrimary": "Ontdek AI use cases",
+    "subtitle": "Wij combineren strategie, adoptie en automatisering — zodat AI in 4 weken werkt en na 6 maanden van jullie is.",
+    "subtitleHighlight": "✓ Bewijs in 4 weken · ✓ 9.1/10 evaluaties · ✓ 35+ implementaties",
+    "ctaPrimary": "Ontdek jouw AI-kansen",
     "ctaSecondary": "Plan een gesprek"
   },
   "cases": {
@@ -60,14 +60,14 @@
     }
   },
   "problem": {
-    "title": "Waarom AI-projecten falen",
-    "subtitle": "Niet door de technologie. Door gebrek aan adoptie.",
-    "problem1title": "Resultaat laat maanden op zich wachten",
-    "problem1text": "Eindeloze processen, presentaties en pilots die nergens toe leiden.",
-    "problem2title": "Werkt niet met wat je al hebt.",
-    "problem2text": "Weer een losse tool. Past niet in het dagelijks werk. Niemand gebruikt het.",
-    "problem3title": "Geen eigenaarschap.",
-    "problem3text": "Experts bouwen, vertrekken. Je mensen kunnen het niet overnemen."
+    "title": "Je weet dat AI waarde kan opleveren. Maar het gebeurt niet.",
+    "subtitle": "Niet door andere bureaus. Door uitstel, gebrek aan structuur en tools die niemand gebruikt.",
+    "problem1title": "Afwachten kost meer dan beginnen",
+    "problem1text": "Je concurrenten bewegen nu. Elke maand uitstel is een maand voorsprong kwijt.",
+    "problem2title": "Zelf proberen zonder structuur",
+    "problem2text": "Alleen de early adopters gebruiken het. De rest wacht af.",
+    "problem3title": "Tools gekocht maar niet gebruikt",
+    "problem3text": "80% van AI-licenties ligt na maand 1 stil. Aanschaffen is niet adopteren."
   },
   "solution": {
     "title": "Hoe wij het verschil maken",
@@ -99,10 +99,10 @@
     "dataItem3": "Datakwaliteit en governance"
   },
   "services": {
-    "title": "Kies je startpunt",
+    "title": "Jullie AI-transitie in drie fasen",
     "subtitle": "Senior expertise voor ambitieuze bedrijven",
     "inspiration": {
-      "name": "Inspiratiesessie",
+      "name": "Strategie",
       "price": "€3.000 / 15 personen",
       "description": "Een goed begrip van AI en wat het voor jouw organisatie kan betekenen.",
       "detail": "Geen droge presentatie. We nemen je energiek mee door de laatste AI-ontwikkelingen, delen concrete toepassingen en verkennen samen wat AI jouw organisatie kan brengen.",
@@ -111,7 +111,7 @@
       "feature3": "AI-kansen voor jouw organisatie"
     },
     "kickstart": {
-      "name": "AI Kickstart",
+      "name": "Kickstart",
       "price": "€10.000 / 4 weken",
       "badge": "Gekozen door 20+ bedrijven",
       "description": "Concreet inzicht in waar AI processen versnelt en de eerste automatisering gaat live.",

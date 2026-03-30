@@ -10,9 +10,9 @@
   "hero": {
     "title1": "Your best people.",
     "title2": "Stuck in manual work.",
-    "subtitle": "We build AI solutions that your people actually use.",
-    "subtitleHighlight": "Results in 4 weeks · Positive ROI in 4 months",
-    "ctaPrimary": "Discover AI use cases",
+    "subtitle": "We combine strategy, adoption, and automation — so AI works in 4 weeks and is yours in 6 months.",
+    "subtitleHighlight": "✓ Proof in 4 weeks · ✓ 9.1/10 ratings · ✓ 35+ implementations",
+    "ctaPrimary": "Discover your AI opportunities",
     "ctaSecondary": "Book a call"
   },
   "cases": {
@@ -60,14 +60,14 @@
     }
   },
   "problem": {
-    "title": "Why AI projects fail",
-    "subtitle": "Not by the technology. Due to lack of adoption.",
-    "problem1title": "Results take months",
-    "problem1text": "Endless processes, presentations, and pilots leading nowhere.",
-    "problem2title": "Doesn't work with what you already have.",
-    "problem2text": "Yet another standalone tool. Doesn't fit into daily work. Nobody uses it.",
-    "problem3title": "No ownership.",
-    "problem3text": "Experts build, leave. Your people can't take over."
+    "title": "You know AI can deliver value. But it's not happening.",
+    "subtitle": "Not because of other agencies. Because of delay, lack of structure, and tools nobody uses.",
+    "problem1title": "Waiting costs more than starting",
+    "problem1text": "Your competitors are moving now. Every month of delay is a month of lost advantage.",
+    "problem2title": "Trying without structure",
+    "problem2text": "Only early adopters use it. The rest waits.",
+    "problem3title": "Tools bought but not used",
+    "problem3text": "80% of AI licenses go unused after month 1. Buying isn't adopting."
   },
   "solution": {
     "title": "How we make a difference",
@@ -99,10 +99,10 @@
     "dataItem3": "Data quality and governance"
   },
   "services": {
-    "title": "Choose your starting point",
+    "title": "Your AI transition in three phases",
     "subtitle": "Senior expertise for ambitious firms",
     "inspiration": {
-      "name": "Inspiration Session",
+      "name": "Strategy",
       "price": "€3,000 / 15 people",
       "description": "A solid understanding of AI and what it can mean for your organization.",
       "detail": "No dry presentation. We'll energetically guide you through the latest AI developments, share concrete applications, and explore together what AI can bring to your organization.",
@@ -111,7 +111,7 @@
       "feature3": "AI opportunities for your organization"
     },
     "kickstart": {
-      "name": "AI Kickstart",
+      "name": "Kickstart",
       "price": "€10,000 / 4 weeks",
       "badge": "Chosen by 20+ companies",
       "description": "Concrete insight into where AI accelerates processes and the first automation goes live.",
