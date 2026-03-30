@@ -132,9 +132,21 @@ export function ProblemSolutionSection() {
           </ScrollStagger>
         </div>
 
-        {/* Solutions + Testimonial — unified gradient wash */}
+        {/* Solutions + Testimonial — large gradient wash with soft edges */}
+        <div className="relative">
+          {/* Big soft gradient blob behind everything */}
+          <div
+            className="pointer-events-none absolute"
+            style={{
+              inset: "-60px -80px",
+              background: "radial-gradient(ellipse 120% 100% at 50% 60%, rgba(180, 195, 230, 0.6) 0%, rgba(195, 180, 230, 0.5) 30%, rgba(210, 200, 240, 0.3) 60%, transparent 100%)",
+              borderRadius: "48px",
+              filter: "blur(30px)",
+              zIndex: 0,
+            }}
+          />
         <div
-          className="rounded-3xl overflow-hidden"
+          className="relative z-[1] rounded-3xl overflow-hidden"
           style={{
             background: "linear-gradient(160deg, #c8d5ee 0%, #b8c8e8 25%, #c5bde8 50%, #d0c8f0 75%, #c5d0ee 100%)",
             padding: "48px 40px 0",
@@ -229,6 +241,7 @@ export function ProblemSolutionSection() {
               {t("solution.testimonialRole")}
             </p>
           </div>
+        </div>
         </div>
         </div>
 

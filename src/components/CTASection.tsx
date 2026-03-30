@@ -26,7 +26,7 @@ export function CTASection() {
                 playsInline
                 poster="/images/cta-poster.jpg"
                 className="h-full w-full object-cover"
-                src="/videos/secondary-animation.mp4"
+                src="/videos/secondary-animation.mp4#t=2"
               />
               {/* Dot-grid overlay — SPAIK signature texture */}
               <div className="absolute inset-0 pointer-events-none" style={{ opacity: 0.15 }}>
