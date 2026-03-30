@@ -3,6 +3,7 @@
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { RollingTextButton } from "@/components/RollingTextButton";
+import { ScrollStagger } from "@/components/ScrollStagger";
 import { BOOK_CALL_URL, INTAKE_URL } from "@/lib/constants";
 import { DashedCheckIcon } from "@/components/icons";
 
@@ -98,12 +99,12 @@ export function ProblemSolutionSection() {
             {t("problem.subtitle")}
           </p>
 
-          <div
+          <ScrollStagger
             className="grid grid-cols-1 md:grid-cols-3 w-full"
-            style={{ gap: "40px", marginTop: "48px" }}
+            staggerMs={150}
           >
             {[1, 2, 3].map((i) => (
-              <div key={i} className="flex flex-col items-center text-center">
+              <div key={i} className="flex flex-col items-center text-center" style={{ marginTop: "48px" }}>
                 <CrossIcon />
                 <p
                   className="font-medium"
@@ -128,7 +129,7 @@ export function ProblemSolutionSection() {
                 </p>
               </div>
             ))}
-          </div>
+          </ScrollStagger>
         </div>
 
         {/* Solutions + Testimonial — unified gradient wash */}
@@ -151,9 +152,10 @@ export function ProblemSolutionSection() {
             {t("solution.title")}
           </p>
 
-          <div
-            className="grid grid-cols-1 md:grid-cols-3"
-            style={{ gap: "24px", marginTop: "40px" }}
+          <ScrollStagger
+            className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10"
+            staggerMs={120}
+            baseDelay={100}
           >
             {[1, 2, 3].map((i) => (
               <div
@@ -197,7 +199,7 @@ export function ProblemSolutionSection() {
                 </div>
               </div>
             ))}
-          </div>
+          </ScrollStagger>
 
           {/* Testimonial inside the same gradient wash */}
           <div

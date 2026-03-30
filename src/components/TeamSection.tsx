@@ -2,6 +2,7 @@
 
 import { useTranslations } from "next-intl";
 import Image from "next/image";
+import { ScrollStagger } from "@/components/ScrollStagger";
 import { LinkedInIcon } from "@/components/icons";
 
 const TEAM_MEMBERS = [
@@ -147,7 +148,7 @@ export function TeamSection() {
         </div>
 
         {/* Core team — 4-column grid matching original */}
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <ScrollStagger className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4" staggerMs={80}>
           {TEAM_MEMBERS.map((member) => (
             <div
               key={member.name}
@@ -189,7 +190,7 @@ export function TeamSection() {
               </a>
             </div>
           ))}
-        </div>
+        </ScrollStagger>
 
       </div>
     </section>

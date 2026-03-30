@@ -4,6 +4,7 @@ import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
 import { SectionWrapper } from "@/components/SectionWrapper";
+import { ScrollStagger } from "@/components/ScrollStagger";
 
 const BLOG_POSTS = [
   {
@@ -70,7 +71,7 @@ export function InsightsSection() {
         </div>
 
         {/* Blog cards */}
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+        <ScrollStagger className="grid grid-cols-1 gap-6 md:grid-cols-3" staggerMs={150}>
           {BLOG_POSTS.map((post) => (
             <Link
               key={post.href}
@@ -96,7 +97,7 @@ export function InsightsSection() {
               </h3>
             </Link>
           ))}
-        </div>
+        </ScrollStagger>
     </SectionWrapper>
   );
 }
