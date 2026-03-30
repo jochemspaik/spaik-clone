@@ -1,0 +1,100 @@
+---
+session: spaik-clone
+date: 2026-03-30
+status: complete
+outcome: SUCCEEDED
+---
+
+goal: Full production polish — resumed session 4 handoff, ran 6-agent code review, design/frontend/SEO/WIG audits, scroll animations, organic gradient blobs, shipped to GitHub
+now: Deploy to Vercel (spaik.io), then optionally tackle 5 deferred code review items
+
+test: npm run build && npm run dev && open http://localhost:3000
+
+done_this_session:
+  - task: "Resumed session 4 handoff — completed all 8 P0/P1/P2 visual polish items (hero subtitle, texture repeat, discovery frame, CTA poster, footer logomark, animated testimonial gradient, dot-grid decorations)"
+    files: [src/components/HeroSection.tsx, src/components/ProblemSolutionSection.tsx, src/components/AIDiscoverySection.tsx, src/components/CTASection.tsx, src/components/Footer.tsx, src/components/CasesSection.tsx, src/components/ServicesSection.tsx, src/app/globals.css]
+  - task: "Added advisor row — Joep de Caluwé (GTM) + Jan van Casteren (Strategy) with photos from IMD/TicketSwap, then merged into main 4-col grid with blue role text distinction"
+    files: [src/components/TeamSection.tsx, public/images/team-joep-advisor.png, public/images/team-jan-advisor.png]
+  - task: "Design review (gstack /design-review) — found and fixed 8 findings: touch targets 44px, section order swap (problem before cases), image warnings, blog headings 18px, footer logomark 12%, dot-pattern sizes"
+    files: [src/components/TeamSection.tsx, src/components/Header.tsx, src/components/Footer.tsx, src/components/DiscoverySection.tsx, src/components/InsightsSection.tsx, src/components/ServicesSection.tsx, src/components/AIDiscoverySection.tsx, "src/app/[locale]/page.tsx"]
+  - task: "Frontend-design audit — min-h-screen→dvh, #000→#0b0b0b, progressBar width→scaleX GPU animation"
+    files: ["src/app/[locale]/legal/page.tsx", "src/app/[locale]/blog/page.tsx", "src/app/[locale]/blog/[slug]/page.tsx", src/components/HeroSection.tsx, src/app/globals.css, src/components/CasesSection.tsx]
+  - task: "Mobile responsiveness — hamburger 44px, NL/EN buttons, section padding 40px→24px mobile, footer links 44px"
+    files: [src/components/Header.tsx, src/components/ServicesSection.tsx, src/components/TeamSection.tsx, src/components/Footer.tsx]
+  - task: "6-agent compound-engineering code review (security, performance, architecture, typescript, patterns, simplicity) — 25 findings, fixed 20"
+    files: [src/components/icons.tsx, src/i18n/useTypedLocale.ts, "src/app/[locale]/not-found.tsx", "src/app/[locale]/error.tsx", package.json, src/app/globals.css, src/components/ScrollReveal.tsx, src/components/SmoothScroll.tsx, src/components/CasesSection.tsx]
+  - task: "Image cleanup — removed 40+ unused images, compressed JPG team photos, 19MB→3.8MB (-80%)"
+    files: [public/images/]
+  - task: "SEO fixes — canonical URLs per page, twitter:card summary_large_image, og:locale, metadataBase, theme-color meta"
+    files: ["src/app/[locale]/layout.tsx", "src/app/[locale]/blog/[slug]/page.tsx"]
+  - task: "Web Interface Guidelines audit — text-wrap:balance on headings, tabular-nums on counters, aria-hidden on decorative images, width/height on raw <img>, overscroll-behavior on mobile menu, hover→color transition on nav"
+    files: [src/app/globals.css, src/components/HeroSection.tsx, src/components/CasesSection.tsx, src/components/Header.tsx, src/components/ProblemSolutionSection.tsx, src/components/ServicesSection.tsx, src/components/DiscoverySection.tsx, src/components/AIDiscoverySection.tsx, src/components/CTASection.tsx]
+  - task: "README rewrite — replaced template boilerplate with actual SPAIK clone project docs"
+    files: [README.md]
+  - task: "Vercel Analytics + Speed Insights — zero-config, auto-activates on deploy"
+    files: ["src/app/[locale]/layout.tsx", package.json]
+  - task: "Scroll stagger animations — ScrollStagger component using IntersectionObserver, applied to problem items, solution cards, team grid, blog cards"
+    files: [src/components/ScrollStagger.tsx, src/components/ProblemSolutionSection.tsx, src/components/TeamSection.tsx, src/components/InsightsSection.tsx]
+  - task: "Organic animated gradient blobs behind solution/testimonial area — 3 massive blobs (180%/160%/80% width) slowly drifting with 80px/70px/50px blur"
+    files: [src/components/ProblemSolutionSection.tsx, src/app/globals.css]
+  - task: "AI Discovery layout swap — text LEFT, image RIGHT matching live site"
+    files: [src/components/AIDiscoverySection.tsx]
+  - task: "CTA video orange frame fix — #t=2 to skip intro"
+    files: [src/components/CTASection.tsx]
+  - task: "Footer logomark 80px→200px"
+    files: [src/components/Footer.tsx]
+  - task: "Compound learnings — 3 solution documents in docs/solutions/"
+    files: [docs/solutions/performance-issues/nextjs-marketing-site-perf-audit.md, docs/solutions/ui-bugs/website-clone-design-review-checklist.md, docs/solutions/build-errors/nextjs-image-warnings-height-auto.md]
+  - task: "Shipped to GitHub — jochemspaik/spaik-clone, 27 commits this session"
+
+blockers: []
+
+questions:
+  - "SF Pro fonts are Apple proprietary — OK for private/internal use, needs license for public production"
+
+decisions:
+  - section_order: "Problem/Solution before Cases — matches live site narrative (problem→solution→proof)"
+  - gradient_approach: "Massive organic blobs (180% width, 80px blur, animated drift) instead of contained gradient box — creates the alive, dreamy feel from the live site"
+  - team_grid_unified: "All 16 members (including advisors) in same 4-col grid, advisors distinguished by blue role text"
+  - discovery_layout: "Text LEFT, image RIGHT — matching live spaik.io"
+  - footer_logomark: "200px at 8% opacity — large but subtle SPAIK signature"
+  - scroll_animations: "ScrollStagger component with IntersectionObserver + CSS transitions — no scroll listeners, no Framer Motion dependency"
+  - lenis_autoraf: "Switched from manual rAF loop to autoRaf:true — eliminates permanent main thread blocking"
+  - carousel_fix: "Removed destructive key prop + useCallback for timer — prevents DOM remount on every slide"
+
+findings:
+  - six_agent_review: "Running 6 review agents in parallel (security, perf, arch, TS, patterns, simplicity) gives 25 findings in ~5 minutes — documented in docs/solutions/"
+  - image_waste: "40+ unused images (7.3MB) accumulated from earlier sessions — always audit with grep before shipping"
+  - gradient_blobs_not_boxes: "Contained gradient boxes look artificial. Massive blurred blobs (>100% width, 60-80px blur, animated) create the organic feel"
+  - sips_png_warning: "macOS sips INCREASES PNG file size when resizing — use pngquant for PNG compression"
+  - video_t_param: "HTML5 video #t=N skips first N seconds — simple fix for bad intro frames"
+
+worked:
+  - "ScrollStagger component with IntersectionObserver for staggered reveals — lightweight, no deps"
+  - "3 overlapping animated gradient blobs with different sizes/speeds for organic feel"
+  - "6-agent parallel code review via compound-engineering agent types"
+  - "Chrome for Testing (Playwright cache) for viewport screenshots when browse tool gives full-page"
+  - "#t=2 on video src to skip orange intro frames"
+  - "Exa web search for sourcing advisor photos"
+
+failed:
+  - "Contained gradient box for solution area — looks like a colored card, not organic"
+  - "sips for PNG compression — makes files larger (no optimization)"
+  - "Playwright MCP with Brave running — use gstack browse or Chrome for Testing instead"
+  - "gstack browse viewport screenshots — always captures full page, use Chrome headless for proper viewport crops"
+
+next:
+  - "Deploy to Vercel — connect jochemspaik/spaik-clone, add spaik.io + www.spaik.io as custom domains"
+  - "If not deploying to spaik.io — update BASE_URL in sitemap.ts:4, robots.ts:11, layout.tsx, blog/[slug]/page.tsx"
+  - "Visual QA on live Vercel deploy — check gradient blobs, scroll animations, mobile on real device"
+  - "DEFERRED: Convert 8 components to RSC using getTranslations() from next-intl/server (biggest perf win)"
+  - "DEFERRED: Adopt SectionWrapper across all sections (3/10 currently use it)"
+  - "DEFERRED: Migrate 146 inline styles to Tailwind classes"
+  - "DEFERRED: Legal page i18n + blog metadata locale-awareness"
+  - "DEFERRED: PNG photo compression (need pngquant — sips makes PNGs larger)"
+  - "CONSIDER: Services section — may need more color/vibrancy to match live site"
+  - "CONSIDER: Dither dot textures spread more prominently across sections"
+
+files:
+  created: [src/components/icons.tsx, src/components/ScrollStagger.tsx, src/i18n/useTypedLocale.ts, "src/app/[locale]/not-found.tsx", "src/app/[locale]/error.tsx", docs/solutions/performance-issues/nextjs-marketing-site-perf-audit.md, docs/solutions/ui-bugs/website-clone-design-review-checklist.md, docs/solutions/build-errors/nextjs-image-warnings-height-auto.md]
+  modified: [src/components/HeroSection.tsx, src/components/ProblemSolutionSection.tsx, src/components/AIDiscoverySection.tsx, src/components/CTASection.tsx, src/components/Footer.tsx, src/components/CasesSection.tsx, src/components/ServicesSection.tsx, src/components/TeamSection.tsx, src/components/Header.tsx, src/components/DiscoverySection.tsx, src/components/InsightsSection.tsx, src/components/ScrollReveal.tsx, src/components/SmoothScroll.tsx, src/components/RollingTextButton.tsx, src/app/globals.css, "src/app/[locale]/layout.tsx", "src/app/[locale]/page.tsx", "src/app/[locale]/blog/page.tsx", "src/app/[locale]/blog/[slug]/page.tsx", "src/app/[locale]/legal/page.tsx", next.config.ts, package.json, README.md]

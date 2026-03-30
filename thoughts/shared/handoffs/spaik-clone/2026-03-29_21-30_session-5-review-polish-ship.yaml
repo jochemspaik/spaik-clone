@@ -1,0 +1,80 @@
+---
+session: spaik-clone
+date: 2026-03-29
+status: complete
+outcome: SUCCEEDED
+---
+
+goal: Resumed from session 4 handoff — implemented all remaining visual fixes, ran 6-agent code review, applied 20+ findings, QA'd, shipped to GitHub, ran SEO/design/performance audits
+now: Deploy to Vercel, then optionally tackle 5 deferred code review items (RSC conversion, SectionWrapper adoption, inline styles migration, legal i18n, photo compression for PNGs)
+
+test: npm run build && npm run dev && open http://localhost:3000
+
+done_this_session:
+  - task: "Resumed session 4 handoff — completed all 8 P0/P1/P2 visual polish items"
+    files: [src/components/HeroSection.tsx, src/components/ProblemSolutionSection.tsx, src/components/AIDiscoverySection.tsx, src/components/CTASection.tsx, src/components/Footer.tsx, src/components/CasesSection.tsx, src/components/ServicesSection.tsx, src/app/globals.css]
+  - task: "Added advisor row — Joep de Caluwé (GTM) + Jan van Casteren (Strategy) with photos sourced from IMD and TicketSwap press"
+    files: [src/components/TeamSection.tsx, public/images/team-joep-advisor.png, public/images/team-jan-advisor.png]
+  - task: "Design review (gstack) — found and fixed 8 findings: touch targets, section order, image warnings, blog headings, footer logomark, dot-pattern sizes"
+    files: [src/components/TeamSection.tsx, src/components/Header.tsx, src/components/Footer.tsx, src/components/DiscoverySection.tsx, src/components/InsightsSection.tsx, src/components/ServicesSection.tsx, src/components/AIDiscoverySection.tsx, "src/app/[locale]/page.tsx"]
+  - task: "Frontend-design audit — 3 fixes: min-h-screen→dvh, #000→#0b0b0b, progressBar width→scaleX"
+    files: ["src/app/[locale]/legal/page.tsx", "src/app/[locale]/blog/page.tsx", "src/app/[locale]/blog/[slug]/page.tsx", src/components/HeroSection.tsx, src/app/globals.css, src/components/CasesSection.tsx]
+  - task: "Mobile responsiveness — hamburger 44px, NL/EN buttons, section padding, footer links"
+    files: [src/components/Header.tsx, src/components/ServicesSection.tsx, src/components/TeamSection.tsx, src/components/Footer.tsx]
+  - task: "6-agent compound-engineering code review — 25 findings, fixed 20"
+    files: [src/components/icons.tsx, src/i18n/useTypedLocale.ts, "src/app/[locale]/not-found.tsx", "src/app/[locale]/error.tsx", package.json, src/app/globals.css, src/components/ScrollReveal.tsx, src/components/SmoothScroll.tsx, src/components/CasesSection.tsx]
+  - task: "Image cleanup — removed 40+ unused images, compressed team photos, 19MB→3.8MB"
+    files: [public/images/]
+  - task: "SEO fixes — canonical URLs, twitter cards, OG locale, metadataBase, theme-color"
+    files: ["src/app/[locale]/layout.tsx", "src/app/[locale]/blog/[slug]/page.tsx"]
+  - task: "Web Interface Guidelines audit — text-wrap balance, tabular-nums, aria-hidden, overscroll, hover states"
+    files: [src/app/globals.css, src/components/HeroSection.tsx, src/components/CasesSection.tsx, src/components/Header.tsx, plus 5 more]
+  - task: "README rewrite — replaced template boilerplate with actual project docs"
+    files: [README.md]
+  - task: "Compound learnings — 3 solution documents for future reference"
+    files: [docs/solutions/performance-issues/nextjs-marketing-site-perf-audit.md, docs/solutions/ui-bugs/website-clone-design-review-checklist.md, docs/solutions/build-errors/nextjs-image-warnings-height-auto.md]
+  - task: "Shipped to GitHub — jochemspaik/spaik-clone, 19 commits this session"
+
+blockers: []
+
+questions:
+  - "Deploy domain — if not spaik.io, update BASE_URL in sitemap.ts, robots.ts, layout.tsx, blog/[slug]/page.tsx"
+  - "SF Pro fonts are Apple proprietary — OK for private clone, needs license for public production"
+
+decisions:
+  - section_order_swap: "Problem/Solution before Cases — matches live site narrative flow (problem→solution→proof)"
+  - footer_logomark: "Replaced dot grid with medium 80px logomark at 12% opacity per Jochem's preference"
+  - advisor_styling: "Blue ring border + blue-tinted role label to distinguish from team members"
+  - lenis_autoraf: "Switched from manual rAF loop to autoRaf:true — eliminates permanent main thread load"
+  - carousel_fix: "Removed destructive key prop, added useCallback for timer, CSS transition instead of DOM remount"
+
+findings:
+  - six_agent_review: "Running security+performance+architecture+typescript+patterns+simplicity agents in parallel gives 25 findings in ~5 minutes"
+  - rsc_biggest_win: "Converting 8 components from 'use client' to RSC is the single biggest performance improvement still available — requires getTranslations() from next-intl/server"
+  - image_cleanup: "40+ unused images accumulated from earlier sessions — 19MB→3.8MB with removal + compression"
+  - dead_css_buildup: "~130 lines of dead CSS accumulated from iterative development — grep class names against .tsx before keeping"
+
+worked:
+  - "Headless Chrome (Chrome for Testing) for viewport screenshots — bypass Playwright/Brave conflict"
+  - "Exa web search for finding advisor photos (IMD for Joep, TicketSwap press for Jan)"
+  - "sips for JPG compression (team photos 600KB→45KB), but NOT for PNGs (makes them larger)"
+  - "6-agent parallel review with compound-engineering agent types"
+  - "gstack browse for QA — links, console errors, touch target audits, section position mapping"
+
+failed:
+  - "Playwright MCP cannot launch when Brave is already running — use gstack browse or headless Chrome instead"
+  - "sips PNG resizing makes files larger (no compression optimization) — need pngquant or similar for PNG compression"
+  - "gstack browse full-page screenshots are always full page height regardless of viewport — use Chrome headless for viewport crops"
+
+next:
+  - "Deploy to Vercel — connect jochemspaik/spaik-clone repo, zero config"
+  - "If deploying to non-spaik.io domain: update BASE_URL in sitemap.ts:4, robots.ts:11, layout.tsx:28, blog/[slug]/page.tsx:27"
+  - "DEFERRED: Convert 8 components to RSC using getTranslations() (biggest perf win, needs careful testing)"
+  - "DEFERRED: Adopt SectionWrapper across all sections (currently 3/10 use it)"
+  - "DEFERRED: Migrate inline styles to Tailwind classes (146 occurrences)"
+  - "DEFERRED: Legal page i18n + blog metadata locale-awareness"
+  - "DEFERRED: PNG photo compression (need pngquant — sips makes PNGs larger)"
+
+files:
+  created: [src/components/icons.tsx, src/i18n/useTypedLocale.ts, "src/app/[locale]/not-found.tsx", "src/app/[locale]/error.tsx", public/images/team-joep-advisor.png, public/images/team-jan-advisor.png, docs/solutions/performance-issues/nextjs-marketing-site-perf-audit.md, docs/solutions/ui-bugs/website-clone-design-review-checklist.md, docs/solutions/build-errors/nextjs-image-warnings-height-auto.md, README.md]
+  modified: [src/components/HeroSection.tsx, src/components/ProblemSolutionSection.tsx, src/components/AIDiscoverySection.tsx, src/components/CTASection.tsx, src/components/Footer.tsx, src/components/CasesSection.tsx, src/components/ServicesSection.tsx, src/components/TeamSection.tsx, src/components/Header.tsx, src/components/DiscoverySection.tsx, src/components/InsightsSection.tsx, src/components/ScrollReveal.tsx, src/components/SmoothScroll.tsx, src/components/RollingTextButton.tsx, src/app/globals.css, "src/app/[locale]/layout.tsx", "src/app/[locale]/page.tsx", "src/app/[locale]/blog/page.tsx", "src/app/[locale]/blog/[slug]/page.tsx", "src/app/[locale]/legal/page.tsx", next.config.ts, package.json]

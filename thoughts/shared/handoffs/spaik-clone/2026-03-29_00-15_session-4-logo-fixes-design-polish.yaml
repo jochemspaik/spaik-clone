@@ -1,0 +1,74 @@
+---
+session: spaik-clone
+date: 2026-03-29
+status: partial
+outcome: PARTIAL_PLUS
+---
+
+goal: Fix case study logos, carousel bugs, solution card dither, and gather Jochem's design feedback
+now: Implement 8 remaining visual polish items from Jochem's detailed feedback
+
+test: npm run dev && open http://localhost:3000
+
+done_this_session:
+  - task: Replaced all 3 case study logos (Movir, Euphoria, Reditus) with correct versions from live spaik.io
+    files: [public/images/logo-movir.png, public/images/logo-euphoria.png, public/images/logo-reditus.png, src/components/CasesSection.tsx]
+  - task: Fixed Johanneke testimonial — was showing CMN logo, now shows correct Movir logo (was Next.js image cache issue, needed cache clear + server restart)
+    files: [src/components/ProblemSolutionSection.tsx]
+  - task: Fixed carousel progress bar clipping — added overflow-hidden to tab buttons
+    files: [src/components/CasesSection.tsx]
+  - task: Fixed background bleed into team section — removed ServicesSection gradient blob, reduced TeamSection texture opacity 12%→5%
+    files: [src/components/ServicesSection.tsx, src/components/TeamSection.tsx]
+  - task: Added SPAIK dot-grid dither pattern to solution card gradient strips (CSS radial-gradient dots over saturated blue gradient)
+    files: [src/components/ProblemSolutionSection.tsx, src/app/globals.css]
+  - task: Updated Reditus logo path from .jpg to .png
+    files: [src/components/CasesSection.tsx]
+  - task: Re-downloaded all 14 team photos from live site (URL mapping verified correct via Playwright JS extraction)
+    files: [public/images/team-*.{png,jpg,jpeg}]
+
+blockers: []
+
+questions:
+  - Team photos — Jochem says they still dont match but URL-to-name mapping from live site is byte-identical. Need Jochem to specify WHICH person has wrong photo.
+  - Jochem wants 2 advisor placeholders added to team grid — need names/roles/photos for the advisors.
+
+decisions:
+  - removed_services_gradient: ServicesSection gradient blob (Gradient 03.webp at bottom-right) removed entirely because it created visual bleed into team section even with overflow-hidden
+  - solution_card_dither: Used CSS radial-gradient (5px grid, 1.4px dots, 70% white opacity) over saturated blue gradients (#8ba4d4 range) instead of hero-graphic.png mask (too fine at 56px height)
+  - logo_source: Downloaded logos from live Framer CDN URLs extracted via Playwright, not from branding kit folder (branding kit had wrong/outdated logos)
+
+findings:
+  - next_image_cache: Next.js Image component aggressively caches images in .next/cache/images/. When replacing image files on disk, must clear cache AND restart dev server for changes to show
+  - movir_logo_was_cmn: The original logo-movir.png file contained CMN Creative Media Network logo, not Movir. Downloaded session 2 had wrong file. Correct one is 739 bytes (164x62 text logo)
+
+worked:
+  - Playwright browser_run_code to extract name-to-photo-URL mapping from live site
+  - CSS radial-gradient for dot patterns at small scales (hero-graphic.png dots too fine)
+  - Clearing .next/cache/images + server restart to bust Next.js image cache
+
+failed:
+  - hero-graphic.png as mask-image for solution card dither (dots too fine at 56px strip height)
+  - mix-blend-mode screen on hero-graphic.png over light gradient (not visible enough)
+  - Reducing gradient blob opacity instead of removing (still visible at 8%)
+
+next:
+  - "P0: Hero subtitle — put sentence 1 on own line, sentence 2 (bold) on own line (src/components/HeroSection.tsx:40-52)"
+  - "P0: Fix repeating background at Problem/Solution section around Johanneke — texture repeats and distracts (src/components/ProblemSolutionSection.tsx, globals.css .problem-texture)"
+  - "P0: Fix Discovery image empty frame — image has border/padding around it, should be full (src/components/AIDiscoverySection.tsx:61)"
+  - "P0: Fix CTA video orange start frame — poster image shows orange frame (src/components/CTASection.tsx:44, /images/cta-poster.jpg needs re-extraction)"
+  - "P0: Fix footer — has both enlarged Logomark AND dot-grid pattern, pick one (src/components/Footer.tsx:84-120)"
+  - "P1: Add animated gradient behind Johanneke testimonial — slowly animating blue/lilac CSS keyframe gradient (src/components/ProblemSolutionSection.tsx:212-240)"
+  - "P1: Add 2 advisor placeholders to team grid — ask Jochem for names/roles (src/components/TeamSection.tsx)"
+  - "P1: Add subtle SPAIK dot-grid decorations left/right of sections — like original site shows in Jochems screenshots. Use hero-graphic.png at 5-8% opacity positioned at section edges"
+  - "P2: Carousel polish — Jochem says its a bit bland but no specific requests beyond the above"
+
+files:
+  created: [public/images/logo-reditus.png]
+  modified:
+    - src/components/CasesSection.tsx
+    - src/components/ProblemSolutionSection.tsx
+    - src/components/ServicesSection.tsx
+    - src/components/TeamSection.tsx
+    - src/app/globals.css
+    - public/images/logo-movir.png
+    - public/images/logo-euphoria.png
