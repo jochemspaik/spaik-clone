@@ -78,9 +78,6 @@ const TEAM_MEMBERS = [
     photo: "/images/team-aron.jpg",
     linkedin: "https://www.linkedin.com/in/aronrikels/",
   },
-] as const;
-
-const EXTENDED_MEMBERS = [
   {
     name: "Mirjam Cassee",
     role: "Facilitation & Projects",
@@ -93,9 +90,6 @@ const EXTENDED_MEMBERS = [
     photo: "/images/team-jeroen.jpg",
     linkedin: "https://www.linkedin.com/in/jeroen-donders-6a77ab4b/",
   },
-] as const;
-
-const ADVISORS = [
   {
     name: "Joep de Caluwé",
     role: "GTM Advisor",
@@ -175,8 +169,12 @@ export function TeamSection() {
                 {member.name}
               </p>
               <p
-                className="mt-1 text-center font-sans text-spaik-black/60"
-                style={{ fontSize: "14px" }}
+                className="mt-1 text-center font-sans"
+                style={{
+                  fontSize: "14px",
+                  color: member.role.includes("Advisor") ? "rgb(162, 189, 240)" : "rgba(0,0,0,0.6)",
+                  fontWeight: member.role.includes("Advisor") ? 500 : 400,
+                }}
               >
                 {member.role}
               </p>
@@ -193,74 +191,6 @@ export function TeamSection() {
           ))}
         </div>
 
-        {/* Extended team + Advisors row */}
-        <div className="mt-10 flex flex-wrap items-start justify-center gap-10">
-          {/* Extended team members */}
-          {EXTENDED_MEMBERS.map((member) => (
-            <a
-              key={member.name}
-              href={member.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group flex flex-col items-center gap-2"
-            >
-              <div className="relative overflow-hidden rounded-full transition-transform duration-200 group-hover:scale-105" style={{ width: 72, height: 72 }}>
-                <Image
-                  src={member.photo}
-                  alt={member.name}
-                  fill
-                  className="object-cover"
-                  sizes="72px"
-                />
-              </div>
-              <p className="font-sans text-spaik-black/80" style={{ fontSize: "13px", fontWeight: 500 }}>
-                {member.name}
-              </p>
-              <p className="font-sans text-spaik-black/40" style={{ fontSize: "12px" }}>
-                {member.role}
-              </p>
-            </a>
-          ))}
-
-          {/* Divider dot */}
-          <div className="flex items-center self-center" style={{ height: 72 }}>
-            <div className="rounded-full" style={{ width: 4, height: 4, backgroundColor: "rgba(0,0,0,0.15)" }} />
-          </div>
-
-          {/* Advisors — distinct style with label + border ring */}
-          {ADVISORS.map((advisor) => (
-            <a
-              key={advisor.name}
-              href={advisor.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group flex flex-col items-center gap-2"
-            >
-              <div
-                className="relative overflow-hidden rounded-full transition-transform duration-200 group-hover:scale-105"
-                style={{
-                  width: 72,
-                  height: 72,
-                  boxShadow: "0 0 0 2px rgba(162, 189, 240, 0.5)",
-                }}
-              >
-                <Image
-                  src={advisor.photo}
-                  alt={advisor.name}
-                  fill
-                  className="object-cover"
-                  sizes="72px"
-                />
-              </div>
-              <p className="font-sans text-spaik-black/80" style={{ fontSize: "13px", fontWeight: 500 }}>
-                {advisor.name}
-              </p>
-              <p className="font-sans" style={{ fontSize: "11px", color: "rgba(162, 189, 240, 0.9)", fontWeight: 500 }}>
-                {advisor.role}
-              </p>
-            </a>
-          ))}
-        </div>
       </div>
     </section>
   );

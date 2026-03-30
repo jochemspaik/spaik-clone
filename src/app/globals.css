@@ -232,9 +232,9 @@
 }
 
 .testimonial-gradient {
-  background: linear-gradient(135deg, #b8cce8, #c8b8e8, #a8c4e8, #d0c0f0, #b8cce8);
+  background: linear-gradient(135deg, #a8bce0, #d4b8e8, #8cacdc, #c8a8f0, #a8bce0);
   background-size: 400% 400%;
-  animation: testimonialShift 12s ease infinite;
+  animation: testimonialShift 10s ease infinite;
 }
 
 /* Reduced motion: disable non-essential animations */

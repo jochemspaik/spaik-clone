@@ -80,12 +80,12 @@ export function Footer() {
           </nav>
 
           {/* Right: SPAIK logomark */}
-          <div className="hidden md:block" style={{ width: 80, height: 80, opacity: 0.12 }}>
+          <div className="hidden md:block" style={{ width: 200, height: 200, opacity: 0.08 }}>
             <Image
               src="/images/Logomark.svg"
               alt=""
-              width={80}
-              height={80}
+              width={200}
+              height={200}
               style={{ height: "auto" }}
               className="object-contain"
             />
