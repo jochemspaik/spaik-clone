@@ -11,7 +11,7 @@
     "title1": "Your best people.",
     "title2": "Stuck in manual work.",
     "subtitle": "We combine strategy, adoption, and automation — so AI works in 4 weeks and is yours in 6 months.",
-    "subtitleHighlight": "✓ Proof in 4 weeks · ✓ 9.1/10 ratings · ✓ 35+ implementations",
+    "subtitleHighlight": "Proof in 4 weeks · 9.1/10 ratings · 35+ implementations",
     "ctaPrimary": "Discover your AI opportunities",
     "ctaSecondary": "Book a call"
   },
@@ -61,7 +61,7 @@
   },
   "problem": {
     "title": "You know AI can deliver value. But it's not happening.",
-    "subtitle": "Not because of other agencies. Because of delay, lack of structure, and tools nobody uses.",
+    "subtitle": "",
     "problem1title": "Waiting costs more than starting",
     "problem1text": "Your competitors are moving now. Every month of delay is a month of lost advantage.",
     "problem2title": "Trying without structure",
@@ -71,12 +71,12 @@
   },
   "solution": {
     "title": "How we make a difference",
-    "item1title": "In 4 weeks: the first automation is up and running.",
-    "item1text": "No months of research. By week 1, map out your processes and by week 4, have automation in production.",
-    "item2title": "We integrate with what you already have.",
-    "item2text": "We build within your systems and use your data so that it becomes an integral part of your daily operations.",
-    "item3title": "After 6 months: you manage and continue building on your own.",
-    "item3text": "We train your people until they understand it themselves and can manage it. No lasting dependency.",
+    "item1title": "Proof in 4 weeks",
+    "item1text": "No months of pilots. Week 1 we map your processes, week 4 the first automation runs in production.",
+    "item2title": "Your whole team, not just early adopters",
+    "item2text": "We make sure everyone uses it — not just the enthusiasts. Adoption that sticks, with 9.1/10 ratings.",
+    "item3title": "After 6 months you manage it yourself",
+    "item3text": "We work alongside your team, not in front of it. Continuing with us is a choice, not a necessity.",
     "testimonial": "\"I have collaborated with multiple parties, but I truly see SPAIK as a partner who thinks along with us and acts proactively, my team is engaged and faster than ever.\"",
     "testimonialAuthor": "Johanneke Behrend",
     "testimonialRole": "Commercial Director, Movir"
