@@ -211,12 +211,16 @@
       "title": "Your AI transition, step by step.",
       "subtitle": "No endless projects. No loose tools. A proven path from first proof to full independence."
     },
-    "phase0label": "Phase 0",
-    "phase1label": "Phase 1",
-    "phase2label": "Phase 2",
-    "phase3label": "Phase 3",
     "mostChosen": "Most chosen",
     "moreAbout": "More about",
+    "onRamp": {
+      "title": "Start here",
+      "subtitle": "The best AI transition starts with understanding. Training is the most accessible entry point. Companies that train first, build faster."
+    },
+    "buildSection": {
+      "title": "Build with us",
+      "subtitle": "From first proof to full independence. Always senior-led, always within your systems."
+    },
     "quote": {
       "text": "SPAIK first trained our management team, then the entire company. Now everyone uses AI daily, with effective results.",
       "author": "Maurick Schellekens",
@@ -258,10 +262,12 @@
     },
     "detail": {
       "backToOverview": "All services",
-      "forWho": "For whom",
+      "forWho": "Is this for you?",
       "whatYouGet": "What you get",
       "howItWorks": "How it works",
+      "whatItCosts": "What it costs",
       "nextStep": "Next step",
+      "clientsSay": "What clients say",
       "yes": "Yes, if...",
       "no": "No, if...",
       "strategie": {
