@@ -134,28 +134,41 @@ export function ProblemSolutionSection() {
 
         {/* Solutions + Testimonial — massive organic gradient blobs */}
         <div className="relative" style={{ paddingTop: "40px" }}>
-          {/* Animated gradient blob 1 — large, top-center, slowly drifting */}
+          {/* Animated gradient blob 1 — massive, saturated blue-lavender */}
           <div
             className="solution-blob pointer-events-none absolute"
             style={{
-              width: "140%",
-              height: "120%",
-              left: "-20%",
-              top: "-10%",
-              background: "radial-gradient(ellipse 60% 50% at 40% 40%, rgba(165, 185, 225, 0.55) 0%, rgba(185, 170, 230, 0.35) 40%, transparent 70%)",
-              filter: "blur(60px)",
+              width: "180%",
+              height: "140%",
+              left: "-40%",
+              top: "-20%",
+              background: "radial-gradient(ellipse 65% 55% at 40% 45%, rgba(140, 165, 220, 0.7) 0%, rgba(170, 150, 225, 0.5) 35%, rgba(190, 180, 235, 0.2) 60%, transparent 80%)",
+              filter: "blur(80px)",
               zIndex: 0,
             }}
           />
-          {/* Animated gradient blob 2 — offset, warmer purple, slower drift */}
+          {/* Animated gradient blob 2 — massive, warmer purple, offset */}
           <div
             className="solution-blob-2 pointer-events-none absolute"
             style={{
-              width: "120%",
-              height: "100%",
-              right: "-15%",
-              bottom: "-5%",
-              background: "radial-gradient(ellipse 50% 60% at 65% 60%, rgba(195, 175, 235, 0.45) 0%, rgba(175, 195, 230, 0.25) 40%, transparent 70%)",
+              width: "160%",
+              height: "130%",
+              right: "-35%",
+              bottom: "-15%",
+              background: "radial-gradient(ellipse 55% 65% at 60% 55%, rgba(180, 155, 235, 0.65) 0%, rgba(155, 180, 225, 0.4) 35%, rgba(200, 190, 240, 0.15) 60%, transparent 80%)",
+              filter: "blur(70px)",
+              zIndex: 0,
+            }}
+          />
+          {/* Blob 3 — accent highlight, smaller, moves faster */}
+          <div
+            className="solution-blob pointer-events-none absolute"
+            style={{
+              width: "80%",
+              height: "60%",
+              left: "10%",
+              top: "30%",
+              background: "radial-gradient(ellipse 70% 70% at 50% 50%, rgba(160, 140, 230, 0.4) 0%, transparent 60%)",
               filter: "blur(50px)",
               zIndex: 0,
             }}
