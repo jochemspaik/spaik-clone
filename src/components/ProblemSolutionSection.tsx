@@ -132,28 +132,38 @@ export function ProblemSolutionSection() {
           </ScrollStagger>
         </div>
 
-        {/* Solutions + Testimonial — large gradient wash with soft edges */}
-        <div className="relative">
-          {/* Big soft gradient blob behind everything */}
+        {/* Solutions + Testimonial — massive organic gradient blobs */}
+        <div className="relative" style={{ paddingTop: "40px" }}>
+          {/* Animated gradient blob 1 — large, top-center, slowly drifting */}
           <div
-            className="pointer-events-none absolute"
+            className="solution-blob pointer-events-none absolute"
             style={{
-              inset: "-60px -80px",
-              background: "radial-gradient(ellipse 120% 100% at 50% 60%, rgba(180, 195, 230, 0.6) 0%, rgba(195, 180, 230, 0.5) 30%, rgba(210, 200, 240, 0.3) 60%, transparent 100%)",
-              borderRadius: "48px",
-              filter: "blur(30px)",
+              width: "140%",
+              height: "120%",
+              left: "-20%",
+              top: "-10%",
+              background: "radial-gradient(ellipse 60% 50% at 40% 40%, rgba(165, 185, 225, 0.55) 0%, rgba(185, 170, 230, 0.35) 40%, transparent 70%)",
+              filter: "blur(60px)",
               zIndex: 0,
             }}
           />
-        <div
-          className="relative z-[1] rounded-3xl overflow-hidden"
-          style={{
-            background: "linear-gradient(160deg, #c8d5ee 0%, #b8c8e8 25%, #c5bde8 50%, #d0c8f0 75%, #c5d0ee 100%)",
-            padding: "48px 40px 0",
-          }}
-        >
+          {/* Animated gradient blob 2 — offset, warmer purple, slower drift */}
+          <div
+            className="solution-blob-2 pointer-events-none absolute"
+            style={{
+              width: "120%",
+              height: "100%",
+              right: "-15%",
+              bottom: "-5%",
+              background: "radial-gradient(ellipse 50% 60% at 65% 60%, rgba(195, 175, 235, 0.45) 0%, rgba(175, 195, 230, 0.25) 40%, transparent 70%)",
+              filter: "blur(50px)",
+              zIndex: 0,
+            }}
+          />
+
+          {/* Solution title */}
           <p
-            className="font-heading"
+            className="relative z-[1] font-heading"
             style={{
               fontSize: "32px",
               fontWeight: 100,
@@ -164,48 +174,35 @@ export function ProblemSolutionSection() {
             {t("solution.title")}
           </p>
 
+          {/* Solution cards — floating on the gradient */}
           <ScrollStagger
-            className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10"
+            className="relative z-[1] grid grid-cols-1 md:grid-cols-3 gap-6 mt-10"
             staggerMs={120}
             baseDelay={100}
           >
             {[1, 2, 3].map((i) => (
               <div
                 key={i}
-                className="rounded-2xl overflow-hidden"
-                style={{ backgroundColor: "rgba(255,255,255,0.9)" }}
+                className="rounded-2xl overflow-hidden shadow-sm"
+                style={{ backgroundColor: "rgba(255,255,255,0.92)", backdropFilter: "blur(8px)" }}
               >
-                {/* Bold dither strip — taller and more vibrant */}
+                {/* Dither strip */}
                 <div
                   className="solution-dither-strip relative w-full overflow-hidden"
                   style={{
-                    height: "96px",
+                    height: "88px",
                     background: SOLUTION_GRADIENTS[i - 1],
                   }}
                 />
-
-                {/* Card body */}
                 <div style={{ padding: "24px" }}>
                   <DashedCheckIcon />
                   <p
                     className="font-medium"
-                    style={{
-                      fontSize: "16px",
-                      lineHeight: "24px",
-                      color: "#0b0b0b",
-                      marginTop: "12px",
-                    }}
+                    style={{ fontSize: "16px", lineHeight: "24px", color: "#0b0b0b", marginTop: "12px" }}
                   >
                     {t(`solution.item${i}title`)}
                   </p>
-                  <p
-                    style={{
-                      fontSize: "16px",
-                      lineHeight: "24px",
-                      color: "rgba(0,0,0,0.6)",
-                      marginTop: "8px",
-                    }}
-                  >
+                  <p style={{ fontSize: "16px", lineHeight: "24px", color: "rgba(0,0,0,0.6)", marginTop: "8px" }}>
                     {t(`solution.item${i}text`)}
                   </p>
                 </div>
@@ -213,36 +210,33 @@ export function ProblemSolutionSection() {
             ))}
           </ScrollStagger>
 
-          {/* Testimonial inside the same gradient wash */}
+          {/* Testimonial — floating on the gradient */}
           <div
-            className="grain-overlay rounded-3xl overflow-hidden flex flex-col md:flex-row mt-10 mb-10"
-            style={{ backgroundColor: "rgba(255,255,255,0.15)" }}
+            className="relative z-[1] grain-overlay rounded-3xl overflow-hidden flex flex-col md:flex-row mt-10"
+            style={{ backgroundColor: "rgba(255,255,255,0.2)", backdropFilter: "blur(4px)" }}
           >
-          {/* Photo */}
-          <div className="relative w-full md:w-[400px] h-[340px] md:h-auto flex-shrink-0">
-            <Image
-              src="/images/case-johanneke.jpg"
-              alt="Johanneke Behrend"
-              fill
-              className="object-cover"
-              sizes="(max-width: 768px) 100vw, 400px"
-            />
+            <div className="relative w-full md:w-[400px] h-[340px] md:h-auto flex-shrink-0">
+              <Image
+                src="/images/case-johanneke.jpg"
+                alt="Johanneke Behrend"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 400px"
+              />
+            </div>
+            <div style={{ padding: "40px" }} className="flex flex-col justify-center">
+              <Image src="/images/logo-movir.png" alt="Movir" width={100} height={30} style={{ height: "auto" }} className="mb-4" />
+              <h3 className="font-heading" style={{ fontSize: "28px", fontWeight: 100, lineHeight: "34px", color: "#0b0b0b" }}>
+                {t("solution.testimonial")}
+              </h3>
+              <p className="mt-4 font-medium" style={{ fontSize: "15px", color: "#0b0b0b" }}>
+                {t("solution.testimonialAuthor")}
+              </p>
+              <p style={{ fontSize: "14px", color: "rgba(0,0,0,0.5)" }}>
+                {t("solution.testimonialRole")}
+              </p>
+            </div>
           </div>
-          {/* Quote content */}
-          <div style={{ padding: "40px" }} className="flex flex-col justify-center">
-            <Image src="/images/logo-movir.png" alt="Movir" width={100} height={30} style={{ height: "auto" }} className="mb-4" />
-            <h3 className="font-heading" style={{ fontSize: "28px", fontWeight: 100, lineHeight: "34px", color: "#0b0b0b" }}>
-              {t("solution.testimonial")}
-            </h3>
-            <p className="mt-4 font-medium" style={{ fontSize: "15px", color: "#0b0b0b" }}>
-              {t("solution.testimonialAuthor")}
-            </p>
-            <p style={{ fontSize: "14px", color: "rgba(0,0,0,0.5)" }}>
-              {t("solution.testimonialRole")}
-            </p>
-          </div>
-        </div>
-        </div>
         </div>
 
         {/* CTA buttons */}

@@ -237,6 +237,29 @@
   animation: testimonialShift 10s ease infinite;
 }
 
+/* Animated gradient blobs — slow organic drift */
+@keyframes blobDrift1 {
+  0%   { transform: translate(0, 0) scale(1); }
+  33%  { transform: translate(30px, -20px) scale(1.05); }
+  66%  { transform: translate(-20px, 15px) scale(0.97); }
+  100% { transform: translate(0, 0) scale(1); }
+}
+
+@keyframes blobDrift2 {
+  0%   { transform: translate(0, 0) scale(1); }
+  33%  { transform: translate(-25px, 20px) scale(0.96); }
+  66%  { transform: translate(20px, -15px) scale(1.04); }
+  100% { transform: translate(0, 0) scale(1); }
+}
+
+.solution-blob {
+  animation: blobDrift1 15s ease-in-out infinite;
+}
+
+.solution-blob-2 {
+  animation: blobDrift2 18s ease-in-out infinite;
+}
+
 /* Reduced motion: disable non-essential animations */
 @media (prefers-reduced-motion: reduce) {
   .animate-ticker {
@@ -245,6 +268,10 @@
   .testimonial-gradient {
     animation: none;
     background: linear-gradient(135deg, #b8cce8 0%, #c8b8e8 50%, #a8c4e8 100%);
+  }
+  .solution-blob,
+  .solution-blob-2 {
+    animation: none;
   }
 }
 
