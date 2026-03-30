@@ -3,6 +3,7 @@
 import { useTranslations } from "next-intl";
 import { Check } from "lucide-react";
 import Image from "next/image";
+import { Link } from "@/i18n/navigation";
 
 import { BOOK_CALL_URL } from "@/lib/constants";
 
@@ -90,14 +91,12 @@ function ServiceCard({
         >
           {t("bookCall")}
         </a>
-        <a
+        <Link
           href={readMoreUrl}
-          target="_blank"
-          rel="noopener noreferrer"
           className="inline-flex items-center justify-center rounded-lg border border-spaik-clay-light bg-white px-5 py-2.5 font-sans text-sm font-medium text-spaik-black transition-colors hover:bg-spaik-clay-50"
         >
           {t("readMore")}
-        </a>
+        </Link>
       </div>
     </div>
   );
@@ -154,18 +153,18 @@ export function ServicesSection() {
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           <ServiceCard
             translationPrefix="inspiration"
-            readMoreUrl="https://inspiratie.spaik.io/"
+            readMoreUrl="/diensten/strategie"
             icon="/images/icon-inspiration.svg"
           />
           <ServiceCard
             translationPrefix="kickstart"
-            readMoreUrl="https://kickstart.spaik.io/"
+            readMoreUrl="/diensten/kickstart"
             highlighted
             icon="/images/icon-kickstart.svg"
           />
           <ServiceCard
             translationPrefix="fundamentals"
-            readMoreUrl="https://fundamentals.spaik.io/"
+            readMoreUrl="/diensten/fundamentals"
             icon="/images/icon-fundamentals.svg"
           />
         </div>
@@ -175,14 +174,12 @@ export function ServicesSection() {
           <p className="font-sans text-base text-spaik-black/70">
             {t("allTrainings")}
           </p>
-          <a
-            href="https://traininghub.spaik.io/"
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            href="/diensten"
             className="mt-3 inline-flex items-center justify-center rounded-lg border border-spaik-clay-light bg-white px-6 py-3 font-sans text-sm font-medium text-spaik-black transition-colors hover:bg-spaik-clay-50"
           >
             {t("seeAllTrainings")}
-          </a>
+          </Link>
         </div>
       </div>
     </section>
