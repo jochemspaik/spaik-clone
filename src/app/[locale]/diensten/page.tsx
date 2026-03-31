@@ -132,136 +132,155 @@ export default function DienstenPage() {
                 {t("comparison.title")}
               </h2>
 
-              {/* Desktop table */}
-              <div className="hidden md:block overflow-x-auto">
-                <div className="grid grid-cols-4 gap-4">
-                  {(["strategie", "fundamentals", "kickstart", "adoptie"] as const).map((slug) => {
-                    const isFeatured = slug === "kickstart";
-                    return (
-                      <Link
-                        key={slug}
-                        href={`/diensten/${slug}` as "/diensten/strategie"}
-                        className="group"
-                      >
-                        <div
-                          className={`relative flex flex-col rounded-2xl p-5 h-full transition-shadow group-hover:shadow-lg ${
-                            isFeatured
-                              ? "ring-2 ring-[#FF7150]/40 bg-white shadow-md"
-                              : "ring-1 ring-[#DEDCCC] bg-[#FAFAF8]"
-                          }`}
-                        >
-                          {isFeatured && (
-                            <span
-                              className="absolute -top-3.5 left-1/2 -translate-x-1/2 rounded-full px-3 py-1 text-xs font-medium text-white whitespace-nowrap z-10"
-                              style={{ backgroundColor: "#FF7150" }}
-                            >
-                              {t("comparison.recommended")}
-                            </span>
-                          )}
+              {(() => {
+                const TEXTURES: Record<string, string> = {
+                  strategie: "/images/Texture 2.webp",
+                  fundamentals: "/images/Texture 2.webp",
+                  kickstart: "/images/Texture 1.webp",
+                  adoptie: "/images/Texture 3.webp",
+                };
+                const ICONS: Record<string, string> = {
+                  strategie: "/images/Discovery.svg",
+                  fundamentals: "/images/icon-fundamentals.svg",
+                  kickstart: "/images/icon-kickstart.svg",
+                  adoptie: "/images/Building.svg",
+                };
+                const slugs = ["strategie", "fundamentals", "kickstart", "adoptie"] as const;
 
-                          <p
-                            className="font-heading text-center"
-                            style={{
-                              fontSize: isFeatured ? 20 : 17,
-                              fontWeight: isFeatured ? 500 : 400,
-                              color: "#0b0b0b",
-                            }}
+                return (
+                  <>
+                    {/* Desktop */}
+                    <div className="hidden md:grid grid-cols-4 gap-4">
+                      {slugs.map((slug) => {
+                        const isFeatured = slug === "kickstart";
+                        return (
+                          <Link
+                            key={slug}
+                            href={`/diensten/${slug}` as "/diensten/strategie"}
+                            className="group relative block rounded-2xl overflow-hidden transition-shadow hover:shadow-xl"
+                            style={{ minHeight: isFeatured ? 320 : 280 }}
                           >
-                            {t(`overview.${slug}.title`)}
-                          </p>
+                            {/* Texture background */}
+                            <div
+                              className="absolute inset-0"
+                              style={{
+                                backgroundImage: `url('${TEXTURES[slug]}')`,
+                                backgroundSize: "cover",
+                                backgroundPosition: "center",
+                              }}
+                            />
+                            <div
+                              className="absolute inset-0"
+                              style={{
+                                background: "linear-gradient(180deg, rgba(0,0,0,0.03) 0%, rgba(0,0,0,0.6) 100%)",
+                              }}
+                            />
 
-                          <div className="mt-4 flex flex-col gap-3 flex-1">
-                            <div>
-                              <p className="text-xs uppercase tracking-wider" style={{ color: "rgba(0,0,0,0.4)" }}>
-                                {t("comparison.duration")}
-                              </p>
-                              <p className="mt-1 text-sm font-medium" style={{ color: "#0b0b0b" }}>
-                                {t(`comparison.${slug}.duration`)}
-                              </p>
-                            </div>
-
-                            <div>
-                              <p className="text-xs uppercase tracking-wider" style={{ color: "rgba(0,0,0,0.4)" }}>
-                                {t("comparison.investment")}
-                              </p>
-                              <p
-                                className="mt-1 text-sm font-medium"
-                                style={{ color: isFeatured ? "#FF7150" : "#0b0b0b" }}
-                              >
-                                {t(`overview.${slug}.price`).split("·")[0].trim()}
-                              </p>
-                            </div>
-
-                            <div className="flex-1">
-                              <p className="text-xs uppercase tracking-wider" style={{ color: "rgba(0,0,0,0.4)" }}>
-                                {t("comparison.bestFor")}
-                              </p>
-                              <p className="mt-1 text-sm" style={{ color: "rgba(0,0,0,0.6)", lineHeight: 1.4 }}>
-                                {t(`comparison.${slug}.bestFor`)}
-                              </p>
-                            </div>
-                          </div>
-
-                          <span
-                            className="mt-4 inline-flex items-center gap-1 text-sm font-medium transition-colors group-hover:gap-2"
-                            style={{ color: isFeatured ? "#FF7150" : "rgba(0,0,0,0.5)" }}
-                          >
-                            {t("moreAbout")} {t(`overview.${slug}.title`)} &rarr;
-                          </span>
-                        </div>
-                      </Link>
-                    );
-                  })}
-                </div>
-              </div>
-
-              {/* Mobile: stacked cards */}
-              <div className="flex flex-col gap-3 md:hidden">
-                {(["strategie", "fundamentals", "kickstart", "adoptie"] as const).map((slug) => {
-                  const isFeatured = slug === "kickstart";
-                  return (
-                    <Link
-                      key={slug}
-                      href={`/diensten/${slug}` as "/diensten/strategie"}
-                    >
-                      <div
-                        className={`relative flex items-start gap-4 rounded-xl px-4 py-4 ${
-                          isFeatured
-                            ? "ring-2 ring-[#FF7150]/40 bg-white shadow-sm"
-                            : "ring-1 ring-[#DEDCCC] bg-[#FAFAF8]"
-                        }`}
-                      >
-                        <div className="flex-1 min-w-0">
-                          <div className="flex items-center gap-2">
-                            <p className="font-medium" style={{ fontSize: 15, color: "#0b0b0b" }}>
-                              {t(`overview.${slug}.title`)}
-                            </p>
+                            {/* Badge */}
                             {isFeatured && (
                               <span
-                                className="shrink-0 rounded-full px-2 py-0.5 text-[10px] font-medium text-white"
+                                className="absolute top-3 right-3 z-20 rounded-full px-3 py-1 text-xs font-medium text-white"
                                 style={{ backgroundColor: "#FF7150" }}
                               >
                                 {t("comparison.recommended")}
                               </span>
                             )}
-                          </div>
-                          <p className="mt-1 text-xs" style={{ color: "rgba(0,0,0,0.5)" }}>
-                            {t(`comparison.${slug}.bestFor`)}
-                          </p>
-                        </div>
-                        <div className="shrink-0 text-right">
-                          <p className="text-sm font-medium" style={{ color: isFeatured ? "#FF7150" : "#0b0b0b" }}>
-                            {t(`overview.${slug}.price`).split("·")[0].trim()}
-                          </p>
-                          <p className="text-xs" style={{ color: "rgba(0,0,0,0.4)" }}>
-                            {t(`comparison.${slug}.duration`)}
-                          </p>
-                        </div>
-                      </div>
-                    </Link>
-                  );
-                })}
-              </div>
+
+                            {/* Content */}
+                            <div className="relative z-10 flex flex-col justify-between h-full p-5" style={{ minHeight: isFeatured ? 320 : 280 }}>
+                              <img
+                                src={ICONS[slug]}
+                                alt=""
+                                aria-hidden="true"
+                                className="invert opacity-70"
+                                style={{ width: 24, height: 24 }}
+                              />
+                              <div>
+                                <h3
+                                  className="font-heading text-white"
+                                  style={{ fontSize: isFeatured ? 22 : 18, fontWeight: isFeatured ? 400 : 100 }}
+                                >
+                                  {t(`overview.${slug}.title`)}
+                                </h3>
+                                <p className="mt-1.5 text-xs text-white/70" style={{ lineHeight: 1.4 }}>
+                                  {t(`comparison.${slug}.bestFor`)}
+                                </p>
+                                <div className="mt-3 flex items-baseline gap-2">
+                                  <span className="text-sm font-medium text-white">
+                                    {t(`overview.${slug}.price`).split("·")[0].trim()}
+                                  </span>
+                                  <span className="text-xs text-white/50">
+                                    {t(`comparison.${slug}.duration`)}
+                                  </span>
+                                </div>
+                                <span className="mt-3 inline-flex items-center gap-1 text-xs font-medium text-white/80 group-hover:text-white group-hover:gap-2 transition-all">
+                                  {t("moreAbout")} {t(`overview.${slug}.title`)} &rarr;
+                                </span>
+                              </div>
+                            </div>
+                          </Link>
+                        );
+                      })}
+                    </div>
+
+                    {/* Mobile */}
+                    <div className="flex flex-col gap-3 md:hidden">
+                      {slugs.map((slug) => {
+                        const isFeatured = slug === "kickstart";
+                        return (
+                          <Link
+                            key={slug}
+                            href={`/diensten/${slug}` as "/diensten/strategie"}
+                            className="group relative block rounded-xl overflow-hidden"
+                            style={{ minHeight: 100 }}
+                          >
+                            <div
+                              className="absolute inset-0"
+                              style={{
+                                backgroundImage: `url('${TEXTURES[slug]}')`,
+                                backgroundSize: "cover",
+                                backgroundPosition: "center",
+                              }}
+                            />
+                            <div
+                              className="absolute inset-0"
+                              style={{
+                                background: "linear-gradient(90deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.25) 100%)",
+                              }}
+                            />
+                            {isFeatured && (
+                              <span
+                                className="absolute top-3 right-3 z-20 rounded-full px-2 py-0.5 text-[10px] font-medium text-white"
+                                style={{ backgroundColor: "#FF7150" }}
+                              >
+                                {t("comparison.recommended")}
+                              </span>
+                            )}
+                            <div className="relative z-10 flex items-end justify-between p-4" style={{ minHeight: 100 }}>
+                              <div>
+                                <p className="font-heading text-white" style={{ fontSize: 17, fontWeight: 300 }}>
+                                  {t(`overview.${slug}.title`)}
+                                </p>
+                                <p className="mt-0.5 text-xs text-white/60">
+                                  {t(`comparison.${slug}.bestFor`)}
+                                </p>
+                              </div>
+                              <div className="text-right shrink-0 ml-4">
+                                <p className="text-sm font-medium text-white">
+                                  {t(`overview.${slug}.price`).split("·")[0].trim()}
+                                </p>
+                                <p className="text-xs text-white/50">
+                                  {t(`comparison.${slug}.duration`)}
+                                </p>
+                              </div>
+                            </div>
+                          </Link>
+                        );
+                      })}
+                    </div>
+                  </>
+                );
+              })()}
             </div>
           </ScrollReveal>
         </section>
