@@ -139,7 +139,9 @@ export default function DienstenPage() {
                       "linear-gradient(180deg, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.35) 100%)",
                   }}
                 />
-                <div className="relative z-10 flex flex-col justify-end h-full p-6 min-h-[220px]">
+                <div className="relative z-10 flex flex-col justify-between h-full p-6 min-h-[220px]">
+                  <img src="/images/icon-fundamentals.svg" alt="" aria-hidden="true" className="invert opacity-60" style={{ width: 28, height: 28 }} />
+                  <div>
                   <h3
                     className="font-heading text-[24px] leading-[28px] text-white"
                     style={{ fontWeight: 100 }}
@@ -156,6 +158,7 @@ export default function DienstenPage() {
                     {t("moreAbout")} {t("overview.fundamentals.title")}{" "}
                     <span aria-hidden="true">&rarr;</span>
                   </span>
+                  </div>
                 </div>
               </Link>
 
@@ -176,7 +179,9 @@ export default function DienstenPage() {
                       "linear-gradient(180deg, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.35) 100%)",
                   }}
                 />
-                <div className="relative z-10 flex flex-col justify-end h-full p-6 min-h-[220px]">
+                <div className="relative z-10 flex flex-col justify-between h-full p-6 min-h-[220px]">
+                  <img src="/images/Discovery.svg" alt="" aria-hidden="true" className="invert opacity-60" style={{ width: 28, height: 28 }} />
+                  <div>
                   <h3
                     className="font-heading text-[24px] leading-[28px] text-white"
                     style={{ fontWeight: 100 }}
@@ -193,6 +198,7 @@ export default function DienstenPage() {
                     {t("moreAbout")} {t("overview.strategie.title")}{" "}
                     <span aria-hidden="true">&rarr;</span>
                   </span>
+                  </div>
                 </div>
               </Link>
             </div>
@@ -248,7 +254,9 @@ export default function DienstenPage() {
               </span>
 
               {/* Content */}
-              <div className="relative z-10 flex flex-col justify-end h-full p-6 md:p-8 min-h-[200px] md:min-h-[280px]">
+              <div className="relative z-10 flex flex-col justify-between h-full p-6 md:p-8 min-h-[200px] md:min-h-[280px]">
+                <img src="/images/icon-kickstart.svg" alt="" aria-hidden="true" className="invert opacity-60" style={{ width: 32, height: 32 }} />
+                <div>
                 <h3
                   className="font-heading text-[28px] leading-[32px] md:text-[36px] md:leading-[40px] text-white"
                   style={{ fontWeight: 100 }}
@@ -282,6 +290,7 @@ export default function DienstenPage() {
                   {t("moreAbout")} {t("overview.kickstart.title")}{" "}
                   <span aria-hidden="true">&rarr;</span>
                 </span>
+                </div>
               </div>
             </Link>
           </ScrollReveal>
@@ -307,7 +316,9 @@ export default function DienstenPage() {
               />
 
               {/* Content */}
-              <div className="relative z-10 flex flex-col justify-end h-full p-6 md:p-8 min-h-[180px] md:min-h-[220px]">
+              <div className="relative z-10 flex flex-col justify-between h-full p-6 md:p-8 min-h-[180px] md:min-h-[220px]">
+                <img src="/images/Building.svg" alt="" aria-hidden="true" className="invert opacity-60" style={{ width: 32, height: 32 }} />
+                <div>
                 <h3
                   className="font-heading text-[28px] leading-[32px] md:text-[36px] md:leading-[40px] text-white"
                   style={{ fontWeight: 100 }}
@@ -324,6 +335,7 @@ export default function DienstenPage() {
                   {t("moreAbout")} {t("overview.adoptie.title")}{" "}
                   <span aria-hidden="true">&rarr;</span>
                 </span>
+                </div>
               </div>
             </Link>
           </ScrollReveal>
