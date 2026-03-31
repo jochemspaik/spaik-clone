@@ -99,6 +99,48 @@ export default function DienstenPage() {
           </ScrollReveal>
         </section>
 
+        {/* -------- Self-selection helper (JTBD) -------- */}
+        <section
+          className="px-6 md:px-10 pb-12"
+          style={{ maxWidth: 1080, margin: "0 auto" }}
+        >
+          <ScrollReveal>
+            <div
+              className="rounded-2xl px-6 py-6 md:px-8 md:py-8"
+              style={{ backgroundColor: "#FAFAF8", border: "1px solid #DEDCCC" }}
+            >
+              <h2
+                className="font-heading text-[20px] leading-[24px] mb-5"
+                style={{ fontWeight: 400, color: "#0b0b0b" }}
+              >
+                {t("selfSelection.title")}
+              </h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                {[1, 2, 3, 4].map((i) => (
+                  <Link
+                    key={i}
+                    href={`/diensten/${t(`selfSelection.option${i}slug`)}` as "/diensten/strategie"}
+                    className="group flex items-center gap-3 rounded-xl px-4 py-3 transition-colors hover:bg-white"
+                  >
+                    <span
+                      className="shrink-0 flex items-center justify-center rounded-full text-xs font-medium text-white"
+                      style={{ width: 24, height: 24, backgroundColor: "#FF7150" }}
+                    >
+                      {i}
+                    </span>
+                    <span className="text-sm" style={{ color: "rgba(0,0,0,0.7)" }}>
+                      {t(`selfSelection.option${i}`)}
+                    </span>
+                    <span className="ml-auto text-sm text-[#FF7150] opacity-0 group-hover:opacity-100 transition-opacity">
+                      &rarr;
+                    </span>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </ScrollReveal>
+        </section>
+
         {/* -------- Begin hier / Start here (on-ramp) -------- */}
         <section
           className="px-6 md:px-10 pb-20"

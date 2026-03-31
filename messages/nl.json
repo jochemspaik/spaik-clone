@@ -209,7 +209,7 @@
     },
     "hero": {
       "title": "Jullie AI-transitie, stap voor stap.",
-      "subtitle": "Geen eindeloze trajecten. Geen losse tools. Een bewezen route van eerste bewijs naar volledige zelfstandigheid."
+      "subtitle": "AI verandert hoe Nederlandse bedrijven werken. De vraag is niet óf, maar hoe snel jullie team meegaat. Geen eindeloze trajecten — een bewezen route van eerste bewijs naar volledige zelfstandigheid."
     },
     "mostChosen": "Meest gekozen",
     "moreAbout": "Meer over",
@@ -219,7 +219,7 @@
     },
     "buildSection": {
       "title": "Bouwen",
-      "subtitle": "Van eerste bewijs naar volledige zelfstandigheid. Altijd senior-led, altijd in jullie systemen."
+      "subtitle": "Van eerste bewijs naar volledige zelfstandigheid. De meeste teams beginnen met een Kickstart — in 4 weken heb je het eerste resultaat draaien en weet je precies wat de volgende stap is."
     },
     "quote": {
       "text": "SPAIK heeft eerst ons managementteam getraind, daarna het hele bedrijf. Nu gebruikt iedereen dagelijks AI, met effectieve resultaten.",
@@ -263,7 +263,7 @@
     "detail": {
       "backToOverview": "Alle diensten",
       "forWho": "Is dit voor jullie?",
-      "whatYouGet": "Wat je krijgt",
+      "whatYouGet": "Wat het oplevert",
       "howItWorks": "Hoe het werkt",
       "whatItCosts": "Wat het kost",
       "nextStep": "Volgende stap",
@@ -474,6 +474,17 @@
         "pricingIncludes3": "EU AI Act compliance module",
         "pricingIncludes3detail": "Jullie team weet wat mag, wat niet mag, en hoe verantwoord met AI om te gaan."
       }
+    },
+    "selfSelection": {
+      "title": "Waar sta je nu?",
+      "option1": "We willen begrijpen wat AI voor ons kan doen",
+      "option1slug": "strategie",
+      "option2": "Ons team moet AI leren gebruiken",
+      "option2slug": "fundamentals",
+      "option3": "We willen concreet aan de slag met een eerste case",
+      "option3slug": "kickstart",
+      "option4": "We zijn al bezig maar willen opschalen",
+      "option4slug": "adoptie"
     }
   }
 }

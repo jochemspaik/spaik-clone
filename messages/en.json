@@ -209,7 +209,7 @@
     },
     "hero": {
       "title": "Your AI transition, step by step.",
-      "subtitle": "No endless projects. No loose tools. A proven path from first proof to full independence."
+      "subtitle": "AI is changing how companies operate. The question is not if, but how fast your team adapts. No endless projects — a proven path from first proof to full independence."
     },
     "mostChosen": "Most chosen",
     "moreAbout": "More about",
@@ -219,7 +219,7 @@
     },
     "buildSection": {
       "title": "Build",
-      "subtitle": "From first proof to full independence. Always senior-led, always within your systems."
+      "subtitle": "From first proof to full independence. Most teams start with a Kickstart — in 4 weeks you have your first result running and know exactly what the next step is."
     },
     "quote": {
       "text": "SPAIK first trained our management team, then the entire company. Now everyone uses AI daily, with effective results.",
@@ -263,7 +263,7 @@
     "detail": {
       "backToOverview": "All services",
       "forWho": "Is this for you?",
-      "whatYouGet": "What you get",
+      "whatYouGet": "What you get out of it",
       "howItWorks": "How it works",
       "whatItCosts": "What it costs",
       "nextStep": "Next step",
@@ -474,6 +474,17 @@
         "pricingIncludes3": "EU AI Act compliance module",
         "pricingIncludes3detail": "Your team knows what is allowed, what is not, and how to responsibly use AI."
       }
+    },
+    "selfSelection": {
+      "title": "Where are you now?",
+      "option1": "We want to understand what AI can do for us",
+      "option1slug": "strategie",
+      "option2": "Our team needs to learn how to use AI",
+      "option2slug": "fundamentals",
+      "option3": "We want to get started with a first concrete case",
+      "option3slug": "kickstart",
+      "option4": "We're already using AI but want to scale up",
+      "option4slug": "adoptie"
     }
   }
 }
