@@ -14,6 +14,20 @@ const TEXTURE_MAP: Record<ServiceSlug, string> = {
   fundamentals: "/images/Texture 2.webp",
 };
 
+const TESTIMONIAL_AVATAR: Record<ServiceSlug, string> = {
+  strategie: "", // no author yet
+  kickstart: "/images/case-vincent.jpg",
+  adoptie: "/images/case-johanneke.jpg",
+  fundamentals: "/images/case-maurick.jpg",
+};
+
+const ICON_MAP: Record<ServiceSlug, string> = {
+  strategie: "/images/Discovery.svg",
+  kickstart: "/images/icon-kickstart.svg",
+  adoptie: "/images/Building.svg",
+  fundamentals: "/images/icon-fundamentals.svg",
+};
+
 /* ---- Inline icons ---- */
 
 function CheckIcon({ color = "#22c55e" }: { color?: string }) {
@@ -82,6 +96,13 @@ function HeroSection({ slug }: { slug: ServiceSlug }) {
           </Link>
 
           <div className="mb-4 flex flex-wrap items-center gap-3">
+            <img
+              src={ICON_MAP[slug]}
+              alt=""
+              aria-hidden="true"
+              className="invert opacity-80"
+              style={{ width: 32, height: 32 }}
+            />
             <span
               className="inline-block rounded-full px-3 py-1 text-xs font-medium"
               style={{ backgroundColor: "rgba(255,255,255,0.9)", color: "#0b0b0b" }}
@@ -435,10 +456,20 @@ function TestimonialSection({ slug }: { slug: ServiceSlug }) {
             </p>
           </blockquote>
           {author && (
-            <>
-              <p className="mt-6 font-medium" style={{ fontSize: 16, color: "#0b0b0b" }}>{author}</p>
-              <p style={{ fontSize: 14, color: "rgba(0,0,0,0.5)" }}>{role}</p>
-            </>
+            <div className="mt-6 flex flex-col items-center gap-3">
+              {TESTIMONIAL_AVATAR[slug] && (
+                <img
+                  src={TESTIMONIAL_AVATAR[slug]}
+                  alt={author}
+                  className="rounded-full object-cover"
+                  style={{ width: 48, height: 48 }}
+                />
+              )}
+              <div>
+                <p className="font-medium" style={{ fontSize: 16, color: "#0b0b0b" }}>{author}</p>
+                <p style={{ fontSize: 14, color: "rgba(0,0,0,0.5)" }}>{role}</p>
+              </div>
+            </div>
           )}
         </ScrollReveal>
       </div>
