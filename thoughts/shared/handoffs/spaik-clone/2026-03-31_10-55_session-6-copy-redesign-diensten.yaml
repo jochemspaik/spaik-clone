@@ -1,0 +1,92 @@
+---
+session: spaik-clone
+date: 2026-03-31
+status: partial
+outcome: PARTIAL_PLUS
+---
+
+goal: Copy redesign v5 + diensten pagina's bouwen met brand textures en rijke content
+now: Sales/CRO analyse van diensten pagina's, frontend polish, cross-linking verbeteren, visuals/testimonials inventariseren
+
+test: npm run build && npm run dev && open http://localhost:3000/diensten
+
+done_this_session:
+  - task: "Copy quick wins v5 brief doorgevoerd (NL + EN) — hero subtitle, problem section, services naming, checkmarks"
+    files: [messages/nl.json, messages/en.json]
+  - task: "NL als default locale gefixt — / serveert NL, /en/ serveert EN, /nl redirects naar /"
+    files: [src/i18n/routing.ts, src/app/page.tsx]
+  - task: "Solution cards herschreven met v5 value themes + Jochem's exacte wording"
+    files: [messages/nl.json, messages/en.json]
+  - task: "Problem subtitle geschrapt (was 'Niet door andere bureaus' — niet klant-taal)"
+    files: [messages/nl.json, messages/en.json]
+  - task: "/diensten overview pagina gebouwd — 'Leren' en 'Bouwen' secties, gradient/texture kaarten, quote strip, CTA"
+    files: ["src/app/[locale]/diensten/page.tsx"]
+  - task: "/diensten/[slug] detail pagina's — 7 secties: hero, voor wie, deliverables (met beschrijvingen), process timeline, pricing, testimonial, volgende stap"
+    files: [src/components/ServiceDetailPage.tsx, "src/app/[locale]/diensten/[slug]/page.tsx"]
+  - task: "i18n verrijkt met positioneringsdocument content — process stappen, pricing split, testimonials per dienst, 9.1/10 big stat"
+    files: [messages/nl.json, messages/en.json]
+  - task: "Homepage service links geupdate naar interne /diensten/[slug] routes (was externe Gamma URLs)"
+    files: [src/components/ServicesSection.tsx]
+  - task: "SPAIK brand textures als diensten achtergronden (Texture 1=Kickstart, 2=Strategie+Fundamentals, 3=Adoptie)"
+    files: [public/images/Texture 2.webp, public/images/Texture 3.webp, src/components/ServiceDetailPage.tsx, "src/app/[locale]/diensten/page.tsx"]
+
+blockers: []
+
+questions:
+  - "Jochem wil sales/CRO analyse + frontend analyse van diensten pagina's"
+  - "Cross-linking tussen diensten verbeteren (bijv. Adoptie linkt naar Kickstart als voorwaarde)"
+  - "Welke visuals/testimonials/foto's zijn er nog nodig? Jochem wil inventarisatie"
+  - "SF Pro fonts licentie voor publiek gebruik — nog steeds open"
+  - "Fundamentals en Strategie delen Texture 2 — apart maken of OK?"
+
+decisions:
+  - training_positionering: "Training is EEN ingang, niet DE onramp. Kickstart is net zo valide. Jochem's correctie op eerdere 'Begin hier' framing."
+  - section_structure: "'Leren' en 'Bouwen' secties ipv lineaire Fase 0-1-2-3 timeline. Training niet als fase 0."
+  - texture_over_gradient: "Brand textures (organisch, diepte, karakter) vervangen vlakke gradient images. Veel sterker visueel."
+  - waarom_spaik_overbodig: "Aparte 'Waarom SPAIK' sectie is redundant met solution cards + hero subtitle. Niet toevoegen."
+  - donkere_sectie_skip: "Niet-Lijst als donkere sectie op homepage past niet in de lichte design taal. Overgeslagen."
+  - overlay_opacity: "Gradient overlay verlaagd van 0.5 naar 0.35 — laat pastel kleuren doorschijnen"
+
+findings:
+  - positionering_doc: "Volledig April Dunford positioneringsdocument ontvangen. Concurrent = inertie (#1), niet andere bureaus. Skill stack (strategie+adoptie+automatisering) is het moat."
+  - waimakers_approach: "Waimakers.com doet 'shallow overview, deep detail pages' — goed B2B patroon. Content diepte gerechtvaardigd voor due diligence."
+  - headless_scroll_issue: "Browse tool headless browser triggert IntersectionObserver niet bij JS scroll — ScrollReveal secties onzichtbaar in screenshots. Geen productie-issue."
+  - content_depth_needed: "Detail pagina's waren te dun. Verrijkt met: process/timeline, pricing transparantie, testimonials, deliverable beschrijvingen."
+
+worked:
+  - "Parallel agents voor overview + detail pages bouwen (overview slaagde, detail faalde maar handmatig afgemaakt)"
+  - "Brand textures als card backgrounds — veel meer karakter dan vlakke gradients"
+  - "Copy iteratie met Jochem — meerdere rondes feedback, exacte wording laten bepalen door klant"
+  - "Positioneringsdocument als bron voor content verrijking — specifieke claims, metrics, testimonials"
+  - "localePrefix as-needed voor NL root / EN prefix routing"
+
+failed:
+  - "Detail template agent (kraken) — ConnectionRefused error, moest handmatig herbouwen"
+  - "RollingTextButton met !bg-white override op gradient hero — werkt niet betrouwbaar, vervangen door plain <a> tag"
+  - "Headless browse screenshots voor design review — ScrollReveal maakt content onzichtbaar"
+  - "Training als 'Begin hier / DE onramp' framing — Jochem corrigeerde: training is puur kennis, Kickstart is net zo valide startpunt"
+
+next:
+  - "Sales/CRO analyse van diensten pagina's — conversie-optimalisatie, psychologische triggers, pricing presentatie"
+  - "Frontend design analyse — spacing, typography hierarchy, responsive, card heights, visual polish"
+  - "Cross-linking verbeteren — Adoptie pagina moet linken naar Kickstart als voorwaarde, 'Nee als...' links moeten echte Links zijn"
+  - "Visuals inventarisatie — welke foto's, testimonials, case quotes zijn er beschikbaar en nodig?"
+  - "Bevraag Jochem over: beschikbare testimonial quotes per dienst, team foto's voor detail pages, case study metrics"
+  - "EN i18n detail content verrijken (NL is completer dan EN momenteel)"
+  - "Handoff naar Jochem: deploy naar Vercel als het er goed uitziet"
+
+files:
+  created:
+    - "src/app/[locale]/diensten/page.tsx"
+    - "src/app/[locale]/diensten/[slug]/page.tsx"
+    - src/components/ServiceDetailPage.tsx
+    - public/images/Gradient 03.webp
+    - public/images/Gradient 04.webp
+    - public/images/Texture 2.webp
+    - public/images/Texture 3.webp
+  modified:
+    - messages/nl.json
+    - messages/en.json
+    - src/i18n/routing.ts
+    - src/app/page.tsx
+    - src/components/ServicesSection.tsx
