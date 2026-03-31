@@ -193,7 +193,7 @@ export default function DienstenPage() {
                   }}
                 />
                 <div className="relative z-10 flex flex-col justify-between h-full p-6 min-h-[220px]">
-                  <img src="/images/icon-fundamentals.svg" alt="" aria-hidden="true" className="invert opacity-60" style={{ width: 28, height: 28 }} />
+                  <img src="/images/icon-fundamentals.svg" alt="" aria-hidden="true" className="invert opacity-80" style={{ width: 28, height: 28 }} />
                   <div>
                   <h3
                     className="font-heading text-[24px] leading-[28px] text-white"
@@ -204,7 +204,7 @@ export default function DienstenPage() {
                   <p className="mt-2 text-sm text-white/80">
                     {t("overview.fundamentals.tagline")}
                   </p>
-                  <p className="mt-2 text-sm text-white/60">
+                  <p className="mt-2 text-sm text-white/90 font-medium">
                     {t("overview.fundamentals.price")}
                   </p>
                   <span className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-white group-hover:gap-2 transition-all">
@@ -233,7 +233,7 @@ export default function DienstenPage() {
                   }}
                 />
                 <div className="relative z-10 flex flex-col justify-between h-full p-6 min-h-[220px]">
-                  <img src="/images/Discovery.svg" alt="" aria-hidden="true" className="invert opacity-60" style={{ width: 28, height: 28 }} />
+                  <img src="/images/Discovery.svg" alt="" aria-hidden="true" className="invert opacity-80" style={{ width: 28, height: 28 }} />
                   <div>
                   <h3
                     className="font-heading text-[24px] leading-[28px] text-white"
@@ -244,7 +244,7 @@ export default function DienstenPage() {
                   <p className="mt-2 text-sm text-white/80">
                     {t("overview.strategie.tagline")}
                   </p>
-                  <p className="mt-2 text-sm text-white/60">
+                  <p className="mt-2 text-sm text-white/90 font-medium">
                     {t("overview.strategie.price")}
                   </p>
                   <span className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-white group-hover:gap-2 transition-all">
@@ -308,7 +308,7 @@ export default function DienstenPage() {
 
               {/* Content */}
               <div className="relative z-10 flex flex-col justify-between h-full p-6 md:p-8 min-h-[200px] md:min-h-[280px]">
-                <img src="/images/icon-kickstart.svg" alt="" aria-hidden="true" className="invert opacity-60" style={{ width: 32, height: 32 }} />
+                <img src="/images/icon-kickstart.svg" alt="" aria-hidden="true" className="invert opacity-80" style={{ width: 32, height: 32 }} />
                 <div>
                 <h3
                   className="font-heading text-[28px] leading-[32px] md:text-[36px] md:leading-[40px] text-white"
@@ -319,7 +319,7 @@ export default function DienstenPage() {
                 <p className="mt-2 text-sm text-white/80 max-w-[520px]">
                   {t("overview.kickstart.tagline")}
                 </p>
-                <p className="mt-3 text-sm text-white/60">
+                <p className="mt-3 text-sm text-white/90 font-medium">
                   {t("overview.kickstart.price")}
                 </p>
 
@@ -370,7 +370,7 @@ export default function DienstenPage() {
 
               {/* Content */}
               <div className="relative z-10 flex flex-col justify-between h-full p-6 md:p-8 min-h-[180px] md:min-h-[220px]">
-                <img src="/images/Building.svg" alt="" aria-hidden="true" className="invert opacity-60" style={{ width: 32, height: 32 }} />
+                <img src="/images/Building.svg" alt="" aria-hidden="true" className="invert opacity-80" style={{ width: 32, height: 32 }} />
                 <div>
                 <h3
                   className="font-heading text-[28px] leading-[32px] md:text-[36px] md:leading-[40px] text-white"
@@ -381,7 +381,7 @@ export default function DienstenPage() {
                 <p className="mt-2 text-sm text-white/80 max-w-[520px]">
                   {t("overview.adoptie.tagline")}
                 </p>
-                <p className="mt-3 text-sm text-white/60">
+                <p className="mt-3 text-sm text-white/90 font-medium">
                   {t("overview.adoptie.price")}
                 </p>
                 <span className="mt-5 inline-flex items-center gap-1 text-sm font-medium text-white group-hover:gap-2 transition-all">
