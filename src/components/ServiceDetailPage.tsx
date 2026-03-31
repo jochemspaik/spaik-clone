@@ -122,7 +122,7 @@ function HeroSection({ slug }: { slug: ServiceSlug }) {
             </a>
           </div>
 
-          <div className="mt-10 grid grid-cols-3 gap-6 max-w-[480px]">
+          <div className="mt-10 grid grid-cols-2 gap-6 max-w-[480px] md:grid-cols-3">
             {metrics.map((m) => (
               <div key={m.label}>
                 <p className="font-heading text-white" style={{ fontSize: 28, fontWeight: 100, lineHeight: 1.2 }}>
@@ -149,7 +149,7 @@ function ForWhoSection({ slug }: { slug: ServiceSlug }) {
   ];
 
   return (
-    <section className="bg-white px-6 md:px-10" style={{ paddingTop: 80, paddingBottom: 80 }}>
+    <section className="bg-white px-6 md:px-10 py-12 md:py-20">
       <div className="mx-auto" style={{ maxWidth: 1080 }}>
         <ScrollReveal>
           <h2 className="font-heading" style={{ fontSize: 32, fontWeight: 100, color: "#0b0b0b" }}>
@@ -182,13 +182,13 @@ function ForWhoSection({ slug }: { slug: ServiceSlug }) {
                       {item.href ? (
                         <Link
                           href={`/diensten/${item.href}` as "/diensten/strategie"}
-                          className="ml-1 inline-flex items-center gap-1 text-sm font-medium transition-colors hover:underline"
-                          style={{ color: "#FF7150" }}
+                          className="mt-1 inline-flex items-center gap-1 text-sm font-medium transition-colors hover:underline"
+                          style={{ color: "#FF7150", display: "block" }}
                         >
                           {item.link} &rarr;
                         </Link>
                       ) : (
-                        <span className="ml-1 text-sm font-medium" style={{ color: "#FF7150" }}>
+                        <span className="mt-1 block text-sm font-medium" style={{ color: "#FF7150" }}>
                           &rarr; {item.link}
                         </span>
                       )}
@@ -215,7 +215,7 @@ function WhatYouGetSection({ slug }: { slug: ServiceSlug }) {
   }));
 
   return (
-    <section className="px-6 md:px-10" style={{ paddingTop: 80, paddingBottom: 80, backgroundColor: "#F3EDED" }}>
+    <section className="px-6 md:px-10 py-12 md:py-20" style={{ backgroundColor: "#F3EDED" }}>
       <div className="mx-auto" style={{ maxWidth: 1080 }}>
         <ScrollReveal>
           <h2 className="font-heading" style={{ fontSize: 32, fontWeight: 100, color: "#0b0b0b" }}>
@@ -290,7 +290,7 @@ function HowItWorksSection({ slug }: { slug: ServiceSlug }) {
   if (steps.length === 0) return null;
 
   return (
-    <section className="bg-white px-6 md:px-10" style={{ paddingTop: 80, paddingBottom: 80 }}>
+    <section className="bg-white px-6 md:px-10 py-12 md:py-20">
       <div className="mx-auto" style={{ maxWidth: 1080 }}>
         <ScrollReveal>
           <h2 className="font-heading" style={{ fontSize: 32, fontWeight: 100, color: "#0b0b0b" }}>
@@ -337,7 +337,7 @@ function PricingSection({ slug }: { slug: ServiceSlug }) {
   const t = useTranslations("diensten");
 
   return (
-    <section className="px-6 md:px-10" style={{ paddingTop: 80, paddingBottom: 80, backgroundColor: "#FAFAF8" }}>
+    <section className="px-6 md:px-10 py-12 md:py-20" style={{ backgroundColor: "#FAFAF8" }}>
       <div className="mx-auto" style={{ maxWidth: 1080 }}>
         <ScrollReveal>
           <h2 className="font-heading" style={{ fontSize: 32, fontWeight: 100, color: "#0b0b0b" }}>
@@ -413,7 +413,7 @@ function TestimonialSection({ slug }: { slug: ServiceSlug }) {
   const showBigStat = slug === "fundamentals";
 
   return (
-    <section className="px-6 md:px-10" style={{ paddingTop: 80, paddingBottom: 80, backgroundColor: "#F3EDED" }}>
+    <section className="px-6 md:px-10 py-12 md:py-20" style={{ backgroundColor: "#F3EDED" }}>
       <div className="mx-auto text-center" style={{ maxWidth: 800 }}>
         <ScrollReveal>
           {showBigStat && (
@@ -456,7 +456,7 @@ function NextStepSection({ slug }: { slug: ServiceSlug }) {
   const afterStat = t.has(`detail.${slug}.afterStat`) ? t(`detail.${slug}.afterStat`) : "";
 
   return (
-    <section className="bg-white px-6 md:px-10" style={{ paddingTop: 80, paddingBottom: 80 }}>
+    <section className="bg-white px-6 md:px-10 py-12 md:py-20">
       <div className="mx-auto" style={{ maxWidth: 1080 }}>
         <ScrollReveal>
           <h2 className="font-heading" style={{ fontSize: 32, fontWeight: 100, color: "#0b0b0b" }}>

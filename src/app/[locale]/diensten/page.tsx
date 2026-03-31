@@ -330,7 +330,10 @@ export default function DienstenPage() {
 
           {/* Zelfstandig — endpoint, no card */}
           <ScrollReveal>
-            <div className="mt-10">
+            <div
+              className="mt-10 rounded-2xl px-6 py-5"
+              style={{ backgroundColor: "#FAFAF8", border: "1px solid #DEDCCC" }}
+            >
               <h3
                 className="font-heading text-[24px] leading-[28px]"
                 style={{ fontWeight: 100, color: "#0b0b0b" }}
