@@ -312,51 +312,33 @@ export default function DienstenPage() {
 
               {/* Desktop comparison table */}
               <div className="hidden md:block mt-10 overflow-x-auto">
-                <table className="w-full" style={{ borderCollapse: "separate", borderSpacing: 0 }}>
-                  <thead>
-                    <tr>
-                      <th className="pb-4 pr-4 text-left text-sm font-medium" style={{ color: "rgba(0,0,0,0.4)", width: "25%" }}></th>
-                      <th className="pb-4 px-4 text-left text-sm font-medium" style={{ color: "rgba(0,0,0,0.5)", width: "25%" }}>
-                        {t("whySpaik.col1title")}
-                      </th>
-                      <th className="pb-4 px-4 text-left text-sm font-medium" style={{ color: "rgba(0,0,0,0.5)", width: "25%" }}>
-                        {t("whySpaik.col2title")}
-                      </th>
-                      <th
-                        className="pb-4 px-4 text-left text-sm font-medium"
-                        style={{ color: "#FF7150", width: "25%" }}
-                      >
-                        {t("whySpaik.col3title")}
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {[1, 2, 3, 4].map((i) => (
-                      <tr key={i} style={{ borderTop: "1px solid rgba(0,0,0,0.06)" }}>
-                        <td className="py-4 pr-4">
-                          <span className="text-sm" style={{ color: "rgba(0,0,0,0.4)" }}>
-                            {t(`whySpaik.row${i}.zelf`).split(" ").slice(0, 3).join(" ")}...
-                          </span>
-                        </td>
-                        <td className="py-4 px-4">
-                          <span className="text-sm" style={{ color: "rgba(0,0,0,0.5)" }}>
-                            {t(`whySpaik.row${i}.zelf`)}
-                          </span>
-                        </td>
-                        <td className="py-4 px-4">
-                          <span className="text-sm" style={{ color: "rgba(0,0,0,0.5)" }}>
-                            {t(`whySpaik.row${i}.bureau`)}
-                          </span>
-                        </td>
-                        <td className="py-4 px-4">
-                          <span className="text-sm font-medium" style={{ color: "#0b0b0b" }}>
-                            {t(`whySpaik.row${i}.spaik`)}
-                          </span>
-                        </td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
+                <div className="grid grid-cols-3 gap-6">
+                  {/* Column headers */}
+                  <div className="pb-3" style={{ borderBottom: "1px solid rgba(0,0,0,0.08)" }}>
+                    <p className="text-sm font-medium" style={{ color: "rgba(0,0,0,0.4)" }}>{t("whySpaik.col1title")}</p>
+                  </div>
+                  <div className="pb-3" style={{ borderBottom: "1px solid rgba(0,0,0,0.08)" }}>
+                    <p className="text-sm font-medium" style={{ color: "rgba(0,0,0,0.4)" }}>{t("whySpaik.col2title")}</p>
+                  </div>
+                  <div className="pb-3" style={{ borderBottom: "2px solid #FF7150" }}>
+                    <p className="text-sm font-medium" style={{ color: "#FF7150" }}>{t("whySpaik.col3title")}</p>
+                  </div>
+
+                  {/* Rows */}
+                  {[1, 2, 3, 4].map((i) => (
+                    <div key={`row-${i}`} className="contents">
+                      <div className="py-4" style={{ borderBottom: "1px solid rgba(0,0,0,0.04)" }}>
+                        <p className="text-sm" style={{ color: "rgba(0,0,0,0.45)" }}>{t(`whySpaik.row${i}.zelf`)}</p>
+                      </div>
+                      <div className="py-4" style={{ borderBottom: "1px solid rgba(0,0,0,0.04)" }}>
+                        <p className="text-sm" style={{ color: "rgba(0,0,0,0.45)" }}>{t(`whySpaik.row${i}.bureau`)}</p>
+                      </div>
+                      <div className="py-4" style={{ borderBottom: "1px solid rgba(0,0,0,0.04)" }}>
+                        <p className="text-sm font-medium" style={{ color: "#0b0b0b" }}>{t(`whySpaik.row${i}.spaik`)}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
               </div>
 
               {/* Mobile: stacked */}
