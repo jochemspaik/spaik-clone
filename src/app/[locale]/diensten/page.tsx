@@ -5,6 +5,7 @@ import { CTASection } from "@/components/CTASection";
 import { ScrollReveal } from "@/components/ScrollReveal";
 import { RollingTextButton } from "@/components/RollingTextButton";
 import { Link } from "@/i18n/navigation";
+import { ServiceJourney } from "@/components/ServiceJourney";
 import { BOOK_CALL_URL } from "@/lib/constants";
 import type { Metadata } from "next";
 
@@ -140,6 +141,11 @@ export default function DienstenPage() {
             </div>
           </ScrollReveal>
         </section>
+
+        {/* -------- Journey visualization -------- */}
+        <ScrollReveal>
+          <ServiceJourney />
+        </ScrollReveal>
 
         {/* -------- Begin hier / Start here (on-ramp) -------- */}
         <section

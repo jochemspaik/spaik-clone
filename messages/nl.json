@@ -485,6 +485,36 @@
       "option3slug": "kickstart",
       "option4": "We zijn al bezig maar willen opschalen",
       "option4slug": "adoptie"
+    },
+    "journey": {
+      "strategie": {
+        "label": "Leren",
+        "name": "Strategie",
+        "tagline": "Ontdek kansen",
+        "price": "Vanaf €3.000"
+      },
+      "fundamentals": {
+        "label": "Leren",
+        "name": "AI Fundamentals",
+        "tagline": "Leer AI gebruiken",
+        "price": "€7.500"
+      },
+      "kickstart": {
+        "label": "Bouwen",
+        "name": "Kickstart",
+        "tagline": "Eerste bewijs",
+        "price": "€10.000"
+      },
+      "adoptie": {
+        "label": "Bouwen",
+        "name": "Adoptie",
+        "tagline": "Schaal op",
+        "price": "Op maat"
+      },
+      "zelfstandig": {
+        "name": "Zelfstandig",
+        "tagline": "Jullie kunnen het zelf"
+      }
     }
   }
 }

@@ -485,6 +485,36 @@
       "option3slug": "kickstart",
       "option4": "We're already using AI but want to scale up",
       "option4slug": "adoptie"
+    },
+    "journey": {
+      "strategie": {
+        "label": "Learn",
+        "name": "Strategy",
+        "tagline": "Discover opportunities",
+        "price": "From €3,000"
+      },
+      "fundamentals": {
+        "label": "Learn",
+        "name": "AI Fundamentals",
+        "tagline": "Learn to use AI",
+        "price": "€7,500"
+      },
+      "kickstart": {
+        "label": "Build",
+        "name": "Kickstart",
+        "tagline": "First proof",
+        "price": "€10,000"
+      },
+      "adoptie": {
+        "label": "Build",
+        "name": "Adoption",
+        "tagline": "Scale up",
+        "price": "Custom"
+      },
+      "zelfstandig": {
+        "name": "Independent",
+        "tagline": "You can do it yourselves"
+      }
     }
   }
 }
