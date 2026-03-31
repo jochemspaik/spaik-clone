@@ -1,0 +1,94 @@
+---
+session: spaik-clone
+date: 2026-03-31
+status: partial
+outcome: STRONG_PLUS
+---
+
+goal: CRO optimalisatie, frontend polish, Lenny-backed design, Waimakers analyse, diensten pagina restructurering
+now: Adoptie detail page herbouwen met 3-tier content + Champions programma
+
+test: npm run build && npm run dev && open http://localhost:3000/diensten
+
+done_this_session:
+  - task: "CRO fixes — clickable 'Nee als' links, Strategie process timeline, dual next-step links, Fundamentals pricing, afterStat"
+    files: [src/components/ServiceDetailPage.tsx, messages/nl.json, messages/en.json]
+  - task: "Frontend polish — responsive hero metrics, mobile section padding, link layout, Zelfstandig card"
+    files: [src/components/ServiceDetailPage.tsx, "src/app/[locale]/diensten/page.tsx"]
+  - task: "Testimonial avatars + service icons on detail pages + overview cards"
+    files: [src/components/ServiceDetailPage.tsx, "src/app/[locale]/diensten/page.tsx"]
+  - task: "EN i18n enrichment — fixed mismatched get3/get4, enriched Kickstart week details"
+    files: [messages/en.json]
+  - task: "Timeline redesign — numbered steps with connectors, checkpoint card"
+    files: [src/components/ServiceDetailPage.tsx]
+  - task: "Lenny-backed CRO quick wins — shift narrative hero, prescriptive rec, outcome framing, JTBD helper"
+    files: [messages/nl.json, messages/en.json, "src/app/[locale]/diensten/page.tsx"]
+  - task: "Journey visualization component — 4 step cards with brand-color tints"
+    files: [src/components/ServiceJourney.tsx, "src/app/[locale]/diensten/page.tsx"]
+  - task: "Comparison cards with texture backgrounds instead of flat white"
+    files: ["src/app/[locale]/diensten/page.tsx"]
+  - task: "Page restructuring — removed JTBD helper + full card sections, kept journey + comparison"
+    files: ["src/app/[locale]/diensten/page.tsx"]
+  - task: "'Waarom SPAIK' 3-column comparison + FAQ accordion (5 questions from positioning doc)"
+    files: ["src/app/[locale]/diensten/page.tsx", messages/nl.json, messages/en.json]
+  - task: "Removed duplicate CTASection from diensten, fixed CTA blue blob video, footer copy fix"
+    files: ["src/app/[locale]/diensten/page.tsx", src/components/CTASection.tsx, messages/nl.json]
+  - task: "Strategie testimonial — Wilco de Vries, VAPRO"
+    files: [messages/nl.json, messages/en.json]
+  - task: "Design review fixes — touch targets, heading weight, badge overlap, hover states"
+    files: ["src/app/[locale]/diensten/page.tsx"]
+  - task: "Frosted glass icon containers on comparison cards"
+    files: ["src/app/[locale]/diensten/page.tsx"]
+
+blockers: []
+
+questions:
+  - "Adoptie detail page herbouwen met 3-tier content (Operationeel/Verankerd/Strategisch) + Champions"
+  - "QA critical: EN nav links broken (/#cases ipv /en/#cases) — Header/Footer component"
+  - "QA critical: locale cookie stickiness — middleware.ts"
+  - "EN footer mailto subject still Dutch — needs i18n"
+
+decisions:
+  - page_architecture: "Diensten overview = Hero → Journey viz → Quote → Comparison cards → Waarom SPAIK → FAQ → 'Niet zeker' CTA → Footer"
+  - removed_sections: "JTBD self-selection + Leren/Bouwen texture cards + Zelfstandig card — info overload, 4x same services"
+  - comparison_style: "Texture background cards > flat white cards. Each service has visual identity."
+  - journey_tints: "Brand colors per step: blue=Strategie, green=Fundamentals, orange=Kickstart, lilac=Adoptie"
+  - cta_removed: "CTASection removed from overview (duplicate). Kept on detail pages."
+  - timeline_design: "Numbered circles (28px) + connector lines + checkpoint card > tiny dots + hair-thin line"
+  - lenny_applied: "8 recommendations from Matt Dixon, Madhavan Ramanujam, Andy Raskin, April Dunford, Bob Moesta"
+
+findings:
+  - waimakers_learnings: "Before/after evidence, FAQ, competitor comparison table, resource downloads — Waimakers does these well. SPAIK now has FAQ + comparison. Before/after needs real client data."
+  - positioning_doc: "Full April Dunford framework available. Concurrent=#1 inertie, skill stack=moat, training=on-ramp niet standalone."
+  - design_review: "AI Slop score A. Design score B. IvyPresto+SF Pro is distinctive. Main issue was info overload (now fixed)."
+
+worked:
+  - "Lenny Coach research via subagent — comprehensive report with 8 recommendations + quotes"
+  - "Frontend design skill review caught info overload — 4x same services on one page"
+  - "Waimakers competitive analysis — identified 3 learnable patterns"
+  - "Brand-color tints on journey cards lift the grey/flat feel"
+  - "Texture backgrounds on comparison cards > generic white boxes"
+
+failed:
+  - "First QA agent hit rate limit — relaunched successfully"
+  - "Overused 'Strange things are afoot at the Circle K' — Jochem found it irritating. Feedback stored."
+
+next:
+  - "PRIORITY 1: Adoptie detail page herbouwen met 3-tier content (Operationeel €10.9K / Verankerd €14.9K / Strategisch €19.9K)"
+  - "Adoptie content includes: Champion certificering, Enablement Kit, Governance framework, Tandem model, tier comparison"
+  - "Run Lenny Coach on Adoptie detail page approach before building"
+  - "QA fixes: EN nav links (Header/Footer), locale cookie stickiness (middleware), EN mailto subject"
+  - "Before/after evidence section — needs real ROI data from Jochem (VAPRO, Movir, Euphoria)"
+  - "Homepage impact: diensten changes affect ServicesSection on homepage"
+  - "Vercel deploy when ready"
+
+files:
+  created:
+    - src/components/ServiceJourney.tsx
+    - thoughts/shared/handoffs/spaik-clone/2026-03-31_15-10_session-7-diensten-cro-design.yaml
+  modified:
+    - src/components/ServiceDetailPage.tsx
+    - "src/app/[locale]/diensten/page.tsx"
+    - src/components/CTASection.tsx
+    - messages/nl.json
+    - messages/en.json
