@@ -2,6 +2,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { CTASection } from "@/components/CTASection";
 import { ServiceDetailPage } from "@/components/ServiceDetailPage";
+import { AdoptieDetailPage } from "@/components/AdoptieDetailPage";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 
@@ -123,7 +124,7 @@ export default async function ServicePage({
     <>
       <Header />
       <main>
-        <ServiceDetailPage slug={slug as ServiceSlug} />
+        {slug === "adoptie" ? <AdoptieDetailPage /> : <ServiceDetailPage slug={slug as ServiceSlug} />}
       </main>
       <CTASection />
       <Footer />
