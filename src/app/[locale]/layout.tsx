@@ -3,6 +3,8 @@ import { getMessages } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import { SmoothScroll } from "@/components/SmoothScroll";
+import { Header } from "@/components/Header";
+import { Footer } from "@/components/Footer";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { Metadata } from "next";
@@ -78,7 +80,9 @@ export default async function LocaleLayout({
       </head>
       <body className="min-h-full flex flex-col">
         <NextIntlClientProvider messages={messages}>
+          <Header />
           <SmoothScroll>{children}</SmoothScroll>
+          <Footer />
           <Analytics />
           <SpeedInsights />
         </NextIntlClientProvider>

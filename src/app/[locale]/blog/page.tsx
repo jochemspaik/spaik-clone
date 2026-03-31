@@ -2,9 +2,7 @@ import { useTranslations, useLocale } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import Image from "next/image";
 import { blogPosts } from "@/data/blog-posts";
-import { Header } from "@/components/Header";
 import { CTASection } from "@/components/CTASection";
-import { Footer } from "@/components/Footer";
 import type { Metadata } from "next";
 import { ClockIcon } from "@/components/icons";
 
@@ -44,7 +42,6 @@ export default function BlogPage() {
 
   return (
     <>
-    <Header />
     <main className="min-h-[100dvh]">
       {/* Header */}
       <section className="px-6 pt-32 pb-16 max-w-[1200px] mx-auto">
@@ -131,7 +128,6 @@ export default function BlogPage() {
       </section>
     </main>
     <CTASection />
-    <Footer />
     </>
   );
 }

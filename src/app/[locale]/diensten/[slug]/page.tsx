@@ -1,5 +1,3 @@
-import { Header } from "@/components/Header";
-import { Footer } from "@/components/Footer";
 import { CTASection } from "@/components/CTASection";
 import { ServiceDetailPage } from "@/components/ServiceDetailPage";
 import { AdoptieDetailPage } from "@/components/AdoptieDetailPage";
@@ -116,12 +114,10 @@ export default async function ServicePage({
 
   return (
     <>
-      <Header />
       <main>
         {slug === "adoptie" ? <AdoptieDetailPage /> : <ServiceDetailPage slug={slug as ServiceSlug} />}
       </main>
       <CTASection />
-      <Footer />
     </>
   );
 }

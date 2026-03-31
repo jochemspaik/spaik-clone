@@ -1,6 +1,4 @@
 import { useLocale } from "next-intl";
-import { Header } from "@/components/Header";
-import { Footer } from "@/components/Footer";
 import type { Metadata } from "next";
 
 const META: Record<string, { title: string; description: string }> = {
@@ -33,13 +31,7 @@ export async function generateMetadata({
 
 export default function LegalPage() {
   const locale = useLocale();
-  return (
-    <>
-      <Header />
-      {locale === "nl" ? <LegalNL /> : <LegalEN />}
-      <Footer />
-    </>
-  );
+  return locale === "nl" ? <LegalNL /> : <LegalEN />;
 }
 
 function LegalEN() {

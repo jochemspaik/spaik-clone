@@ -2,9 +2,7 @@ import { useTranslations, useLocale } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import Image from "next/image";
 import { blogPosts, getBlogPost, getAllSlugs } from "@/data/blog-posts";
-import { Header } from "@/components/Header";
 import { CTASection } from "@/components/CTASection";
-import { Footer } from "@/components/Footer";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { ClockIcon } from "@/components/icons";
@@ -74,10 +72,8 @@ export default async function BlogPostPage({
         image={`https://www.spaik.io${post.image}`}
         url={`https://www.spaik.io/${locale === "nl" ? "" : "en/"}blog/${slug}`}
       />
-      <Header />
       <BlogPostContent slug={slug} />
       <CTASection />
-      <Footer />
     </>
   );
 }

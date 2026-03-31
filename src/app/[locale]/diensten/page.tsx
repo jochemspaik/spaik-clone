@@ -1,7 +1,4 @@
 import { useTranslations } from "next-intl";
-import { Header } from "@/components/Header";
-import { Footer } from "@/components/Footer";
-
 import { ScrollReveal } from "@/components/ScrollReveal";
 import { RollingTextButton } from "@/components/RollingTextButton";
 import { Link } from "@/i18n/navigation";
@@ -52,9 +49,7 @@ export default function DienstenPage() {
   const t = useTranslations("diensten");
 
   return (
-    <>
-      <Header />
-      <main className="min-h-[100dvh]">
+    <main className="min-h-[100dvh]">
         {/* -------- Hero -------- */}
         <section
           className="px-6 md:px-10 pt-32 pb-16"
@@ -415,8 +410,6 @@ export default function DienstenPage() {
             </div>
           </ScrollReveal>
         </section>
-      </main>
-      <Footer />
-    </>
+    </main>
   );
 }

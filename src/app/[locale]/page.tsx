@@ -1,4 +1,3 @@
-import { Header } from "@/components/Header";
 import { OrganizationJsonLd } from "@/components/JsonLd";
 import { HeroSection } from "@/components/HeroSection";
 import { LogoTicker } from "@/components/LogoTicker";
@@ -11,14 +10,12 @@ import { InsightsSection } from "@/components/InsightsSection";
 import { AIDiscoverySection } from "@/components/AIDiscoverySection";
 import { FAQSection } from "@/components/FAQSection";
 import { CTASection } from "@/components/CTASection";
-import { Footer } from "@/components/Footer";
 import { ScrollReveal } from "@/components/ScrollReveal";
 
 export default function HomePage() {
   return (
     <>
       <OrganizationJsonLd />
-      <Header />
       <main>
         <HeroSection />
         <LogoTicker />
@@ -50,7 +47,6 @@ export default function HomePage() {
           <CTASection />
         </ScrollReveal>
       </main>
-      <Footer />
     </>
   );
 }
