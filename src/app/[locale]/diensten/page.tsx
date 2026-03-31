@@ -120,7 +120,7 @@ export default function DienstenPage() {
                 {[1, 2, 3, 4].map((i) => (
                   <div
                     key={i}
-                    className="flex items-start gap-3 rounded-xl px-4 py-3 bg-white"
+                    className="flex items-start gap-3 rounded-xl px-4 py-3 bg-white transition-shadow hover:shadow-md"
                   >
                     <span
                       className="shrink-0 flex items-center justify-center rounded-full text-xs font-medium text-white mt-0.5"
@@ -134,8 +134,8 @@ export default function DienstenPage() {
                       </p>
                       <Link
                         href={`/diensten/${t(`selfSelection.option${i}slug`)}` as "/diensten/strategie"}
-                        className="mt-1 inline-flex items-center gap-1 text-sm font-medium transition-colors hover:underline"
-                        style={{ color: "#FF7150" }}
+                        className="mt-1.5 inline-flex items-center gap-1 text-sm font-medium rounded-lg px-3 py-1.5 transition-colors hover:bg-[#FF7150]/10"
+                        style={{ color: "#FF7150", marginLeft: "-0.75rem" }}
                       >
                         {t(`selfSelection.option${i}result`)} &rarr;
                       </Link>
@@ -160,7 +160,7 @@ export default function DienstenPage() {
           <ScrollReveal>
             <h2
               className="font-heading text-[32px] leading-[36px]"
-              style={{ fontWeight: 100, color: "#0b0b0b" }}
+              style={{ fontWeight: 300, color: "#0b0b0b" }}
             >
               {t("learnSection.title")}
             </h2>
@@ -266,7 +266,7 @@ export default function DienstenPage() {
           <ScrollReveal>
             <h2
               className="font-heading text-[32px] leading-[36px]"
-              style={{ fontWeight: 100, color: "#0b0b0b" }}
+              style={{ fontWeight: 300, color: "#0b0b0b" }}
             >
               {t("buildSection.title")}
             </h2>
@@ -462,7 +462,7 @@ export default function DienstenPage() {
             >
               <h2
                 className="font-heading text-[28px] leading-[32px] md:text-[32px] md:leading-[36px] mb-10"
-                style={{ fontWeight: 100, color: "#0b0b0b" }}
+                style={{ fontWeight: 300, color: "#0b0b0b" }}
               >
                 {t("comparison.title")}
               </h2>
@@ -487,7 +487,7 @@ export default function DienstenPage() {
                         >
                           {isFeatured && (
                             <span
-                              className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full px-3 py-1 text-xs font-medium text-white whitespace-nowrap"
+                              className="absolute -top-3.5 left-1/2 -translate-x-1/2 rounded-full px-3 py-1 text-xs font-medium text-white whitespace-nowrap z-10"
                               style={{ backgroundColor: "#FF7150" }}
                             >
                               {t("comparison.recommended")}
