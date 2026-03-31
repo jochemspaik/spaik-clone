@@ -1,7 +1,7 @@
 import { useTranslations } from "next-intl";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-import { CTASection } from "@/components/CTASection";
+
 import { ScrollReveal } from "@/components/ScrollReveal";
 import { RollingTextButton } from "@/components/RollingTextButton";
 import { Link } from "@/i18n/navigation";
@@ -316,7 +316,6 @@ export default function DienstenPage() {
           </ScrollReveal>
         </section>
       </main>
-      <CTASection />
       <Footer />
     </>
   );
