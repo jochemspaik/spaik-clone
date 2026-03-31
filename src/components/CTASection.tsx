@@ -19,14 +19,13 @@ export function CTASection() {
               className="relative overflow-hidden rounded-2xl"
               style={{ aspectRatio: "1 / 1" }}
             >
-              <video
-                autoPlay
-                loop
-                muted
-                playsInline
-                poster="/images/cta-poster.jpg"
-                className="h-full w-full object-cover"
-                src="/videos/secondary-animation.mp4#t=2"
+              <Image
+                src="/images/cta-poster.jpg"
+                alt=""
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 50vw"
+                priority
               />
               {/* Dot-grid overlay — SPAIK signature texture */}
               <div className="absolute inset-0 pointer-events-none" style={{ opacity: 0.15 }}>
