@@ -306,7 +306,17 @@
         "nextStepSlug2": "fundamentals",
         "testimonialQuote": "We thought we came to listen. We left with a plan.",
         "testimonialAuthor": "",
-        "testimonialRole": ""
+        "testimonialRole": "",
+        "no1slug": "kickstart",
+        "no2slug": "fundamentals",
+        "processStep1": "Preparation",
+        "processStep1detail": "We map your context upfront: processes, tools, industry and challenges. The session is tailored to you.",
+        "processStep2": "AI landscape & opportunities (60 min)",
+        "processStep2detail": "Interactive presentation: what can AI really do now? Relevant examples from your industry, not generic.",
+        "processStep3": "Hands-on workshop (90 min)",
+        "processStep3detail": "Your team works with AI tools on their own use cases. No slides, direct results.",
+        "processStep4": "Prioritize & roadmap (60 min)",
+        "processStep4detail": "Together we score 10-15 opportunities on impact and feasibility. You leave with a concrete action plan."
       },
       "kickstart": {
         "metaTitle": "Kickstart",
@@ -356,7 +366,9 @@
         "pricingSplit2detail": "Week 2-4: Build + Deliver",
         "testimonialQuote": "Our developers built in hours what normally takes weeks. Even the skeptics became enthusiastic. No theory, just building and deploying.",
         "testimonialAuthor": "Vincent Bekker",
-        "testimonialRole": "CTO, Euphoria Mobility"
+        "testimonialRole": "CTO, Euphoria Mobility",
+        "no1slug": "strategie",
+        "no2slug": "fundamentals"
       },
       "adoptie": {
         "metaTitle": "Adoption",
@@ -402,7 +414,9 @@
         "processMonth78detail": "Monthly check-in. Ad-hoc support as needed.",
         "testimonialQuote": "I've worked with multiple parties, but I see SPAIK as a true partner that thinks along with us and proactively acts.",
         "testimonialAuthor": "Johanneke Behrend",
-        "testimonialRole": "Commercial Director, Movir"
+        "testimonialRole": "Commercial Director, Movir",
+        "no1slug": "kickstart",
+        "no2slug": "kickstart"
       },
       "fundamentals": {
         "metaTitle": "AI Fundamentals",
@@ -448,7 +462,17 @@
         "processWeek6detail": "Share results, lessons learned, advice for next steps.",
         "testimonialQuote": "SPAIK first trained our management team, then the whole company. Now everyone uses AI daily, with effective guardrails and compliance.",
         "testimonialAuthor": "Maurick Schellekens",
-        "testimonialRole": "CEO, Movir"
+        "testimonialRole": "CEO, Movir",
+        "no1slug": "kickstart",
+        "no2slug": "strategie",
+        "pricingAmount": "€7,500",
+        "pricingLabel": "10 people · 6 weeks",
+        "pricingIncludes1": "On-location workshop (half day)",
+        "pricingIncludes1detail": "Hands-on, with your own processes and data.",
+        "pricingIncludes2": "6 weeks coaching & challenges",
+        "pricingIncludes2detail": "Each week a concrete assignment. Personal guidance per participant.",
+        "pricingIncludes3": "EU AI Act compliance module",
+        "pricingIncludes3detail": "Your team knows what is allowed, what is not, and how to responsibly use AI."
       }
     }
   }

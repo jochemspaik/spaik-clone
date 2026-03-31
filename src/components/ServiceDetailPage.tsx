@@ -144,8 +144,8 @@ function ForWhoSection({ slug }: { slug: ServiceSlug }) {
   const t = useTranslations("diensten");
   const yesItems = [t(`detail.${slug}.yes1`), t(`detail.${slug}.yes2`), t(`detail.${slug}.yes3`)];
   const noItems = [
-    { text: t(`detail.${slug}.no1`), link: t(`detail.${slug}.no1link`) },
-    { text: t(`detail.${slug}.no2`), link: t(`detail.${slug}.no2link`) },
+    { text: t(`detail.${slug}.no1`), link: t(`detail.${slug}.no1link`), href: t(`detail.${slug}.no1slug`) },
+    { text: t(`detail.${slug}.no2`), link: t(`detail.${slug}.no2link`), href: t(`detail.${slug}.no2slug`) },
   ];
 
   return (
@@ -179,9 +179,19 @@ function ForWhoSection({ slug }: { slug: ServiceSlug }) {
                     <XIcon />
                     <div>
                       <span style={{ fontSize: 16, color: "rgba(0,0,0,0.7)", lineHeight: 1.6 }}>{item.text}</span>
-                      <span className="ml-1 text-sm font-medium" style={{ color: "#FF7150" }}>
-                        &rarr; {item.link}
-                      </span>
+                      {item.href ? (
+                        <Link
+                          href={`/diensten/${item.href}` as "/diensten/strategie"}
+                          className="ml-1 inline-flex items-center gap-1 text-sm font-medium transition-colors hover:underline"
+                          style={{ color: "#FF7150" }}
+                        >
+                          {item.link} &rarr;
+                        </Link>
+                      ) : (
+                        <span className="ml-1 text-sm font-medium" style={{ color: "#FF7150" }}>
+                          &rarr; {item.link}
+                        </span>
+                      )}
                     </div>
                   </li>
                 ))}
@@ -268,6 +278,13 @@ function HowItWorksSection({ slug }: { slug: ServiceSlug }) {
       { title: t("detail.adoptie.processMonth56"), detail: t("detail.adoptie.processMonth56detail") },
       { title: t("detail.adoptie.processMonth78"), detail: t("detail.adoptie.processMonth78detail") },
     ];
+  } else if (slug === "strategie") {
+    steps = [
+      { title: t("detail.strategie.processStep1"), detail: t("detail.strategie.processStep1detail") },
+      { title: t("detail.strategie.processStep2"), detail: t("detail.strategie.processStep2detail") },
+      { title: t("detail.strategie.processStep3"), detail: t("detail.strategie.processStep3detail") },
+      { title: t("detail.strategie.processStep4"), detail: t("detail.strategie.processStep4detail") },
+    ];
   }
 
   if (steps.length === 0) return null;
@@ -316,7 +333,7 @@ function HowItWorksSection({ slug }: { slug: ServiceSlug }) {
 
 /* ---- Pricing (kickstart only) ---- */
 
-function PricingSection() {
+function PricingSection({ slug }: { slug: ServiceSlug }) {
   const t = useTranslations("diensten");
 
   return (
@@ -329,33 +346,54 @@ function PricingSection() {
 
           <div className="mt-10 text-center">
             <p className="font-heading" style={{ fontSize: 48, fontWeight: 100, color: "#0b0b0b" }}>
-              {t("detail.kickstart.pricingAmount")}
+              {t(`detail.${slug}.pricingAmount`)}
             </p>
-            <p style={{ fontSize: 18, color: "rgba(0,0,0,0.5)" }}>{t("detail.kickstart.pricingLabel")}</p>
+            <p style={{ fontSize: 18, color: "rgba(0,0,0,0.5)" }}>{t(`detail.${slug}.pricingLabel`)}</p>
           </div>
 
-          <div className="mt-10 grid grid-cols-1 gap-4 md:grid-cols-2 max-w-[640px] mx-auto">
-            <div className="rounded-2xl border border-[#DEDCCC] bg-white p-6">
-              <p className="font-medium" style={{ fontSize: 20, color: "#0b0b0b" }}>
-                {t("detail.kickstart.pricingSplit1")}
-              </p>
-              <p className="mt-2" style={{ fontSize: 14, color: "rgba(0,0,0,0.6)" }}>
-                {t("detail.kickstart.pricingSplit1detail")}
-              </p>
+          {/* Split pricing cards (kickstart) or includes list (fundamentals) */}
+          {slug === "kickstart" ? (
+            <div className="mt-10 grid grid-cols-1 gap-4 md:grid-cols-2 max-w-[640px] mx-auto">
+              <div className="rounded-2xl border border-[#DEDCCC] bg-white p-6">
+                <p className="font-medium" style={{ fontSize: 20, color: "#0b0b0b" }}>
+                  {t("detail.kickstart.pricingSplit1")}
+                </p>
+                <p className="mt-2" style={{ fontSize: 14, color: "rgba(0,0,0,0.6)" }}>
+                  {t("detail.kickstart.pricingSplit1detail")}
+                </p>
+              </div>
+              <div className="rounded-2xl border border-[#DEDCCC] bg-white p-6">
+                <p className="font-medium" style={{ fontSize: 20, color: "#0b0b0b" }}>
+                  {t("detail.kickstart.pricingSplit2")}
+                </p>
+                <p className="mt-2" style={{ fontSize: 14, color: "rgba(0,0,0,0.6)" }}>
+                  {t("detail.kickstart.pricingSplit2detail")}
+                </p>
+              </div>
             </div>
-            <div className="rounded-2xl border border-[#DEDCCC] bg-white p-6">
-              <p className="font-medium" style={{ fontSize: 20, color: "#0b0b0b" }}>
-                {t("detail.kickstart.pricingSplit2")}
-              </p>
-              <p className="mt-2" style={{ fontSize: 14, color: "rgba(0,0,0,0.6)" }}>
-                {t("detail.kickstart.pricingSplit2detail")}
-              </p>
+          ) : slug === "fundamentals" ? (
+            <div className="mt-10 flex flex-col gap-4 max-w-[640px] mx-auto">
+              {[1, 2, 3].map((i) => (
+                <div key={i} className="flex items-start gap-4 rounded-2xl border border-[#DEDCCC] bg-white p-6">
+                  <CheckIcon color="#FF7150" />
+                  <div>
+                    <p className="font-medium" style={{ fontSize: 16, color: "#0b0b0b" }}>
+                      {t(`detail.fundamentals.pricingIncludes${i}`)}
+                    </p>
+                    <p className="mt-1" style={{ fontSize: 14, color: "rgba(0,0,0,0.6)" }}>
+                      {t(`detail.fundamentals.pricingIncludes${i}detail`)}
+                    </p>
+                  </div>
+                </div>
+              ))}
             </div>
-          </div>
+          ) : null}
 
-          <p className="mt-8 text-center italic" style={{ fontSize: 16, color: "rgba(0,0,0,0.6)" }}>
-            {t("detail.kickstart.pricingRisk")}
-          </p>
+          {t.has(`detail.${slug}.pricingRisk`) && (
+            <p className="mt-8 text-center italic" style={{ fontSize: 16, color: "rgba(0,0,0,0.6)" }}>
+              {t(`detail.${slug}.pricingRisk`)}
+            </p>
+          )}
         </ScrollReveal>
       </div>
     </section>
@@ -414,6 +452,8 @@ function NextStepSection({ slug }: { slug: ServiceSlug }) {
   const t = useTranslations("diensten");
   const nextText = t(`detail.${slug}.nextStepText`);
   const nextSlug = t(`detail.${slug}.nextStepSlug`);
+  const nextSlug2 = t.has(`detail.${slug}.nextStepSlug2`) ? t(`detail.${slug}.nextStepSlug2`) : "";
+  const afterStat = t.has(`detail.${slug}.afterStat`) ? t(`detail.${slug}.afterStat`) : "";
 
   return (
     <section className="bg-white px-6 md:px-10" style={{ paddingTop: 80, paddingBottom: 80 }}>
@@ -426,16 +466,32 @@ function NextStepSection({ slug }: { slug: ServiceSlug }) {
             {nextText}
           </p>
           {nextSlug ? (
-            <Link
-              href={`/diensten/${nextSlug}` as "/diensten/strategie"}
-              className="mt-6 inline-flex items-center gap-2 text-base font-medium transition-colors hover:underline"
-              style={{ color: "#FF7150" }}
-            >
-              {t("moreAbout")} {t(`overview.${nextSlug as ServiceSlug}.title`)} &rarr;
-            </Link>
+            <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-3">
+              <Link
+                href={`/diensten/${nextSlug}` as "/diensten/strategie"}
+                className="inline-flex items-center gap-2 text-base font-medium transition-colors hover:underline"
+                style={{ color: "#FF7150" }}
+              >
+                {t("moreAbout")} {t(`overview.${nextSlug as ServiceSlug}.title`)} &rarr;
+              </Link>
+              {nextSlug2 && (
+                <Link
+                  href={`/diensten/${nextSlug2}` as "/diensten/strategie"}
+                  className="inline-flex items-center gap-2 text-base font-medium transition-colors hover:underline"
+                  style={{ color: "#FF7150" }}
+                >
+                  {t("moreAbout")} {t(`overview.${nextSlug2 as ServiceSlug}.title`)} &rarr;
+                </Link>
+              )}
+            </div>
           ) : (
             <p className="mt-4 text-sm font-medium" style={{ color: "rgba(0,0,0,0.5)" }}>
               {t("overview.zelfstandig.title")} &mdash; {t("overview.zelfstandig.tagline")}
+            </p>
+          )}
+          {afterStat && (
+            <p className="mt-6 text-sm italic" style={{ color: "rgba(0,0,0,0.5)" }}>
+              {afterStat}
             </p>
           )}
         </ScrollReveal>
@@ -453,7 +509,7 @@ export function ServiceDetailPage({ slug }: { slug: ServiceSlug }) {
       <ForWhoSection slug={slug} />
       <WhatYouGetSection slug={slug} />
       <HowItWorksSection slug={slug} />
-      {slug === "kickstart" && <PricingSection />}
+      {(slug === "kickstart" || slug === "fundamentals") && <PricingSection slug={slug} />}
       <TestimonialSection slug={slug} />
       <NextStepSection slug={slug} />
     </>
