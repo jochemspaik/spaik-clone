@@ -54,12 +54,19 @@ function ArrowLeftIcon() {
   );
 }
 
-function TimelineDot({ highlight = false }: { highlight?: boolean }) {
+function TimelineStep({ step, highlight = false }: { step: number; highlight?: boolean }) {
   return (
     <span
-      className="block shrink-0 rounded-full"
-      style={{ width: 12, height: 12, backgroundColor: highlight ? "#FF7150" : "#DEDCCC" }}
-    />
+      className="flex items-center justify-center shrink-0 rounded-full text-xs font-medium"
+      style={{
+        width: 28,
+        height: 28,
+        backgroundColor: highlight ? "#FF7150" : "#0b0b0b",
+        color: "#fff",
+      }}
+    >
+      {highlight ? "!" : step}
+    </span>
   );
 }
 
@@ -317,34 +324,41 @@ function HowItWorksSection({ slug }: { slug: ServiceSlug }) {
           <h2 className="font-heading" style={{ fontSize: 32, fontWeight: 100, color: "#0b0b0b" }}>
             {t("detail.howItWorks")}
           </h2>
-          <div className="relative mt-10 ml-2">
-            <div className="absolute top-0 bottom-0" style={{ left: 5, width: 2, backgroundColor: "#DEDCCC" }} />
-            <div className="flex flex-col gap-8">
-              {steps.map((step) => (
-                <div
-                  key={step.title}
-                  className="relative pl-10"
-                  style={step.highlight ? { borderLeft: "3px solid #FF7150", borderRadius: 4, paddingLeft: 36, marginLeft: -2 } : undefined}
-                >
-                  {!step.highlight && (
-                    <div className="absolute left-0 top-1 flex items-center justify-center" style={{ width: 12 }}>
-                      <TimelineDot highlight={step.highlight} />
+          <div className="mt-10 flex flex-col gap-6">
+            {(() => {
+              let stepNum = 0;
+              return steps.map((step, i) => {
+                if (!step.highlight) stepNum++;
+                const isLast = i === steps.length - 1;
+                return (
+                  <div key={step.title} className="flex gap-4">
+                    {/* Left: numbered circle + connector line */}
+                    <div className="flex flex-col items-center">
+                      <TimelineStep step={stepNum} highlight={step.highlight} />
+                      {!isLast && (
+                        <div className="flex-1 w-0.5 mt-2" style={{ backgroundColor: step.highlight ? "#FF7150" : "#DEDCCC" }} />
+                      )}
                     </div>
-                  )}
-                  <h3
-                    className="font-heading"
-                    style={{ fontSize: 18, fontWeight: step.highlight ? 500 : 100, color: step.highlight ? "#FF7150" : "#0b0b0b" }}
-                  >
-                    {step.title}
-                  </h3>
-                  {step.detail && (
-                    <p className="mt-1" style={{ fontSize: 15, color: "rgba(0,0,0,0.6)", lineHeight: 1.5 }}>
-                      {step.detail}
-                    </p>
-                  )}
-                </div>
-              ))}
-            </div>
+                    {/* Right: content */}
+                    <div className={`flex-1 pb-2 ${step.highlight ? "rounded-xl px-4 py-3 -ml-1" : ""}`}
+                      style={step.highlight ? { backgroundColor: "rgba(255,113,80,0.06)", border: "1px solid rgba(255,113,80,0.2)" } : undefined}
+                    >
+                      <h3
+                        className="font-heading"
+                        style={{ fontSize: 18, fontWeight: step.highlight ? 500 : 400, color: step.highlight ? "#FF7150" : "#0b0b0b" }}
+                      >
+                        {step.title}
+                      </h3>
+                      {step.detail && (
+                        <p className="mt-1" style={{ fontSize: 15, color: "rgba(0,0,0,0.6)", lineHeight: 1.5 }}>
+                          {step.detail}
+                        </p>
+                      )}
+                    </div>
+                  </div>
+                );
+              });
+            })()}
           </div>
         </ScrollReveal>
       </div>
