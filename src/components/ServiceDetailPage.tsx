@@ -236,7 +236,7 @@ function ForWhoSection({ slug }: { slug: ServiceSlug }) {
 
 function WhatYouGetSection({ slug }: { slug: ServiceSlug }) {
   const t = useTranslations("diensten");
-  const count = slug === "adoptie" ? 5 : 4;
+  const count = slug === "kickstart" ? 10 : slug === "adoptie" ? 5 : 4;
   const items = Array.from({ length: count }, (_, i) => ({
     title: t(`detail.${slug}.get${i + 1}`),
     detail: t(`detail.${slug}.get${i + 1}detail`),
@@ -287,10 +287,10 @@ function HowItWorksSection({ slug }: { slug: ServiceSlug }) {
 
   if (slug === "kickstart") {
     steps = [
+      { title: t("detail.kickstart.week0"), detail: t("detail.kickstart.week0detail") },
       { title: t("detail.kickstart.week1"), detail: t("detail.kickstart.week1detail") },
       { title: t("detail.kickstart.week1checkpoint"), detail: "", highlight: true },
       { title: t("detail.kickstart.week2"), detail: t("detail.kickstart.week2detail") },
-      { title: t("detail.kickstart.week34"), detail: t("detail.kickstart.week34detail") },
     ];
   } else if (slug === "fundamentals") {
     steps = [
@@ -386,27 +386,8 @@ function PricingSection({ slug }: { slug: ServiceSlug }) {
             <p style={{ fontSize: 18, color: "rgba(0,0,0,0.5)" }}>{t(`detail.${slug}.pricingLabel`)}</p>
           </div>
 
-          {/* Split pricing cards (kickstart) or includes list (fundamentals) */}
-          {slug === "kickstart" ? (
-            <div className="mt-10 grid grid-cols-1 gap-4 md:grid-cols-2 max-w-[640px] mx-auto">
-              <div className="rounded-2xl border border-[#DEDCCC] bg-white p-6">
-                <p className="font-medium" style={{ fontSize: 20, color: "#0b0b0b" }}>
-                  {t("detail.kickstart.pricingSplit1")}
-                </p>
-                <p className="mt-2" style={{ fontSize: 14, color: "rgba(0,0,0,0.6)" }}>
-                  {t("detail.kickstart.pricingSplit1detail")}
-                </p>
-              </div>
-              <div className="rounded-2xl border border-[#DEDCCC] bg-white p-6">
-                <p className="font-medium" style={{ fontSize: 20, color: "#0b0b0b" }}>
-                  {t("detail.kickstart.pricingSplit2")}
-                </p>
-                <p className="mt-2" style={{ fontSize: 14, color: "rgba(0,0,0,0.6)" }}>
-                  {t("detail.kickstart.pricingSplit2detail")}
-                </p>
-              </div>
-            </div>
-          ) : slug === "fundamentals" ? (
+          {/* Includes list (fundamentals) */}
+          {slug === "fundamentals" ? (
             <div className="mt-10 flex flex-col gap-4 max-w-[640px] mx-auto">
               {[1, 2, 3].map((i) => (
                 <div key={i} className="flex items-start gap-4 rounded-2xl border border-[#DEDCCC] bg-white p-6">
