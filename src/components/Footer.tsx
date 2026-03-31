@@ -33,34 +33,34 @@ export function Footer() {
 
           {/* Center: Navigation Links */}
           <nav className="flex flex-col gap-1">
-            <a
-              href="/#cases"
+            <Link
+              href={"/cases" as "/"}
               className="inline-flex items-center transition-opacity hover:opacity-60"
               style={{ fontSize: 15, color: "#0b0b0b", minHeight: 44 }}
             >
               {t("footer.cases")}
-            </a>
-            <a
-              href="/#services"
+            </Link>
+            <Link
+              href={"/diensten" as "/"}
               className="inline-flex items-center transition-opacity hover:opacity-60"
               style={{ fontSize: 15, color: "#0b0b0b", minHeight: 44 }}
             >
               {t("footer.services")}
-            </a>
-            <a
-              href="/#why-spaik"
+            </Link>
+            <Link
+              href={"/#why-spaik" as "/"}
               className="inline-flex items-center transition-opacity hover:opacity-60"
               style={{ fontSize: 15, color: "#0b0b0b", minHeight: 44 }}
             >
               {t("footer.whySpaik")}
-            </a>
-            <a
-              href="/#team"
+            </Link>
+            <Link
+              href={"/#team" as "/"}
               className="inline-flex items-center transition-opacity hover:opacity-60"
               style={{ fontSize: 15, color: "#0b0b0b", minHeight: 44 }}
             >
               {t("footer.team")}
-            </a>
+            </Link>
             <a
               href="mailto:info@spaik.io?subject=Vraag%20van%20Website"
               className="inline-flex items-center transition-opacity hover:opacity-60"

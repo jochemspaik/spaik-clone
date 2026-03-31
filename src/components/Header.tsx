@@ -15,8 +15,8 @@ interface NavItem {
 }
 
 const NAV_ITEMS: NavItem[] = [
-  { key: "cases", href: "/#cases" },
-  { key: "services", href: "/#services" },
+  { key: "cases", href: "/cases" },
+  { key: "services", href: "/diensten" },
   { key: "trainings", href: "https://traininghub.spaik.io/", external: true },
   { key: "team", href: "/#team" },
   { key: "faq", href: "/#faq" },
@@ -24,16 +24,22 @@ const NAV_ITEMS: NavItem[] = [
 
 function NavLink({ item, onClick }: { item: NavItem; onClick?: () => void }) {
   const t = useTranslations();
+  const className = "inline-flex items-center transition-colors hover:text-spaik-orange";
+  const style = { fontSize: 15, fontWeight: 400, color: "#0b0b0b", minHeight: "44px" };
+  const label = t(`nav.${item.key}`);
+
+  if (item.external) {
+    return (
+      <a href={item.href} onClick={onClick} className={className} style={style} target="_blank" rel="noopener noreferrer">
+        {label}
+      </a>
+    );
+  }
+
   return (
-    <a
-      href={item.href}
-      onClick={onClick}
-      className="inline-flex items-center transition-colors hover:text-spaik-orange"
-      style={{ fontSize: 15, fontWeight: 400, color: "#0b0b0b", minHeight: "44px" }}
-      {...(item.external ? { target: "_blank" as const, rel: "noopener noreferrer" } : {})}
-    >
-      {t(`nav.${item.key}`)}
-    </a>
+    <Link href={item.href as "/"} onClick={onClick} className={className} style={style}>
+      {label}
+    </Link>
   );
 }
 
