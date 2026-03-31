@@ -58,7 +58,20 @@
       "stat3label": "Nieuwe AI-proposities",
       "roiText": "Nieuwe omzetstroom + terugverdiend in 3 maanden"
     },
-    "viewAll": "Bekijk alle cases"
+    "viewAll": "Bekijk alle cases",
+    "detail": {
+      "situationLabel": "De Situatie",
+      "approachLabel": "Onze Aanpak",
+      "resultLabel": "Het Resultaat",
+      "impactTitle": "Impact op het business model",
+      "relatedTitle": "Vergelijkbare trajecten",
+      "viewAllCases": "Alle cases",
+      "ctaTitle": "Herken je deze situatie?",
+      "ctaText": "Laten we onderzoeken hoe AI jouw operatie kan versnellen en je team weer ruimte kan geven.",
+      "ctaCta": "Plan een Kickstart",
+      "ctaSecondary": "Bekijk andere cases",
+      "backToCase": "Terug naar cases"
+    }
   },
   "problem": {
     "title": "Je weet dat AI waarde kan opleveren. Maar het gebeurt niet.",

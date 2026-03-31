@@ -58,7 +58,20 @@
       "stat3label": "New AI propositions",
       "roiText": "New revenue stream + recouped in 3 months"
     },
-    "viewAll": "View all cases"
+    "viewAll": "View all cases",
+    "detail": {
+      "situationLabel": "The Situation",
+      "approachLabel": "Our Approach",
+      "resultLabel": "The Result",
+      "impactTitle": "Business model impact",
+      "relatedTitle": "Similar projects",
+      "viewAllCases": "All cases",
+      "ctaTitle": "Recognize this situation?",
+      "ctaText": "Let's explore how AI can accelerate your operations and give your team room to breathe.",
+      "ctaCta": "Plan a Kickstart",
+      "ctaSecondary": "View other cases",
+      "backToCase": "Back to cases"
+    }
   },
   "problem": {
     "title": "You know AI can deliver value. But it's not happening.",
