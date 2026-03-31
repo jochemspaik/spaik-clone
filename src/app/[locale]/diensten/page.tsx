@@ -188,13 +188,18 @@ export default function DienstenPage() {
 
                             {/* Content */}
                             <div className="relative z-10 flex flex-col justify-between h-full p-5" style={{ minHeight: isFeatured ? 320 : 280 }}>
-                              <img
-                                src={ICONS[slug]}
-                                alt=""
-                                aria-hidden="true"
-                                className="invert opacity-70"
-                                style={{ width: 24, height: 24 }}
-                              />
+                              <div
+                                className="flex items-center justify-center rounded-lg"
+                                style={{ width: 36, height: 36, backgroundColor: "rgba(255,255,255,0.15)", backdropFilter: "blur(8px)" }}
+                              >
+                                <img
+                                  src={ICONS[slug]}
+                                  alt=""
+                                  aria-hidden="true"
+                                  className="invert"
+                                  style={{ width: 20, height: 20 }}
+                                />
+                              </div>
                               <div>
                                 <h3
                                   className="font-heading text-white"
