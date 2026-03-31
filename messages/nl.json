@@ -57,7 +57,8 @@
       "stat3value": "5",
       "stat3label": "Nieuwe AI-proposities",
       "roiText": "Nieuwe omzetstroom + terugverdiend in 3 maanden"
-    }
+    },
+    "viewAll": "Bekijk alle cases"
   },
   "problem": {
     "title": "Je weet dat AI waarde kan opleveren. Maar het gebeurt niet.",
@@ -386,12 +387,10 @@
         "metric2label": "overdracht",
         "metric3value": "35+",
         "metric3label": "implementaties",
-
         "marketInsightStat": "70%",
         "marketInsightStatLabel": "van AI-pilots mislukt",
         "marketInsightTitle": "Niet door technologie — door adoptie",
         "marketInsightBody": "De meeste AI-projecten stranden niet omdat de technologie faalt, maar omdat niemand het overneemt. Geen eigenaarschap, geen champions, geen werkwijze om het in te bedden. Na het pilotproject gaat iedereen terug naar de oude manier van werken.",
-
         "altSectionTitle": "Wat bedrijven meestal proberen",
         "alt1Title": "Zelf doen",
         "alt1Problem": "Kost maanden langer, kennis blijft bij 1-2 mensen, en het verwatert bij de eerste deadline.",
@@ -405,7 +404,6 @@
         "alt4Title": "AI-specialist aannemen",
         "alt4Problem": "6 maanden werven, 6 maanden onboarden, single point of failure. En die ene persoon kan niet alles.",
         "alt4SpaikDiff": "Wij leveren direct een senior team, en leiden ondertussen jullie eigen Champions op.",
-
         "tandemTitle": "Het Tandem Model",
         "tandemSubtitle": "Wij beginnen voorop, maar het doel is dat jullie alleen verder fietsen.",
         "tandemPhase1Title": "Maand 1-2: SPAIK leidt",
@@ -414,7 +412,6 @@
         "tandemPhase2Body": "Champions nemen steeds meer over. Wij begeleiden, jullie doen steeds meer zelf.",
         "tandemPhase3Title": "Maand 5-6: Jullie voorop",
         "tandemPhase3Body": "Champions zijn zelfstandig. SPAIK beschikbaar voor vragen, niet meer leidend.",
-
         "championsTitle": "Het Champions Programma",
         "championsSubtitle": "Geen afhankelijkheid, maar eigenaarschap. Jullie Champions leren identificeren, bouwen, inbedden en intern verkopen.",
         "champ1Title": "Change Management & Adoptie",
@@ -431,14 +428,12 @@
         "kitBody": "ROI-templates, interne pitch deck, management FAQ — zodat Champions ook intern budget kunnen vrijmaken.",
         "communityTitle": "Champion Circle",
         "communityBody": "Gesloten community voor gecertificeerde Champions. Kennisdeling, best practices, kwartaal-meetups.",
-
         "gateTitle": "Eén harde voorwaarde",
         "gateBody": "Wij verkopen geen Adoptie-traject als er geen geschikte Champions zijn. Dat beschermt jullie investering én onze reputatie.",
         "gateCriteria1": "Mandaat van management",
         "gateCriteria2": "Minimaal 20% beschikbaarheid (1 dag/week)",
         "gateCriteria3": "Intrinsieke motivatie — niet aangewezen maar gemotiveerd",
         "gateCriteria4": "Positie om impact te maken en collega's mee te nemen",
-
         "yes1": "Jullie hebben een Kickstart gedaan en willen doorpakken",
         "yes2": "Jullie willen dat het hele team zelfstandig wordt met AI",
         "yes3": "Jullie zoeken een partner die naast jullie team werkt, niet ervoor",
@@ -446,7 +441,6 @@
         "no1link": "Start met een Kickstart",
         "no2": "Jullie zoeken een eenmalige implementatie",
         "no2link": "De Kickstart is dan beter geschikt",
-
         "tiersTitle": "Drie niveaus, één doel: jullie zelfstandigheid",
         "tiersSubtitle": "Het verschil zit in diepte en scope van de transformatie. Wat er gebouwd wordt, bepalen we samen in de scoping.",
         "tier1Name": "Operationeel",
@@ -482,14 +476,12 @@
         "tier3Feature5": "3 maanden nazorg",
         "tiersPerMonth": "per maand",
         "tiersCta": "Plan een scoping gesprek",
-
         "govTitle": "Governance: standaard in elk traject",
         "govSubtitle": "Geen premium feature, maar basishygiëne. In elk traject inbegrepen.",
         "gov1": "Wanneer AI wel en niet gepast is",
         "gov2": "Data-eigenaarschap en privacy (AVG)",
         "gov3": "Verantwoord gebruik en bias-awareness",
         "gov4": "Sector-specifieke regels en escalatieprotocol",
-
         "get1": "Dedicated SPAIK team naast jullie mensen",
         "get1detail": "Een senior lead + specialisten, geïntegreerd in jullie dagelijkse werk.",
         "get2": "Maandelijkse reviews en bijsturing",
@@ -500,7 +492,6 @@
         "get4detail": "Niet één maar meerdere workflows geautomatiseerd. Elke maand meer impact.",
         "get5": "Volledige overdracht",
         "get5detail": "Documentatie, trainingsmateriaal, alles wat nodig is om zelfstandig door te gaan.",
-
         "processMonth12": "Maand 1-2: Fundament leggen",
         "processMonth12detail": "Roadmap uitwerken, eerste automatiseringen bouwen, Champions identificeren en opleiden.",
         "processMonth34": "Maand 3-4: Schakelpunt",
@@ -513,16 +504,13 @@
         "processIntensity2": "50%",
         "processIntensity3": "20%",
         "processIntensity4": "5%",
-
         "testimonialQuote": "Ik heb met meerdere partijen samengewerkt, maar ik zie SPAIK echt als een partner die met ons meedenkt en proactief handelt.",
         "testimonialAuthor": "Johanneke Behrend",
         "testimonialRole": "Commercieel Directeur, Movir",
-
         "dualCtaTitle": "Klaar om door te pakken?",
         "dualCtaBody": "Plan een vrijblijvend gesprek. We bespreken jullie situatie en of Adoptie de juiste stap is.",
         "dualCtaPrimary": "Plan een kennismaking",
         "dualCtaSecondary": "Download programmabrochure",
-
         "nextStepText": "Na Adoptie beheren jullie alles zelf. Doorwerken met ons is een keuze, geen noodzaak.",
         "nextStepSlug": "",
         "no1slug": "kickstart",

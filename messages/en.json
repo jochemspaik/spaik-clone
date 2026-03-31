@@ -57,7 +57,8 @@
       "stat3value": "5",
       "stat3label": "New AI propositions",
       "roiText": "New revenue stream + recouped in 3 months"
-    }
+    },
+    "viewAll": "View all cases"
   },
   "problem": {
     "title": "You know AI can deliver value. But it's not happening.",
@@ -386,12 +387,10 @@
         "metric2label": "handover",
         "metric3value": "35+",
         "metric3label": "implementations",
-
         "marketInsightStat": "70%",
         "marketInsightStatLabel": "of AI pilots fail",
         "marketInsightTitle": "Not because of technology — because of adoption",
         "marketInsightBody": "Most AI projects don't fail because the technology doesn't work, but because nobody takes ownership. No champions, no process for embedding it. After the pilot, everyone goes back to the old way of working.",
-
         "altSectionTitle": "What companies usually try",
         "alt1Title": "Do it yourself",
         "alt1Problem": "Takes months longer, knowledge stays with 1-2 people, and it fades at the first deadline.",
@@ -405,7 +404,6 @@
         "alt4Title": "Hire an AI specialist",
         "alt4Problem": "6 months recruiting, 6 months onboarding, single point of failure. And one person can't do everything.",
         "alt4SpaikDiff": "We deliver a senior team immediately, while training your own Champions.",
-
         "tandemTitle": "The Tandem Model",
         "tandemSubtitle": "We start in front, but the goal is for you to ride on your own.",
         "tandemPhase1Title": "Month 1-2: SPAIK leads",
@@ -414,7 +412,6 @@
         "tandemPhase2Body": "Champions take over more and more. We guide, you do increasingly more yourself.",
         "tandemPhase3Title": "Month 5-6: You in front",
         "tandemPhase3Body": "Champions are self-sufficient. SPAIK available for questions, no longer leading.",
-
         "championsTitle": "The Champions Program",
         "championsSubtitle": "Not dependency, but ownership. Your Champions learn to identify, build, embed, and sell internally.",
         "champ1Title": "Change Management & Adoption",
@@ -431,14 +428,12 @@
         "kitBody": "ROI templates, internal pitch deck, management FAQ — so Champions can also free up budget internally.",
         "communityTitle": "Champion Circle",
         "communityBody": "Closed community for certified Champions. Knowledge sharing, best practices, quarterly meetups.",
-
         "gateTitle": "One hard requirement",
         "gateBody": "We don't sell an Adoption program if there are no suitable Champions. This protects your investment and our reputation.",
         "gateCriteria1": "Management mandate",
         "gateCriteria2": "Minimum 20% availability (1 day/week)",
         "gateCriteria3": "Intrinsic motivation — driven, not assigned",
         "gateCriteria4": "Position to make impact and bring colleagues along",
-
         "yes1": "You've done a Kickstart and want to follow through",
         "yes2": "You want your whole team to become self-sufficient with AI",
         "yes3": "You're looking for a partner that works alongside your team, not in front of it",
@@ -446,7 +441,6 @@
         "no1link": "Start with a Kickstart",
         "no2": "You're looking for a one-time implementation",
         "no2link": "The Kickstart is better suited",
-
         "tiersTitle": "Three levels, one goal: your independence",
         "tiersSubtitle": "The difference is in depth and scope of transformation. What gets built, we determine together in scoping.",
         "tier1Name": "Operational",
@@ -482,14 +476,12 @@
         "tier3Feature5": "3 months aftercare",
         "tiersPerMonth": "per month",
         "tiersCta": "Schedule a scoping conversation",
-
         "govTitle": "Governance: standard in every program",
         "govSubtitle": "Not a premium feature, but basic hygiene. Included in every program.",
         "gov1": "When AI is and isn't appropriate",
         "gov2": "Data ownership and privacy (GDPR)",
         "gov3": "Responsible use and bias awareness",
         "gov4": "Sector-specific rules and escalation protocol",
-
         "get1": "Dedicated SPAIK team alongside your people",
         "get1detail": "A senior lead + specialists, integrated in your daily work.",
         "get2": "Monthly reviews and course corrections",
@@ -500,7 +492,6 @@
         "get4detail": "Not one but multiple workflows automated. More impact every month.",
         "get5": "Full handover",
         "get5detail": "Documentation, training materials, everything needed to continue independently.",
-
         "processMonth12": "Month 1-2: Laying the foundation",
         "processMonth12detail": "Develop roadmap, build first automations, identify and train Champions.",
         "processMonth34": "Month 3-4: Turning point",
@@ -513,16 +504,13 @@
         "processIntensity2": "50%",
         "processIntensity3": "20%",
         "processIntensity4": "5%",
-
         "testimonialQuote": "I've worked with multiple parties, but I see SPAIK as a true partner that thinks along with us and proactively acts.",
         "testimonialAuthor": "Johanneke Behrend",
         "testimonialRole": "Commercial Director, Movir",
-
         "dualCtaTitle": "Ready to follow through?",
         "dualCtaBody": "Schedule a no-obligation conversation. We'll discuss your situation and whether Adoption is the right step.",
         "dualCtaPrimary": "Schedule a conversation",
         "dualCtaSecondary": "Download program brochure",
-
         "nextStepText": "After Adoption you manage everything yourselves. Continuing with us is a choice, not a necessity.",
         "nextStepSlug": "",
         "no1slug": "kickstart",

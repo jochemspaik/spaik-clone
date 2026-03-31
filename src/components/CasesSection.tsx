@@ -1,8 +1,10 @@
 "use client";
 
-import React, { useMemo, useCallback } from "react";
+import React, { useCallback } from "react";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
+import { Link } from "@/i18n/navigation";
+import { CASES } from "@/data/cases";
 
 /* ── Animated counter ── */
 function AnimatedCounter({ value, color }: { value: string; color?: string }) {
@@ -67,56 +69,22 @@ export function CasesSection() {
   const [direction, setDirection] = React.useState<"left" | "right">("right");
   const timerRef = React.useRef<ReturnType<typeof setInterval> | null>(null);
 
-  const cases: CaseData[] = [
-    {
-      companyName: "Movir",
-      companyType: t("cases.movir.type"),
-      logoSrc: "/images/logo-movir.png",
-      personSrc: "/images/case-maurick.jpg",
-      quote: t("cases.movir.quote"),
-      author: t("cases.movir.author"),
-      stats: [
-        { value: "10x", label: t("cases.movir.stat1label") },
-        { value: "100", label: t("cases.movir.stat2label") },
-        { value: "5", label: t("cases.movir.stat3label") },
-      ],
-      roi: t("cases.movir.roiText"),
-      bgColor: "#fef5f3",
-      accentColor: "#ff7150",
-    },
-    {
-      companyName: "Euphoria Mobility",
-      companyType: t("cases.euphoria.type"),
-      logoSrc: "/images/logo-euphoria.png",
-      personSrc: "/images/case-vincent.jpg",
-      quote: t("cases.euphoria.quote"),
-      author: t("cases.euphoria.author"),
-      stats: [
-        { value: "10+", label: t("cases.euphoria.stat1label") },
-        { value: "5X", label: t("cases.euphoria.stat2label") },
-        { value: "6", label: t("cases.euphoria.stat3label") },
-      ],
-      roi: t("cases.euphoria.roiText"),
-      bgColor: "#f7f4ff",
-      accentColor: "#a78bfa",
-    },
-    {
-      companyName: "Reditus",
-      companyType: t("cases.reditus.type"),
-      logoSrc: "/images/logo-reditus.png",
-      personSrc: "/images/case-joran.png",
-      quote: t("cases.reditus.quote"),
-      author: t("cases.reditus.author"),
-      stats: [
-        { value: "5x", label: t("cases.reditus.stat1label") },
-        { value: "5min", label: t("cases.reditus.stat2label") },
-        { value: "5", label: t("cases.reditus.stat3label") },
-      ],
-      roi: t("cases.reditus.roiText"),
-      bgColor: "#eef6f5",
-      accentColor: "#34d399",
-    },
-  ];
+  const cases: CaseData[] = CASES.map((c) => ({
+    companyName: c.companyName,
+    companyType: t(`cases.${c.slug}.type`),
+    logoSrc: c.logoSrc,
+    personSrc: c.personSrc,
+    quote: t(`cases.${c.slug}.quote`),
+    author: t(`cases.${c.slug}.author`),
+    stats: [
+      { value: t(`cases.${c.slug}.stat1value`), label: t(`cases.${c.slug}.stat1label`) },
+      { value: t(`cases.${c.slug}.stat2value`), label: t(`cases.${c.slug}.stat2label`) },
+      { value: t(`cases.${c.slug}.stat3value`), label: t(`cases.${c.slug}.stat3label`) },
+    ],
+    roi: t(`cases.${c.slug}.roiText`),
+    bgColor: c.bgColor,
+    accentColor: c.accentColor,
+  }));
 
   const current = cases[active];
 
@@ -185,8 +153,9 @@ export function CasesSection() {
         </div>
 
         {/* Carousel */}
-        <div
-          className="grain-overlay rounded-3xl overflow-hidden transition-colors duration-500"
+        <Link
+          href={`/cases/${CASES[active].slug}` as "/"}
+          className="grain-overlay block rounded-3xl overflow-hidden transition-colors duration-500 group/card"
           style={{ backgroundColor: current.bgColor }}
         >
           <div className="flex flex-col md:flex-row">
@@ -254,7 +223,7 @@ export function CasesSection() {
               </div>
             </div>
           </div>
-        </div>
+        </Link>
 
         {/* Case selector tabs — always visible so user knows there are multiple */}
         <div className="flex items-center gap-2 mt-8">
@@ -293,6 +262,17 @@ export function CasesSection() {
               )}
             </button>
           ))}
+        </div>
+
+        {/* All cases link */}
+        <div className="mt-8 text-center">
+          <Link
+            href={"/cases" as "/"}
+            className="inline-flex items-center gap-1 text-sm font-medium transition-colors hover:text-spaik-orange"
+            style={{ color: "rgba(0,0,0,0.5)" }}
+          >
+            {t("cases.viewAll")} &rarr;
+          </Link>
         </div>
       </div>
     </section>
