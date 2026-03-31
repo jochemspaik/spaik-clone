@@ -542,6 +542,46 @@
         "duration": "6-8 months",
         "bestFor": "You want to scale to full independence"
       }
+    },
+    "whySpaik": {
+      "title": "Why SPAIK?",
+      "subtitle": "Most companies try it themselves or hire a traditional consultancy. Both stall on the same thing: adoption.",
+      "col1title": "DIY",
+      "col2title": "Traditional consultancy",
+      "col3title": "SPAIK",
+      "row1": {
+        "zelf": "Only early adopters use it",
+        "bureau": "Report that gathers dust",
+        "spaik": "Entire team activated, measurably"
+      },
+      "row2": {
+        "zelf": "No structure, 12+ months",
+        "bureau": "6 months strategy, then start building",
+        "spaik": "First result live in 4 weeks"
+      },
+      "row3": {
+        "zelf": "80% of licenses unused after month 1",
+        "bureau": "Different team needed for execution",
+        "spaik": "Strategy + adoption + build in one team"
+      },
+      "row4": {
+        "zelf": "No handover needed, but no result either",
+        "bureau": "Dependency on external party",
+        "spaik": "Full handover — continuing is a choice"
+      }
+    },
+    "faq": {
+      "title": "Frequently asked questions",
+      "q1": "Will we become dependent on you?",
+      "a1": "The exact opposite. Our entire model is built on transferring ownership. After the Kickstart you have a roadmap and working automation. After Adoption you manage and build yourself. Continuing with us is a choice, not a necessity.",
+      "q2": "What if it doesn't work?",
+      "a2": "With the Kickstart you pay €5,000 upfront. After week 1 there's a checkpoint. Doesn't fit? Stop, pay only that €5k. Handshake, done.",
+      "q3": "We already use Copilot / ChatGPT — why SPAIK?",
+      "a3": "80% of AI licenses go unused after the first month. We make sure it lands in your processes and people actually use it. The tool isn't the problem, adoption is.",
+      "q4": "How long until we see results?",
+      "a4": "4 weeks. In a Kickstart the first automation is live, your team is trained, and you have a roadmap for the rest. No months-long projects.",
+      "q5": "What makes SPAIK different from other AI agencies?",
+      "a5": "The combination. We're not the best at strategy, not the best at training, not the best at automation — but the combination of all three in one team is rare. That's why adoption actually sticks with us."
     }
   }
 }

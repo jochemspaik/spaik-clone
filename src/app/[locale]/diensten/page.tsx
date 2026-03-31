@@ -290,6 +290,137 @@ export default function DienstenPage() {
           </ScrollReveal>
         </section>
 
+        {/* -------- Waarom SPAIK -------- */}
+        <section style={{ backgroundColor: "#F3EDED" }}>
+          <ScrollReveal>
+            <div
+              className="px-6 md:px-10 py-16 md:py-20"
+              style={{ maxWidth: 1080, margin: "0 auto" }}
+            >
+              <h2
+                className="font-heading text-[28px] leading-[32px] md:text-[32px] md:leading-[36px]"
+                style={{ fontWeight: 300, color: "#0b0b0b" }}
+              >
+                {t("whySpaik.title")}
+              </h2>
+              <p
+                className="mt-3 text-base max-w-[640px]"
+                style={{ color: "rgba(0,0,0,0.6)" }}
+              >
+                {t("whySpaik.subtitle")}
+              </p>
+
+              {/* Desktop comparison table */}
+              <div className="hidden md:block mt-10 overflow-x-auto">
+                <table className="w-full" style={{ borderCollapse: "separate", borderSpacing: 0 }}>
+                  <thead>
+                    <tr>
+                      <th className="pb-4 pr-4 text-left text-sm font-medium" style={{ color: "rgba(0,0,0,0.4)", width: "25%" }}></th>
+                      <th className="pb-4 px-4 text-left text-sm font-medium" style={{ color: "rgba(0,0,0,0.5)", width: "25%" }}>
+                        {t("whySpaik.col1title")}
+                      </th>
+                      <th className="pb-4 px-4 text-left text-sm font-medium" style={{ color: "rgba(0,0,0,0.5)", width: "25%" }}>
+                        {t("whySpaik.col2title")}
+                      </th>
+                      <th
+                        className="pb-4 px-4 text-left text-sm font-medium"
+                        style={{ color: "#FF7150", width: "25%" }}
+                      >
+                        {t("whySpaik.col3title")}
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {[1, 2, 3, 4].map((i) => (
+                      <tr key={i} style={{ borderTop: "1px solid rgba(0,0,0,0.06)" }}>
+                        <td className="py-4 pr-4">
+                          <span className="text-sm" style={{ color: "rgba(0,0,0,0.4)" }}>
+                            {t(`whySpaik.row${i}.zelf`).split(" ").slice(0, 3).join(" ")}...
+                          </span>
+                        </td>
+                        <td className="py-4 px-4">
+                          <span className="text-sm" style={{ color: "rgba(0,0,0,0.5)" }}>
+                            {t(`whySpaik.row${i}.zelf`)}
+                          </span>
+                        </td>
+                        <td className="py-4 px-4">
+                          <span className="text-sm" style={{ color: "rgba(0,0,0,0.5)" }}>
+                            {t(`whySpaik.row${i}.bureau`)}
+                          </span>
+                        </td>
+                        <td className="py-4 px-4">
+                          <span className="text-sm font-medium" style={{ color: "#0b0b0b" }}>
+                            {t(`whySpaik.row${i}.spaik`)}
+                          </span>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+
+              {/* Mobile: stacked */}
+              <div className="flex flex-col gap-4 mt-8 md:hidden">
+                {[1, 2, 3, 4].map((i) => (
+                  <div key={i} className="rounded-xl bg-white p-4" style={{ border: "1px solid rgba(0,0,0,0.06)" }}>
+                    <p className="text-sm font-medium" style={{ color: "#FF7150" }}>
+                      {t(`whySpaik.row${i}.spaik`)}
+                    </p>
+                    <p className="mt-2 text-xs" style={{ color: "rgba(0,0,0,0.4)" }}>
+                      vs. {t(`whySpaik.row${i}.zelf`)} ({t("whySpaik.col1title")}) / {t(`whySpaik.row${i}.bureau`)} ({t("whySpaik.col2title")})
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </ScrollReveal>
+        </section>
+
+        {/* -------- FAQ -------- */}
+        <section className="bg-white">
+          <ScrollReveal>
+            <div
+              className="px-6 md:px-10 py-16 md:py-20"
+              style={{ maxWidth: 800, margin: "0 auto" }}
+            >
+              <h2
+                className="font-heading text-[28px] leading-[32px] md:text-[32px] md:leading-[36px] text-center"
+                style={{ fontWeight: 300, color: "#0b0b0b" }}
+              >
+                {t("faq.title")}
+              </h2>
+              <div className="mt-10 flex flex-col">
+                {[1, 2, 3, 4, 5].map((i) => (
+                  <details
+                    key={i}
+                    className="group"
+                    style={{ borderBottom: "1px solid rgba(0,0,0,0.08)" }}
+                  >
+                    <summary
+                      className="flex items-center justify-between py-5 cursor-pointer list-none text-base font-medium"
+                      style={{ color: "#0b0b0b" }}
+                    >
+                      {t(`faq.q${i}`)}
+                      <span
+                        className="shrink-0 ml-4 transition-transform group-open:rotate-45"
+                        style={{ color: "rgba(0,0,0,0.3)", fontSize: 20 }}
+                      >
+                        +
+                      </span>
+                    </summary>
+                    <p
+                      className="pb-5 text-sm"
+                      style={{ color: "rgba(0,0,0,0.6)", lineHeight: 1.6, maxWidth: 640 }}
+                    >
+                      {t(`faq.a${i}`)}
+                    </p>
+                  </details>
+                ))}
+              </div>
+            </div>
+          </ScrollReveal>
+        </section>
+
         {/* -------- "Niet zeker?" CTA -------- */}
         <section className="bg-white">
           <ScrollReveal>

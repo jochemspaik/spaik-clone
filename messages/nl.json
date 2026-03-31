@@ -542,6 +542,46 @@
         "duration": "6-8 maanden",
         "bestFor": "Je wilt opschalen naar zelfstandigheid"
       }
+    },
+    "whySpaik": {
+      "title": "Waarom SPAIK?",
+      "subtitle": "De meeste bedrijven proberen het zelf of huren een traditioneel bureau in. Beiden stranden op hetzelfde: adoptie.",
+      "col1title": "Zelf doen",
+      "col2title": "Traditioneel bureau",
+      "col3title": "SPAIK",
+      "row1": {
+        "zelf": "Alleen early adopters gebruiken het",
+        "bureau": "Rapport dat in een la verdwijnt",
+        "spaik": "Hele team geactiveerd, meetbaar"
+      },
+      "row2": {
+        "zelf": "Geen structuur, 12+ maanden",
+        "bureau": "6 maanden strategie, dan pas bouwen",
+        "spaik": "In 4 weken eerste resultaat live"
+      },
+      "row3": {
+        "zelf": "80% van licenties ligt na maand 1 stil",
+        "bureau": "Ander team voor uitvoering nodig",
+        "spaik": "Strategie + adoptie + bouw in één team"
+      },
+      "row4": {
+        "zelf": "Geen overdracht nodig, maar ook geen resultaat",
+        "bureau": "Afhankelijkheid van externe partij",
+        "spaik": "Volledige overdracht — doorwerken is een keuze"
+      }
+    },
+    "faq": {
+      "title": "Veelgestelde vragen",
+      "q1": "Worden we niet afhankelijk van jullie?",
+      "a1": "Precies het omgekeerde. Ons hele model is gebouwd op eigenaarschap overdragen. Na de Kickstart heb je een roadmap en werkende automatisering. Na Adoptie beheer en bouw je zelf door. Doorwerken met ons is een keuze, geen noodzaak.",
+      "q2": "Wat als het niet werkt?",
+      "a2": "Bij de Kickstart betaal je €5.000 vooraf. Na week 1 is er een checkpoint. Past het niet? Stop, betaal alleen die €5k. Handshake, done.",
+      "q3": "We gebruiken al Copilot / ChatGPT — waarom nog SPAIK?",
+      "a3": "80% van AI-licenties ligt na een maand stil. Wij zorgen dat het in jullie processen landt en dat mensen het echt gebruiken. Niet de tool is het probleem, maar de adoptie.",
+      "q4": "Hoe lang duurt het voordat we resultaat zien?",
+      "a4": "4 weken. In een Kickstart staat de eerste automatisering live, is je team getraind, en heb je een roadmap voor de rest. Geen maandenlange trajecten.",
+      "q5": "Wat maakt SPAIK anders dan andere AI-bureaus?",
+      "a5": "De combinatie. Wij zijn niet de beste in strategie, niet de beste in training, niet de beste in automatisering — maar de combinatie van alle drie in één team is zeldzaam. Dat is waarom adoptie bij ons wél beklijft."
     }
   }
 }
