@@ -15,8 +15,15 @@ const STEPS: Step[] = [
   { slug: "fundamentals", icon: "/images/icon-fundamentals.svg", hasLink: true },
   { slug: "kickstart", icon: "/images/icon-kickstart.svg", hasLink: true, featured: true },
   { slug: "adoptie", icon: "/images/Building.svg", hasLink: true },
-  { slug: "zelfstandig", icon: "/images/icon-inspiration.svg", hasLink: false },
 ];
+
+const CARD_TINT: Record<string, { bg: string; ring: string; iconBg: string }> = {
+  strategie: { bg: "#E8EFFB", ring: "rgba(162,189,240,0.4)", iconBg: "rgba(162,189,240,0.3)" },
+  fundamentals: { bg: "#EEF6F5", ring: "rgba(186,218,213,0.4)", iconBg: "rgba(186,218,213,0.3)" },
+  kickstart: { bg: "#fff", ring: "rgba(255,113,80,0.3)", iconBg: "rgba(255,113,80,0.1)" },
+  adoptie: { bg: "#F7F4FF", ring: "rgba(225,210,255,0.5)", iconBg: "rgba(225,210,255,0.4)" },
+  zelfstandig: { bg: "transparent", ring: "transparent", iconBg: "#F3EDED" },
+};
 
 type Slug = Step["slug"];
 
@@ -79,19 +86,19 @@ function StepCard({
       {/* Card */}
       <div
         className={`flex flex-col items-center gap-3 rounded-2xl px-5 py-5 transition-shadow ${
-          featured
-            ? "shadow-md ring-1 ring-[#FF7150]/30 bg-white"
-            : slug === "zelfstandig"
-              ? "bg-transparent"
-              : "bg-[#FAFAF8] ring-1 ring-[#DEDCCC]/60"
+          featured ? "shadow-md" : ""
         }`}
-        style={featured ? { minWidth: 160 } : { minWidth: 130 }}
+        style={{
+          minWidth: featured ? 160 : 130,
+          backgroundColor: CARD_TINT[slug]?.bg ?? "#FAFAF8",
+          boxShadow: slug !== "zelfstandig" ? `inset 0 0 0 1px ${CARD_TINT[slug]?.ring ?? "rgba(0,0,0,0.08)"}` : "none",
+        }}
       >
         {/* Phase label */}
         {label && (
           <span
             className="text-[11px] font-medium uppercase tracking-wider"
-            style={{ color: featured ? "#FF7150" : "rgba(0,0,0,0.4)" }}
+            style={{ color: featured ? "#FF7150" : "rgba(0,0,0,0.45)" }}
           >
             {label}
           </span>
@@ -99,10 +106,12 @@ function StepCard({
 
         {/* Icon */}
         <div
-          className={`flex items-center justify-center rounded-xl ${
-            featured ? "bg-[#FF7150]/10" : "bg-[#F3EDED]"
-          }`}
-          style={{ width: featured ? 56 : 44, height: featured ? 56 : 44 }}
+          className="flex items-center justify-center rounded-xl"
+          style={{
+            width: featured ? 56 : 44,
+            height: featured ? 56 : 44,
+            backgroundColor: CARD_TINT[slug]?.iconBg ?? "#F3EDED",
+          }}
         >
           <img
             src={icon}
