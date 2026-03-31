@@ -5,20 +5,14 @@ import { ServiceDetailPage } from "@/components/ServiceDetailPage";
 import { AdoptieDetailPage } from "@/components/AdoptieDetailPage";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-
-/* ------------------------------------------------------------------ */
-/*  Valid slugs                                                        */
-/* ------------------------------------------------------------------ */
-
-const VALID_SLUGS = ["strategie", "kickstart", "adoptie", "fundamentals"] as const;
-type ServiceSlug = (typeof VALID_SLUGS)[number];
+import { SERVICE_SLUGS, type ServiceSlug } from "@/data/services";
 
 /* ------------------------------------------------------------------ */
 /*  Static params                                                      */
 /* ------------------------------------------------------------------ */
 
 export function generateStaticParams() {
-  return VALID_SLUGS.map((slug) => ({ slug }));
+  return SERVICE_SLUGS.map((slug) => ({ slug }));
 }
 
 /* ------------------------------------------------------------------ */
@@ -79,7 +73,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug, locale } = await params;
 
-  if (!VALID_SLUGS.includes(slug as ServiceSlug)) return {};
+  if (!SERVICE_SLUGS.includes(slug as ServiceSlug)) return {};
 
   const lang = (locale === "en" ? "en" : "nl") as "nl" | "en";
   const m = META[lang][slug as ServiceSlug];
@@ -118,7 +112,7 @@ export default async function ServicePage({
 }) {
   const { slug } = await params;
 
-  if (!VALID_SLUGS.includes(slug as ServiceSlug)) notFound();
+  if (!SERVICE_SLUGS.includes(slug as ServiceSlug)) notFound();
 
   return (
     <>

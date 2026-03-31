@@ -2,30 +2,7 @@
 
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
-
-type Step = {
-  slug: "strategie" | "fundamentals" | "kickstart" | "adoptie" | "zelfstandig";
-  icon: string;
-  hasLink: boolean;
-  featured?: boolean;
-};
-
-const STEPS: Step[] = [
-  { slug: "strategie", icon: "/images/Discovery.svg", hasLink: true },
-  { slug: "fundamentals", icon: "/images/icon-fundamentals.svg", hasLink: true },
-  { slug: "kickstart", icon: "/images/icon-kickstart.svg", hasLink: true, featured: true },
-  { slug: "adoptie", icon: "/images/Building.svg", hasLink: true },
-];
-
-const CARD_TINT: Record<string, { bg: string; ring: string; iconBg: string }> = {
-  strategie: { bg: "#E8EFFB", ring: "rgba(162,189,240,0.4)", iconBg: "rgba(162,189,240,0.3)" },
-  fundamentals: { bg: "#EEF6F5", ring: "rgba(186,218,213,0.4)", iconBg: "rgba(186,218,213,0.3)" },
-  kickstart: { bg: "#fff", ring: "rgba(255,113,80,0.3)", iconBg: "rgba(255,113,80,0.1)" },
-  adoptie: { bg: "#F7F4FF", ring: "rgba(225,210,255,0.5)", iconBg: "rgba(225,210,255,0.4)" },
-  zelfstandig: { bg: "transparent", ring: "transparent", iconBg: "#F3EDED" },
-};
-
-type Slug = Step["slug"];
+import { SERVICES, type ServiceSlug } from "@/data/services";
 
 function ArrowIcon() {
   return (
@@ -52,10 +29,12 @@ function StepCard({
   slug,
   icon,
   featured,
+  tint,
 }: {
-  slug: Slug;
+  slug: ServiceSlug;
   icon: string;
   featured?: boolean;
+  tint: { bg: string; ring: string; iconBg: string };
 }) {
   const t = useTranslations("diensten");
   const label = t.has(`journey.${slug}.label`)
@@ -90,8 +69,8 @@ function StepCard({
         }`}
         style={{
           minWidth: featured ? 160 : 130,
-          backgroundColor: CARD_TINT[slug]?.bg ?? "#FAFAF8",
-          boxShadow: slug !== "zelfstandig" ? `inset 0 0 0 1px ${CARD_TINT[slug]?.ring ?? "rgba(0,0,0,0.08)"}` : "none",
+          backgroundColor: tint.bg,
+          boxShadow: `inset 0 0 0 1px ${tint.ring}`,
         }}
       >
         {/* Phase label */}
@@ -110,7 +89,7 @@ function StepCard({
           style={{
             width: featured ? 56 : 44,
             height: featured ? 56 : 44,
-            backgroundColor: CARD_TINT[slug]?.iconBg ?? "#F3EDED",
+            backgroundColor: tint.iconBg,
           }}
         >
           <img
@@ -163,34 +142,27 @@ export function ServiceJourney() {
     <section className="px-6 md:px-10 pb-16" style={{ maxWidth: 1080, margin: "0 auto" }}>
       {/* Desktop: horizontal */}
       <div className="hidden md:flex items-center justify-center gap-2">
-        {STEPS.map((step, i) => (
+        {SERVICES.map((step, i) => (
           <div key={step.slug} className="flex items-center gap-2">
-            {step.hasLink ? (
-              <Link
-                href={`/diensten/${step.slug}` as "/diensten/strategie"}
-                className="group transition-transform hover:scale-[1.03]"
-              >
-                <StepCard
-                  slug={step.slug}
-                  icon={step.icon}
-                  featured={step.featured}
-                />
-              </Link>
-            ) : (
+            <Link
+              href={`/diensten/${step.slug}` as "/diensten/strategie"}
+              className="group transition-transform hover:scale-[1.03]"
+            >
               <StepCard
                 slug={step.slug}
                 icon={step.icon}
                 featured={step.featured}
+                tint={step.tint}
               />
-            )}
-            {i < STEPS.length - 1 && <ArrowIcon />}
+            </Link>
+            {i < SERVICES.length - 1 && <ArrowIcon />}
           </div>
         ))}
       </div>
 
       {/* Mobile: vertical compact list */}
       <div className="flex flex-col gap-3 md:hidden">
-        {STEPS.map((step, i) => {
+        {SERVICES.map((step, i) => {
           const label = t.has(`journey.${step.slug}.label`)
             ? t(`journey.${step.slug}.label`)
             : null;
@@ -258,15 +230,13 @@ export function ServiceJourney() {
             </div>
           );
 
-          return step.hasLink ? (
+          return (
             <Link
               key={step.slug}
               href={`/diensten/${step.slug}` as "/diensten/strategie"}
             >
               {inner}
             </Link>
-          ) : (
-            <div key={step.slug}>{inner}</div>
           );
         })}
       </div>

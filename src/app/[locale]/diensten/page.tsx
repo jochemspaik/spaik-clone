@@ -7,6 +7,7 @@ import { RollingTextButton } from "@/components/RollingTextButton";
 import { Link } from "@/i18n/navigation";
 import { ServiceJourney } from "@/components/ServiceJourney";
 import { BOOK_CALL_URL } from "@/lib/constants";
+import { SERVICES } from "@/data/services";
 import type { Metadata } from "next";
 
 /* ------------------------------------------------------------------ */
@@ -133,30 +134,16 @@ export default function DienstenPage() {
               </h2>
 
               {(() => {
-                const TEXTURES: Record<string, string> = {
-                  strategie: "/images/Texture 2.webp",
-                  fundamentals: "/images/Texture 2.webp",
-                  kickstart: "/images/Texture 1.webp",
-                  adoptie: "/images/Texture 3.webp",
-                };
-                const ICONS: Record<string, string> = {
-                  strategie: "/images/Discovery.svg",
-                  fundamentals: "/images/icon-fundamentals.svg",
-                  kickstart: "/images/icon-kickstart.svg",
-                  adoptie: "/images/Building.svg",
-                };
-                const slugs = ["strategie", "fundamentals", "kickstart", "adoptie"] as const;
-
                 return (
                   <>
                     {/* Desktop */}
                     <div className="hidden md:grid grid-cols-4 gap-4">
-                      {slugs.map((slug) => {
-                        const isFeatured = slug === "kickstart";
+                      {SERVICES.map((service) => {
+                        const isFeatured = !!service.featured;
                         return (
                           <Link
-                            key={slug}
-                            href={`/diensten/${slug}` as "/diensten/strategie"}
+                            key={service.slug}
+                            href={`/diensten/${service.slug}` as "/diensten/strategie"}
                             className="group relative block rounded-2xl overflow-hidden transition-shadow hover:shadow-xl"
                             style={{ minHeight: isFeatured ? 320 : 280 }}
                           >
@@ -164,7 +151,7 @@ export default function DienstenPage() {
                             <div
                               className="absolute inset-0"
                               style={{
-                                backgroundImage: `url('${TEXTURES[slug]}')`,
+                                backgroundImage: `url('${service.texture}')`,
                                 backgroundSize: "cover",
                                 backgroundPosition: "center",
                               }}
@@ -193,7 +180,7 @@ export default function DienstenPage() {
                                 style={{ width: 36, height: 36, backgroundColor: "rgba(255,255,255,0.15)", backdropFilter: "blur(8px)" }}
                               >
                                 <img
-                                  src={ICONS[slug]}
+                                  src={service.icon}
                                   alt=""
                                   aria-hidden="true"
                                   className="invert"
@@ -205,21 +192,21 @@ export default function DienstenPage() {
                                   className="font-heading text-white"
                                   style={{ fontSize: isFeatured ? 22 : 18, fontWeight: isFeatured ? 400 : 100 }}
                                 >
-                                  {t(`overview.${slug}.title`)}
+                                  {t(`overview.${service.slug}.title`)}
                                 </h3>
                                 <p className="mt-1.5 text-xs text-white/70" style={{ lineHeight: 1.4 }}>
-                                  {t(`comparison.${slug}.bestFor`)}
+                                  {t(`comparison.${service.slug}.bestFor`)}
                                 </p>
                                 <div className="mt-3 flex items-baseline gap-2">
                                   <span className="text-sm font-medium text-white">
-                                    {t(`overview.${slug}.price`).split("·")[0].trim()}
+                                    {t(`overview.${service.slug}.price`).split("·")[0].trim()}
                                   </span>
                                   <span className="text-xs text-white/50">
-                                    {t(`comparison.${slug}.duration`)}
+                                    {t(`comparison.${service.slug}.duration`)}
                                   </span>
                                 </div>
                                 <span className="mt-3 inline-flex items-center gap-1 text-xs font-medium text-white/80 group-hover:text-white group-hover:gap-2 transition-all">
-                                  {t("moreAbout")} {t(`overview.${slug}.title`)} &rarr;
+                                  {t("moreAbout")} {t(`overview.${service.slug}.title`)} &rarr;
                                 </span>
                               </div>
                             </div>
@@ -230,19 +217,19 @@ export default function DienstenPage() {
 
                     {/* Mobile */}
                     <div className="flex flex-col gap-3 md:hidden">
-                      {slugs.map((slug) => {
-                        const isFeatured = slug === "kickstart";
+                      {SERVICES.map((service) => {
+                        const isFeatured = !!service.featured;
                         return (
                           <Link
-                            key={slug}
-                            href={`/diensten/${slug}` as "/diensten/strategie"}
+                            key={service.slug}
+                            href={`/diensten/${service.slug}` as "/diensten/strategie"}
                             className="group relative block rounded-xl overflow-hidden"
                             style={{ minHeight: 100 }}
                           >
                             <div
                               className="absolute inset-0"
                               style={{
-                                backgroundImage: `url('${TEXTURES[slug]}')`,
+                                backgroundImage: `url('${service.texture}')`,
                                 backgroundSize: "cover",
                                 backgroundPosition: "center",
                               }}
@@ -264,18 +251,18 @@ export default function DienstenPage() {
                             <div className="relative z-10 flex items-end justify-between p-4" style={{ minHeight: 100 }}>
                               <div>
                                 <p className="font-heading text-white" style={{ fontSize: 17, fontWeight: 300 }}>
-                                  {t(`overview.${slug}.title`)}
+                                  {t(`overview.${service.slug}.title`)}
                                 </p>
                                 <p className="mt-0.5 text-xs text-white/60">
-                                  {t(`comparison.${slug}.bestFor`)}
+                                  {t(`comparison.${service.slug}.bestFor`)}
                                 </p>
                               </div>
                               <div className="text-right shrink-0 ml-4">
                                 <p className="text-sm font-medium text-white">
-                                  {t(`overview.${slug}.price`).split("·")[0].trim()}
+                                  {t(`overview.${service.slug}.price`).split("·")[0].trim()}
                                 </p>
                                 <p className="text-xs text-white/50">
-                                  {t(`comparison.${slug}.duration`)}
+                                  {t(`comparison.${service.slug}.duration`)}
                                 </p>
                               </div>
                             </div>
