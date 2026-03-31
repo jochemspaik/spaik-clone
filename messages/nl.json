@@ -515,6 +515,29 @@
         "name": "Zelfstandig",
         "tagline": "Jullie kunnen het zelf"
       }
+    },
+    "comparison": {
+      "title": "Vergelijk op een rij",
+      "duration": "Duur",
+      "investment": "Investering",
+      "bestFor": "Ideaal als...",
+      "recommended": "Aanbevolen",
+      "strategie": {
+        "duration": "Halve dag",
+        "bestFor": "Je wilt weten waar de kansen liggen"
+      },
+      "fundamentals": {
+        "duration": "6 weken",
+        "bestFor": "Je team moet AI leren gebruiken"
+      },
+      "kickstart": {
+        "duration": "4 weken",
+        "bestFor": "Je wilt concreet bewijs en een roadmap"
+      },
+      "adoptie": {
+        "duration": "6-8 maanden",
+        "bestFor": "Je wilt opschalen naar zelfstandigheid"
+      }
     }
   }
 }

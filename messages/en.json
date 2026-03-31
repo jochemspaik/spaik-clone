@@ -515,6 +515,29 @@
         "name": "Independent",
         "tagline": "You can do it yourselves"
       }
+    },
+    "comparison": {
+      "title": "Compare at a glance",
+      "duration": "Duration",
+      "investment": "Investment",
+      "bestFor": "Ideal if...",
+      "recommended": "Recommended",
+      "strategie": {
+        "duration": "Half day",
+        "bestFor": "You want to know where the opportunities are"
+      },
+      "fundamentals": {
+        "duration": "6 weeks",
+        "bestFor": "Your team needs to learn to use AI"
+      },
+      "kickstart": {
+        "duration": "4 weeks",
+        "bestFor": "You want concrete proof and a roadmap"
+      },
+      "adoptie": {
+        "duration": "6-8 months",
+        "bestFor": "You want to scale to full independence"
+      }
     }
   }
 }

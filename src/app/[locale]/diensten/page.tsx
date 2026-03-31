@@ -438,6 +438,154 @@ export default function DienstenPage() {
           </ScrollReveal>
         </section>
 
+        {/* -------- Comparison table (compromise-effect) -------- */}
+        <section className="bg-white">
+          <ScrollReveal>
+            <div
+              className="px-6 md:px-10 py-16 md:py-20"
+              style={{ maxWidth: 1080, margin: "0 auto" }}
+            >
+              <h2
+                className="font-heading text-[28px] leading-[32px] md:text-[32px] md:leading-[36px] mb-10"
+                style={{ fontWeight: 100, color: "#0b0b0b" }}
+              >
+                {t("comparison.title")}
+              </h2>
+
+              {/* Desktop table */}
+              <div className="hidden md:block overflow-x-auto">
+                <div className="grid grid-cols-4 gap-4">
+                  {(["strategie", "fundamentals", "kickstart", "adoptie"] as const).map((slug) => {
+                    const isFeatured = slug === "kickstart";
+                    return (
+                      <Link
+                        key={slug}
+                        href={`/diensten/${slug}` as "/diensten/strategie"}
+                        className="group"
+                      >
+                        <div
+                          className={`relative flex flex-col rounded-2xl p-5 h-full transition-shadow group-hover:shadow-lg ${
+                            isFeatured
+                              ? "ring-2 ring-[#FF7150]/40 bg-white shadow-md"
+                              : "ring-1 ring-[#DEDCCC] bg-[#FAFAF8]"
+                          }`}
+                        >
+                          {isFeatured && (
+                            <span
+                              className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full px-3 py-1 text-xs font-medium text-white whitespace-nowrap"
+                              style={{ backgroundColor: "#FF7150" }}
+                            >
+                              {t("comparison.recommended")}
+                            </span>
+                          )}
+
+                          <p
+                            className="font-heading text-center"
+                            style={{
+                              fontSize: isFeatured ? 20 : 17,
+                              fontWeight: isFeatured ? 500 : 400,
+                              color: "#0b0b0b",
+                            }}
+                          >
+                            {t(`overview.${slug}.title`)}
+                          </p>
+
+                          <div className="mt-4 flex flex-col gap-3 flex-1">
+                            <div>
+                              <p className="text-xs uppercase tracking-wider" style={{ color: "rgba(0,0,0,0.4)" }}>
+                                {t("comparison.duration")}
+                              </p>
+                              <p className="mt-1 text-sm font-medium" style={{ color: "#0b0b0b" }}>
+                                {t(`comparison.${slug}.duration`)}
+                              </p>
+                            </div>
+
+                            <div>
+                              <p className="text-xs uppercase tracking-wider" style={{ color: "rgba(0,0,0,0.4)" }}>
+                                {t("comparison.investment")}
+                              </p>
+                              <p
+                                className="mt-1 text-sm font-medium"
+                                style={{ color: isFeatured ? "#FF7150" : "#0b0b0b" }}
+                              >
+                                {t(`overview.${slug}.price`).split("·")[0].trim()}
+                              </p>
+                            </div>
+
+                            <div className="flex-1">
+                              <p className="text-xs uppercase tracking-wider" style={{ color: "rgba(0,0,0,0.4)" }}>
+                                {t("comparison.bestFor")}
+                              </p>
+                              <p className="mt-1 text-sm" style={{ color: "rgba(0,0,0,0.6)", lineHeight: 1.4 }}>
+                                {t(`comparison.${slug}.bestFor`)}
+                              </p>
+                            </div>
+                          </div>
+
+                          <span
+                            className="mt-4 inline-flex items-center gap-1 text-sm font-medium transition-colors group-hover:gap-2"
+                            style={{ color: isFeatured ? "#FF7150" : "rgba(0,0,0,0.5)" }}
+                          >
+                            {t("moreAbout")} {t(`overview.${slug}.title`)} &rarr;
+                          </span>
+                        </div>
+                      </Link>
+                    );
+                  })}
+                </div>
+              </div>
+
+              {/* Mobile: stacked cards */}
+              <div className="flex flex-col gap-3 md:hidden">
+                {(["strategie", "fundamentals", "kickstart", "adoptie"] as const).map((slug) => {
+                  const isFeatured = slug === "kickstart";
+                  return (
+                    <Link
+                      key={slug}
+                      href={`/diensten/${slug}` as "/diensten/strategie"}
+                    >
+                      <div
+                        className={`relative flex items-start gap-4 rounded-xl px-4 py-4 ${
+                          isFeatured
+                            ? "ring-2 ring-[#FF7150]/40 bg-white shadow-sm"
+                            : "ring-1 ring-[#DEDCCC] bg-[#FAFAF8]"
+                        }`}
+                      >
+                        <div className="flex-1 min-w-0">
+                          <div className="flex items-center gap-2">
+                            <p className="font-medium" style={{ fontSize: 15, color: "#0b0b0b" }}>
+                              {t(`overview.${slug}.title`)}
+                            </p>
+                            {isFeatured && (
+                              <span
+                                className="shrink-0 rounded-full px-2 py-0.5 text-[10px] font-medium text-white"
+                                style={{ backgroundColor: "#FF7150" }}
+                              >
+                                {t("comparison.recommended")}
+                              </span>
+                            )}
+                          </div>
+                          <p className="mt-1 text-xs" style={{ color: "rgba(0,0,0,0.5)" }}>
+                            {t(`comparison.${slug}.bestFor`)}
+                          </p>
+                        </div>
+                        <div className="shrink-0 text-right">
+                          <p className="text-sm font-medium" style={{ color: isFeatured ? "#FF7150" : "#0b0b0b" }}>
+                            {t(`overview.${slug}.price`).split("·")[0].trim()}
+                          </p>
+                          <p className="text-xs" style={{ color: "rgba(0,0,0,0.4)" }}>
+                            {t(`comparison.${slug}.duration`)}
+                          </p>
+                        </div>
+                      </div>
+                    </Link>
+                  );
+                })}
+              </div>
+            </div>
+          </ScrollReveal>
+        </section>
+
         {/* -------- "Niet zeker?" CTA -------- */}
         <section className="bg-white">
           <ScrollReveal>
