@@ -127,7 +127,7 @@ export default function DienstenPage() {
                 href="/diensten/fundamentals"
                 className="group relative block rounded-2xl overflow-hidden min-h-[220px] transition-shadow hover:shadow-xl"
                 style={{
-                  backgroundImage: "url('/images/Gradient 04.webp')",
+                  backgroundImage: "url('/images/Texture 2.webp')",
                   backgroundSize: "cover",
                   backgroundPosition: "center",
                 }}
@@ -164,7 +164,7 @@ export default function DienstenPage() {
                 href="/diensten/strategie"
                 className="group relative block rounded-2xl overflow-hidden min-h-[220px] transition-shadow hover:shadow-xl"
                 style={{
-                  backgroundImage: "url('/images/Gradient 01.webp')",
+                  backgroundImage: "url('/images/Texture 2.webp')",
                   backgroundSize: "cover",
                   backgroundPosition: "center",
                 }}
@@ -225,7 +225,7 @@ export default function DienstenPage() {
               href="/diensten/kickstart"
               className="group block mt-8 relative rounded-2xl overflow-hidden min-h-[200px] md:min-h-[280px] transition-shadow hover:shadow-xl"
               style={{
-                backgroundImage: "url('/images/Gradient 03.webp')",
+                backgroundImage: "url('/images/Texture 1.webp')",
                 backgroundSize: "cover",
                 backgroundPosition: "center",
               }}
@@ -292,7 +292,7 @@ export default function DienstenPage() {
               href="/diensten/adoptie"
               className="group block mt-5 relative rounded-2xl overflow-hidden min-h-[180px] md:min-h-[220px] transition-shadow hover:shadow-xl"
               style={{
-                backgroundImage: "url('/images/Gradient 02.webp')",
+                backgroundImage: "url('/images/Texture 3.webp')",
                 backgroundSize: "cover",
                 backgroundPosition: "center",
               }}

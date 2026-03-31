@@ -7,11 +7,11 @@ import { BOOK_CALL_URL } from "@/lib/constants";
 
 type ServiceSlug = "strategie" | "kickstart" | "adoptie" | "fundamentals";
 
-const GRADIENT_MAP: Record<ServiceSlug, string> = {
-  strategie: "/images/Gradient 01.webp",
-  kickstart: "/images/Gradient 03.webp",
-  adoptie: "/images/Gradient 02.webp",
-  fundamentals: "/images/Gradient 04.webp",
+const TEXTURE_MAP: Record<ServiceSlug, string> = {
+  strategie: "/images/Texture 2.webp",
+  kickstart: "/images/Texture 1.webp",
+  adoptie: "/images/Texture 3.webp",
+  fundamentals: "/images/Texture 2.webp",
 };
 
 /* ---- Inline icons ---- */
@@ -64,7 +64,7 @@ function HeroSection({ slug }: { slug: ServiceSlug }) {
     <section className="relative w-full overflow-hidden" style={{ minHeight: 400 }}>
       <div
         className="absolute inset-0"
-        style={{ backgroundImage: `url('${GRADIENT_MAP[slug]}')`, backgroundSize: "cover", backgroundPosition: "center" }}
+        style={{ backgroundImage: `url('${TEXTURE_MAP[slug]}')`, backgroundSize: "cover", backgroundPosition: "center" }}
       />
       <div
         className="absolute inset-0"
