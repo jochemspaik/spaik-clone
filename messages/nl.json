@@ -484,7 +484,11 @@
       "option3": "We willen concreet aan de slag met een eerste case",
       "option3slug": "kickstart",
       "option4": "We zijn al bezig maar willen opschalen",
-      "option4slug": "adoptie"
+      "option4slug": "adoptie",
+      "option1result": "Strategie Sessie",
+      "option2result": "AI Fundamentals",
+      "option3result": "Kickstart",
+      "option4result": "Adoptie"
     },
     "journey": {
       "strategie": {

@@ -484,7 +484,11 @@
       "option3": "We want to get started with a first concrete case",
       "option3slug": "kickstart",
       "option4": "We're already using AI but want to scale up",
-      "option4slug": "adoptie"
+      "option4slug": "adoptie",
+      "option1result": "Strategy Session",
+      "option2result": "AI Fundamentals",
+      "option3result": "Kickstart",
+      "option4result": "Adoption"
     },
     "journey": {
       "strategie": {

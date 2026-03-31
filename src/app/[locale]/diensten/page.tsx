@@ -118,24 +118,29 @@ export default function DienstenPage() {
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                 {[1, 2, 3, 4].map((i) => (
-                  <Link
+                  <div
                     key={i}
-                    href={`/diensten/${t(`selfSelection.option${i}slug`)}` as "/diensten/strategie"}
-                    className="group flex items-center gap-3 rounded-xl px-4 py-3 transition-colors hover:bg-white"
+                    className="flex items-start gap-3 rounded-xl px-4 py-3 bg-white"
                   >
                     <span
-                      className="shrink-0 flex items-center justify-center rounded-full text-xs font-medium text-white"
-                      style={{ width: 24, height: 24, backgroundColor: "#FF7150" }}
+                      className="shrink-0 flex items-center justify-center rounded-full text-xs font-medium text-white mt-0.5"
+                      style={{ width: 24, height: 24, backgroundColor: "#0b0b0b" }}
                     >
                       {i}
                     </span>
-                    <span className="text-sm" style={{ color: "rgba(0,0,0,0.7)" }}>
-                      {t(`selfSelection.option${i}`)}
-                    </span>
-                    <span className="ml-auto text-sm text-[#FF7150] opacity-0 group-hover:opacity-100 transition-opacity">
-                      &rarr;
-                    </span>
-                  </Link>
+                    <div className="flex-1 min-w-0">
+                      <p className="text-sm" style={{ color: "rgba(0,0,0,0.7)" }}>
+                        {t(`selfSelection.option${i}`)}
+                      </p>
+                      <Link
+                        href={`/diensten/${t(`selfSelection.option${i}slug`)}` as "/diensten/strategie"}
+                        className="mt-1 inline-flex items-center gap-1 text-sm font-medium transition-colors hover:underline"
+                        style={{ color: "#FF7150" }}
+                      >
+                        {t(`selfSelection.option${i}result`)} &rarr;
+                      </Link>
+                    </div>
+                  </div>
                 ))}
               </div>
             </div>
@@ -184,7 +189,7 @@ export default function DienstenPage() {
                   className="absolute inset-0"
                   style={{
                     background:
-                      "linear-gradient(180deg, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.35) 100%)",
+                      "linear-gradient(180deg, rgba(0,0,0,0.03) 0%, rgba(0,0,0,0.55) 100%)",
                   }}
                 />
                 <div className="relative z-10 flex flex-col justify-between h-full p-6 min-h-[220px]">
@@ -224,7 +229,7 @@ export default function DienstenPage() {
                   className="absolute inset-0"
                   style={{
                     background:
-                      "linear-gradient(180deg, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.35) 100%)",
+                      "linear-gradient(180deg, rgba(0,0,0,0.03) 0%, rgba(0,0,0,0.55) 100%)",
                   }}
                 />
                 <div className="relative z-10 flex flex-col justify-between h-full p-6 min-h-[220px]">
@@ -289,7 +294,7 @@ export default function DienstenPage() {
                 className="absolute inset-0"
                 style={{
                   background:
-                    "linear-gradient(180deg, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.35) 100%)",
+                    "linear-gradient(180deg, rgba(0,0,0,0.03) 0%, rgba(0,0,0,0.55) 100%)",
                 }}
               />
 
@@ -359,7 +364,7 @@ export default function DienstenPage() {
                 className="absolute inset-0"
                 style={{
                   background:
-                    "linear-gradient(180deg, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.35) 100%)",
+                    "linear-gradient(180deg, rgba(0,0,0,0.03) 0%, rgba(0,0,0,0.55) 100%)",
                 }}
               />
 
@@ -425,15 +430,25 @@ export default function DienstenPage() {
                   &ldquo;{t("quote.text")}&rdquo;
                 </p>
               </blockquote>
-              <p
-                className="mt-6 text-base font-medium"
-                style={{ color: "#0b0b0b" }}
-              >
-                {t("quote.author")}
-              </p>
-              <p className="text-sm" style={{ color: "rgba(0,0,0,0.5)" }}>
-                {t("quote.role")}
-              </p>
+              <div className="mt-6 flex flex-col items-center gap-3">
+                <img
+                  src="/images/case-maurick.jpg"
+                  alt={t("quote.author")}
+                  className="rounded-full object-cover"
+                  style={{ width: 48, height: 48 }}
+                />
+                <div>
+                  <p
+                    className="text-base font-medium"
+                    style={{ color: "#0b0b0b" }}
+                  >
+                    {t("quote.author")}
+                  </p>
+                  <p className="text-sm" style={{ color: "rgba(0,0,0,0.5)" }}>
+                    {t("quote.role")}
+                  </p>
+                </div>
+              </div>
             </div>
           </ScrollReveal>
         </section>
