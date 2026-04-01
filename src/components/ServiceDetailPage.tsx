@@ -250,19 +250,27 @@ function DifferentiatorsSection({ slug }: { slug: ServiceSlug }) {
           <h2 className="font-heading" style={{ fontSize: 32, fontWeight: 100, color: "#0b0b0b" }}>
             {t("detail.kickstart.diffTitle")}
           </h2>
-          <div className="mt-10 grid grid-cols-1 gap-4 md:grid-cols-2">
+          <div className="mt-10 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
             {items.map((item) => (
               <div
                 key={item.title}
-                className="rounded-xl bg-white p-5"
-                style={{ borderLeft: "3px solid #FF7150" }}
+                className="rounded-2xl bg-white p-6 transition-shadow hover:shadow-md"
+                style={{ border: "1px solid rgba(222,220,204,0.5)" }}
               >
-                <p className="font-medium" style={{ fontSize: 16, color: "#0b0b0b" }}>
-                  {item.title}
-                </p>
-                <p className="mt-1" style={{ fontSize: 15, color: "rgba(0,0,0,0.6)", lineHeight: 1.5 }}>
-                  {item.detail}
-                </p>
+                <div className="flex items-start gap-3">
+                  <span
+                    className="shrink-0 mt-1.5 inline-block rounded-full"
+                    style={{ width: 8, height: 8, backgroundColor: "#FF7150" }}
+                  />
+                  <div>
+                    <p className="font-medium" style={{ fontSize: 16, color: "#0b0b0b" }}>
+                      {item.title}
+                    </p>
+                    <p className="mt-1" style={{ fontSize: 15, color: "rgba(0,0,0,0.6)", lineHeight: 1.5 }}>
+                      {item.detail}
+                    </p>
+                  </div>
+                </div>
               </div>
             ))}
           </div>
@@ -274,13 +282,91 @@ function DifferentiatorsSection({ slug }: { slug: ServiceSlug }) {
 
 /* ---- Wat Je Krijgt (with descriptions) ---- */
 
-function WhatYouGetSection({ slug }: { slug: ServiceSlug }) {
+function WhatYouGetFlatList({ slug }: { slug: ServiceSlug }) {
   const t = useTranslations("diensten");
-  const count = slug === "kickstart" ? 10 : slug === "adoptie" ? 5 : 4;
+  const count = slug === "adoptie" ? 5 : 4;
   const items = Array.from({ length: count }, (_, i) => ({
     title: t(`detail.${slug}.get${i + 1}`),
     detail: t(`detail.${slug}.get${i + 1}detail`),
   }));
+
+  return (
+    <div className="mt-10 flex flex-col">
+      {items.map((item, i) => (
+        <div
+          key={item.title}
+          className="flex items-start gap-4 py-6"
+          style={{ borderBottom: i < items.length - 1 ? "1px solid rgba(0,0,0,0.08)" : "none" }}
+        >
+          <div
+            className="shrink-0 flex items-center justify-center rounded-full"
+            style={{ width: 40, height: 40, backgroundColor: "rgba(255,113,80,0.1)" }}
+          >
+            <CheckIcon color="#FF7150" />
+          </div>
+          <div>
+            <p className="font-medium" style={{ fontSize: 16, color: "#0b0b0b" }}>{item.title}</p>
+            <p className="mt-1" style={{ fontSize: 15, color: "rgba(0,0,0,0.6)", lineHeight: 1.5 }}>
+              {item.detail}
+            </p>
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+function WhatYouGetGrouped() {
+  const t = useTranslations("diensten");
+
+  const categories = [
+    { key: "catA" as const, items: 4 },
+    { key: "catB" as const, items: 3 },
+    { key: "catC" as const, items: 3 },
+  ];
+
+  return (
+    <div className="mt-10 flex flex-col">
+      {categories.map((cat, catIdx) => {
+        const catItems = Array.from({ length: cat.items }, (_, i) => ({
+          title: t(`detail.kickstart.${cat.key}get${i + 1}`),
+          detail: t(`detail.kickstart.${cat.key}get${i + 1}detail`),
+        }));
+
+        return (
+          <div
+            key={cat.key}
+            className={catIdx < categories.length - 1 ? "pb-8 mb-8" : ""}
+            style={catIdx < categories.length - 1 ? { borderBottom: "1px solid rgba(0,0,0,0.08)" } : undefined}
+          >
+            <p
+              className="text-xs font-medium uppercase tracking-wider mb-5"
+              style={{ color: "#FF7150" }}
+            >
+              {t(`detail.kickstart.${cat.key}`)}
+            </p>
+            <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
+              {catItems.map((item) => (
+                <div key={item.title} className="flex items-start gap-3">
+                  <CheckIcon color="#FF7150" />
+                  <div>
+                    <p className="font-medium" style={{ fontSize: 16, color: "#0b0b0b" }}>{item.title}</p>
+                    <p className="mt-1" style={{ fontSize: 14, color: "rgba(0,0,0,0.55)", lineHeight: 1.5 }}>
+                      {item.detail}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
+function WhatYouGetSection({ slug }: { slug: ServiceSlug }) {
+  const t = useTranslations("diensten");
 
   return (
     <section className="px-6 md:px-10 py-12 md:py-20" style={{ backgroundColor: "#F3EDED" }}>
@@ -289,28 +375,7 @@ function WhatYouGetSection({ slug }: { slug: ServiceSlug }) {
           <h2 className="font-heading" style={{ fontSize: 32, fontWeight: 100, color: "#0b0b0b" }}>
             {t("detail.whatYouGet")}
           </h2>
-          <div className="mt-10 flex flex-col">
-            {items.map((item, i) => (
-              <div
-                key={item.title}
-                className="flex items-start gap-4 py-6"
-                style={{ borderBottom: i < items.length - 1 ? "1px solid rgba(0,0,0,0.08)" : "none" }}
-              >
-                <div
-                  className="shrink-0 flex items-center justify-center rounded-full"
-                  style={{ width: 40, height: 40, backgroundColor: "rgba(255,113,80,0.1)" }}
-                >
-                  <CheckIcon color="#FF7150" />
-                </div>
-                <div>
-                  <p className="font-medium" style={{ fontSize: 16, color: "#0b0b0b" }}>{item.title}</p>
-                  <p className="mt-1" style={{ fontSize: 15, color: "rgba(0,0,0,0.6)", lineHeight: 1.5 }}>
-                    {item.detail}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
+          {slug === "kickstart" ? <WhatYouGetGrouped /> : <WhatYouGetFlatList slug={slug} />}
         </ScrollReveal>
       </div>
     </section>
@@ -323,7 +388,7 @@ function SponsorSection({ slug }: { slug: ServiceSlug }) {
   const t = useTranslations("diensten");
   if (slug !== "kickstart") return null;
 
-  const items = Array.from({ length: 6 }, (_, i) => t(`detail.kickstart.sponsor${i + 1}`));
+  const items = Array.from({ length: 5 }, (_, i) => t(`detail.kickstart.sponsor${i + 1}`));
 
   return (
     <section className="px-6 md:px-10 py-12 md:py-20" style={{ backgroundColor: "#F3EDED" }}>
@@ -332,6 +397,9 @@ function SponsorSection({ slug }: { slug: ServiceSlug }) {
           <h2 className="font-heading" style={{ fontSize: 32, fontWeight: 100, color: "#0b0b0b" }}>
             {t("detail.kickstart.sponsorTitle")}
           </h2>
+          <p className="mt-3" style={{ fontSize: 16, color: "rgba(0,0,0,0.55)", lineHeight: 1.6 }}>
+            {t("detail.kickstart.sponsorSubtitle")}
+          </p>
           <ul className="mt-10 flex flex-col gap-4">
             {items.map((item, i) => (
               <li key={i} className="flex items-start gap-3">
@@ -386,6 +454,8 @@ function HowItWorksSection({ slug }: { slug: ServiceSlug }) {
 
   if (steps.length === 0) return null;
 
+  const isKickstart = slug === "kickstart";
+
   return (
     <section className="bg-white px-6 md:px-10 py-12 md:py-20">
       <div className="mx-auto" style={{ maxWidth: 1080 }}>
@@ -393,7 +463,46 @@ function HowItWorksSection({ slug }: { slug: ServiceSlug }) {
           <h2 className="font-heading" style={{ fontSize: 32, fontWeight: 100, color: "#0b0b0b" }}>
             {t("detail.howItWorks")}
           </h2>
-          <div className="mt-10 flex flex-col gap-6">
+
+          {/* Kickstart: horizontal timeline on desktop */}
+          {isKickstart && (
+            <div className="mt-10 hidden md:flex items-start">
+              {(() => {
+                let stepNum = 0;
+                return steps.map((step, i) => {
+                  if (!step.highlight) stepNum++;
+                  const isLast = i === steps.length - 1;
+                  return (
+                    <div key={step.title} className="flex flex-1 items-start">
+                      <div className="flex flex-col items-center flex-1">
+                        <TimelineStep step={stepNum} highlight={step.highlight} />
+                        <h3
+                          className="font-heading mt-3 text-center"
+                          style={{ fontSize: 16, fontWeight: step.highlight ? 500 : 400, color: step.highlight ? "#FF7150" : "#0b0b0b" }}
+                        >
+                          {step.title}
+                        </h3>
+                        {step.detail && (
+                          <p className="mt-1 text-center" style={{ fontSize: 13, color: "rgba(0,0,0,0.55)", lineHeight: 1.4, maxWidth: 200 }}>
+                            {step.detail}
+                          </p>
+                        )}
+                      </div>
+                      {!isLast && (
+                        <div
+                          className="shrink-0 mt-3.5"
+                          style={{ width: 32, height: 2, backgroundColor: step.highlight ? "#FF7150" : "#DEDCCC" }}
+                        />
+                      )}
+                    </div>
+                  );
+                });
+              })()}
+            </div>
+          )}
+
+          {/* Vertical timeline: always for non-kickstart, mobile-only for kickstart */}
+          <div className={`mt-10 flex flex-col gap-6 ${isKickstart ? "flex md:hidden" : ""}`}>
             {(() => {
               let stepNum = 0;
               return steps.map((step, i) => {
@@ -510,23 +619,51 @@ function ROISection({ slug }: { slug: ServiceSlug }) {
   const t = useTranslations("diensten");
   if (slug !== "kickstart") return null;
 
+  const proofs = [1, 2, 3].map((i) => ({
+    sector: t(`detail.kickstart.proof${i}Sector`),
+    metric: t(`detail.kickstart.proof${i}Metric`),
+    before: t(`detail.kickstart.proof${i}Before`),
+    after: t(`detail.kickstart.proof${i}After`),
+    roi: t(`detail.kickstart.proof${i}Roi`),
+  }));
+
   return (
-    <section className="bg-white px-6 md:px-10 py-12 md:py-20">
+    <section className="px-6 md:px-10 py-12 md:py-20" style={{ backgroundColor: "#1a1c1b" }}>
       <div className="mx-auto" style={{ maxWidth: 1080 }}>
         <ScrollReveal>
-          <h2 className="font-heading" style={{ fontSize: 32, fontWeight: 100, color: "#0b0b0b" }}>
+          <h2 className="font-heading text-white" style={{ fontSize: 32, fontWeight: 100 }}>
             {t("detail.kickstart.roiTitle")}
           </h2>
-          <p className="mt-6" style={{ fontSize: 16, color: "rgba(0,0,0,0.7)", lineHeight: 1.6, maxWidth: 640 }}>
-            {t("detail.kickstart.roiText")}
+          <p className="mt-3" style={{ fontSize: 16, color: "rgba(255,255,255,0.55)", lineHeight: 1.6 }}>
+            {t("detail.kickstart.roiSubtitle")}
           </p>
-          <div
-            className="mt-8 rounded-xl p-6"
-            style={{ backgroundColor: "rgba(255,113,80,0.06)", border: "1px solid rgba(255,113,80,0.15)" }}
-          >
-            <p style={{ fontSize: 15, color: "rgba(0,0,0,0.7)", lineHeight: 1.6 }}>
-              {t("detail.kickstart.roiExample")}
-            </p>
+          <div className="mt-10 grid grid-cols-1 gap-4 md:grid-cols-3">
+            {proofs.map((proof) => (
+              <div
+                key={proof.sector}
+                className="rounded-2xl p-6"
+                style={{ backgroundColor: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.1)" }}
+              >
+                <span
+                  className="inline-block rounded-full px-3 py-1 text-xs font-medium"
+                  style={{ backgroundColor: "rgba(255,113,80,0.15)", color: "#FF7150" }}
+                >
+                  {proof.sector}
+                </span>
+                <p className="mt-3" style={{ fontSize: 14, color: "rgba(255,255,255,0.5)" }}>
+                  {proof.metric}
+                </p>
+                <p className="mt-4 line-through" style={{ fontSize: 15, color: "rgba(255,255,255,0.35)" }}>
+                  {proof.before}
+                </p>
+                <p className="mt-1 font-medium" style={{ fontSize: 18, color: "#FF7150" }}>
+                  {proof.after}
+                </p>
+                <p className="mt-3" style={{ fontSize: 13, color: "rgba(255,255,255,0.4)" }}>
+                  {proof.roi}
+                </p>
+              </div>
+            ))}
           </div>
         </ScrollReveal>
       </div>
