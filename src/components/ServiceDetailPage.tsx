@@ -128,40 +128,73 @@ function HeroSection({ slug }: { slug: ServiceSlug }) {
   );
 }
 
-/* ---- Social Proof Strip (kickstart only) ---- */
+/* ---- Social Proof Strip ---- */
 
 function SocialProofStrip({ slug }: { slug: ServiceSlug }) {
   const t = useTranslations("cases");
   const td = useTranslations("diensten");
-  if (slug !== "kickstart") return null;
 
-  const proofItems = [
-    { case: CASES.find((c) => c.slug === "movir")!, statValue: t("movir.stat1value"), statLabel: t("movir.stat1label") },
-    { case: CASES.find((c) => c.slug === "euphoria")!, statValue: t("euphoria.stat1value"), statLabel: t("euphoria.stat1label") },
-    { case: CASES.find((c) => c.slug === "reditus")!, statValue: t("reditus.stat1value"), statLabel: t("reditus.stat1label") },
-  ];
+  if (!td.has(`detail.${slug}.socialProofTitle`)) return null;
+
+  // Kickstart uses CASES data with logos + stats
+  if (slug === "kickstart") {
+    const proofItems = [
+      { case: CASES.find((c) => c.slug === "movir")!, statValue: t("movir.stat1value"), statLabel: t("movir.stat1label") },
+      { case: CASES.find((c) => c.slug === "euphoria")!, statValue: t("euphoria.stat1value"), statLabel: t("euphoria.stat1label") },
+      { case: CASES.find((c) => c.slug === "reditus")!, statValue: t("reditus.stat1value"), statLabel: t("reditus.stat1label") },
+    ];
+
+    return (
+      <section className="px-6 md:px-10 py-8" style={{ backgroundColor: "#F3EDED" }}>
+        <div className="mx-auto" style={{ maxWidth: 1080 }}>
+          <p className="text-center text-xs font-medium uppercase tracking-wider mb-6" style={{ color: "rgba(0,0,0,0.4)" }}>
+            {td(`detail.${slug}.socialProofTitle`)}
+          </p>
+          <div className="flex flex-col items-center gap-6 md:flex-row md:justify-center md:gap-12">
+            {proofItems.map((item) => (
+              <div key={item.case.slug} className="flex items-center gap-3">
+                <img
+                  src={item.case.logoSrc}
+                  alt={item.case.companyName}
+                  className="object-contain"
+                  style={{ maxHeight: 24, width: "auto", opacity: 0.7 }}
+                />
+                <div className="w-px self-stretch" style={{ backgroundColor: "rgba(0,0,0,0.12)" }} />
+                <span className="font-medium" style={{ fontSize: 16, color: "#FF7150" }}>
+                  {item.statValue}
+                </span>
+                <span style={{ fontSize: 14, color: "rgba(0,0,0,0.5)" }}>
+                  {item.statLabel}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  // Other services: text-based social proof from translations
+  const proofs = [1, 2, 3].map((i) => ({
+    company: td(`detail.${slug}.proof${i}Company`),
+    detail: td(`detail.${slug}.proof${i}Detail`),
+  }));
 
   return (
     <section className="px-6 md:px-10 py-8" style={{ backgroundColor: "#F3EDED" }}>
       <div className="mx-auto" style={{ maxWidth: 1080 }}>
         <p className="text-center text-xs font-medium uppercase tracking-wider mb-6" style={{ color: "rgba(0,0,0,0.4)" }}>
-          {td("detail.kickstart.socialProofTitle")}
+          {td(`detail.${slug}.socialProofTitle`)}
         </p>
         <div className="flex flex-col items-center gap-6 md:flex-row md:justify-center md:gap-12">
-          {proofItems.map((item) => (
-            <div key={item.case.slug} className="flex items-center gap-3">
-              <img
-                src={item.case.logoSrc}
-                alt={item.case.companyName}
-                className="object-contain"
-                style={{ maxHeight: 24, width: "auto", opacity: 0.7 }}
-              />
-              <div className="w-px self-stretch" style={{ backgroundColor: "rgba(0,0,0,0.12)" }} />
-              <span className="font-medium" style={{ fontSize: 16, color: "#FF7150" }}>
-                {item.statValue}
+          {proofs.map((item) => (
+            <div key={item.company} className="flex items-center gap-3">
+              <span className="font-medium" style={{ fontSize: 16, color: "#0b0b0b" }}>
+                {item.company}
               </span>
+              <div className="w-px self-stretch" style={{ backgroundColor: "rgba(0,0,0,0.12)" }} />
               <span style={{ fontSize: 14, color: "rgba(0,0,0,0.5)" }}>
-                {item.statLabel}
+                {item.detail}
               </span>
             </div>
           ))}
@@ -240,11 +273,11 @@ function ForWhoSection({ slug }: { slug: ServiceSlug }) {
   );
 }
 
-/* ---- Differentiators (kickstart only) ---- */
+/* ---- Differentiators ---- */
 
 function DifferentiatorsSection({ slug }: { slug: ServiceSlug }) {
   const t = useTranslations("diensten");
-  if (slug !== "kickstart") return null;
+  if (!t.has(`detail.${slug}.diffTitle`)) return null;
 
   const items = Array.from({ length: 5 }, (_, i) => ({
     title: t(`detail.kickstart.diff${i + 1}`),
@@ -699,11 +732,10 @@ function PricingSection({ slug }: { slug: ServiceSlug }) {
   );
 }
 
-/* ---- Mid-Page CTA (kickstart only) ---- */
+/* ---- Mid-Page CTA ---- */
 
 function MidPageCTA({ slug }: { slug: ServiceSlug }) {
   const t = useTranslations("diensten");
-  if (slug !== "kickstart") return null;
 
   return (
     <div className="bg-white px-6 md:px-10 py-8 text-center">
