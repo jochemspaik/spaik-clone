@@ -1,6 +1,7 @@
 "use client";
 
 import { useTranslations } from "next-intl";
+import Image from "next/image";
 import { RollingTextButton } from "./RollingTextButton";
 import { BOOK_CALL_URL, INTAKE_URL } from "@/lib/constants";
 
@@ -14,13 +15,13 @@ export function HeroSection() {
         className="pointer-events-none absolute left-0 top-0 h-full"
         style={{ width: "45%", opacity: 0.06, zIndex: 0 }}
       >
-        <img
+        <Image
           src="/images/hero-graphic.png"
           alt=""
           aria-hidden="true"
-          width={800}
-          height={800}
-          className="h-full w-full object-cover object-right"
+          fill
+          className="object-cover object-right"
+          sizes="45vw"
           style={{ maskImage: "linear-gradient(to right, black 40%, transparent 100%)", WebkitMaskImage: "linear-gradient(to right, black 40%, transparent 100%)" }}
         />
       </div>

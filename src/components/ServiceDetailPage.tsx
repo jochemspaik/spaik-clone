@@ -154,9 +154,11 @@ function SocialProofStrip({ slug }: { slug: ServiceSlug }) {
           <div className="flex flex-col items-center gap-6 md:flex-row md:justify-center md:gap-12">
             {proofItems.map((item) => (
               <div key={item.case.slug} className="flex items-center gap-3">
-                <img
+                <Image
                   src={item.case.logoSrc}
                   alt={item.case.companyName}
+                  width={120}
+                  height={24}
                   className="object-contain"
                   style={{ maxHeight: 24, width: "auto", opacity: 0.7 }}
                 />
@@ -887,11 +889,12 @@ function TestimonialSection({ slug }: { slug: ServiceSlug }) {
           {author && (
             <div className="mt-6 flex flex-col items-center gap-3">
               {getService(slug).testimonialAvatar && (
-                <img
-                  src={getService(slug).testimonialAvatar}
+                <Image
+                  src={getService(slug).testimonialAvatar!}
                   alt={author}
+                  width={48}
+                  height={48}
                   className="rounded-full object-cover"
-                  style={{ width: 48, height: 48 }}
                 />
               )}
               <div>

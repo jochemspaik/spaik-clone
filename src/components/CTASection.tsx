@@ -20,11 +20,13 @@ export function CTASection() {
               style={{ aspectRatio: "1 / 1" }}
             >
               {/* Poster fallback — always visible behind video */}
-              <img
+              <Image
                 src="/images/cta-poster.jpg"
                 alt=""
                 aria-hidden="true"
-                className="absolute inset-0 w-full h-full object-cover"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 50vw"
               />
               <video
                 autoPlay

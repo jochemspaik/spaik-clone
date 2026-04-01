@@ -56,13 +56,14 @@ export function ProblemSolutionSection() {
           overflow: "hidden",
         }}
       >
-        <img
+        <Image
           src="/images/product-dot-pattern.png"
           alt=""
           aria-hidden="true"
           width={600}
           height={600}
           className="w-full h-full object-contain"
+          sizes="600px"
         />
       </div>
 

@@ -539,11 +539,12 @@ function TestimonialSection() {
             </p>
           </blockquote>
           <div className="mt-6 flex flex-col items-center gap-3">
-            <img
+            <Image
               src="/images/case-johanneke.jpg"
               alt={t("detail.adoptie.testimonialAuthor")}
+              width={48}
+              height={48}
               className="rounded-full object-cover"
-              style={{ width: 48, height: 48 }}
             />
             <div>
               <p className="font-medium" style={{ fontSize: 16, color: "#0b0b0b" }}>
