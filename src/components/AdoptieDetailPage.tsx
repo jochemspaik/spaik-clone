@@ -192,7 +192,7 @@ function TandemSection() {
 
           <div className="mt-10 rounded-2xl overflow-hidden">
             <Image
-              src="/images/tandem-model.png"
+              src="/images/tandem-model.webp"
               alt={t("detail.adoptie.tandemTitle")}
               width={1080}
               height={400}

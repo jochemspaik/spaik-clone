@@ -31,6 +31,7 @@ export function CTASection() {
                 loop
                 muted
                 playsInline
+                preload="none"
                 poster="/images/cta-poster.jpg"
                 className="absolute inset-0 w-full h-full object-cover"
                 style={{ opacity: 0 }}

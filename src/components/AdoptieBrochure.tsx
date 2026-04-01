@@ -90,7 +90,7 @@ export function AdoptieBrochure() {
             {t("brochure.tandemBody")}
           </p>
           <img
-            src="/images/tandem-model.png"
+            src="/images/tandem-model.webp"
             alt="Het Tandem Model"
             style={{ maxWidth: 520, margin: "24px auto", display: "block" }}
           />
