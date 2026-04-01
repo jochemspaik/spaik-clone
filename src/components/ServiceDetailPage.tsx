@@ -177,10 +177,11 @@ function SocialProofStrip({ slug }: { slug: ServiceSlug }) {
     );
   }
 
-  // Other services: text-based social proof from translations
+  // Other services: logo + detail from translations
   const proofs = [1, 2, 3].map((i) => ({
     company: td(`detail.${slug}.proof${i}Company`),
     detail: td(`detail.${slug}.proof${i}Detail`),
+    logo: td.has(`detail.${slug}.proof${i}Logo`) ? td(`detail.${slug}.proof${i}Logo`) : "",
   }));
 
   return (
@@ -192,9 +193,18 @@ function SocialProofStrip({ slug }: { slug: ServiceSlug }) {
         <div className="flex flex-col items-center gap-6 md:flex-row md:justify-center md:gap-12">
           {proofs.map((item) => (
             <div key={item.company} className="flex items-center gap-3">
-              <span className="font-medium" style={{ fontSize: 16, color: "#0b0b0b" }}>
-                {item.company}
-              </span>
+              {item.logo ? (
+                <img
+                  src={item.logo}
+                  alt={item.company}
+                  className="object-contain"
+                  style={{ maxHeight: 24, width: "auto", opacity: 0.7 }}
+                />
+              ) : (
+                <span className="font-medium" style={{ fontSize: 16, color: "#0b0b0b" }}>
+                  {item.company}
+                </span>
+              )}
               <div className="w-px self-stretch" style={{ backgroundColor: "rgba(0,0,0,0.12)" }} />
               <span style={{ fontSize: 14, color: "rgba(0,0,0,0.5)" }}>
                 {item.detail}
@@ -219,7 +229,7 @@ function ForWhoSection({ slug }: { slug: ServiceSlug }) {
   ];
 
   return (
-    <section className="bg-white px-6 md:px-10 py-12 md:py-20">
+    <section className="bg-white px-6 md:px-10 py-10 md:py-14">
       <div className="mx-auto" style={{ maxWidth: 1080 }}>
         <ScrollReveal>
           <h2 className="font-heading" style={{ fontSize: 32, fontWeight: 100, color: "#0b0b0b" }}>
@@ -1081,8 +1091,8 @@ export function ServiceDetailPage({ slug }: { slug: ServiceSlug }) {
       <>
         <HeroSection slug={slug} />
         <SocialProofStrip slug={slug} />
-        <ForWhoSection slug={slug} />
         <PrismaSection slug={slug} />
+        <ForWhoSection slug={slug} />
         <DifferentiatorsSection slug={slug} />
         <WhatYouGetSection slug={slug} />
         <HowItWorksSection slug={slug} />
