@@ -32,9 +32,9 @@
       "stat3label": "Trained Internal Experts",
       "roiText": "Earned back in 4 months",
       "situation": "Movir is a disability insurer with over 400 employees. The management team recognized AI's potential, but the organization was stuck in wait-and-see mode. Individual employees experimented with ChatGPT, but there was no structure, no policy, and no visibility into actual returns. Meanwhile, the Marketing & Sales team spent hours on manual content work that could be done in minutes with the right tools.",
-      "approach": "We started where it counts: with the management team. First an AI Fundamentals training so leadership could assess and direct AI efforts, not just delegate them. Then the entire company — 100 people trained in groups, using their own processes as cases. In parallel, we trained 5 internal AI experts to take over after our departure. The focus was on Marketing & Sales: that's where the biggest time savings and fastest ROI were.",
-      "result": "The investment was recouped within 4 months. The content team now creates 10x faster. But more importantly: AI is no longer an experiment at Movir — it's part of how they work. 100 people trained, 5 internal experts building independently, and a leadership team that knows where the next step lies.",
-      "impact": "Movir can now deliver significantly more output with the same team. The Marketing & Sales team spends their time on strategy and client contact instead of manual content work. The 5 trained internal experts ensure Movir doesn't remain dependent on external parties — they build on their own."
+      "approach": "We started where it counts: with the management team. First an AI Fundamentals training so leadership could assess and direct AI efforts, not just delegate them. Then the entire company, 100 people trained in groups, using their own processes as cases. In parallel, we trained 5 internal AI experts to take over after our departure. The focus was on Marketing & Sales: that's where the biggest time savings and fastest ROI were.",
+      "result": "The investment was recouped within 4 months. The content team now creates 10x faster. But more importantly: AI is no longer an experiment at Movir, it's part of how they work. 100 people trained, 5 internal experts building independently, and a leadership team that knows where the next step lies.",
+      "impact": "Movir can now deliver significantly more output with the same team. The Marketing & Sales team spends their time on strategy and client contact instead of manual content work. The 5 trained internal experts ensure Movir doesn't remain dependent on external parties, they build on their own."
     },
     "euphoria": {
       "name": "Euphoria Mobility",
@@ -48,9 +48,9 @@
       "stat3value": "6",
       "stat3label": "Working prototypes",
       "roiText": "6 prototypes, 2 in production - 12X ROI",
-      "situation": "Euphoria Mobility is a SaaS company with 60+ employees digitizing mobility services. The development team knew AI could accelerate their workflow but didn't know where to start. The CTO didn't want months of strategy sessions — he wanted proof. The team had skeptics who saw AI as hype and believers who were already experimenting, but without a shared approach.",
-      "approach": "We chose the fastest route to proof: a two-day AI hackathon with the full engineering team. No slides, no theory — build immediately. 10+ engineers worked together on concrete product challenges using AI tools we had set up in advance. Each team got a real backlog challenge and SPAIK guidance to go from idea to working prototype.",
-      "result": "Two days later: 6 working prototypes. Two of which went directly to production. Engineers who walked in skeptical left enthusiastic. The team now codes 5x faster on AI-assisted tasks. The hackathon delivered more than months of planning would have — concrete output, supported by the entire team.",
+      "situation": "Euphoria Mobility is a SaaS company with 60+ employees digitizing mobility services. The development team knew AI could accelerate their workflow but didn't know where to start. The CTO didn't want months of strategy sessions, he wanted proof. The team had skeptics who saw AI as hype and believers who were already experimenting, but without a shared approach.",
+      "approach": "We chose the fastest route to proof: a two-day AI hackathon with the full engineering team. No slides, no theory, build immediately. 10+ engineers worked together on concrete product challenges using AI tools we had set up in advance. Each team got a real backlog challenge and SPAIK guidance to go from idea to working prototype.",
+      "result": "Two days later: 6 working prototypes. Two of which went directly to production. Engineers who walked in skeptical left enthusiastic. The team now codes 5x faster on AI-assisted tasks. The hackathon delivered more than months of planning would have, concrete output, supported by the entire team.",
       "impact": "Euphoria now has a development team that uses AI structurally, not incidentally. The 12X ROI on the hackathon investment came not just from the prototypes themselves, but from the mindset shift: the team now knows how to develop AI-first. New features ship faster and the team has a shared methodology."
     },
     "reditus": {
@@ -65,10 +65,10 @@
       "stat3value": "5",
       "stat3label": "New AI propositions",
       "roiText": "New revenue stream + recouped in 3 months",
-      "situation": "Reditus is a marketing-tech company with 10+ employees that helps SaaS companies with affiliate marketing. CEO Joran Hofman saw opportunities to use AI for their core process — finding and matching affiliates — but the team was small and had no room for lengthy experimentation phases. Every hour counted.",
+      "situation": "Reditus is a marketing-tech company with 10+ employees that helps SaaS companies with affiliate marketing. CEO Joran Hofman saw opportunities to use AI for their core process, finding and matching affiliates, but the team was small and had no room for lengthy experimentation phases. Every hour counted.",
       "approach": "We intervened directly on the processes that consumed the most time: affiliate research and partnership management. In a 4-week Kickstart, we built AI workflows that made finding relevant affiliates 5x faster, and reduced partnership management from hours to 5 minutes per PM action. In parallel, we developed 5 new AI-driven propositions that Reditus can offer to their clients.",
-      "result": "Recouped within 3 months. The team finds affiliates 5x faster, spends 5 minutes on what used to take an hour, and has 5 new AI propositions as an additional revenue stream. The pragmatic approach — no unnecessary strategy, just build — perfectly matched the culture of a small, fast team.",
-      "impact": "Reditus hasn't just accelerated their existing processes — they've created a new revenue stream. The 5 AI propositions they now offer to clients make them distinctive in the market. A small team that, through AI, operates as if it were three times as large."
+      "result": "Recouped within 3 months. The team finds affiliates 5x faster, spends 5 minutes on what used to take an hour, and has 5 new AI propositions as an additional revenue stream. The pragmatic approach, no unnecessary strategy, just build, perfectly matched the culture of a small, fast team.",
+      "impact": "Reditus hasn't just accelerated their existing processes, they've created a new revenue stream. The 5 AI propositions they now offer to clients make them distinctive in the market. A small team that, through AI, operates as if it were three times as large."
     },
     "viewAll": "View all cases",
     "detail": {
@@ -866,12 +866,12 @@
     "item1Title": "No slides without results",
     "item1Body": "We don't deliver strategy decks that end up in a drawer. Everything we advise, we also build. First automation live within 4 weeks.",
     "item2Title": "No tools without adoption",
-    "item2Body": "A license isn't a solution. The value of AI is in its use, not its purchase. We make sure your team actually uses it — measurably.",
+    "item2Body": "A license isn't a solution. The value of AI is in its use, not its purchase. We make sure your team actually uses it, measurably.",
     "item3Title": "No juniors learning on your dime",
     "item3Body": "A founder or senior lead is always on your project. We train our people internally, not at your expense.",
     "item4Title": "No lock-in",
     "item4Body": "At the end of every phase, we hand over everything so you can continue without us. Working with us is a choice, not a necessity.",
     "item5Title": "No AI for AI's sake",
-    "item5Body": "We only build with AI when it demonstrably adds value. Sometimes a simple automation without AI is better — then we choose that."
+    "item5Body": "We only build with AI when it demonstrably adds value. Sometimes a simple automation without AI is better, then we choose that."
   }
 }
