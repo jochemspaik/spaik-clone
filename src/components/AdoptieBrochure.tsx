@@ -2,6 +2,7 @@
 
 import { useTranslations } from "next-intl";
 import { ServiceCheckIcon, ShieldIcon } from "@/components/icons";
+import { BOOK_CALL_URL } from "@/lib/constants";
 
 export function AdoptieBrochure() {
   const t = useTranslations("diensten");
@@ -266,24 +267,35 @@ export function AdoptieBrochure() {
             {t("brochure.ctaBody")}
           </p>
 
-          <div
+          <a
+            href={BOOK_CALL_URL}
+            target="_blank"
+            rel="noopener noreferrer"
             style={{
+              display: "block",
               marginTop: 24,
               padding: 24,
               backgroundColor: "#0b0b0b",
               borderRadius: 12,
               color: "#fff",
+              textDecoration: "none",
             }}
           >
-            <div className="flex items-center justify-between">
-              <div>
+            <div className="flex items-center gap-4">
+              <img
+                src="/images/team-jochem.png"
+                alt="Jochem van Laren"
+                className="rounded-full object-cover"
+                style={{ width: 56, height: 56 }}
+              />
+              <div className="flex-1">
                 <p style={{ fontSize: 16, fontWeight: 600 }}>{t("brochure.ctaButton")}</p>
-                <p style={{ fontSize: 14, opacity: 0.6, marginTop: 4 }}>{t("brochure.ctaEmail")}</p>
-                <p style={{ fontSize: 14, opacity: 0.6 }}>{t("brochure.ctaWebsite")}</p>
+                <p style={{ fontSize: 14, opacity: 0.6, marginTop: 2 }}>Jochem van Laren, Co-founder</p>
+                <p style={{ fontSize: 13, opacity: 0.4, marginTop: 2 }}>30 min · Vrijblijvend</p>
               </div>
               <img src="/images/Logo.svg" alt="SPAIK" style={{ height: 22, filter: "invert(1)" }} />
             </div>
-          </div>
+          </a>
         </div>
 
         {/* ---- FOOTER ---- */}

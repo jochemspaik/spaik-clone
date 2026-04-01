@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { Link, usePathname } from "@/i18n/navigation";
+import { BOOK_CALL_URL } from "@/lib/constants";
 
 export function Footer() {
   const t = useTranslations();
@@ -52,11 +53,11 @@ export function Footer() {
               {t("footer.services")}
             </Link>
             <Link
-              href={{ pathname: "/" as const, hash: "why-spaik" }}
+              href={"/blog" as "/"}
               className="inline-flex items-center transition-opacity hover:opacity-60"
               style={{ fontSize: 15, color: "#0b0b0b", minHeight: 44 }}
             >
-              {t("footer.whySpaik")}
+              {t("footer.blog")}
             </Link>
             <Link
               href={{ pathname: "/" as const, hash: "team" }}
@@ -66,11 +67,13 @@ export function Footer() {
               {t("footer.team")}
             </Link>
             <a
-              href="mailto:info@spaik.io?subject=Vraag%20van%20Website"
+              href={BOOK_CALL_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center transition-opacity hover:opacity-60"
-              style={{ fontSize: 15, color: "#0b0b0b", minHeight: 44 }}
+              style={{ fontSize: 15, color: "#FF7150", minHeight: 44 }}
             >
-              {t("footer.questions")}
+              {t("footer.contact")}
             </a>
             <a
               href="https://www.linkedin.com/company/spaik-ai/"
