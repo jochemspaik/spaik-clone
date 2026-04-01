@@ -77,40 +77,28 @@ export default function DienstenPage() {
               className="px-6 md:px-10 py-16 md:py-20"
               style={{ maxWidth: 1080, margin: "0 auto" }}
             >
-              {/* Track labels + cards grid */}
-              <div className="grid grid-cols-1 md:grid-cols-4 gap-x-6 gap-y-2">
+              {/* Two tracks side by side */}
+              <div className="grid grid-cols-1 gap-10 md:grid-cols-2 md:gap-6">
 
-                {/* --- BOUWEN label --- */}
-                <div className="md:col-span-2 mb-2 md:mb-0">
+                {/* --- BOUWEN track --- */}
+                <div>
                   <span
                     className="text-xs font-semibold uppercase tracking-widest"
                     style={{ color: "rgba(0,0,0,0.35)" }}
                   >
                     {t("tracks.bouwen")}
                   </span>
-                </div>
-
-                {/* --- LEREN label --- */}
-                <div className="md:col-span-2 mb-2 md:mb-0 mt-6 md:mt-0">
-                  <span
-                    className="text-xs font-semibold uppercase tracking-widest"
-                    style={{ color: "rgba(0,0,0,0.35)" }}
-                  >
-                    {t("tracks.leren")}
-                  </span>
-                </div>
-
-                {/* --- Bouwen cards --- */}
-                {(["kickstart", "adoptie"] as const).map((slug) => {
-                  const service = SERVICES.find((s) => s.slug === slug)!;
-                  const isFeatured = !!service.featured;
-                  return (
-                    <Link
-                      key={slug}
-                      href={`/diensten/${slug}` as "/diensten/kickstart"}
-                      className="group relative block rounded-2xl overflow-hidden transition-shadow hover:shadow-xl"
-                      style={{ minHeight: isFeatured ? 300 : 260 }}
-                    >
+                  <div className="mt-3 grid grid-cols-1 gap-3 sm:grid-cols-2">
+                    {(["kickstart", "adoptie"] as const).map((slug) => {
+                      const service = SERVICES.find((s) => s.slug === slug)!;
+                      const isFeatured = !!service.featured;
+                      return (
+                        <Link
+                          key={slug}
+                          href={`/diensten/${slug}` as "/diensten/kickstart"}
+                          className="group relative block rounded-2xl overflow-hidden transition-shadow hover:shadow-xl"
+                          style={{ minHeight: 260 }}
+                        >
                       {/* Texture background */}
                       <div
                         className="absolute inset-0"
@@ -134,7 +122,7 @@ export default function DienstenPage() {
                           {t("comparison.recommended")}
                         </span>
                       )}
-                      <div className="relative z-10 flex flex-col justify-between h-full p-5" style={{ minHeight: isFeatured ? 300 : 260 }}>
+                      <div className="relative z-10 flex flex-col justify-between h-full p-5" style={{ minHeight: 260 }}>
                         <div
                           className="flex items-center justify-center rounded-lg"
                           style={{ width: 36, height: 36, backgroundColor: "rgba(255,255,255,0.15)", backdropFilter: "blur(8px)" }}
@@ -172,18 +160,28 @@ export default function DienstenPage() {
                       </div>
                     </Link>
                   );
-                })}
+                    })}
+                  </div>
+                </div>
 
-                {/* --- Leren cards --- */}
-                {(["inspiratie", "fundamentals"] as const).map((slug) => {
-                  const service = SERVICES.find((s) => s.slug === slug)!;
-                  return (
-                    <Link
-                      key={slug}
-                      href={`/diensten/${slug}` as "/diensten/inspiratie"}
-                      className="group relative block rounded-2xl overflow-hidden transition-shadow hover:shadow-md"
-                      style={{ minHeight: 260, backgroundColor: service.tint.bg, border: `1px solid ${service.tint.ring}` }}
-                    >
+                {/* --- LEREN track --- */}
+                <div>
+                  <span
+                    className="text-xs font-semibold uppercase tracking-widest"
+                    style={{ color: "rgba(0,0,0,0.35)" }}
+                  >
+                    {t("tracks.leren")}
+                  </span>
+                  <div className="mt-3 grid grid-cols-1 gap-3 sm:grid-cols-2">
+                    {(["inspiratie", "fundamentals"] as const).map((slug) => {
+                      const service = SERVICES.find((s) => s.slug === slug)!;
+                      return (
+                        <Link
+                          key={slug}
+                          href={`/diensten/${slug}` as "/diensten/inspiratie"}
+                          className="group relative block rounded-2xl overflow-hidden transition-shadow hover:shadow-md"
+                          style={{ minHeight: 260, backgroundColor: service.tint.bg, border: `1px solid ${service.tint.ring}` }}
+                        >
                       <div className="relative z-10 flex flex-col justify-between h-full p-5" style={{ minHeight: 260 }}>
                         <div
                           className="flex items-center justify-center rounded-lg"
@@ -221,7 +219,9 @@ export default function DienstenPage() {
                       </div>
                     </Link>
                   );
-                })}
+                    })}
+                  </div>
+                </div>
               </div>
 
               {/* --- Trainingen Hub banner --- */}
