@@ -594,43 +594,49 @@ function PricingSection({ slug }: { slug: ServiceSlug }) {
 
           {/* Kickstart: card-style pricing (like Adoptie tiers) */}
           {slug === "kickstart" ? (
-            <div className="mt-10 mx-auto" style={{ maxWidth: 640 }}>
+            <div className="mt-10 mx-auto" style={{ maxWidth: 480 }}>
               <div
-                className="relative rounded-2xl bg-white p-8 md:p-10"
+                className="relative rounded-2xl bg-white p-8"
                 style={{ border: "2px solid #FF7150" }}
               >
-                {/* Badge */}
-                <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#FF7150] text-white text-xs font-medium px-3 py-1 rounded-full">
-                  {t("detail.kickstart.phase")}
-                </span>
+                {/* Title */}
+                <h3 className="font-heading" style={{ fontSize: 24, fontWeight: 400, color: "#0b0b0b" }}>
+                  Kickstart
+                </h3>
 
                 {/* Price */}
-                <div className="text-center">
-                  <p className="font-heading" style={{ fontSize: 48, fontWeight: 100, color: "#0b0b0b" }}>
-                    {t("detail.kickstart.pricingAmount")}
-                  </p>
-                  <p style={{ fontSize: 16, color: "rgba(0,0,0,0.5)" }}>{t("detail.kickstart.pricingLabel")}</p>
-                </div>
+                <p className="font-heading mt-4" style={{ fontSize: 36, fontWeight: 100, color: "#0b0b0b", lineHeight: 1.1 }}>
+                  {t("detail.kickstart.pricingAmount")}
+                </p>
+                <p style={{ fontSize: 14, color: "rgba(0,0,0,0.5)" }}>
+                  {t("detail.kickstart.pricingLabel")}
+                </p>
 
-                {/* Split details */}
-                <div className="mt-6 grid grid-cols-2 gap-4">
-                  <div className="rounded-xl p-4" style={{ backgroundColor: "#FAFAF8" }}>
-                    <p className="text-sm font-medium" style={{ color: "#0b0b0b" }}>
-                      {t("detail.kickstart.pricingSplit1")}
-                    </p>
-                    <p className="mt-1 text-xs" style={{ color: "rgba(0,0,0,0.5)" }}>
-                      {t("detail.kickstart.pricingSplit1detail")}
-                    </p>
-                  </div>
-                  <div className="rounded-xl p-4" style={{ backgroundColor: "#FAFAF8" }}>
-                    <p className="text-sm font-medium" style={{ color: "#0b0b0b" }}>
-                      {t("detail.kickstart.pricingSplit2")}
-                    </p>
-                    <p className="mt-1 text-xs" style={{ color: "rgba(0,0,0,0.5)" }}>
-                      {t("detail.kickstart.pricingSplit2detail")}
-                    </p>
-                  </div>
-                </div>
+                {/* Split details as features */}
+                <ul className="mt-5 flex flex-col gap-3">
+                  <li className="flex items-start gap-2">
+                    <ServiceCheckIcon color="#FF7150" />
+                    <div>
+                      <span className="text-sm font-medium" style={{ color: "#0b0b0b" }}>
+                        {t("detail.kickstart.pricingSplit1")}
+                      </span>
+                      <span className="text-xs ml-1" style={{ color: "rgba(0,0,0,0.45)" }}>
+                        {t("detail.kickstart.pricingSplit1detail")}
+                      </span>
+                    </div>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <ServiceCheckIcon color="#FF7150" />
+                    <div>
+                      <span className="text-sm font-medium" style={{ color: "#0b0b0b" }}>
+                        {t("detail.kickstart.pricingSplit2")}
+                      </span>
+                      <span className="text-xs ml-1" style={{ color: "rgba(0,0,0,0.45)" }}>
+                        {t("detail.kickstart.pricingSplit2detail")}
+                      </span>
+                    </div>
+                  </li>
+                </ul>
 
                 {/* CTA */}
                 <div className="mt-6">
