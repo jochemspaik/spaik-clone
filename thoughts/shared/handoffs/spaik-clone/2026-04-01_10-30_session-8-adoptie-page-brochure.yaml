@@ -1,0 +1,97 @@
+---
+session: spaik-clone
+date: 2026-04-01
+status: complete
+outcome: SUCCEEDED
+---
+
+goal: Dedicated Adoptie detail page (11 secties, 3-tier pricing, Champions, Tandem model) + printbare brochure + bug fixes
+now: Herstructureer AdoptieDetailPage terug in ServiceDetailPage als compositie (shared + unieke secties) + P2 cleanup items
+
+test: npm run build && npm run dev && open http://localhost:3000/diensten/adoptie && open http://localhost:3000/diensten/adoptie/brochure
+
+done_this_session:
+  - task: "CRO analyse Adoptie pagina — Lenny-backed research + psychologische perspectieven"
+    files: []
+  - task: "Dedicated AdoptieDetailPage met 11 secties (Dunford Sales Pitch Flow)"
+    files: [src/components/AdoptieDetailPage.tsx, "src/app/[locale]/diensten/[slug]/page.tsx", messages/nl.json, messages/en.json]
+  - task: "Tandem model illustratie (3-fase) gekopieerd en geintegreerd"
+    files: [public/images/tandem-model.png]
+  - task: "Printbare programmabrochure op /diensten/adoptie/brochure"
+    files: [src/components/AdoptieBrochure.tsx, "src/app/[locale]/diensten/adoptie/brochure/page.tsx"]
+  - task: "CTA video hersteld (was statisch beeld, nu autoplay met secondary-animation.mp4)"
+    files: [src/components/CTASection.tsx]
+  - task: "Lenis smooth scroll resilient gemaakt (visibilitychange + wheel watchdog)"
+    files: [src/components/SmoothScroll.tsx]
+  - task: "Timeline percentagebars verwijderd (verwarrend, redundant met tandem illustratie)"
+    files: [src/components/AdoptieDetailPage.tsx]
+  - task: "Stale strategie→inspiratie slug references gefixed in i18n"
+    files: [messages/nl.json, messages/en.json]
+  - task: "Brochure header/footer verborgen via useEffect (standalone document)"
+    files: [src/components/AdoptieBrochure.tsx]
+  - task: "Volledige QA — adoptie pagina NL+EN, brochure NL+EN, mobile responsive, links"
+    files: []
+  - task: "3-agent code review (architecture, security, simplicity)"
+    files: []
+
+blockers: []
+
+questions:
+  - "Herstructurering AdoptieDetailPage: compositie in ServiceDetailPage (shared Hero/ForWho/Timeline/Testimonial + unieke secties) — ~1600 regels, aparte sessie"
+  - "Brochure FOUC: header/footer flashen kort — fix via dedicated brochure layout.tsx (P2)"
+  - "Blog dangerouslySetInnerHTML zonder sanitizer — latent XSS risico als CMS ooit gekoppeld wordt"
+  - "Hardcoded hex colors (#FF7150, #0b0b0b, etc.) niet als design tokens — toekomstige refactor"
+
+decisions:
+  - adoptie_dedicated_component: "Dedicated 695-regels component ipv generic template uitbreiden — 11 secties vs 7 is fundamenteel anders. Review zegt: op termijn compositie pattern, maar nu werkt het."
+  - pricing_3_tiers: "Operationeel €10.900/Verankerd €14.900 (highlighted)/Strategisch €19.900 — monthly + total getoond"
+  - brochure_psychology: "Loss aversion framing (open met probleem, niet vendor), drie risk reversals als trust signals, middle-tier anchoring"
+  - tandem_illustration: "Tanden volledig.png (3-fase) gekozen — vertelt adoptieverhaal in een beeld"
+  - lenis_resilient: "Lenis behouden (buttery scroll) maar watchdog + visibilitychange recovery toegevoegd ipv verwijderen"
+  - intensity_bars_removed: "Percentagebars (80%→5%) in timeline waren verwarrend ('80% van wat?'). Tandem illustratie vertelt het verhaal al."
+  - strategie_to_inspiratie: "Dienst hernoemd van strategie naar inspiratie — drie stale cross-references gefixed"
+
+findings:
+  - code_review_security: "Geen kritieke issues. Blog dangerouslySetInnerHTML is latent risico (Medium). JSON-LD escape (Low). Geen hardcoded secrets."
+  - code_review_architecture: "Icon duplicatie (CheckIcon/XIcon in 3 bestanden), ServiceSlug type duplicatie, dead adoptie branches in ServiceDetailPage, TEXTURE_MAP/ICON_MAP dupliceren services.ts"
+  - code_review_simplicity: "AdoptieDetailPage 695 regels, ServiceDetailPage 916 regels — acceptabel voor nu maar compositie pattern aanbevolen op termijn"
+  - scroll_bug_root_cause: "Lenis RAF loop stalls bij tab-switch/focus-change. Watchdog + visibilitychange recovery lost het op."
+
+worked:
+  - "CRO research via oracle agent — concrete Lenny/Dunford/Cialdini inzichten"
+  - "Psychologie-analyse voor brochure — loss aversion, risk reversal, JTBD framing"
+  - "Parallel agent builds (i18n + component) — 2 agents tegelijk voor snelheid"
+  - "3-agent parallel code review (architecture + security + simplicity)"
+  - "Browse tool met viewport screenshots per scroll-positie voor QA"
+
+failed:
+  - "Agent rate limit halverwege brochure build — moest handmatig verder"
+  - "Browser MCP crashte midden QA — playwright CLI als fallback"
+  - "Code simplicity agent crashte (API 500) — handmatig geanalyseerd"
+
+next:
+  - "PRIORITY 1: Herstructureer AdoptieDetailPage — compositie pattern met shared secties (Hero, ForWho, Timeline, Testimonial) + standalone Adoptie-unieke secties (MarketInsight, Alternatives, Tandem, Champions, Tiers, Governance, DualCta)"
+  - "P2 cleanup: dead adoptie branches verwijderen uit ServiceDetailPage, ServiceSlug type importeren, TEXTURE_MAP/ICON_MAP consolideren"
+  - "P2: Brochure layout.tsx maken ipv useEffect DOM hack (FOUC fix)"
+  - "P2: Icons consolideren naar icons.tsx (CheckIcon, XIcon, ArrowLeftIcon)"
+  - "P3: Lenis touchmove watchdog voor mobile"
+  - "P3: Blog HTML sanitizer toevoegen (dompurify/sanitize-html)"
+  - "P3: JSON-LD escape fix"
+  - "QA fixes van sessie 7: EN nav links (Header/Footer /#cases → /en/#cases), locale cookie stickiness"
+  - "Homepage impact: diensten changes kunnen ServicesSection op homepage beinvloeden"
+  - "Vercel deploy wanneer klaar"
+
+files:
+  created:
+    - src/components/AdoptieDetailPage.tsx
+    - src/components/AdoptieBrochure.tsx
+    - "src/app/[locale]/diensten/adoptie/brochure/page.tsx"
+    - public/images/tandem-model.png
+    - thoughts/shared/handoffs/spaik-clone/2026-04-01_10-30_session-8-adoptie-page-brochure.yaml
+  modified:
+    - "src/app/[locale]/diensten/[slug]/page.tsx"
+    - src/components/CTASection.tsx
+    - src/components/SmoothScroll.tsx
+    - src/components/ServiceDetailPage.tsx
+    - messages/nl.json
+    - messages/en.json
