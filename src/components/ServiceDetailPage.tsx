@@ -120,10 +120,54 @@ function HeroSection({ slug }: { slug: ServiceSlug }) {
   );
 }
 
+/* ---- Social Proof Strip (kickstart only) ---- */
+
+function SocialProofStrip({ slug }: { slug: ServiceSlug }) {
+  const t = useTranslations("cases");
+  const td = useTranslations("diensten");
+  if (slug !== "kickstart") return null;
+
+  const proofItems = [
+    { case: CASES.find((c) => c.slug === "movir")!, statValue: t("movir.stat1value"), statLabel: t("movir.stat1label") },
+    { case: CASES.find((c) => c.slug === "euphoria")!, statValue: t("euphoria.stat1value"), statLabel: t("euphoria.stat1label") },
+    { case: CASES.find((c) => c.slug === "reditus")!, statValue: t("reditus.stat1value"), statLabel: t("reditus.stat1label") },
+  ];
+
+  return (
+    <section className="px-6 md:px-10 py-8" style={{ backgroundColor: "#F3EDED" }}>
+      <div className="mx-auto" style={{ maxWidth: 1080 }}>
+        <p className="text-center text-xs font-medium uppercase tracking-wider mb-6" style={{ color: "rgba(0,0,0,0.4)" }}>
+          {td("detail.kickstart.socialProofTitle")}
+        </p>
+        <div className="flex flex-col items-center gap-6 md:flex-row md:justify-center md:gap-12">
+          {proofItems.map((item) => (
+            <div key={item.case.slug} className="flex items-center gap-3">
+              <img
+                src={item.case.logoSrc}
+                alt={item.case.companyName}
+                className="object-contain"
+                style={{ maxHeight: 24, width: "auto", opacity: 0.7 }}
+              />
+              <div className="w-px self-stretch" style={{ backgroundColor: "rgba(0,0,0,0.12)" }} />
+              <span className="font-medium" style={{ fontSize: 16, color: "#FF7150" }}>
+                {item.statValue}
+              </span>
+              <span style={{ fontSize: 14, color: "rgba(0,0,0,0.5)" }}>
+                {item.statLabel}
+              </span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 /* ---- Voor Wie ---- */
 
 function ForWhoSection({ slug }: { slug: ServiceSlug }) {
   const t = useTranslations("diensten");
+  const isKickstart = slug === "kickstart";
   const yesItems = [t(`detail.${slug}.yes1`), t(`detail.${slug}.yes2`), t(`detail.${slug}.yes3`)];
   const noItems = [
     { text: t(`detail.${slug}.no1`), link: t(`detail.${slug}.no1link`), href: t(`detail.${slug}.no1slug`) },
@@ -137,7 +181,7 @@ function ForWhoSection({ slug }: { slug: ServiceSlug }) {
           <h2 className="font-heading" style={{ fontSize: 32, fontWeight: 100, color: "#0b0b0b" }}>
             {t("detail.forWho")}
           </h2>
-          <div className="mt-10 grid grid-cols-1 gap-10 md:grid-cols-2">
+          <div className={`mt-10 grid grid-cols-1 gap-10 ${isKickstart ? "" : "md:grid-cols-2"}`}>
             <div>
               <h3 className="mb-6 text-sm font-medium uppercase tracking-wider" style={{ color: "#22c55e" }}>
                 {t("detail.yes")}
@@ -151,34 +195,36 @@ function ForWhoSection({ slug }: { slug: ServiceSlug }) {
                 ))}
               </ul>
             </div>
-            <div>
-              <h3 className="mb-6 text-sm font-medium uppercase tracking-wider" style={{ color: "#FF7150" }}>
-                {t("detail.no")}
-              </h3>
-              <ul className="flex flex-col gap-4">
-                {noItems.map((item) => (
-                  <li key={item.text} className="flex items-start gap-3">
-                    <XIcon />
-                    <div>
-                      <span style={{ fontSize: 16, color: "rgba(0,0,0,0.7)", lineHeight: 1.6 }}>{item.text}</span>
-                      {item.href ? (
-                        <Link
-                          href={`/diensten/${item.href}` as "/diensten/strategie"}
-                          className="mt-1 inline-flex items-center gap-1 text-sm font-medium transition-colors hover:underline"
-                          style={{ color: "#FF7150", display: "block" }}
-                        >
-                          {item.link} &rarr;
-                        </Link>
-                      ) : (
-                        <span className="mt-1 block text-sm font-medium" style={{ color: "#FF7150" }}>
-                          &rarr; {item.link}
-                        </span>
-                      )}
-                    </div>
-                  </li>
-                ))}
-              </ul>
-            </div>
+            {!isKickstart && (
+              <div>
+                <h3 className="mb-6 text-sm font-medium uppercase tracking-wider" style={{ color: "#FF7150" }}>
+                  {t("detail.no")}
+                </h3>
+                <ul className="flex flex-col gap-4">
+                  {noItems.map((item) => (
+                    <li key={item.text} className="flex items-start gap-3">
+                      <XIcon />
+                      <div>
+                        <span style={{ fontSize: 16, color: "rgba(0,0,0,0.7)", lineHeight: 1.6 }}>{item.text}</span>
+                        {item.href ? (
+                          <Link
+                            href={`/diensten/${item.href}` as "/diensten/strategie"}
+                            className="mt-1 inline-flex items-center gap-1 text-sm font-medium transition-colors hover:underline"
+                            style={{ color: "#FF7150", display: "block" }}
+                          >
+                            {item.link} &rarr;
+                          </Link>
+                        ) : (
+                          <span className="mt-1 block text-sm font-medium" style={{ color: "#FF7150" }}>
+                            &rarr; {item.link}
+                          </span>
+                        )}
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
           </div>
         </ScrollReveal>
       </div>
@@ -380,6 +426,28 @@ function SponsorSection({ slug }: { slug: ServiceSlug }) {
                 </li>
               ))}
             </ul>
+
+            {/* Collapsible deliverables */}
+            <div className="mt-6" style={{ borderTop: "1px solid rgba(0,0,0,0.06)" }} />
+            <details className="mt-5 group">
+              <summary
+                className="cursor-pointer text-sm font-medium select-none list-none flex items-center gap-1.5"
+                style={{ color: "#FF7150" }}
+              >
+                {t("detail.kickstart.deliverableToggle")}
+                <span className="transition-transform group-open:rotate-90" aria-hidden="true">&#9656;</span>
+              </summary>
+              <ul className="mt-4 grid grid-cols-1 gap-2 md:grid-cols-2">
+                {Array.from({ length: 10 }, (_, i) => (
+                  <li key={i} className="flex items-start gap-2">
+                    <ServiceCheckIcon color="#FF7150" />
+                    <span style={{ fontSize: 14, color: "rgba(0,0,0,0.6)", lineHeight: 1.5 }}>
+                      {t(`detail.kickstart.get${i + 1}`)}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </details>
           </div>
         </ScrollReveal>
       </div>
@@ -579,11 +647,35 @@ function PricingSection({ slug }: { slug: ServiceSlug }) {
   );
 }
 
+/* ---- Mid-Page CTA (kickstart only) ---- */
+
+function MidPageCTA({ slug }: { slug: ServiceSlug }) {
+  const t = useTranslations("diensten");
+  if (slug !== "kickstart") return null;
+
+  return (
+    <div className="bg-white px-6 md:px-10 py-8 text-center">
+      <a
+        href={BOOK_CALL_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="inline-flex items-center justify-center rounded-xl px-8 py-3 text-sm font-medium text-white transition-colors hover:opacity-90"
+        style={{ backgroundColor: "#FF7150" }}
+      >
+        {t(`detail.${slug}.cta`)}
+      </a>
+    </div>
+  );
+}
+
 /* ---- ROI (kickstart only) ---- */
 
 function ROISection({ slug }: { slug: ServiceSlug }) {
   const t = useTranslations("diensten");
   if (slug !== "kickstart") return null;
+
+  // proof1 = VAPRO (no case page), proof2 = Movir, proof3 = Euphoria
+  const caseSlugMap: Record<number, string | null> = { 1: null, 2: "movir", 3: "euphoria" };
 
   const proofs = [1, 2, 3].map((i) => ({
     sector: t(`detail.kickstart.proof${i}Sector`),
@@ -591,6 +683,7 @@ function ROISection({ slug }: { slug: ServiceSlug }) {
     before: t(`detail.kickstart.proof${i}Before`),
     after: t(`detail.kickstart.proof${i}After`),
     roi: t(`detail.kickstart.proof${i}Roi`),
+    caseSlug: caseSlugMap[i] ?? null,
   }));
 
   return (
@@ -628,6 +721,15 @@ function ROISection({ slug }: { slug: ServiceSlug }) {
                 <p className="mt-3" style={{ fontSize: 13, color: "rgba(255,255,255,0.4)" }}>
                   {proof.roi}
                 </p>
+                {proof.caseSlug && (
+                  <Link
+                    href={`/cases/${proof.caseSlug}` as "/cases/movir"}
+                    className="mt-4 inline-flex items-center gap-1 text-sm font-medium transition-colors hover:underline"
+                    style={{ color: "#FF7150" }}
+                  >
+                    {t("detail.kickstart.viewCase")} &rarr;
+                  </Link>
+                )}
               </div>
             ))}
           </div>
@@ -860,6 +962,24 @@ function TwoPathsSection({ slug }: { slug: ServiceSlug }) {
 /* ---- Main Component ---- */
 
 export function ServiceDetailPage({ slug }: { slug: ServiceSlug }) {
+  if (slug === "kickstart") {
+    return (
+      <>
+        <HeroSection slug={slug} />
+        <SocialProofStrip slug={slug} />
+        <ForWhoSection slug={slug} />
+        <DifferentiatorsSection slug={slug} />
+        <SponsorSection slug={slug} />
+        <HowItWorksSection slug={slug} />
+        <PricingSection slug={slug} />
+        <MidPageCTA slug={slug} />
+        <ROISection slug={slug} />
+        <TestimonialSection slug={slug} />
+        <TwoPathsSection slug={slug} />
+      </>
+    );
+  }
+
   return (
     <>
       <HeroSection slug={slug} />
@@ -868,15 +988,11 @@ export function ServiceDetailPage({ slug }: { slug: ServiceSlug }) {
       <WhatYouGetSection slug={slug} />
       <SponsorSection slug={slug} />
       <HowItWorksSection slug={slug} />
-      {(slug === "kickstart" || slug === "fundamentals") && <PricingSection slug={slug} />}
+      {slug === "fundamentals" && <PricingSection slug={slug} />}
       <ROISection slug={slug} />
       <TestimonialSection slug={slug} />
       <CompanySizeSection slug={slug} />
-      {slug === "kickstart" ? (
-        <TwoPathsSection slug={slug} />
-      ) : (
-        <NextStepSection slug={slug} />
-      )}
+      <NextStepSection slug={slug} />
     </>
   );
 }

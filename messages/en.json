@@ -437,7 +437,10 @@
         "proof3Metric": "AI applications",
         "proof3Before": "0 working prototypes",
         "proof3After": "10+ applications built",
-        "proof3Roi": "5X more efficient"
+        "proof3Roi": "5X more efficient",
+        "deliverableToggle": "View all deliverables",
+        "viewCase": "View case study",
+        "socialProofTitle": "They went before you"
       },
       "adoptie": {
         "metaTitle": "Adoption",

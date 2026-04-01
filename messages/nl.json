@@ -437,7 +437,10 @@
         "proof3Metric": "AI-toepassingen",
         "proof3Before": "0 werkende prototypes",
         "proof3After": "10+ toepassingen gebouwd",
-        "proof3Roi": "5X efficiënter"
+        "proof3Roi": "5X efficiënter",
+        "deliverableToggle": "Bekijk alle deliverables",
+        "viewCase": "Bekijk de case",
+        "socialProofTitle": "Zij gingen je voor"
       },
       "adoptie": {
         "metaTitle": "Adoptie",
