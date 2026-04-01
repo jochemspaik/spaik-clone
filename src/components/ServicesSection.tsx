@@ -11,6 +11,7 @@ export function ServicesSection() {
   const kickstart = SERVICES.find((s) => s.featured);
   const adoptie = SERVICES.find((s) => s.slug === "adoptie");
   const inspiratie = SERVICES.find((s) => s.slug === "inspiratie");
+  const fundamentals = SERVICES.find((s) => s.slug === "fundamentals");
 
   return (
     <section id="services" className="relative overflow-hidden bg-white px-6 py-16 md:px-10 md:py-20">
@@ -95,12 +96,6 @@ export function ServicesSection() {
                   >
                     {t("diensten.mostChosen")}
                   </span>
-                  <span
-                    className="rounded-full px-2.5 py-0.5 text-[11px] font-medium"
-                    style={{ backgroundColor: "rgba(255,255,255,0.15)", color: "rgba(255,255,255,0.8)" }}
-                  >
-                    {t("diensten.overview.kickstart.scarcity")}
-                  </span>
                 </div>
 
                 <h3
@@ -139,43 +134,9 @@ export function ServicesSection() {
           </div>
         )}
 
-        {/* Supporting cards: Adoptie, Inspiratie, Trainingen */}
+        {/* Supporting cards: Inspiratie, Leren & Trainingen, Adoptie */}
         <div className="grid grid-cols-1 gap-3 md:grid-cols-3 md:gap-4">
-          {/* Adoptie */}
-          {adoptie && (
-            <Link
-              href={"/diensten/adoptie" as "/"}
-              className="group flex flex-col rounded-xl p-5 transition-shadow hover:shadow-lg"
-              style={{
-                backgroundColor: adoptie.tint.bg,
-                boxShadow: `inset 0 0 0 1px ${adoptie.tint.ring}`,
-              }}
-            >
-              <div
-                className="flex items-center justify-center rounded-xl"
-                style={{ width: 40, height: 40, backgroundColor: adoptie.tint.iconBg }}
-              >
-                <img src={adoptie.icon} alt="" aria-hidden="true" style={{ width: 22, height: 22 }} />
-              </div>
-              <p
-                className="mt-3 font-heading"
-                style={{ fontSize: 17, fontWeight: 400, color: "#0b0b0b", lineHeight: 1.2 }}
-              >
-                {t("diensten.overview.adoptie.title")}
-              </p>
-              <p className="mt-1.5 text-xs leading-relaxed" style={{ color: "rgba(0,0,0,0.5)" }}>
-                {t("diensten.overview.adoptie.tagline")}
-              </p>
-              <span
-                className="mt-auto pt-4 inline-flex items-center gap-1 text-xs font-medium transition-all group-hover:gap-2"
-                style={{ color: "rgba(0,0,0,0.4)" }}
-              >
-                {t("diensten.moreAbout")} &rarr;
-              </span>
-            </Link>
-          )}
-
-          {/* Inspiratie */}
+          {/* 1. Inspiratie Sessie */}
           {inspiratie && (
             <Link
               href={"/diensten/inspiratie" as "/"}
@@ -200,52 +161,91 @@ export function ServicesSection() {
               <p className="mt-1.5 text-xs leading-relaxed" style={{ color: "rgba(0,0,0,0.5)" }}>
                 {t("diensten.overview.inspiratie.tagline")}
               </p>
+              <p className="mt-1 text-xs" style={{ color: "rgba(0,0,0,0.35)" }}>
+                {t("diensten.overview.inspiratie.price")}
+              </p>
               <span
                 className="mt-auto pt-4 inline-flex items-center gap-1 text-xs font-medium transition-all group-hover:gap-2"
-                style={{ color: "rgba(0,0,0,0.4)" }}
+                style={{ color: inspiratie.color }}
               >
                 {t("diensten.moreAbout")} &rarr;
               </span>
             </Link>
           )}
 
-          {/* Trainingen — external link */}
-          <a
-            href="https://traininghub.spaik.io/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group flex flex-col rounded-xl p-5 transition-shadow hover:shadow-lg"
-            style={{
-              backgroundColor: "#F0F4FF",
-              boxShadow: "inset 0 0 0 1px rgba(99,122,255,0.25)",
-            }}
-          >
-            <div
-              className="flex items-center justify-center rounded-xl"
-              style={{ width: 40, height: 40, backgroundColor: "rgba(99,122,255,0.15)" }}
+          {/* 2. Leren & Trainingen → links to Fundamentals page */}
+          {fundamentals && (
+            <Link
+              href={"/diensten/fundamentals" as "/"}
+              className="group flex flex-col rounded-xl p-5 transition-shadow hover:shadow-lg"
+              style={{
+                backgroundColor: fundamentals.tint.bg,
+                boxShadow: `inset 0 0 0 1px ${fundamentals.tint.ring}`,
+              }}
             >
-              {/* Book/learning icon */}
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="rgba(99,122,255,0.9)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
-                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
-              </svg>
-            </div>
-            <p
-              className="mt-3 font-heading"
-              style={{ fontSize: 17, fontWeight: 400, color: "#0b0b0b", lineHeight: 1.2 }}
+              <div
+                className="flex items-center justify-center rounded-xl"
+                style={{ width: 40, height: 40, backgroundColor: fundamentals.tint.iconBg }}
+              >
+                <img src={fundamentals.icon} alt="" aria-hidden="true" style={{ width: 22, height: 22 }} />
+              </div>
+              <p
+                className="mt-3 font-heading"
+                style={{ fontSize: 17, fontWeight: 400, color: "#0b0b0b", lineHeight: 1.2 }}
+              >
+                {t("services.trainingsCard")}
+              </p>
+              <p className="mt-1.5 text-xs leading-relaxed" style={{ color: "rgba(0,0,0,0.5)" }}>
+                {t("services.trainingsCardSub")}
+              </p>
+              <p className="mt-1 text-xs" style={{ color: "rgba(0,0,0,0.35)" }}>
+                {t("diensten.overview.fundamentals.price")}
+              </p>
+              <span
+                className="mt-auto pt-4 inline-flex items-center gap-1 text-xs font-medium transition-all group-hover:gap-2"
+                style={{ color: fundamentals.color }}
+              >
+                {t("diensten.moreAbout")} &rarr;
+              </span>
+            </Link>
+          )}
+
+          {/* 3. Adoptie */}
+          {adoptie && (
+            <Link
+              href={"/diensten/adoptie" as "/"}
+              className="group flex flex-col rounded-xl p-5 transition-shadow hover:shadow-lg"
+              style={{
+                backgroundColor: adoptie.tint.bg,
+                boxShadow: `inset 0 0 0 1px ${adoptie.tint.ring}`,
+              }}
             >
-              {t("services.trainingsCard")}
-            </p>
-            <p className="mt-1.5 text-xs leading-relaxed" style={{ color: "rgba(0,0,0,0.5)" }}>
-              {t("services.trainingsCardSub")}
-            </p>
-            <span
-              className="mt-auto pt-4 inline-flex items-center gap-1 text-xs font-medium transition-all group-hover:gap-2"
-              style={{ color: "rgba(99,122,255,0.7)" }}
-            >
-              {t("diensten.moreAbout")} &rarr;
-            </span>
-          </a>
+              <div
+                className="flex items-center justify-center rounded-xl"
+                style={{ width: 40, height: 40, backgroundColor: adoptie.tint.iconBg }}
+              >
+                <img src={adoptie.icon} alt="" aria-hidden="true" style={{ width: 22, height: 22 }} />
+              </div>
+              <p
+                className="mt-3 font-heading"
+                style={{ fontSize: 17, fontWeight: 400, color: "#0b0b0b", lineHeight: 1.2 }}
+              >
+                {t("diensten.overview.adoptie.title")}
+              </p>
+              <p className="mt-1.5 text-xs leading-relaxed" style={{ color: "rgba(0,0,0,0.5)" }}>
+                {t("diensten.overview.adoptie.tagline")}
+              </p>
+              <p className="mt-1 text-xs" style={{ color: "rgba(0,0,0,0.35)" }}>
+                {t("diensten.overview.adoptie.price")}
+              </p>
+              <span
+                className="mt-auto pt-4 inline-flex items-center gap-1 text-xs font-medium transition-all group-hover:gap-2"
+                style={{ color: adoptie.color }}
+              >
+                {t("diensten.moreAbout")} &rarr;
+              </span>
+            </Link>
+          )}
         </div>
 
         {/* All services link */}
