@@ -193,10 +193,10 @@ export function ServicesSection() {
                 className="mt-3 font-heading"
                 style={{ fontSize: 17, fontWeight: 400, color: "#0b0b0b", lineHeight: 1.2 }}
               >
-                {t("services.trainingsCard")}
+                {t("diensten.overview.fundamentals.title")}
               </p>
               <p className="mt-1.5 text-xs leading-relaxed" style={{ color: "rgba(0,0,0,0.5)" }}>
-                {t("services.trainingsCardSub")}
+                {t("diensten.overview.fundamentals.tagline")}
               </p>
               <p className="mt-1 text-xs" style={{ color: "rgba(0,0,0,0.35)" }}>
                 {t("diensten.overview.fundamentals.price")}
