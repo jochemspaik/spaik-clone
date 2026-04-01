@@ -393,7 +393,7 @@ function SponsorSection({ slug }: { slug: ServiceSlug }) {
 
   return (
     <section className="px-6 md:px-10 py-12 md:py-20" style={{ backgroundColor: "#F3EDED" }}>
-      <div className="mx-auto" style={{ maxWidth: 720 }}>
+      <div className="mx-auto" style={{ maxWidth: 1080 }}>
         <ScrollReveal>
           <div
             className="rounded-2xl p-8 md:p-12"
@@ -500,33 +500,34 @@ function HowItWorksSection({ slug }: { slug: ServiceSlug }) {
 
           {/* Kickstart: horizontal timeline on desktop */}
           {isKickstart && (
-            <div className="mt-10 hidden md:flex items-start">
+            <div className="mt-10 hidden md:grid" style={{ gridTemplateColumns: `repeat(${steps.length}, 1fr)`, gap: 0 }}>
               {(() => {
                 let stepNum = 0;
                 return steps.map((step, i) => {
                   if (!step.highlight) stepNum++;
                   const isLast = i === steps.length - 1;
                   return (
-                    <div key={step.title} className="flex flex-1 items-start">
-                      <div className="flex flex-col items-center flex-1">
-                        <TimelineStep step={stepNum} highlight={step.highlight} />
-                        <h3
-                          className="font-heading mt-3 text-center"
-                          style={{ fontSize: 16, fontWeight: step.highlight ? 500 : 400, color: step.highlight ? "#FF7150" : "#0b0b0b" }}
-                        >
-                          {step.title}
-                        </h3>
-                        {step.detail && (
-                          <p className="mt-1 text-center" style={{ fontSize: 13, color: "rgba(0,0,0,0.55)", lineHeight: 1.4, maxWidth: 200 }}>
-                            {step.detail}
-                          </p>
-                        )}
-                      </div>
+                    <div key={step.title} className="relative flex flex-col items-center px-3">
+                      {/* Connector line (between circles) */}
                       {!isLast && (
                         <div
-                          className="shrink-0 mt-3.5"
-                          style={{ width: 32, height: 2, backgroundColor: step.highlight ? "#FF7150" : "#DEDCCC" }}
+                          className="absolute top-3.5 left-1/2 h-0.5"
+                          style={{ width: "100%", backgroundColor: step.highlight ? "#FF7150" : "#DEDCCC" }}
                         />
+                      )}
+                      <div className="relative z-10">
+                        <TimelineStep step={stepNum} highlight={step.highlight} />
+                      </div>
+                      <h3
+                        className="font-heading mt-4 text-center"
+                        style={{ fontSize: 18, fontWeight: step.highlight ? 500 : 400, color: step.highlight ? "#FF7150" : "#0b0b0b", lineHeight: 1.2 }}
+                      >
+                        {step.title}
+                      </h3>
+                      {step.detail && (
+                        <p className="mt-2 text-center" style={{ fontSize: 14, color: "rgba(0,0,0,0.55)", lineHeight: 1.5 }}>
+                          {step.detail}
+                        </p>
                       )}
                     </div>
                   );
@@ -591,34 +592,70 @@ function PricingSection({ slug }: { slug: ServiceSlug }) {
             {t("detail.whatItCosts")}
           </h2>
 
-          <div className="mt-10 text-center">
-            <p className="font-heading" style={{ fontSize: 48, fontWeight: 100, color: "#0b0b0b" }}>
-              {t(`detail.${slug}.pricingAmount`)}
-            </p>
-            <p style={{ fontSize: 18, color: "rgba(0,0,0,0.5)" }}>{t(`detail.${slug}.pricingLabel`)}</p>
-          </div>
-
-          {/* Split pricing cards (kickstart) or includes list (fundamentals) */}
+          {/* Kickstart: card-style pricing (like Adoptie tiers) */}
           {slug === "kickstart" ? (
-            <div className="mt-10 grid grid-cols-1 gap-4 md:grid-cols-2 max-w-[640px] mx-auto">
-              <div className="rounded-2xl border border-[#DEDCCC] bg-white p-6">
-                <p className="font-medium" style={{ fontSize: 20, color: "#0b0b0b" }}>
-                  {t("detail.kickstart.pricingSplit1")}
-                </p>
-                <p className="mt-2" style={{ fontSize: 14, color: "rgba(0,0,0,0.6)" }}>
-                  {t("detail.kickstart.pricingSplit1detail")}
-                </p>
-              </div>
-              <div className="rounded-2xl border border-[#DEDCCC] bg-white p-6">
-                <p className="font-medium" style={{ fontSize: 20, color: "#0b0b0b" }}>
-                  {t("detail.kickstart.pricingSplit2")}
-                </p>
-                <p className="mt-2" style={{ fontSize: 14, color: "rgba(0,0,0,0.6)" }}>
-                  {t("detail.kickstart.pricingSplit2detail")}
-                </p>
+            <div className="mt-10 mx-auto" style={{ maxWidth: 640 }}>
+              <div
+                className="relative rounded-2xl bg-white p-8 md:p-10"
+                style={{ border: "2px solid #FF7150" }}
+              >
+                {/* Badge */}
+                <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#FF7150] text-white text-xs font-medium px-3 py-1 rounded-full">
+                  {t("detail.kickstart.phase")}
+                </span>
+
+                {/* Price */}
+                <div className="text-center">
+                  <p className="font-heading" style={{ fontSize: 48, fontWeight: 100, color: "#0b0b0b" }}>
+                    {t("detail.kickstart.pricingAmount")}
+                  </p>
+                  <p style={{ fontSize: 16, color: "rgba(0,0,0,0.5)" }}>{t("detail.kickstart.pricingLabel")}</p>
+                </div>
+
+                {/* Split details */}
+                <div className="mt-6 grid grid-cols-2 gap-4">
+                  <div className="rounded-xl p-4" style={{ backgroundColor: "#FAFAF8" }}>
+                    <p className="text-sm font-medium" style={{ color: "#0b0b0b" }}>
+                      {t("detail.kickstart.pricingSplit1")}
+                    </p>
+                    <p className="mt-1 text-xs" style={{ color: "rgba(0,0,0,0.5)" }}>
+                      {t("detail.kickstart.pricingSplit1detail")}
+                    </p>
+                  </div>
+                  <div className="rounded-xl p-4" style={{ backgroundColor: "#FAFAF8" }}>
+                    <p className="text-sm font-medium" style={{ color: "#0b0b0b" }}>
+                      {t("detail.kickstart.pricingSplit2")}
+                    </p>
+                    <p className="mt-1 text-xs" style={{ color: "rgba(0,0,0,0.5)" }}>
+                      {t("detail.kickstart.pricingSplit2detail")}
+                    </p>
+                  </div>
+                </div>
+
+                {/* CTA */}
+                <div className="mt-6">
+                  <a
+                    href={BOOK_CALL_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex w-full items-center justify-center rounded-xl px-6 py-3 text-sm font-medium transition-colors"
+                    style={{ backgroundColor: "#FF7150", color: "#fff" }}
+                  >
+                    {t("detail.kickstart.cta")}
+                  </a>
+                </div>
               </div>
             </div>
-          ) : slug === "fundamentals" ? (
+          ) : (
+            <>
+            {/* Generic price display for non-kickstart */}
+            <div className="mt-10 text-center">
+              <p className="font-heading" style={{ fontSize: 48, fontWeight: 100, color: "#0b0b0b" }}>
+                {t(`detail.${slug}.pricingAmount`)}
+              </p>
+              <p style={{ fontSize: 18, color: "rgba(0,0,0,0.5)" }}>{t(`detail.${slug}.pricingLabel`)}</p>
+            </div>
+            {slug === "fundamentals" ? (
             <div className="mt-10 flex flex-col gap-4 max-w-[640px] mx-auto">
               {[1, 2, 3].map((i) => (
                 <div key={i} className="flex items-start gap-4 rounded-2xl border border-[#DEDCCC] bg-white p-6">
@@ -635,6 +672,8 @@ function PricingSection({ slug }: { slug: ServiceSlug }) {
               ))}
             </div>
           ) : null}
+            </>
+          )}
 
           {t.has(`detail.${slug}.pricingRisk`) && (
             <p className="mt-8 text-center italic" style={{ fontSize: 16, color: "rgba(0,0,0,0.6)" }}>
