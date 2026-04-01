@@ -230,7 +230,7 @@ function TandemSection() {
               <div key={phase.title} className="flex flex-col gap-3">
                 <span
                   className="flex items-center justify-center shrink-0 rounded-full text-xs font-medium"
-                  style={{ width: 28, height: 28, backgroundColor: "#0b0b0b", color: "#fff" }}
+                  style={{ width: 28, height: 28, backgroundColor: "#FF7150", color: "#fff" }}
                 >
                   {i + 1}
                 </span>
@@ -609,7 +609,7 @@ function TimelineSection() {
                   <div className="flex flex-col items-center">
                     <span
                       className="flex items-center justify-center shrink-0 rounded-full text-xs font-medium"
-                      style={{ width: 28, height: 28, backgroundColor: "#0b0b0b", color: "#fff" }}
+                      style={{ width: 28, height: 28, backgroundColor: "#FF7150", color: "#fff" }}
                     >
                       {i + 1}
                     </span>

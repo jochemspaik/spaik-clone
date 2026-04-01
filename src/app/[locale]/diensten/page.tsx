@@ -74,7 +74,7 @@ export default function DienstenPage() {
         <section className="bg-white">
           <ScrollReveal>
             <div
-              className="px-6 md:px-10 pb-16 pt-6 md:pb-20 md:pt-8"
+              className="px-6 md:px-10 pb-10 pt-6 md:pb-12 md:pt-8"
               style={{ maxWidth: 1080, margin: "0 auto" }}
             >
               {/* Two tracks side by side */}
@@ -250,7 +250,7 @@ export default function DienstenPage() {
         <section style={{ backgroundColor: "#F3EDED" }}>
           <ScrollReveal>
             <div
-              className="px-6 md:px-10 py-20 text-center"
+              className="px-6 md:px-10 py-12 md:py-14 text-center"
               style={{ maxWidth: 800, margin: "0 auto" }}
             >
               <blockquote>

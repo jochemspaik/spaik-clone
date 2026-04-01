@@ -165,7 +165,7 @@ export default function CasesPage() {
     <main className="min-h-[100dvh]">
       {/* -------- Hero -------- */}
       <section
-        className="px-6 md:px-10 pt-32 pb-16"
+        className="px-6 md:px-10 pt-28 pb-10"
         style={{ maxWidth: 1080, margin: "0 auto" }}
       >
         <ScrollReveal>
