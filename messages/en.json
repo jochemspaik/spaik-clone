@@ -29,12 +29,12 @@
       "stat2value": "300+",
       "stat2label": "People trained",
       "stat3value": "10",
-      "stat3label": "Internal champions trained",
-      "roiText": "Beachhead client — ongoing partnership",
+      "stat3label": "Internal Champions trained",
+      "roiText": "Beachhead client, ongoing partnership",
       "situation": "Movir is a disability insurer with over 400 employees. The management team recognized AI's potential, but the organization was stuck in wait-and-see mode. There was no structure, no policy, and no visibility into what AI could actually deliver. The commercial department spent hours on manual work that could be done in minutes with the right approach.",
       "approach": "We started with the management team. A session with Maurick and the MT examining what AI concretely means for Movir, where the opportunities lie, and what steps are needed. The MT was immediately convinced and wanted it for the entire organization. What followed: over 300 people trained in groups, using their own processes as the starting point. 10 internal champions trained to build independently. Then the marketing department in multiple sessions. Now we are working on the entire commercial side — sales and marketing — in two-week sprints.",
-      "result": "Sales conversations are automatically logged in the CRM, variables are filled, and detailed segmentation is created. What used to take an hour of sales processing is now one minute. Over 300 people trained, 10 champions independently building AI applications — from technical solutions to agents. Movir grew from an initial training into an ongoing partnership.",
-      "impact": "Movir's commercial team delivers significantly more output with the same people. Sales spends time on clients instead of administration. Marketing creates in minutes what used to take hours. The 10 internal champions ensure Movir isn't dependent on external parties — they identify new use cases and build on their own. The MT showed remarkable openness from the start: everyone deserves to be well-prepared for this."
+      "result": "Sales conversations are automatically logged in the CRM, variables are filled, and detailed segmentation is created. What used to take an hour of sales processing is now one minute. Over 300 people trained, 10 Champions independently building AI applications, from technical solutions to agents. Movir grew from an initial training into an ongoing partnership.",
+      "impact": "Movir's commercial team delivers significantly more output with the same people. Sales spends time on clients instead of administration. Marketing creates in minutes what used to take hours. The 10 internal Champions ensure Movir isn't dependent on external parties: they identify new use cases and build on their own. The management team showed remarkable openness from the start: everyone deserves to be well-prepared for this."
     },
     "euphoria": {
       "name": "Euphoria Mobility",
@@ -65,10 +65,10 @@
       "stat3value": "6",
       "stat3label": "Paying beta clients",
       "roiText": "From idea to live product in 4 months",
-      "situation": "Reditus, an affiliate marketing platform for B2B SaaS companies, had their biggest growth opportunity clearly in sight: automatically finding relevant affiliates outside their 20,000+ network. But the engineering team had no bandwidth for R&D. Manual affiliate recruitment took half a day per client — that doesn't scale to hundreds of clients. Competitors were launching similar features. Reditus had SaaStock in October as a deadline to demo the feature live.",
+      "situation": "Reditus, an affiliate marketing platform for B2B SaaS companies, had their biggest growth opportunity clearly in sight: automatically finding relevant affiliates outside their 20,000+ network. But the engineering team had no bandwidth for R&D. Manual affiliate recruitment took half a day per client, that doesn't scale to hundreds of clients. Competitors were launching similar features. Reditus had SaaStock in October as a deadline to demo the feature live.",
       "approach": "SPAIK worked as a forward-deployed engineer: integrated into the Reditus team, daily standups, direct system access. Week 1-2: a deliberately simple PoC with Google Docs and Sheets to validate whether AI agents could produce workable results. It worked. Then production architecture: n8n workflows, Supabase as data layer, three parallel AI agents (Content Affiliate, Service Provider, On-Page Crawl). Each agent follows a 3-layer process: collection, analysis, enrichment. The transfer model: SPAIK builds an agent to stable MVP, documents everything, transfers to Reditus, and starts on the next.",
-      "result": "What used to take 4-6 hours of manual research per client is now 30 minutes of automated processing with 1,000-2,000+ qualified matches. 17,000+ new affiliate prospects discovered, 26,000+ contacts verified. 6 paying beta clients specifically for the AI feature. Live demo at SaaStock generated 20+ qualified leads. Full code transfer to the Reditus team — the retainer ended because the project succeeded, not because it failed.",
-      "impact": "Reditus now has a fully integrated AI module in their platform that transformed their affiliate discovery from manual to hyperscale. The competitive difference: they did it in 4 months where comparable features take 12-18 months. The codebase is transferable and maintainable — no vendor lock-in. The Reditus team runs, debugs, and extends the system independently. SPAIK didn't build for Reditus, but with Reditus."
+      "result": "What used to take 4-6 hours of manual research per client is now 30 minutes of automated processing with 1,000-2,000+ qualified matches. 17,000+ new affiliate prospects discovered, 26,000+ contacts verified. 6 paying beta clients specifically for the AI feature. Live demo at SaaStock generated 20+ qualified leads. Full code transfer to the Reditus team. The retainer ended because the project succeeded, not because it failed.",
+      "impact": "Reditus now has a fully integrated AI module in their platform that transformed their affiliate discovery from manual to hyperscale. The competitive difference: they did it in 4 months where comparable features take 12-18 months. The codebase is transferable and maintainable, no vendor lock-in. The Reditus team runs, debugs, and extends the system independently. SPAIK didn't build for Reditus, but with Reditus."
     },
     "viewAll": "View all cases",
     "detail": {
@@ -146,7 +146,7 @@
       "feature1": "Prioritized AI Opportunities + Roadmap",
       "feature2": "1 automation in production",
       "feature3": "Half-day training (10 people)",
-      "paymentNote": "€5k upfront, €5k after roadmap approval."
+      "paymentNote": "€5k upfront, €7.5k after delivery."
     },
     "fundamentals": {
       "name": "AI Fundamentals",
@@ -155,7 +155,7 @@
       "detail": "No theory that everyone forgets as soon as they're back. Training with your own processes, 6 weeks of guidance, and time savings from week 1.",
       "feature1": "Workshop about your context",
       "feature2": "6-week challenges + coaching",
-      "feature3": "9.1 out - 700 participant evaluations"
+      "feature3": "Rated 9.1/10 by 700 participants"
     },
     "bookCall": "Book a call",
     "readMore": "Read more",
@@ -357,7 +357,7 @@
         "week2detail": "Week 3: First working version. Demo Friday. Week 4: Process feedback, refine, test with real data. Core team training. Go-live.",
         "pricingAmount": "€12,500",
         "pricingLabel": "all-in",
-        "pricingRisk": "One price, fixed scope. The business case for a follow-up writes itself. And if it doesn't, you found that out for €14K instead of €100K+.",
+        "pricingRisk": "One price, fixed scope. The business case for a follow-up writes itself. And if it doesn't, you found that out for €12.5K instead of €100K+.",
         "diffTitle": "What makes our Kickstart different",
         "diff1": "Proof on real data, not demos",
         "diff1detail": "We build with your data, in your systems, on your processes.",
@@ -595,7 +595,7 @@
         "no1": "You already know what you want to automate",
         "no1link": "Go directly to Kickstart",
         "no2": "You only want to inspire the leadership team",
-        "no2link": "See the Strategy Session",
+        "no2link": "See the Inspiration Session",
         "get1": "Workshop tailored to your context",
         "get2": "6 weeks of challenges and coaching",
         "get3": "EU AI Act compliance",
@@ -691,7 +691,7 @@
       "option3slug": "kickstart",
       "option4": "We're already using AI but want to scale up",
       "option4slug": "adoptie",
-      "option1result": "Strategy Session",
+      "option1result": "Inspiration Session",
       "option2result": "AI Fundamentals",
       "option3result": "Kickstart",
       "option4result": "Adoption"
@@ -845,7 +845,7 @@
       "risk1Title": "Champion Gate",
       "risk1Body": "We don't sell a program if there are no suitable Champions. No good match = no sale.",
       "risk2Title": "Kickstart Checkpoint",
-      "risk2Body": "Most clients start with a Kickstart (€10K). After week 1, there's a go/no-go moment.",
+      "risk2Body": "Most clients start with a Kickstart (€12,500). After week 1, there's a go/no-go moment.",
       "risk3Title": "Full handover",
       "risk3Body": "After 6 months, everything is yours, documentation, training materials, working systems. No lock-in.",
       "aboutTitle": "About SPAIK",

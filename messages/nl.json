@@ -146,7 +146,7 @@
       "feature1": "Geprioriteerde AI-kansen + Roadmap",
       "feature2": "1 automatisering in productie",
       "feature3": "Halve dag training (10 personen)",
-      "paymentNote": "€5k vooraf, €5k na goedkeuring roadmap."
+      "paymentNote": "€5k vooraf, €7.5k na oplevering."
     },
     "fundamentals": {
       "name": "AI Fundamentals",
@@ -357,7 +357,7 @@
         "week2detail": "Week 3: Eerste werkende versie. Demo vrijdag. Week 4: Feedback verwerken, verfijnen, testen met echte data. Training kernteam. Go-live.",
         "pricingAmount": "€12.500",
         "pricingLabel": "all-in",
-        "pricingRisk": "Eén prijs, vaste scope. De business case voor een vervolg schrijft zichzelf. En als die er niet is, heb je dat voor €14K ontdekt in plaats van voor €100K+.",
+        "pricingRisk": "Eén prijs, vaste scope. De business case voor een vervolg schrijft zichzelf. En als die er niet is, heb je dat voor €12.5K ontdekt in plaats van voor €100K+.",
         "diffTitle": "Wat onze Kickstart anders maakt",
         "diff1": "Bewijs op echte data, niet op demo's",
         "diff1detail": "We bouwen met jullie data, in jullie systemen, op jullie processen.",
@@ -595,7 +595,7 @@
         "no1": "Jullie weten al wat jullie willen automatiseren",
         "no1link": "Direct naar Kickstart",
         "no2": "Jullie willen alleen het MT inspireren",
-        "no2link": "Bekijk de Strategie Sessie",
+        "no2link": "Bekijk de Inspiratie Sessie",
         "get1": "Workshop rondom jullie context",
         "get1detail": "Niet generiek maar met jullie eigen processen, data en uitdagingen. Hands-on, niet slides.",
         "get2": "6 weken challenges en coaching",
@@ -691,7 +691,7 @@
       "option3slug": "kickstart",
       "option4": "We zijn al bezig maar willen opschalen",
       "option4slug": "adoptie",
-      "option1result": "Strategie Sessie",
+      "option1result": "Inspiratie Sessie",
       "option2result": "AI Fundamentals",
       "option3result": "Kickstart",
       "option4result": "Adoptie"
@@ -845,7 +845,7 @@
       "risk1Title": "Champion Gate",
       "risk1Body": "Wij verkopen geen traject als er geen geschikte Champions zijn. Geen goede match = geen verkoop.",
       "risk2Title": "Kickstart Checkpoint",
-      "risk2Body": "De meeste klanten doen eerst een Kickstart (€10K). Na week 1 is er een go/no-go moment.",
+      "risk2Body": "De meeste klanten doen eerst een Kickstart (€12.500). Na week 1 is er een go/no-go moment.",
       "risk3Title": "Volledige overdracht",
       "risk3Body": "Na 6 maanden is alles van jullie, documentatie, trainingsmateriaal, werkende systemen. Geen lock-in.",
       "aboutTitle": "Over SPAIK",
