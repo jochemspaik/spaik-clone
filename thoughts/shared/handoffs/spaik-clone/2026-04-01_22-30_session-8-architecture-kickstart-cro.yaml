@@ -1,0 +1,113 @@
+---
+session: spaik-clone
+date: 2026-04-01
+status: partial
+outcome: STRONG_PLUS
+---
+
+goal: Site architecture restructuur (nav, pages, diensten model) + Kickstart v3.1 CRO + design audit
+now: Homepage card labels fixen (Fundamentals apart) + discovery secties combineren + case content wachten
+
+test: npm run build && npm run dev && open http://localhost:3000
+
+done_this_session:
+  - task: "Data layer (services.ts + cases.ts) — deduplicatie van slugs, icons, textures"
+    files: [src/data/services.ts, src/data/cases.ts]
+  - task: "Header/Footer naar layout.tsx — single source of truth"
+    files: [src/app/[locale]/layout.tsx]
+  - task: "Nav links locale-aware — fixed /#cases bug, Cases→/cases, Diensten→/diensten"
+    files: [src/components/Header.tsx, src/components/Footer.tsx]
+  - task: "Cases pages — /cases index + /cases/[slug] detail + editorial layout (Stitch-inspired)"
+    files: [src/app/[locale]/cases/page.tsx, src/app/[locale]/cases/[slug]/page.tsx, src/components/CaseDetailView.tsx]
+  - task: "Kickstart v3 content — €14K, 10 deliverables, business case framing, split pricing"
+    files: [src/components/ServiceDetailPage.tsx, messages/nl.json, messages/en.json]
+  - task: "Kickstart v3.1 — €12.500, 7 deliverables, tech assessment removed, cleaner structure"
+    files: [src/components/ServiceDetailPage.tsx, messages/nl.json, messages/en.json]
+  - task: "CRO restructure Kickstart — social proof strip, section reorder, condensed deliverables"
+    files: [src/components/ServiceDetailPage.tsx]
+  - task: "Diensten restructuur — Strategie→Inspiratie, two-track layout (Bouwen/Leren)"
+    files: [src/data/services.ts, src/app/[locale]/diensten/page.tsx, src/components/ServicesSection.tsx]
+  - task: "Homepage Kickstart hero card + 3 supporting service cards"
+    files: [src/components/ServicesSection.tsx]
+  - task: "Design audit fixes — dark differentiator manifesto, sponsor impact card, pricing card Adoptie-style"
+    files: [src/components/ServiceDetailPage.tsx]
+  - task: "Whitespace reduction, FAQ width, Tandem model circles orange, em-dashes removed"
+    files: [src/app/[locale]/diensten/page.tsx, src/app/[locale]/cases/page.tsx, src/components/AdoptieDetailPage.tsx]
+  - task: "CTA video orange frame fix, testimonial avatar mismatch, hardcoded Dutch text"
+    files: [src/components/CTASection.tsx, src/app/[locale]/cases/page.tsx]
+
+blockers: []
+
+questions:
+  - "Jochem levert case study content (Movir, Euphoria, Reditus) — De Situatie/Aanpak/Resultaat"
+  - "Jochem levert extra case quotes (Vincent, Joran) om door pagina's te sprinkelen"
+  - "Kickstart Venn diagram — SVG component bouwen of wachten op designer?"
+  - "inspiratie.spaik.io scrapen voor Inspiratie Sessie detail page content"
+
+decisions:
+  - pricing: "Kickstart €12.500 (was €14K, was €10K). Split: €5K vooraf / €7.5K na oplevering"
+  - adoptie_pricing: "Vanaf €10.900/mnd (was 'Retainer')"
+  - diensten_model: "Two-track: Bouwen (Kickstart→Adoptie) / Leren (Inspiratie, Fundamentals, Trainingen Hub)"
+  - strategie_renamed: "Strategie → Inspiratie Sessie (slug: inspiratie). Strategie zit nu in Kickstart."
+  - nav_architecture: "No dropdown. Diensten→/diensten, Cases→/cases. Team/FAQ stay as homepage anchors."
+  - homepage_services: "Kickstart hero card + 3 supporting cards (Inspiratie, Fundamentals apart, Adoptie)"
+  - case_pages: "/cases index + /cases/[slug] detail. Editorial structure ready, content conditional."
+  - kickstart_structure: "Hero, Social proof, For who (positive only), Diffs (dark manifesto), Deliverables (7 flat), Timeline, ROI proof cards, Pricing card, Mid-page CTA, Two paths"
+  - discovery_sections: "Combineer 'Ontdek AI-kansen 15 min' + 'Waar zie jij kansen?' tot 1 sectie"
+  - scarcity_badge: "Max 4 per maand badge weg van homepage, mogelijk op detail pagina"
+  - kickstart_visual: "Venn diagram: Strategie × Automatisering × Training (Jochem's idee)"
+
+findings:
+  - "Cases detail pagina's hebben geen editoriale content (conditionele secties zijn leeg)"
+  - "Inspiratie Sessie detail page heeft nog oude Strategie content"
+  - "EN locale tone-of-voice niet gecontroleerd na alle NL updates"
+  - "Waarom SPAIK tabel op diensten overview past mogelijk niet meer bij two-track model"
+  - "Homepage heeft 2 discovery secties die nog gecombineerd moeten worden"
+
+worked:
+  - "3-agent parallel review gaf sterke feedback die plan significant verbeterde (skip dropdown, fix locale bug)"
+  - "Dark manifesto differentiators — visueel veel sterker dan witte card grid"
+  - "Before→after proof cards (Waimakers-inspired) — concrete en overtuigend"
+  - "Adoptie-style pricing card op Kickstart — consistent en professioneler"
+  - "Data layer deduplicatie voorkomt inconsistentie bij toekomstige updates"
+
+failed:
+  - "Eerste pricing was €14K, moest binnen 2 uur naar €12.5K — content churn"
+  - "Em-dashes kwamen 3x terug na content updates — nodig: pre-commit check"
+  - "Witte differentiator cards waren AI slop (card grid met dots) — snel gefixed naar dark manifesto"
+
+next:
+  - "PRIORITY 1: Homepage cards labelen — Fundamentals apart ipv 'Leren & Trainingen'"
+  - "PRIORITY 2: Discovery secties combineren (accordion + intake.spaik.io CTA)"
+  - "PRIORITY 3: Inspiratie Sessie detail page herschrijven (scrape inspiratie.spaik.io)"
+  - "PRIORITY 4: Case study content invoegen zodra Jochem het aanlevert"
+  - "PRIORITY 5: Kickstart Venn diagram SVG component bouwen"
+  - "PRIORITY 6: EN locale quality check"
+  - "PRIORITY 7: Waarom SPAIK tabel reviewen/updaten"
+  - "PRIORITY 8: Homepage 'Wat we niet doen' content reviewen"
+  - "PRIORITY 9: Vercel deploy wanneer klaar"
+
+files:
+  created:
+    - src/data/services.ts
+    - src/data/cases.ts
+    - src/app/[locale]/cases/page.tsx
+    - src/app/[locale]/cases/[slug]/page.tsx
+    - src/components/CaseDetailView.tsx
+    - thoughts/shared/handoffs/spaik-clone/2026-04-01_22-30_session-8-architecture-kickstart-cro.yaml
+  modified:
+    - src/app/[locale]/layout.tsx
+    - src/app/[locale]/page.tsx
+    - src/app/[locale]/diensten/page.tsx
+    - src/app/[locale]/diensten/[slug]/page.tsx
+    - src/components/Header.tsx
+    - src/components/Footer.tsx
+    - src/components/ServicesSection.tsx
+    - src/components/ServiceDetailPage.tsx
+    - src/components/ServiceJourney.tsx
+    - src/components/CasesSection.tsx
+    - src/components/CTASection.tsx
+    - src/components/AdoptieDetailPage.tsx
+    - src/data/services.ts
+    - messages/nl.json
+    - messages/en.json
