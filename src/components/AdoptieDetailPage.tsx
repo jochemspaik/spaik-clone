@@ -60,7 +60,7 @@ function HeroSection() {
           </h1>
 
           <p className="mt-3 text-white/90" style={{ fontSize: 20 }}>
-            {t("detail.adoptie.price")} &middot; {t("detail.adoptie.duration")}
+            {t("detail.adoptie.duration")}
           </p>
 
           <p className="mt-4 text-white/80" style={{ fontSize: 16, lineHeight: 1.6, maxWidth: 600 }}>
@@ -435,12 +435,16 @@ function TiersSection() {
                 <p className="font-heading mt-6" style={{ fontSize: 36, fontWeight: 100, color: "#0b0b0b", lineHeight: 1.1 }}>
                   {tier.monthly}
                 </p>
-                <p style={{ fontSize: 14, color: "rgba(0,0,0,0.5)" }}>
-                  {t("detail.adoptie.tiersPerMonth")}
-                </p>
-                <p className="mt-1" style={{ fontSize: 13, color: "rgba(0,0,0,0.4)" }}>
-                  {tier.total}
-                </p>
+                {t("detail.adoptie.tiersPerMonth") && (
+                  <p style={{ fontSize: 14, color: "rgba(0,0,0,0.5)" }}>
+                    {t("detail.adoptie.tiersPerMonth")}
+                  </p>
+                )}
+                {tier.total && (
+                  <p className="mt-1" style={{ fontSize: 13, color: "rgba(0,0,0,0.4)" }}>
+                    {tier.total}
+                  </p>
+                )}
 
                 <p className="mt-4 font-medium" style={{ fontSize: 14, color: "#0b0b0b" }}>
                   {tier.scope}
@@ -635,13 +639,12 @@ function DualCtaSection() {
             >
               {t("detail.adoptie.dualCtaPrimary")}
             </a>
-            <button
-              type="button"
-              disabled
-              className="border border-[#DEDCCC] rounded-xl px-8 py-3 text-sm font-medium text-[#0b0b0b]/60 cursor-not-allowed opacity-50"
+            <Link
+              href="/diensten/adoptie/brochure"
+              className="border border-[#DEDCCC] rounded-xl px-8 py-3 text-sm font-medium text-[#0b0b0b] hover:border-[#0b0b0b] transition-colors"
             >
               {t("detail.adoptie.dualCtaSecondary")}
-            </button>
+            </Link>
           </div>
         </ScrollReveal>
       </div>
