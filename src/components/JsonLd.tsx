@@ -1,3 +1,8 @@
+/** Escape JSON for safe embedding in a <script> tag. */
+function safeJsonLd(data: Record<string, unknown>): string {
+  return JSON.stringify(data).replace(/</g, "\\u003c");
+}
+
 export function OrganizationJsonLd() {
   const data = {
     "@context": "https://schema.org",
@@ -25,7 +30,7 @@ export function OrganizationJsonLd() {
   return (
     <script
       type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
+      dangerouslySetInnerHTML={{ __html: safeJsonLd(data) }}
     />
   );
 }
@@ -70,7 +75,7 @@ export function BlogPostJsonLd({
   return (
     <script
       type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
+      dangerouslySetInnerHTML={{ __html: safeJsonLd(data) }}
     />
   );
 }
