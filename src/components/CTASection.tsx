@@ -19,6 +19,13 @@ export function CTASection() {
               className="relative overflow-hidden rounded-2xl"
               style={{ aspectRatio: "1 / 1" }}
             >
+              {/* Poster fallback — always visible behind video */}
+              <img
+                src="/images/cta-poster.jpg"
+                alt=""
+                aria-hidden="true"
+                className="absolute inset-0 w-full h-full object-cover"
+              />
               <video
                 autoPlay
                 loop
@@ -26,6 +33,13 @@ export function CTASection() {
                 playsInline
                 poster="/images/cta-poster.jpg"
                 className="absolute inset-0 w-full h-full object-cover"
+                style={{ opacity: 0 }}
+                onLoadedData={(e) => {
+                  const video = e.currentTarget;
+                  // Skip past the orange intro frame before showing
+                  if (video.currentTime < 0.3) video.currentTime = 0.3;
+                  video.style.opacity = "1";
+                }}
               >
                 <source src="/videos/secondary-animation.mp4" type="video/mp4" />
               </video>
