@@ -4,6 +4,7 @@ import { ScrollReveal } from "@/components/ScrollReveal";
 import { Link } from "@/i18n/navigation";
 import { CASES } from "@/data/cases";
 import type { CaseSlug } from "@/data/cases";
+import { CTASection } from "@/components/CTASection";
 import type { Metadata } from "next";
 
 /* ------------------------------------------------------------------ */
@@ -41,18 +42,10 @@ export async function generateMetadata({
 }
 
 /* ------------------------------------------------------------------ */
-/*  Case card                                                          */
+/*  Featured case card (full-width, horizontal)                        */
 /* ------------------------------------------------------------------ */
 
-function CaseCard({
-  slug,
-  companyName,
-  logoSrc,
-  personSrc,
-  bgColor,
-  accentColor,
-  t,
-}: {
+type CaseCardProps = {
   slug: CaseSlug;
   companyName: string;
   logoSrc: string;
@@ -60,92 +53,104 @@ function CaseCard({
   bgColor: string;
   accentColor: string;
   t: ReturnType<typeof useTranslations<"cases">>;
-}) {
+};
+
+function FeaturedCaseCard({ slug, companyName, logoSrc, personSrc, bgColor, accentColor, t }: CaseCardProps) {
   return (
     <Link
       href={`/cases/${slug}` as "/cases/movir"}
       className="group block rounded-2xl overflow-hidden transition-shadow hover:shadow-xl"
       style={{ backgroundColor: bgColor }}
     >
-      {/* Person photo — 16:10 aspect ratio */}
-      <div className="relative w-full" style={{ aspectRatio: "16/10" }}>
-        <Image
-          src={personSrc}
-          alt={companyName}
-          fill
-          className="object-cover"
-          sizes="(max-width: 768px) 100vw, 33vw"
-        />
-      </div>
-
-      {/* Card body */}
-      <div className="p-6 flex flex-col gap-4">
-        {/* Logo + type row */}
-        <div className="flex items-center gap-3">
+      <div className="flex flex-col md:flex-row">
+        {/* Left: person photo */}
+        <div className="relative w-full md:w-1/2" style={{ aspectRatio: "4/3" }}>
           <Image
-            src={logoSrc}
-            alt={`${companyName} logo`}
-            width={80}
-            height={24}
-            className="object-contain"
-            style={{ maxHeight: 24 }}
+            src={personSrc}
+            alt={companyName}
+            fill
+            className="object-cover"
+            sizes="(max-width: 768px) 100vw, 50vw"
           />
-          <span
-            className="text-xs font-medium"
-            style={{ color: "rgba(0,0,0,0.45)" }}
-          >
-            {t(`${slug}.type`)}
-          </span>
         </div>
 
-        {/* Quote */}
-        <p
-          className="text-sm leading-relaxed line-clamp-2"
-          style={{ color: "rgba(0,0,0,0.7)", fontStyle: "italic" }}
-        >
+        {/* Right: content */}
+        <div className="flex-1 p-8 md:p-10 flex flex-col justify-center gap-5">
+          <div className="flex items-center gap-3">
+            <Image src={logoSrc} alt={`${companyName} logo`} width={100} height={30} className="object-contain" style={{ maxHeight: 28 }} />
+            <span className="text-xs font-medium" style={{ color: "rgba(0,0,0,0.45)" }}>{t(`${slug}.type`)}</span>
+          </div>
+
+          <p className="text-base leading-relaxed" style={{ color: "rgba(0,0,0,0.7)", fontStyle: "italic" }}>
+            {t(`${slug}.quote`)}
+          </p>
+
+          <p className="text-sm font-medium" style={{ color: "#0b0b0b" }}>{t(`${slug}.author`)}</p>
+
+          <div className="grid grid-cols-3 gap-4 pt-4" style={{ borderTop: "1px solid rgba(0,0,0,0.06)" }}>
+            {([1, 2, 3] as const).map((n) => (
+              <div key={n} className="flex flex-col gap-0.5">
+                <span className="font-heading text-[28px] leading-none" style={{ fontWeight: 300, color: accentColor }}>{t(`${slug}.stat${n}value`)}</span>
+                <span className="text-xs leading-tight" style={{ color: "rgba(0,0,0,0.5)" }}>{t(`${slug}.stat${n}label`)}</span>
+              </div>
+            ))}
+          </div>
+
+          <div className="flex items-center gap-2">
+            <span className="inline-block rounded-full px-3 py-1 text-xs font-medium" style={{ backgroundColor: accentColor + "22", color: accentColor }}>
+              {t("roi")} {t(`${slug}.roiText`)}
+            </span>
+            <span className="ml-auto text-sm font-medium group-hover:gap-1.5 transition-all" style={{ color: accentColor }}>
+              {t("readMore")} &rarr;
+            </span>
+          </div>
+        </div>
+      </div>
+    </Link>
+  );
+}
+
+/* ------------------------------------------------------------------ */
+/*  Case card (compact, for grid)                                      */
+/* ------------------------------------------------------------------ */
+
+function CaseCard({ slug, companyName, logoSrc, personSrc, bgColor, accentColor, t }: CaseCardProps) {
+  return (
+    <Link
+      href={`/cases/${slug}` as "/cases/movir"}
+      className="group block rounded-2xl overflow-hidden transition-shadow hover:shadow-xl"
+      style={{ backgroundColor: bgColor }}
+    >
+      <div className="relative w-full" style={{ aspectRatio: "16/10" }}>
+        <Image src={personSrc} alt={companyName} fill className="object-cover" sizes="(max-width: 768px) 100vw, 50vw" />
+      </div>
+
+      <div className="p-6 flex flex-col gap-4">
+        <div className="flex items-center gap-3">
+          <Image src={logoSrc} alt={`${companyName} logo`} width={80} height={24} className="object-contain" style={{ maxHeight: 24 }} />
+          <span className="text-xs font-medium" style={{ color: "rgba(0,0,0,0.45)" }}>{t(`${slug}.type`)}</span>
+        </div>
+
+        <p className="text-sm leading-relaxed line-clamp-2" style={{ color: "rgba(0,0,0,0.7)", fontStyle: "italic" }}>
           {t(`${slug}.quote`)}
         </p>
 
-        {/* Author */}
-        <p className="text-sm font-medium" style={{ color: "#0b0b0b" }}>
-          {t(`${slug}.author`)}
-        </p>
+        <p className="text-sm font-medium" style={{ color: "#0b0b0b" }}>{t(`${slug}.author`)}</p>
 
-        {/* Stats row */}
-        <div
-          className="grid grid-cols-3 gap-2 pt-3"
-          style={{ borderTop: "1px solid rgba(0,0,0,0.06)" }}
-        >
+        <div className="grid grid-cols-3 gap-2 pt-3" style={{ borderTop: "1px solid rgba(0,0,0,0.06)" }}>
           {([1, 2, 3] as const).map((n) => (
             <div key={n} className="flex flex-col gap-0.5">
-              <span
-                className="font-heading text-[22px] leading-none"
-                style={{ fontWeight: 300, color: accentColor }}
-              >
-                {t(`${slug}.stat${n}value`)}
-              </span>
-              <span
-                className="text-[11px] leading-tight"
-                style={{ color: "rgba(0,0,0,0.5)" }}
-              >
-                {t(`${slug}.stat${n}label`)}
-              </span>
+              <span className="font-heading text-[22px] leading-none" style={{ fontWeight: 300, color: accentColor }}>{t(`${slug}.stat${n}value`)}</span>
+              <span className="text-[11px] leading-tight" style={{ color: "rgba(0,0,0,0.5)" }}>{t(`${slug}.stat${n}label`)}</span>
             </div>
           ))}
         </div>
 
-        {/* ROI badge */}
         <div className="flex items-center gap-2">
-          <span
-            className="inline-block rounded-full px-3 py-1 text-xs font-medium"
-            style={{ backgroundColor: accentColor + "22", color: accentColor }}
-          >
+          <span className="inline-block rounded-full px-3 py-1 text-xs font-medium" style={{ backgroundColor: accentColor + "22", color: accentColor }}>
             {t("roi")} {t(`${slug}.roiText`)}
           </span>
-          <span
-            className="ml-auto text-xs font-medium group-hover:gap-1.5 transition-all"
-            style={{ color: accentColor }}
-          >
+          <span className="ml-auto text-xs font-medium group-hover:gap-1.5 transition-all" style={{ color: accentColor }}>
             {t("readMore")} &rarr;
           </span>
         </div>
@@ -184,14 +189,32 @@ export default function CasesPage() {
         </ScrollReveal>
       </section>
 
-      {/* -------- Cases grid -------- */}
+      {/* -------- Featured case (full-width) -------- */}
       <section
-        className="px-6 md:px-10 pb-24"
+        className="px-6 md:px-10 pb-6"
         style={{ maxWidth: 1080, margin: "0 auto" }}
       >
         <ScrollReveal>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {CASES.map((c) => (
+          <FeaturedCaseCard
+            slug={CASES[0].slug}
+            companyName={CASES[0].companyName}
+            logoSrc={CASES[0].logoSrc}
+            personSrc={CASES[0].personSrc}
+            bgColor={CASES[0].bgColor}
+            accentColor={CASES[0].accentColor}
+            t={t}
+          />
+        </ScrollReveal>
+      </section>
+
+      {/* -------- Remaining cases (2-column) -------- */}
+      <section
+        className="px-6 md:px-10 pb-16"
+        style={{ maxWidth: 1080, margin: "0 auto" }}
+      >
+        <ScrollReveal>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {CASES.slice(1).map((c) => (
               <CaseCard
                 key={c.slug}
                 slug={c.slug}
@@ -206,6 +229,8 @@ export default function CasesPage() {
           </div>
         </ScrollReveal>
       </section>
+
+      <CTASection />
     </main>
   );
 }
