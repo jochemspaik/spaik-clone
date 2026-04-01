@@ -95,6 +95,12 @@ export function ServicesSection() {
                   >
                     {t("diensten.mostChosen")}
                   </span>
+                  <span
+                    className="rounded-full px-2.5 py-0.5 text-[11px] font-medium"
+                    style={{ backgroundColor: "rgba(255,255,255,0.15)", color: "rgba(255,255,255,0.8)" }}
+                  >
+                    {t("diensten.overview.kickstart.scarcity")}
+                  </span>
                 </div>
 
                 <h3

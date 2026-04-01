@@ -267,6 +267,7 @@
         "title": "Kickstart",
         "tagline": "In 4 weken: een onderbouwde business case, een team dat het snapt, en bewijs dat het werkt.",
         "price": "€12.500 · 4 weken",
+        "scarcity": "Max 4 per maand",
         "deliverable1": "Bewezen business case met ROI",
         "deliverable2": "Werkende automatisering(en) in productie",
         "deliverable3": "Geïdentificeerde Champion + roadmap"
@@ -298,9 +299,10 @@
       "no": "Nee, als...",
       "kickstart": {
         "metaTitle": "Kickstart",
-        "metaDescription": "In 4 weken bouwen we samen de business case voor AI. Werkende automatisering, 0-meting met ROI, en een roadmap. €14.000.",
+        "metaDescription": "In 4 weken bouwen we samen de business case voor AI. Werkende automatisering, 0-meting met ROI, en een roadmap. €12.500.",
         "title": "Kickstart",
         "phase": "4 weken",
+        "scarcity": "Max 4 per maand",
         "price": "€12.500",
         "duration": "4 weken",
         "pitch": "We bouwen een werkende automatisering, meten wat het oplevert, en leveren een roadmap. Na 4 weken weet je precies wat AI oplevert, niet op een demo, maar op jullie eigen data.",
@@ -845,5 +847,19 @@
       "printButton": "Download als PDF",
       "footer": "© SPAIK · KVK 95243763 · www.spaik.io"
     }
+  },
+  "notList": {
+    "title": "Wat we niet doen",
+    "subtitle": "Hoe we werken wordt mede bepaald door wat we weigeren.",
+    "item1Title": "Geen slides zonder resultaat",
+    "item1Body": "We leveren geen strategiedecks die in een la verdwijnen. Alles wat we adviseren, bouwen we ook. In 4 weken de eerste automatisering live.",
+    "item2Title": "Geen tools zonder adoptie",
+    "item2Body": "Een licentie is geen oplossing. De waarde van AI zit in het gebruik, niet in de aanschaf. Wij zorgen dat je team het echt gebruikt — meetbaar.",
+    "item3Title": "Geen juniors op jouw kosten",
+    "item3Body": "Er staat altijd een founder of senior lead op je project. Wij leiden onze mensen intern op, niet bij jou.",
+    "item4Title": "Geen lock-in",
+    "item4Body": "We dragen aan het einde van elke fase alles over zodat jullie zonder ons verder kunnen. Doorwerken met ons is een keuze, geen noodzaak.",
+    "item5Title": "Geen AI om het AI",
+    "item5Body": "We bouwen alleen met AI als het aantoonbaar waarde oplevert. Soms is een simpele automatisering zonder AI beter — dan kiezen we die."
   }
 }

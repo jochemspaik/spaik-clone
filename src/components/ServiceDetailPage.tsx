@@ -71,12 +71,20 @@ function HeroSection({ slug }: { slug: ServiceSlug }) {
               {t(`detail.${slug}.phase`)}
             </span>
             {slug === "kickstart" && (
-              <span
-                className="inline-block rounded-full px-3 py-1 text-xs font-medium text-white"
-                style={{ backgroundColor: "#FF7150" }}
-              >
-                {t("mostChosen")}
-              </span>
+              <>
+                <span
+                  className="inline-block rounded-full px-3 py-1 text-xs font-medium text-white"
+                  style={{ backgroundColor: "#FF7150" }}
+                >
+                  {t("mostChosen")}
+                </span>
+                <span
+                  className="inline-block rounded-full px-3 py-1 text-xs font-medium"
+                  style={{ backgroundColor: "rgba(255,255,255,0.15)", color: "rgba(255,255,255,0.9)" }}
+                >
+                  {t("detail.kickstart.scarcity")}
+                </span>
+              </>
             )}
           </div>
 

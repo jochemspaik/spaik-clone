@@ -267,6 +267,7 @@
         "title": "Kickstart",
         "tagline": "In 4 weeks: a substantiated business case, a team that gets it, and proof that it works.",
         "price": "€12,500 · 4 weeks",
+        "scarcity": "Max 4 per month",
         "deliverable1": "Proven business case with ROI",
         "deliverable2": "Working automation(s) in production",
         "deliverable3": "Identified Champion + roadmap"
@@ -298,9 +299,10 @@
       "no": "No, if...",
       "kickstart": {
         "metaTitle": "Kickstart",
-        "metaDescription": "In 4 weeks we build the business case for AI together. Working automation, baseline measurement with ROI, and a roadmap. €14,000.",
+        "metaDescription": "In 4 weeks we build the business case for AI together. Working automation, baseline measurement with ROI, and a roadmap. €12,500.",
         "title": "Kickstart",
         "phase": "4 weeks",
+        "scarcity": "Max 4 per month",
         "price": "€12,500",
         "duration": "4 weeks",
         "pitch": "We build a working automation, measure the returns, and deliver a roadmap. After 4 weeks you know exactly what AI delivers, not on a demo, but on your own data.",
@@ -845,5 +847,19 @@
       "printButton": "Download as PDF",
       "footer": "© SPAIK · KVK 95243763 · www.spaik.io"
     }
+  },
+  "notList": {
+    "title": "What we don't do",
+    "subtitle": "How we work is partly defined by what we refuse.",
+    "item1Title": "No slides without results",
+    "item1Body": "We don't deliver strategy decks that end up in a drawer. Everything we advise, we also build. First automation live within 4 weeks.",
+    "item2Title": "No tools without adoption",
+    "item2Body": "A license isn't a solution. The value of AI is in its use, not its purchase. We make sure your team actually uses it — measurably.",
+    "item3Title": "No juniors learning on your dime",
+    "item3Body": "A founder or senior lead is always on your project. We train our people internally, not at your expense.",
+    "item4Title": "No lock-in",
+    "item4Body": "At the end of every phase, we hand over everything so you can continue without us. Working with us is a choice, not a necessity.",
+    "item5Title": "No AI for AI's sake",
+    "item5Body": "We only build with AI when it demonstrably adds value. Sometimes a simple automation without AI is better — then we choose that."
   }
 }
