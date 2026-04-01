@@ -19,8 +19,8 @@ export function generateStaticParams() {
 
 const META: Record<string, Record<ServiceSlug, { title: string; description: string }>> = {
   nl: {
-    strategie: {
-      title: "Strategie Sessie | SPAIK",
+    inspiratie: {
+      title: "Inspiratie Sessie | SPAIK",
       description:
         "In een halve dag van vage ideeen naar een concrete AI-roadmap met geprioriteerde kansen.",
     },
@@ -41,8 +41,8 @@ const META: Record<string, Record<ServiceSlug, { title: string; description: str
     },
   },
   en: {
-    strategie: {
-      title: "Strategy Session | SPAIK",
+    inspiratie: {
+      title: "Inspiration Session | SPAIK",
       description:
         "In half a day, go from vague ideas to a concrete AI roadmap with prioritized opportunities.",
     },

@@ -5,24 +5,24 @@ import { Link } from "@/i18n/navigation";
 import { ScrollReveal } from "@/components/ScrollReveal";
 import { BOOK_CALL_URL } from "@/lib/constants";
 
-type ServiceSlug = "strategie" | "kickstart" | "adoptie" | "fundamentals";
+type ServiceSlug = "inspiratie" | "kickstart" | "adoptie" | "fundamentals";
 
 const TEXTURE_MAP: Record<ServiceSlug, string> = {
-  strategie: "/images/Texture 2.webp",
+  inspiratie: "/images/Texture 2.webp",
   kickstart: "/images/Texture 1.webp",
   adoptie: "/images/Texture 3.webp",
   fundamentals: "/images/Texture 2.webp",
 };
 
 const TESTIMONIAL_AVATAR: Record<ServiceSlug, string> = {
-  strategie: "", // no author yet
+  inspiratie: "", // no author yet
   kickstart: "/images/case-vincent.jpg",
   adoptie: "/images/case-johanneke.jpg",
   fundamentals: "/images/case-maurick.jpg",
 };
 
 const ICON_MAP: Record<ServiceSlug, string> = {
-  strategie: "/images/Discovery.svg",
+  inspiratie: "/images/Discovery.svg",
   kickstart: "/images/icon-kickstart.svg",
   adoptie: "/images/Building.svg",
   fundamentals: "/images/icon-fundamentals.svg",
@@ -443,12 +443,12 @@ function HowItWorksSection({ slug }: { slug: ServiceSlug }) {
       { title: t("detail.adoptie.processMonth56"), detail: t("detail.adoptie.processMonth56detail") },
       { title: t("detail.adoptie.processMonth78"), detail: t("detail.adoptie.processMonth78detail") },
     ];
-  } else if (slug === "strategie") {
+  } else if (slug === "inspiratie") {
     steps = [
-      { title: t("detail.strategie.processStep1"), detail: t("detail.strategie.processStep1detail") },
-      { title: t("detail.strategie.processStep2"), detail: t("detail.strategie.processStep2detail") },
-      { title: t("detail.strategie.processStep3"), detail: t("detail.strategie.processStep3detail") },
-      { title: t("detail.strategie.processStep4"), detail: t("detail.strategie.processStep4detail") },
+      { title: t("detail.inspiratie.processStep1"), detail: t("detail.inspiratie.processStep1detail") },
+      { title: t("detail.inspiratie.processStep2"), detail: t("detail.inspiratie.processStep2detail") },
+      { title: t("detail.inspiratie.processStep3"), detail: t("detail.inspiratie.processStep3detail") },
+      { title: t("detail.inspiratie.processStep4"), detail: t("detail.inspiratie.processStep4detail") },
     ];
   }
 

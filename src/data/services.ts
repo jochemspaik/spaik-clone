@@ -1,4 +1,4 @@
-export type ServiceSlug = "strategie" | "fundamentals" | "kickstart" | "adoptie";
+export type ServiceSlug = "inspiratie" | "fundamentals" | "kickstart" | "adoptie";
 
 export interface ServiceData {
   slug: ServiceSlug;
@@ -13,7 +13,7 @@ export interface ServiceData {
 
 export const SERVICES: readonly ServiceData[] = [
   {
-    slug: "strategie",
+    slug: "inspiratie",
     icon: "/images/Discovery.svg",
     texture: "/images/Texture 2.webp",
     color: "#2563eb",

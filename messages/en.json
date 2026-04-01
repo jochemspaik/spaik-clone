@@ -113,10 +113,10 @@
     "dataItem3": "Data quality and governance"
   },
   "services": {
-    "title": "Your AI transition in three phases",
-    "subtitle": "Senior expertise for ambitious firms",
+    "title": "From first proof to independence",
+    "subtitle": "The Kickstart is where it begins. Concrete results in 4 weeks, with a clear path forward.",
     "inspiration": {
-      "name": "Strategy",
+      "name": "Inspiration Session",
       "price": "€3,000 / 15 people",
       "description": "A solid understanding of AI and what it can mean for your organization.",
       "detail": "No dry presentation. We'll energetically guide you through the latest AI developments, share concrete applications, and explore together what AI can bring to your organization.",
@@ -147,7 +147,12 @@
     "bookCall": "Book a call",
     "readMore": "Read more",
     "allTrainings": "Do you want to train individual employees? Check out our full range of training courses.",
-    "seeAllTrainings": "See all trainings"
+    "seeAllTrainings": "See all trainings",
+    "seeAllServices": "See all services",
+    "kickstartCta": "Book a call",
+    "kickstartLearnMore": "More about the Kickstart",
+    "trainingsCard": "Learning & Training",
+    "trainingsCardSub": "Open trainings, workshops and hackathons"
   },
   "team": {
     "title": "The SPAIK Team",
@@ -227,6 +232,12 @@
     },
     "mostChosen": "Most chosen",
     "moreAbout": "More about",
+    "tracks": {
+      "bouwen": "Build",
+      "leren": "Learn",
+      "trainingen": "Training Hub",
+      "trainingenSub": "Open trainings, workshops and hackathons"
+    },
     "learnSection": {
       "title": "Learn",
       "subtitle": "Understand what AI can mean for your organization. For teams that want to start with knowledge."
@@ -246,11 +257,6 @@
       "cta": "Schedule a conversation"
     },
     "overview": {
-      "strategie": {
-        "title": "Strategy",
-        "tagline": "Discover where AI delivers the most value for your organization.",
-        "price": "From €3,000 · Half day"
-      },
       "fundamentals": {
         "title": "AI Fundamentals",
         "tagline": "AI literacy for your whole team. EU AI Act compliant.",
@@ -272,6 +278,11 @@
       "zelfstandig": {
         "title": "Independent",
         "tagline": "Continuing with us is a choice, not a necessity."
+      },
+      "inspiratie": {
+        "title": "Inspiration Session",
+        "tagline": "Discover what AI can mean for your organization. Hands-on, with the whole team.",
+        "price": "From €3,000 · Half day"
       }
     },
     "detail": {
@@ -284,54 +295,6 @@
       "clientsSay": "What clients say",
       "yes": "Yes, if...",
       "no": "No, if...",
-      "strategie": {
-        "metaTitle": "Strategy Session",
-        "metaDescription": "In half a day, go from vague ideas to a concrete AI roadmap with prioritized opportunities.",
-        "title": "Strategy",
-        "phase": "Phase 0",
-        "price": "From €3,000",
-        "duration": "Half day · Up to 50 people",
-        "pitch": "In one afternoon, go from vague ideas to a concrete AI roadmap with prioritized opportunities and ROI estimates. No dry presentation, but energetic, interactive and hands-on.",
-        "cta": "Schedule a session",
-        "metric1value": "20+",
-        "metric1label": "sessions given",
-        "metric2value": "50",
-        "metric2label": "people per session",
-        "metric3value": "10-15",
-        "metric3label": "opportunities prioritized",
-        "yes1": "You want to understand what AI can mean for your organization",
-        "yes2": "You want to involve the leadership team or a whole department",
-        "yes3": "You're looking for a concrete roadmap with prioritized opportunities",
-        "no1": "You already know what you want to automate",
-        "no1link": "Go directly to Kickstart",
-        "no2": "You want to train individual employees",
-        "no2link": "See Fundamentals",
-        "get1": "Prioritized AI roadmap with 10-15 opportunities",
-        "get2": "ROI estimates per opportunity",
-        "get3": "Hands-on prompting workshop",
-        "get4": "Immediate starting point with quick wins",
-        "nextStepText": "After the Strategy Session you know where the opportunities are. Next step is the Kickstart: first automation live in 4 weeks.",
-        "nextStepSlug": "kickstart",
-        "afterStat": "70% continue to Kickstart or Fundamentals. 30% start with the quick wins themselves.",
-        "get1detail": "Ranked by impact and feasibility for your specific situation.",
-        "get2detail": "Not 'AI can do a lot', but 'this saves you X hours per week.'",
-        "get3detail": "Your team practices directly with AI tools. No slides, just results.",
-        "get4detail": "Things you can already do differently tomorrow.",
-        "nextStepSlug2": "fundamentals",
-        "testimonialQuote": "We thought we came to listen. We left with a plan.",
-        "testimonialAuthor": "Wilco de Vries",
-        "testimonialRole": "VAPRO",
-        "no1slug": "kickstart",
-        "no2slug": "fundamentals",
-        "processStep1": "Preparation",
-        "processStep1detail": "We map your context upfront: processes, tools, industry and challenges. The session is tailored to you.",
-        "processStep2": "AI landscape & opportunities (60 min)",
-        "processStep2detail": "Interactive presentation: what can AI really do now? Relevant examples from your industry, not generic.",
-        "processStep3": "Hands-on workshop (90 min)",
-        "processStep3detail": "Your team works with AI tools on their own use cases. No slides, direct results.",
-        "processStep4": "Prioritize & roadmap (60 min)",
-        "processStep4detail": "Together we score 10-15 opportunities on impact and feasibility. You leave with a concrete action plan."
-      },
       "kickstart": {
         "metaTitle": "Kickstart",
         "metaDescription": "In 4 weeks we build the business case for AI together. Working automation, baseline measurement with ROI, and a roadmap. €14,000.",
@@ -675,6 +638,54 @@
         "pricingIncludes2detail": "Each week a concrete assignment. Personal guidance per participant.",
         "pricingIncludes3": "EU AI Act compliance module",
         "pricingIncludes3detail": "Your team knows what is allowed, what is not, and how to responsibly use AI."
+      },
+      "inspiratie": {
+        "metaTitle": "Inspiration Session",
+        "metaDescription": "In half a day, go from vague ideas to a concrete AI roadmap with prioritized opportunities.",
+        "title": "Inspiration Session",
+        "phase": "Phase 0",
+        "price": "From €3,000",
+        "duration": "Half day · Up to 50 people",
+        "pitch": "No dry presentations. We energetically walk you through the latest AI developments, share concrete applications, and explore together what AI can bring to your organization. Everyone builds along.",
+        "cta": "Schedule a session",
+        "metric1value": "20+",
+        "metric1label": "sessions given",
+        "metric2value": "50",
+        "metric2label": "people per session",
+        "metric3value": "10-15",
+        "metric3label": "opportunities prioritized",
+        "yes1": "You want to understand what AI can mean for your organization",
+        "yes2": "You want to involve the leadership team or a whole department",
+        "yes3": "You're looking for a concrete roadmap with prioritized opportunities",
+        "no1": "You already know what you want to automate",
+        "no1link": "Go directly to Kickstart",
+        "no2": "You want to train individual employees",
+        "no2link": "See Fundamentals",
+        "get1": "Prioritized AI roadmap with 10-15 opportunities",
+        "get2": "ROI estimates per opportunity",
+        "get3": "Hands-on prompting workshop",
+        "get4": "Immediate starting point with quick wins",
+        "nextStepText": "After the Strategy Session you know where the opportunities are. Next step is the Kickstart: first automation live in 4 weeks.",
+        "nextStepSlug": "kickstart",
+        "afterStat": "70% continue to Kickstart or Fundamentals. 30% start with the quick wins themselves.",
+        "get1detail": "Ranked by impact and feasibility for your specific situation.",
+        "get2detail": "Not 'AI can do a lot', but 'this saves you X hours per week.'",
+        "get3detail": "Your team practices directly with AI tools. No slides, just results.",
+        "get4detail": "Things you can already do differently tomorrow.",
+        "nextStepSlug2": "fundamentals",
+        "testimonialQuote": "We thought we came to listen. We left with a plan.",
+        "testimonialAuthor": "Wilco de Vries",
+        "testimonialRole": "VAPRO",
+        "no1slug": "kickstart",
+        "no2slug": "fundamentals",
+        "processStep1": "Preparation",
+        "processStep1detail": "We map your context upfront: processes, tools, industry and challenges. The session is tailored to you.",
+        "processStep2": "AI landscape & opportunities (60 min)",
+        "processStep2detail": "Interactive presentation: what can AI really do now? Relevant examples from your industry, not generic.",
+        "processStep3": "Hands-on workshop (90 min)",
+        "processStep3detail": "Your team works with AI tools on their own use cases. No slides, direct results.",
+        "processStep4": "Prioritize & roadmap (60 min)",
+        "processStep4detail": "Together we score 10-15 opportunities on impact and feasibility. You leave with a concrete action plan."
       }
     },
     "selfSelection": {
@@ -693,12 +704,6 @@
       "option4result": "Adoption"
     },
     "journey": {
-      "strategie": {
-        "label": "Learn",
-        "name": "Strategy",
-        "tagline": "Discover opportunities",
-        "price": "From €3,000"
-      },
       "fundamentals": {
         "label": "Learn",
         "name": "AI Fundamentals",
@@ -720,6 +725,12 @@
       "zelfstandig": {
         "name": "Independent",
         "tagline": "You can do it yourselves"
+      },
+      "inspiratie": {
+        "label": "Learn",
+        "name": "Inspiration Session",
+        "tagline": "Discover opportunities",
+        "price": "From €3,000"
       }
     },
     "comparison": {
@@ -728,10 +739,6 @@
       "investment": "Investment",
       "bestFor": "Ideal if...",
       "recommended": "Recommended",
-      "strategie": {
-        "duration": "Half day",
-        "bestFor": "You want to know where the opportunities are"
-      },
       "fundamentals": {
         "duration": "6 weeks",
         "bestFor": "Your team needs to learn to use AI"
@@ -743,6 +750,10 @@
       "adoptie": {
         "duration": "6 months",
         "bestFor": "You want to build, embed, and hand over to full independence"
+      },
+      "inspiratie": {
+        "duration": "Half day",
+        "bestFor": "You want to discover where the opportunities are"
       }
     },
     "whySpaik": {

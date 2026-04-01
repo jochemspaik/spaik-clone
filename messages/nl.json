@@ -113,10 +113,10 @@
     "dataItem3": "Datakwaliteit en governance"
   },
   "services": {
-    "title": "Jullie AI-transitie in drie fasen",
-    "subtitle": "Senior expertise voor ambitieuze bedrijven",
+    "title": "Van eerste bewijs tot zelfstandigheid",
+    "subtitle": "De Kickstart is hoe het begint. Concrete resultaten in 4 weken, met een duidelijk pad daarna.",
     "inspiration": {
-      "name": "Strategie",
+      "name": "Inspiratie Sessie",
       "price": "€3.000 / 15 personen",
       "description": "Een goed begrip van AI en wat het voor jouw organisatie kan betekenen.",
       "detail": "Geen droge presentatie. We nemen je energiek mee door de laatste AI-ontwikkelingen, delen concrete toepassingen en verkennen samen wat AI jouw organisatie kan brengen.",
@@ -147,7 +147,12 @@
     "bookCall": "Plan een gesprek",
     "readMore": "Lees meer",
     "allTrainings": "Wil je individuele medewerkers trainen? Bekijk ons volledige trainingsaanbod.",
-    "seeAllTrainings": "Bekijk alle trainingen"
+    "seeAllTrainings": "Bekijk alle trainingen",
+    "seeAllServices": "Bekijk alle diensten",
+    "kickstartCta": "Plan een gesprek",
+    "kickstartLearnMore": "Meer over de Kickstart",
+    "trainingsCard": "Leren & Trainingen",
+    "trainingsCardSub": "Open trainingen, workshops en hackathons"
   },
   "team": {
     "title": "Het SPAIK Team",
@@ -227,6 +232,12 @@
     },
     "mostChosen": "Meest gekozen",
     "moreAbout": "Meer over",
+    "tracks": {
+      "bouwen": "Bouwen",
+      "leren": "Leren",
+      "trainingen": "Trainingen Hub",
+      "trainingenSub": "Open trainingen, workshops en hackathons"
+    },
     "learnSection": {
       "title": "Leren",
       "subtitle": "Begrijp wat AI voor jullie organisatie kan betekenen. Voor teams die willen starten met kennis."
@@ -246,11 +257,6 @@
       "cta": "Plan een gesprek"
     },
     "overview": {
-      "strategie": {
-        "title": "Strategie",
-        "tagline": "Ontdek waar AI het meeste oplevert voor jullie organisatie.",
-        "price": "Vanaf €3.000 · Halve dag"
-      },
       "fundamentals": {
         "title": "AI Fundamentals",
         "tagline": "AI-vaardigheid voor het hele team. Compliant met de EU AI Act.",
@@ -272,6 +278,11 @@
       "zelfstandig": {
         "title": "Zelfstandig",
         "tagline": "Doorwerken met ons is een keuze, geen noodzaak."
+      },
+      "inspiratie": {
+        "title": "Inspiratie Sessie",
+        "tagline": "Ontdek wat AI kan betekenen voor jullie organisatie. Hands-on, met het hele team.",
+        "price": "Vanaf €3.000 · Halve dag"
       }
     },
     "detail": {
@@ -284,54 +295,6 @@
       "clientsSay": "Dit zeggen klanten",
       "yes": "Ja, als...",
       "no": "Nee, als...",
-      "strategie": {
-        "metaTitle": "Strategie Sessie",
-        "metaDescription": "In een halve dag van vage ideeen naar een concrete AI-roadmap met geprioriteerde kansen.",
-        "title": "Strategie",
-        "phase": "Fase 0",
-        "price": "Vanaf €3.000",
-        "duration": "Halve dag · Tot 50 mensen",
-        "pitch": "In een middag van vage ideeen naar een concrete AI-roadmap met geprioriteerde kansen en ROI-inschattingen. Geen droge presentatie, maar energiek, interactief en hands-on.",
-        "cta": "Plan een sessie",
-        "metric1value": "20+",
-        "metric1label": "sessies gegeven",
-        "metric2value": "50",
-        "metric2label": "mensen per sessie",
-        "metric3value": "10-15",
-        "metric3label": "kansen geprioriteerd",
-        "yes1": "Jullie willen begrijpen wat AI voor de organisatie kan betekenen",
-        "yes2": "Jullie willen het MT of een heel team meenemen",
-        "yes3": "Jullie zoeken een concrete roadmap met geprioriteerde kansen",
-        "no1": "Jullie weten al wat jullie willen automatiseren",
-        "no1link": "Direct naar Kickstart",
-        "no2": "Jullie willen individuele medewerkers trainen",
-        "no2link": "Bekijk Fundamentals",
-        "get1": "Geprioriteerde AI-roadmap met 10-15 kansen",
-        "get1detail": "Gerangschikt op impact en haalbaarheid voor jullie specifieke situatie.",
-        "get2": "ROI-inschattingen per use case",
-        "get2detail": "Niet 'AI kan veel', maar 'dit bespaart jullie X uur per week.'",
-        "get3": "Hands-on prompting workshop",
-        "get3detail": "Jullie team oefent direct met AI-tools. Geen slides, wel resultaat.",
-        "get4": "Direct startpunt met quick wins",
-        "get4detail": "Dingen die jullie morgen al anders kunnen doen.",
-        "testimonialQuote": "We dachten dat we kwamen luisteren. We gingen weg met een plan.",
-        "testimonialAuthor": "Wilco de Vries",
-        "testimonialRole": "VAPRO",
-        "afterStat": "70% gaat door naar Kickstart of Fundamentals. 30% start zelf met de quick wins.",
-        "nextStepText": "Na de sessie weten jullie waar de kansen liggen. Twee routes: wil je direct bouwen? Kickstart. Wil je eerst het team klaarstomen? Fundamentals.",
-        "nextStepSlug": "kickstart",
-        "nextStepSlug2": "fundamentals",
-        "no1slug": "kickstart",
-        "no2slug": "fundamentals",
-        "processStep1": "Voorbereiding",
-        "processStep1detail": "Vooraf brengen we jullie context in kaart: processen, tools, branche en uitdagingen. De sessie is op maat.",
-        "processStep2": "AI landschap & kansen (60 min)",
-        "processStep2detail": "Interactieve presentatie: wat kan AI nu echt? Relevante voorbeelden uit jullie branche, niet generiek.",
-        "processStep3": "Hands-on workshop (90 min)",
-        "processStep3detail": "Jullie team werkt zelf met AI-tools op eigen use cases. Geen slides, direct resultaat.",
-        "processStep4": "Prioriteren & roadmap (60 min)",
-        "processStep4detail": "Gezamenlijk 10-15 kansen scoren op impact en haalbaarheid. Jullie vertrekken met een concreet actieplan."
-      },
       "kickstart": {
         "metaTitle": "Kickstart",
         "metaDescription": "In 4 weken bouwen we samen de business case voor AI. Werkende automatisering, 0-meting met ROI, en een roadmap. €14.000.",
@@ -675,6 +638,54 @@
         "pricingIncludes2detail": "Elke week een concrete opdracht. Persoonlijke begeleiding per deelnemer.",
         "pricingIncludes3": "EU AI Act compliance module",
         "pricingIncludes3detail": "Jullie team weet wat mag, wat niet mag, en hoe verantwoord met AI om te gaan."
+      },
+      "inspiratie": {
+        "metaTitle": "Inspiratie Sessie",
+        "metaDescription": "In een halve dag van vage ideeen naar een concrete AI-roadmap met geprioriteerde kansen.",
+        "title": "Inspiratie Sessie",
+        "phase": "Fase 0",
+        "price": "Vanaf €3.000",
+        "duration": "Halve dag · Tot 50 mensen",
+        "pitch": "Geen droge presentatie. We nemen jullie energiek mee door de laatste AI-ontwikkelingen, delen concrete toepassingen en verkennen samen wat AI jullie organisatie kan brengen. Iedereen bouwt mee.",
+        "cta": "Plan een sessie",
+        "metric1value": "20+",
+        "metric1label": "sessies gegeven",
+        "metric2value": "50",
+        "metric2label": "mensen per sessie",
+        "metric3value": "10-15",
+        "metric3label": "kansen geprioriteerd",
+        "yes1": "Jullie willen begrijpen wat AI voor de organisatie kan betekenen",
+        "yes2": "Jullie willen het MT of een heel team meenemen",
+        "yes3": "Jullie zoeken een concrete roadmap met geprioriteerde kansen",
+        "no1": "Jullie weten al wat jullie willen automatiseren",
+        "no1link": "Direct naar Kickstart",
+        "no2": "Jullie willen individuele medewerkers trainen",
+        "no2link": "Bekijk Fundamentals",
+        "get1": "Geprioriteerde AI-roadmap met 10-15 kansen",
+        "get1detail": "Gerangschikt op impact en haalbaarheid voor jullie specifieke situatie.",
+        "get2": "ROI-inschattingen per use case",
+        "get2detail": "Niet 'AI kan veel', maar 'dit bespaart jullie X uur per week.'",
+        "get3": "Hands-on prompting workshop",
+        "get3detail": "Jullie team oefent direct met AI-tools. Geen slides, wel resultaat.",
+        "get4": "Direct startpunt met quick wins",
+        "get4detail": "Dingen die jullie morgen al anders kunnen doen.",
+        "testimonialQuote": "We dachten dat we kwamen luisteren. We gingen weg met een plan.",
+        "testimonialAuthor": "Wilco de Vries",
+        "testimonialRole": "VAPRO",
+        "afterStat": "70% gaat door naar Kickstart of Fundamentals. 30% start zelf met de quick wins.",
+        "nextStepText": "Na de sessie weten jullie waar de kansen liggen. Twee routes: wil je direct bouwen? Kickstart. Wil je eerst het team klaarstomen? Fundamentals.",
+        "nextStepSlug": "kickstart",
+        "nextStepSlug2": "fundamentals",
+        "no1slug": "kickstart",
+        "no2slug": "fundamentals",
+        "processStep1": "Voorbereiding",
+        "processStep1detail": "Vooraf brengen we jullie context in kaart: processen, tools, branche en uitdagingen. De sessie is op maat.",
+        "processStep2": "AI landschap & kansen (60 min)",
+        "processStep2detail": "Interactieve presentatie: wat kan AI nu echt? Relevante voorbeelden uit jullie branche, niet generiek.",
+        "processStep3": "Hands-on workshop (90 min)",
+        "processStep3detail": "Jullie team werkt zelf met AI-tools op eigen use cases. Geen slides, direct resultaat.",
+        "processStep4": "Prioriteren & roadmap (60 min)",
+        "processStep4detail": "Gezamenlijk 10-15 kansen scoren op impact en haalbaarheid. Jullie vertrekken met een concreet actieplan."
       }
     },
     "selfSelection": {
@@ -693,12 +704,6 @@
       "option4result": "Adoptie"
     },
     "journey": {
-      "strategie": {
-        "label": "Leren",
-        "name": "Strategie",
-        "tagline": "Ontdek kansen",
-        "price": "Vanaf €3.000"
-      },
       "fundamentals": {
         "label": "Leren",
         "name": "AI Fundamentals",
@@ -720,6 +725,12 @@
       "zelfstandig": {
         "name": "Zelfstandig",
         "tagline": "Jullie kunnen het zelf"
+      },
+      "inspiratie": {
+        "label": "Leren",
+        "name": "Inspiratie Sessie",
+        "tagline": "Ontdek kansen",
+        "price": "Vanaf €3.000"
       }
     },
     "comparison": {
@@ -728,10 +739,6 @@
       "investment": "Investering",
       "bestFor": "Ideaal als...",
       "recommended": "Aanbevolen",
-      "strategie": {
-        "duration": "Halve dag",
-        "bestFor": "Je wilt weten waar de kansen liggen"
-      },
       "fundamentals": {
         "duration": "6 weken",
         "bestFor": "Je team moet AI leren gebruiken"
@@ -743,6 +750,10 @@
       "adoptie": {
         "duration": "6 maanden",
         "bestFor": "Je wilt bouwen, borgen en overdragen naar zelfstandigheid"
+      },
+      "inspiratie": {
+        "duration": "Halve dag",
+        "bestFor": "Je wilt ontdekken waar de kansen liggen"
       }
     },
     "whySpaik": {

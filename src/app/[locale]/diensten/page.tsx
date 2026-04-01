@@ -2,7 +2,6 @@ import { useTranslations } from "next-intl";
 import { ScrollReveal } from "@/components/ScrollReveal";
 import { RollingTextButton } from "@/components/RollingTextButton";
 import { Link } from "@/i18n/navigation";
-import { ServiceJourney } from "@/components/ServiceJourney";
 import { BOOK_CALL_URL } from "@/lib/constants";
 import { SERVICES } from "@/data/services";
 import type { Metadata } from "next";
@@ -71,10 +70,181 @@ export default function DienstenPage() {
           </ScrollReveal>
         </section>
 
-        {/* -------- Journey visualization -------- */}
-        <ScrollReveal>
-          <ServiceJourney />
-        </ScrollReveal>
+        {/* -------- Two-track layout -------- */}
+        <section className="bg-white">
+          <ScrollReveal>
+            <div
+              className="px-6 md:px-10 py-16 md:py-20"
+              style={{ maxWidth: 1080, margin: "0 auto" }}
+            >
+              {/* Track labels + cards grid */}
+              <div className="grid grid-cols-1 md:grid-cols-4 gap-x-6 gap-y-2">
+
+                {/* --- BOUWEN label --- */}
+                <div className="md:col-span-2 mb-2 md:mb-0">
+                  <span
+                    className="text-xs font-semibold uppercase tracking-widest"
+                    style={{ color: "rgba(0,0,0,0.35)" }}
+                  >
+                    {t("tracks.bouwen")}
+                  </span>
+                </div>
+
+                {/* --- LEREN label --- */}
+                <div className="md:col-span-2 mb-2 md:mb-0 mt-6 md:mt-0">
+                  <span
+                    className="text-xs font-semibold uppercase tracking-widest"
+                    style={{ color: "rgba(0,0,0,0.35)" }}
+                  >
+                    {t("tracks.leren")}
+                  </span>
+                </div>
+
+                {/* --- Bouwen cards --- */}
+                {(["kickstart", "adoptie"] as const).map((slug) => {
+                  const service = SERVICES.find((s) => s.slug === slug)!;
+                  const isFeatured = !!service.featured;
+                  return (
+                    <Link
+                      key={slug}
+                      href={`/diensten/${slug}` as "/diensten/kickstart"}
+                      className="group relative block rounded-2xl overflow-hidden transition-shadow hover:shadow-xl"
+                      style={{ minHeight: isFeatured ? 300 : 260 }}
+                    >
+                      {/* Texture background */}
+                      <div
+                        className="absolute inset-0"
+                        style={{
+                          backgroundImage: `url('${service.texture}')`,
+                          backgroundSize: "cover",
+                          backgroundPosition: "center",
+                        }}
+                      />
+                      <div
+                        className="absolute inset-0"
+                        style={{
+                          background: "linear-gradient(180deg, rgba(0,0,0,0.03) 0%, rgba(0,0,0,0.6) 100%)",
+                        }}
+                      />
+                      {isFeatured && (
+                        <span
+                          className="absolute top-3 right-3 z-20 rounded-full px-3 py-1 text-xs font-medium text-white"
+                          style={{ backgroundColor: "#FF7150" }}
+                        >
+                          {t("comparison.recommended")}
+                        </span>
+                      )}
+                      <div className="relative z-10 flex flex-col justify-between h-full p-5" style={{ minHeight: isFeatured ? 300 : 260 }}>
+                        <div
+                          className="flex items-center justify-center rounded-lg"
+                          style={{ width: 36, height: 36, backgroundColor: "rgba(255,255,255,0.15)", backdropFilter: "blur(8px)" }}
+                        >
+                          <img
+                            src={service.icon}
+                            alt=""
+                            aria-hidden="true"
+                            className="invert"
+                            style={{ width: 20, height: 20 }}
+                          />
+                        </div>
+                        <div>
+                          <h3
+                            className="font-heading text-white"
+                            style={{ fontSize: isFeatured ? 22 : 18, fontWeight: isFeatured ? 400 : 100 }}
+                          >
+                            {t(`overview.${slug}.title`)}
+                          </h3>
+                          <p className="mt-1.5 text-xs text-white/70" style={{ lineHeight: 1.4 }}>
+                            {t(`comparison.${slug}.bestFor`)}
+                          </p>
+                          <div className="mt-3 flex items-baseline gap-2">
+                            <span className="text-sm font-medium text-white">
+                              {t(`overview.${slug}.price`).split("·")[0].trim()}
+                            </span>
+                            <span className="text-xs text-white/50">
+                              {t(`comparison.${slug}.duration`)}
+                            </span>
+                          </div>
+                          <span className="mt-3 inline-flex items-center gap-1 text-xs font-medium text-white/80 group-hover:text-white group-hover:gap-2 transition-all">
+                            {t("moreAbout")} {t(`overview.${slug}.title`)} &rarr;
+                          </span>
+                        </div>
+                      </div>
+                    </Link>
+                  );
+                })}
+
+                {/* --- Leren cards --- */}
+                {(["inspiratie", "fundamentals"] as const).map((slug) => {
+                  const service = SERVICES.find((s) => s.slug === slug)!;
+                  return (
+                    <Link
+                      key={slug}
+                      href={`/diensten/${slug}` as "/diensten/inspiratie"}
+                      className="group relative block rounded-2xl overflow-hidden transition-shadow hover:shadow-md"
+                      style={{ minHeight: 260, backgroundColor: service.tint.bg, border: `1px solid ${service.tint.ring}` }}
+                    >
+                      <div className="relative z-10 flex flex-col justify-between h-full p-5" style={{ minHeight: 260 }}>
+                        <div
+                          className="flex items-center justify-center rounded-lg"
+                          style={{ width: 36, height: 36, backgroundColor: service.tint.iconBg }}
+                        >
+                          <img
+                            src={service.icon}
+                            alt=""
+                            aria-hidden="true"
+                            style={{ width: 20, height: 20 }}
+                          />
+                        </div>
+                        <div>
+                          <h3
+                            className="font-heading"
+                            style={{ fontSize: 18, fontWeight: 100, color: "#0b0b0b" }}
+                          >
+                            {t(`overview.${slug}.title`)}
+                          </h3>
+                          <p className="mt-1.5 text-xs" style={{ lineHeight: 1.4, color: "rgba(0,0,0,0.55)" }}>
+                            {t(`comparison.${slug}.bestFor`)}
+                          </p>
+                          <div className="mt-3 flex items-baseline gap-2">
+                            <span className="text-sm font-medium" style={{ color: "#0b0b0b" }}>
+                              {t(`overview.${slug}.price`).split("·")[0].trim()}
+                            </span>
+                            <span className="text-xs" style={{ color: "rgba(0,0,0,0.4)" }}>
+                              {t(`comparison.${slug}.duration`)}
+                            </span>
+                          </div>
+                          <span className="mt-3 inline-flex items-center gap-1 text-xs font-medium group-hover:gap-2 transition-all" style={{ color: service.color }}>
+                            {t("moreAbout")} {t(`overview.${slug}.title`)} &rarr;
+                          </span>
+                        </div>
+                      </div>
+                    </Link>
+                  );
+                })}
+              </div>
+
+              {/* --- Trainingen Hub banner --- */}
+              <a
+                href="https://traininghub.spaik.io/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-4 flex items-center justify-between rounded-2xl px-6 py-5 transition-opacity hover:opacity-80"
+                style={{ backgroundColor: "#F5F5F3", border: "1px solid rgba(0,0,0,0.06)" }}
+              >
+                <div>
+                  <p className="text-sm font-medium" style={{ color: "#0b0b0b" }}>
+                    {t("tracks.trainingen")}
+                  </p>
+                  <p className="mt-0.5 text-xs" style={{ color: "rgba(0,0,0,0.5)" }}>
+                    {t("tracks.trainingenSub")}
+                  </p>
+                </div>
+                <span className="text-sm" style={{ color: "rgba(0,0,0,0.35)" }}>&rarr;</span>
+              </a>
+            </div>
+          </ScrollReveal>
+        </section>
 
         {/* -------- Quote Strip -------- */}
         <section style={{ backgroundColor: "#F3EDED" }}>
@@ -114,163 +284,7 @@ export default function DienstenPage() {
           </ScrollReveal>
         </section>
 
-        {/* -------- Comparison table (compromise-effect) -------- */}
-        <section className="bg-white">
-          <ScrollReveal>
-            <div
-              className="px-6 md:px-10 py-16 md:py-20"
-              style={{ maxWidth: 1080, margin: "0 auto" }}
-            >
-              <h2
-                className="font-heading text-[28px] leading-[32px] md:text-[32px] md:leading-[36px] mb-10"
-                style={{ fontWeight: 300, color: "#0b0b0b" }}
-              >
-                {t("comparison.title")}
-              </h2>
 
-              {(() => {
-                return (
-                  <>
-                    {/* Desktop */}
-                    <div className="hidden md:grid grid-cols-4 gap-4">
-                      {SERVICES.map((service) => {
-                        const isFeatured = !!service.featured;
-                        return (
-                          <Link
-                            key={service.slug}
-                            href={`/diensten/${service.slug}` as "/diensten/strategie"}
-                            className="group relative block rounded-2xl overflow-hidden transition-shadow hover:shadow-xl"
-                            style={{ minHeight: isFeatured ? 320 : 280 }}
-                          >
-                            {/* Texture background */}
-                            <div
-                              className="absolute inset-0"
-                              style={{
-                                backgroundImage: `url('${service.texture}')`,
-                                backgroundSize: "cover",
-                                backgroundPosition: "center",
-                              }}
-                            />
-                            <div
-                              className="absolute inset-0"
-                              style={{
-                                background: "linear-gradient(180deg, rgba(0,0,0,0.03) 0%, rgba(0,0,0,0.6) 100%)",
-                              }}
-                            />
-
-                            {/* Badge */}
-                            {isFeatured && (
-                              <span
-                                className="absolute top-3 right-3 z-20 rounded-full px-3 py-1 text-xs font-medium text-white"
-                                style={{ backgroundColor: "#FF7150" }}
-                              >
-                                {t("comparison.recommended")}
-                              </span>
-                            )}
-
-                            {/* Content */}
-                            <div className="relative z-10 flex flex-col justify-between h-full p-5" style={{ minHeight: isFeatured ? 320 : 280 }}>
-                              <div
-                                className="flex items-center justify-center rounded-lg"
-                                style={{ width: 36, height: 36, backgroundColor: "rgba(255,255,255,0.15)", backdropFilter: "blur(8px)" }}
-                              >
-                                <img
-                                  src={service.icon}
-                                  alt=""
-                                  aria-hidden="true"
-                                  className="invert"
-                                  style={{ width: 20, height: 20 }}
-                                />
-                              </div>
-                              <div>
-                                <h3
-                                  className="font-heading text-white"
-                                  style={{ fontSize: isFeatured ? 22 : 18, fontWeight: isFeatured ? 400 : 100 }}
-                                >
-                                  {t(`overview.${service.slug}.title`)}
-                                </h3>
-                                <p className="mt-1.5 text-xs text-white/70" style={{ lineHeight: 1.4 }}>
-                                  {t(`comparison.${service.slug}.bestFor`)}
-                                </p>
-                                <div className="mt-3 flex items-baseline gap-2">
-                                  <span className="text-sm font-medium text-white">
-                                    {t(`overview.${service.slug}.price`).split("·")[0].trim()}
-                                  </span>
-                                  <span className="text-xs text-white/50">
-                                    {t(`comparison.${service.slug}.duration`)}
-                                  </span>
-                                </div>
-                                <span className="mt-3 inline-flex items-center gap-1 text-xs font-medium text-white/80 group-hover:text-white group-hover:gap-2 transition-all">
-                                  {t("moreAbout")} {t(`overview.${service.slug}.title`)} &rarr;
-                                </span>
-                              </div>
-                            </div>
-                          </Link>
-                        );
-                      })}
-                    </div>
-
-                    {/* Mobile */}
-                    <div className="flex flex-col gap-3 md:hidden">
-                      {SERVICES.map((service) => {
-                        const isFeatured = !!service.featured;
-                        return (
-                          <Link
-                            key={service.slug}
-                            href={`/diensten/${service.slug}` as "/diensten/strategie"}
-                            className="group relative block rounded-xl overflow-hidden"
-                            style={{ minHeight: 100 }}
-                          >
-                            <div
-                              className="absolute inset-0"
-                              style={{
-                                backgroundImage: `url('${service.texture}')`,
-                                backgroundSize: "cover",
-                                backgroundPosition: "center",
-                              }}
-                            />
-                            <div
-                              className="absolute inset-0"
-                              style={{
-                                background: "linear-gradient(90deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.25) 100%)",
-                              }}
-                            />
-                            {isFeatured && (
-                              <span
-                                className="absolute top-3 right-3 z-20 rounded-full px-2 py-0.5 text-[10px] font-medium text-white"
-                                style={{ backgroundColor: "#FF7150" }}
-                              >
-                                {t("comparison.recommended")}
-                              </span>
-                            )}
-                            <div className="relative z-10 flex items-end justify-between p-4" style={{ minHeight: 100 }}>
-                              <div>
-                                <p className="font-heading text-white" style={{ fontSize: 17, fontWeight: 300 }}>
-                                  {t(`overview.${service.slug}.title`)}
-                                </p>
-                                <p className="mt-0.5 text-xs text-white/60">
-                                  {t(`comparison.${service.slug}.bestFor`)}
-                                </p>
-                              </div>
-                              <div className="text-right shrink-0 ml-4">
-                                <p className="text-sm font-medium text-white">
-                                  {t(`overview.${service.slug}.price`).split("·")[0].trim()}
-                                </p>
-                                <p className="text-xs text-white/50">
-                                  {t(`comparison.${service.slug}.duration`)}
-                                </p>
-                              </div>
-                            </div>
-                          </Link>
-                        );
-                      })}
-                    </div>
-                  </>
-                );
-              })()}
-            </div>
-          </ScrollReveal>
-        </section>
 
         {/* -------- Waarom SPAIK -------- */}
         <section style={{ backgroundColor: "#F3EDED" }}>
