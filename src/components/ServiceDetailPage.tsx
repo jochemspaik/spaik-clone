@@ -681,7 +681,7 @@ function PricingSection({ slug }: { slug: ServiceSlug }) {
             </>
           )}
 
-          {t.has(`detail.${slug}.pricingRisk`) && (
+          {slug !== "kickstart" && t.has(`detail.${slug}.pricingRisk`) && (
             <p className="mt-8 text-center italic" style={{ fontSize: 16, color: "rgba(0,0,0,0.6)" }}>
               {t(`detail.${slug}.pricingRisk`)}
             </p>
