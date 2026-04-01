@@ -232,6 +232,46 @@ function ForWhoSection({ slug }: { slug: ServiceSlug }) {
   );
 }
 
+/* ---- Differentiators (kickstart only) ---- */
+
+function DifferentiatorsSection({ slug }: { slug: ServiceSlug }) {
+  const t = useTranslations("diensten");
+  if (slug !== "kickstart") return null;
+
+  const items = Array.from({ length: 5 }, (_, i) => ({
+    title: t(`detail.kickstart.diff${i + 1}`),
+    detail: t(`detail.kickstart.diff${i + 1}detail`),
+  }));
+
+  return (
+    <section className="bg-white px-6 md:px-10 py-12 md:py-20">
+      <div className="mx-auto" style={{ maxWidth: 1080 }}>
+        <ScrollReveal>
+          <h2 className="font-heading" style={{ fontSize: 32, fontWeight: 100, color: "#0b0b0b" }}>
+            {t("detail.kickstart.diffTitle")}
+          </h2>
+          <div className="mt-10 grid grid-cols-1 gap-4 md:grid-cols-2">
+            {items.map((item) => (
+              <div
+                key={item.title}
+                className="rounded-xl bg-white p-5"
+                style={{ borderLeft: "3px solid #FF7150" }}
+              >
+                <p className="font-medium" style={{ fontSize: 16, color: "#0b0b0b" }}>
+                  {item.title}
+                </p>
+                <p className="mt-1" style={{ fontSize: 15, color: "rgba(0,0,0,0.6)", lineHeight: 1.5 }}>
+                  {item.detail}
+                </p>
+              </div>
+            ))}
+          </div>
+        </ScrollReveal>
+      </div>
+    </section>
+  );
+}
+
 /* ---- Wat Je Krijgt (with descriptions) ---- */
 
 function WhatYouGetSection({ slug }: { slug: ServiceSlug }) {
@@ -271,6 +311,35 @@ function WhatYouGetSection({ slug }: { slug: ServiceSlug }) {
               </div>
             ))}
           </div>
+        </ScrollReveal>
+      </div>
+    </section>
+  );
+}
+
+/* ---- Sponsor Perspective (kickstart only) ---- */
+
+function SponsorSection({ slug }: { slug: ServiceSlug }) {
+  const t = useTranslations("diensten");
+  if (slug !== "kickstart") return null;
+
+  const items = Array.from({ length: 6 }, (_, i) => t(`detail.kickstart.sponsor${i + 1}`));
+
+  return (
+    <section className="px-6 md:px-10 py-12 md:py-20" style={{ backgroundColor: "#F3EDED" }}>
+      <div className="mx-auto" style={{ maxWidth: 1080 }}>
+        <ScrollReveal>
+          <h2 className="font-heading" style={{ fontSize: 32, fontWeight: 100, color: "#0b0b0b" }}>
+            {t("detail.kickstart.sponsorTitle")}
+          </h2>
+          <ul className="mt-10 flex flex-col gap-4">
+            {items.map((item, i) => (
+              <li key={i} className="flex items-start gap-3">
+                <CheckIcon color="#22c55e" />
+                <span style={{ fontSize: 16, color: "rgba(0,0,0,0.7)", lineHeight: 1.6 }}>{item}</span>
+              </li>
+            ))}
+          </ul>
         </ScrollReveal>
       </div>
     </section>
@@ -435,6 +504,36 @@ function PricingSection({ slug }: { slug: ServiceSlug }) {
   );
 }
 
+/* ---- ROI (kickstart only) ---- */
+
+function ROISection({ slug }: { slug: ServiceSlug }) {
+  const t = useTranslations("diensten");
+  if (slug !== "kickstart") return null;
+
+  return (
+    <section className="bg-white px-6 md:px-10 py-12 md:py-20">
+      <div className="mx-auto" style={{ maxWidth: 1080 }}>
+        <ScrollReveal>
+          <h2 className="font-heading" style={{ fontSize: 32, fontWeight: 100, color: "#0b0b0b" }}>
+            {t("detail.kickstart.roiTitle")}
+          </h2>
+          <p className="mt-6" style={{ fontSize: 16, color: "rgba(0,0,0,0.7)", lineHeight: 1.6, maxWidth: 640 }}>
+            {t("detail.kickstart.roiText")}
+          </p>
+          <div
+            className="mt-8 rounded-xl p-6"
+            style={{ backgroundColor: "rgba(255,113,80,0.06)", border: "1px solid rgba(255,113,80,0.15)" }}
+          >
+            <p style={{ fontSize: 15, color: "rgba(0,0,0,0.7)", lineHeight: 1.6 }}>
+              {t("detail.kickstart.roiExample")}
+            </p>
+          </div>
+        </ScrollReveal>
+      </div>
+    </section>
+  );
+}
+
 /* ---- Testimonial ---- */
 
 function TestimonialSection({ slug }: { slug: ServiceSlug }) {
@@ -545,6 +644,116 @@ function NextStepSection({ slug }: { slug: ServiceSlug }) {
   );
 }
 
+/* ---- Company Size (kickstart only) ---- */
+
+function CompanySizeSection({ slug }: { slug: ServiceSlug }) {
+  const t = useTranslations("diensten");
+  if (slug !== "kickstart") return null;
+
+  const sizes = [
+    { label: t("detail.kickstart.size1Label"), body: t("detail.kickstart.size1Body") },
+    { label: t("detail.kickstart.size2Label"), body: t("detail.kickstart.size2Body") },
+    { label: t("detail.kickstart.size3Label"), body: t("detail.kickstart.size3Body") },
+  ];
+
+  return (
+    <section className="px-6 md:px-10 py-12 md:py-20" style={{ backgroundColor: "#FAFAF8" }}>
+      <div className="mx-auto" style={{ maxWidth: 1080 }}>
+        <ScrollReveal>
+          <h2 className="font-heading" style={{ fontSize: 32, fontWeight: 100, color: "#0b0b0b" }}>
+            {t("detail.kickstart.sizeTitle")}
+          </h2>
+          <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-3">
+            {sizes.map((size) => (
+              <div key={size.label}>
+                <span
+                  className="inline-block rounded-full px-3 py-1 text-xs font-medium"
+                  style={{ backgroundColor: "rgba(255,113,80,0.1)", color: "#FF7150" }}
+                >
+                  {size.label}
+                </span>
+                <p className="mt-3" style={{ fontSize: 15, color: "rgba(0,0,0,0.7)", lineHeight: 1.5 }}>
+                  {size.body}
+                </p>
+              </div>
+            ))}
+          </div>
+        </ScrollReveal>
+      </div>
+    </section>
+  );
+}
+
+/* ---- Two Paths (kickstart only — replaces NextStepSection) ---- */
+
+function TwoPathsSection({ slug }: { slug: ServiceSlug }) {
+  const t = useTranslations("diensten");
+  if (slug !== "kickstart") return null;
+
+  const path2Items = Array.from({ length: 5 }, (_, i) => t(`detail.kickstart.path2Item${i + 1}`));
+
+  return (
+    <section className="bg-white px-6 md:px-10 py-12 md:py-20">
+      <div className="mx-auto" style={{ maxWidth: 1080 }}>
+        <ScrollReveal>
+          <h2 className="font-heading" style={{ fontSize: 32, fontWeight: 100, color: "#0b0b0b" }}>
+            {t("detail.kickstart.pathsTitle")}
+          </h2>
+          <p className="mt-2" style={{ fontSize: 16, color: "rgba(0,0,0,0.5)" }}>
+            {t("detail.kickstart.pathsSubtitle")}
+          </p>
+
+          <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-2">
+            {/* Path 1: Adoptie — featured */}
+            <div
+              className="rounded-2xl bg-white p-6"
+              style={{ border: "2px solid #FF7150" }}
+            >
+              <h3 className="font-heading" style={{ fontSize: 20, fontWeight: 400, color: "#0b0b0b" }}>
+                {t("detail.kickstart.path1Title")}
+              </h3>
+              <p className="mt-3" style={{ fontSize: 15, color: "rgba(0,0,0,0.7)", lineHeight: 1.5 }}>
+                {t("detail.kickstart.path1Body")}
+              </p>
+              <p className="mt-2" style={{ fontSize: 14, color: "rgba(0,0,0,0.5)" }}>
+                {t("detail.kickstart.path1Detail")}
+              </p>
+              <Link
+                href="/diensten/adoptie"
+                className="mt-4 inline-flex items-center gap-2 text-sm font-medium transition-colors hover:underline"
+                style={{ color: "#FF7150" }}
+              >
+                {t("detail.kickstart.path1Cta")} &rarr;
+              </Link>
+            </div>
+
+            {/* Path 2: Zelfstandig — neutral */}
+            <div
+              className="rounded-2xl bg-white p-6"
+              style={{ border: "1px solid #DEDCCC" }}
+            >
+              <h3 className="font-heading" style={{ fontSize: 20, fontWeight: 400, color: "#0b0b0b" }}>
+                {t("detail.kickstart.path2Title")}
+              </h3>
+              <p className="mt-3" style={{ fontSize: 15, color: "rgba(0,0,0,0.7)", lineHeight: 1.5 }}>
+                {t("detail.kickstart.path2Body")}
+              </p>
+              <ul className="mt-4 flex flex-col gap-2">
+                {path2Items.map((item) => (
+                  <li key={item} className="flex items-start gap-2">
+                    <CheckIcon color="#22c55e" />
+                    <span style={{ fontSize: 14, color: "rgba(0,0,0,0.6)", lineHeight: 1.5 }}>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </ScrollReveal>
+      </div>
+    </section>
+  );
+}
+
 /* ---- Main Component ---- */
 
 export function ServiceDetailPage({ slug }: { slug: ServiceSlug }) {
@@ -552,11 +761,19 @@ export function ServiceDetailPage({ slug }: { slug: ServiceSlug }) {
     <>
       <HeroSection slug={slug} />
       <ForWhoSection slug={slug} />
+      <DifferentiatorsSection slug={slug} />
       <WhatYouGetSection slug={slug} />
+      <SponsorSection slug={slug} />
       <HowItWorksSection slug={slug} />
       {(slug === "kickstart" || slug === "fundamentals") && <PricingSection slug={slug} />}
+      <ROISection slug={slug} />
       <TestimonialSection slug={slug} />
-      <NextStepSection slug={slug} />
+      <CompanySizeSection slug={slug} />
+      {slug === "kickstart" ? (
+        <TwoPathsSection slug={slug} />
+      ) : (
+        <NextStepSection slug={slug} />
+      )}
     </>
   );
 }
