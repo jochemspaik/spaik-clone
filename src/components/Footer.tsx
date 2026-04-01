@@ -52,14 +52,14 @@ export function Footer() {
               {t("footer.services")}
             </Link>
             <Link
-              href={{ pathname: "/" as "/", hash: "why-spaik" }}
+              href={{ pathname: "/" as const, hash: "why-spaik" }}
               className="inline-flex items-center transition-opacity hover:opacity-60"
               style={{ fontSize: 15, color: "#0b0b0b", minHeight: 44 }}
             >
               {t("footer.whySpaik")}
             </Link>
             <Link
-              href={{ pathname: "/" as "/", hash: "team" }}
+              href={{ pathname: "/" as const, hash: "team" }}
               className="inline-flex items-center transition-opacity hover:opacity-60"
               style={{ fontSize: 15, color: "#0b0b0b", minHeight: 44 }}
             >

@@ -54,9 +54,6 @@ export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
-  /* Standalone pages (e.g. brochure) render without header */
-  if (pathname.includes("/brochure")) return null;
-
   useEffect(() => {
     function handleScroll() {
       setScrolled(window.scrollY > 10);
@@ -64,6 +61,9 @@ export function Header() {
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  /* Standalone pages (e.g. brochure) render without header */
+  if (pathname.includes("/brochure")) return null;
 
   function switchLocale(locale: "nl" | "en") {
     router.replace(pathname, { locale });
