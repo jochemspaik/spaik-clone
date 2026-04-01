@@ -404,8 +404,10 @@
         "roiTitle": "Indicative ROI",
         "roiText": "Typically we see the automation saving €30-100K per year, depending on the process and volume. With an investment of €14K, the break-even time is 2-6 months after full rollout.",
         "roiExample": "Example (VAPRO): Order entry automation. 4,000-4,500 orders/month × 10 min manual. 60% automatable → ~300 hours/month saved → ~€100K/year. Break-even within 3 months.",
-        "no1slug": "strategie",
-        "no2slug": "fundamentals"
+        "pricingSplit1": "€7,000 upfront",
+        "pricingSplit1detail": "Week 1-2: Discovery, inspiration session, leadership strategy session, baseline measurement",
+        "pricingSplit2": "€7,000 on delivery",
+        "pricingSplit2detail": "Week 3-4: Build automation, training, roadmap sign-off"
       },
       "adoptie": {
         "metaTitle": "Adoption",

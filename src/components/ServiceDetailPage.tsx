@@ -386,8 +386,27 @@ function PricingSection({ slug }: { slug: ServiceSlug }) {
             <p style={{ fontSize: 18, color: "rgba(0,0,0,0.5)" }}>{t(`detail.${slug}.pricingLabel`)}</p>
           </div>
 
-          {/* Includes list (fundamentals) */}
-          {slug === "fundamentals" ? (
+          {/* Split pricing cards (kickstart) or includes list (fundamentals) */}
+          {slug === "kickstart" ? (
+            <div className="mt-10 grid grid-cols-1 gap-4 md:grid-cols-2 max-w-[640px] mx-auto">
+              <div className="rounded-2xl border border-[#DEDCCC] bg-white p-6">
+                <p className="font-medium" style={{ fontSize: 20, color: "#0b0b0b" }}>
+                  {t("detail.kickstart.pricingSplit1")}
+                </p>
+                <p className="mt-2" style={{ fontSize: 14, color: "rgba(0,0,0,0.6)" }}>
+                  {t("detail.kickstart.pricingSplit1detail")}
+                </p>
+              </div>
+              <div className="rounded-2xl border border-[#DEDCCC] bg-white p-6">
+                <p className="font-medium" style={{ fontSize: 20, color: "#0b0b0b" }}>
+                  {t("detail.kickstart.pricingSplit2")}
+                </p>
+                <p className="mt-2" style={{ fontSize: 14, color: "rgba(0,0,0,0.6)" }}>
+                  {t("detail.kickstart.pricingSplit2detail")}
+                </p>
+              </div>
+            </div>
+          ) : slug === "fundamentals" ? (
             <div className="mt-10 flex flex-col gap-4 max-w-[640px] mx-auto">
               {[1, 2, 3].map((i) => (
                 <div key={i} className="flex items-start gap-4 rounded-2xl border border-[#DEDCCC] bg-white p-6">

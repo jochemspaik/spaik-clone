@@ -403,7 +403,11 @@
         "nextStepSlug": "adoptie",
         "roiTitle": "Indicatieve ROI",
         "roiText": "Typisch zien we dat de automatisering €30-100K per jaar bespaart, afhankelijk van het proces en het volume. Bij een investering van €14K is de terugverdientijd 2-6 maanden na volledige uitrol.",
-        "roiExample": "Voorbeeld (VAPRO): Order entry automatisering. 4.000-4.500 orders/maand × 10 min handmatig. 60% automatiseerbaar → ~300 uur/maand bespaard → ~€100K/jaar. Break-even binnen 3 maanden."
+        "roiExample": "Voorbeeld (VAPRO): Order entry automatisering. 4.000-4.500 orders/maand × 10 min handmatig. 60% automatiseerbaar → ~300 uur/maand bespaard → ~€100K/jaar. Break-even binnen 3 maanden.",
+        "pricingSplit1": "€7.000 vooraf",
+        "pricingSplit1detail": "Week 1-2: Discovery, inspiratiesessie, MT-strategiesessie, 0-meting",
+        "pricingSplit2": "€7.000 na oplevering",
+        "pricingSplit2detail": "Week 3-4: Automatisering bouwen, training, roadmap sign-off"
       },
       "adoptie": {
         "metaTitle": "Adoptie",
