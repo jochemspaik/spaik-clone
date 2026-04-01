@@ -3,7 +3,6 @@ import { HeroSection } from "@/components/HeroSection";
 import { LogoTicker } from "@/components/LogoTicker";
 import { CasesSection } from "@/components/CasesSection";
 import { ProblemSolutionSection } from "@/components/ProblemSolutionSection";
-import { AIDiscoverySection } from "@/components/AIDiscoverySection";
 import { DiscoverySection } from "@/components/DiscoverySection";
 import { ServicesSection } from "@/components/ServicesSection";
 import { NotListSection } from "@/components/NotListSection";
@@ -24,9 +23,6 @@ export default function HomePage() {
         </ScrollReveal>
         <ScrollReveal>
           <CasesSection />
-        </ScrollReveal>
-        <ScrollReveal>
-          <AIDiscoverySection />
         </ScrollReveal>
         <ScrollReveal>
           <DiscoverySection />

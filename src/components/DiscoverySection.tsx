@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { CheckIcon } from "@/components/icons";
+import { INTAKE_URL } from "@/lib/constants";
 
 type Department = "operational" | "marketing" | "data";
 
@@ -80,6 +81,7 @@ function MinusIcon() {
 
 export function DiscoverySection() {
   const t = useTranslations("discovery");
+  const ta = useTranslations("aiDiscovery");
   const [expanded, setExpanded] = useState<Department>("operational");
 
   function toggle(key: Department) {
@@ -279,10 +281,38 @@ export function DiscoverySection() {
           </div>
         </div>
 
-        {/* Bottom text */}
+        {/* AI Discovery CTA */}
+        <div
+          className="mt-12 flex flex-col gap-6 rounded-2xl p-8 md:flex-row md:items-center md:gap-10"
+          style={{ backgroundColor: "#fff", border: "1px solid #efede5" }}
+        >
+          <div className="flex-1">
+            <h3
+              className="font-heading text-spaik-black"
+              style={{ fontSize: 22, fontWeight: 100 }}
+            >
+              {ta("title")}
+            </h3>
+            <p
+              className="mt-2 font-sans text-spaik-black/60"
+              style={{ fontSize: 15, lineHeight: 1.6 }}
+            >
+              {ta("subtitle")}
+            </p>
+          </div>
+          <a
+            href={INTAKE_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex shrink-0 items-center justify-center rounded-xl px-6 py-3 font-sans text-sm font-medium text-white transition-colors hover:opacity-90"
+            style={{ backgroundColor: "#FF7150" }}
+          >
+            {ta("cta")} &rarr;
+          </a>
+        </div>
         <p
-          className="mt-12 font-sans text-spaik-black/60"
-          style={{ fontSize: "14px" }}
+          className="mt-6 font-sans text-spaik-black/40"
+          style={{ fontSize: 13 }}
         >
           {t("otherChallenge")}
         </p>
