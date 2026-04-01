@@ -1,23 +1,10 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import { useEffect } from "react";
 import { ServiceCheckIcon, ShieldIcon } from "@/components/icons";
 
 export function AdoptieBrochure() {
   const t = useTranslations("diensten");
-
-  /* Hide site-wide header/footer — brochure is a standalone document */
-  useEffect(() => {
-    const header = document.querySelector("header");
-    const footer = document.querySelector("footer");
-    if (header) header.style.display = "none";
-    if (footer) footer.style.display = "none";
-    return () => {
-      if (header) header.style.display = "";
-      if (footer) footer.style.display = "";
-    };
-  }, []);
 
   return (
     <>

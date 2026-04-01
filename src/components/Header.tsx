@@ -10,7 +10,7 @@ import { BOOK_CALL_URL } from "@/lib/constants";
 
 interface NavItem {
   key: string;
-  href: string;
+  href: string | { pathname: string; hash: string };
   external?: boolean;
 }
 
@@ -18,8 +18,8 @@ const NAV_ITEMS: NavItem[] = [
   { key: "cases", href: "/cases" },
   { key: "services", href: "/diensten" },
   { key: "trainings", href: "https://traininghub.spaik.io/", external: true },
-  { key: "team", href: "/#team" },
-  { key: "faq", href: "/#faq" },
+  { key: "team", href: { pathname: "/", hash: "team" } },
+  { key: "faq", href: { pathname: "/", hash: "faq" } },
 ];
 
 function NavLink({ item, onClick }: { item: NavItem; onClick?: () => void }) {
@@ -28,7 +28,7 @@ function NavLink({ item, onClick }: { item: NavItem; onClick?: () => void }) {
   const style = { fontSize: 15, fontWeight: 400, color: "#0b0b0b", minHeight: "44px" };
   const label = t(`nav.${item.key}`);
 
-  if (item.external) {
+  if (item.external && typeof item.href === "string") {
     return (
       <a href={item.href} onClick={onClick} className={className} style={style} target="_blank" rel="noopener noreferrer">
         {label}
@@ -36,8 +36,12 @@ function NavLink({ item, onClick }: { item: NavItem; onClick?: () => void }) {
     );
   }
 
+  const href = typeof item.href === "string"
+    ? (item.href as "/")
+    : { pathname: item.href.pathname as "/", hash: item.href.hash };
+
   return (
-    <Link href={item.href as "/"} onClick={onClick} className={className} style={style}>
+    <Link href={href} onClick={onClick} className={className} style={style}>
       {label}
     </Link>
   );
@@ -49,6 +53,9 @@ export function Header() {
   const router = useRouter();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+
+  /* Standalone pages (e.g. brochure) render without header */
+  if (pathname.includes("/brochure")) return null;
 
   useEffect(() => {
     function handleScroll() {

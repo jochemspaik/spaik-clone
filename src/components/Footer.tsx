@@ -2,10 +2,14 @@
 
 import Image from "next/image";
 import { useTranslations } from "next-intl";
-import { Link } from "@/i18n/navigation";
+import { Link, usePathname } from "@/i18n/navigation";
 
 export function Footer() {
   const t = useTranslations();
+  const pathname = usePathname();
+
+  /* Standalone pages (e.g. brochure) render without footer */
+  if (pathname.includes("/brochure")) return null;
 
   return (
     <footer
@@ -48,14 +52,14 @@ export function Footer() {
               {t("footer.services")}
             </Link>
             <Link
-              href={"/#why-spaik" as "/"}
+              href={{ pathname: "/" as "/", hash: "why-spaik" }}
               className="inline-flex items-center transition-opacity hover:opacity-60"
               style={{ fontSize: 15, color: "#0b0b0b", minHeight: 44 }}
             >
               {t("footer.whySpaik")}
             </Link>
             <Link
-              href={"/#team" as "/"}
+              href={{ pathname: "/" as "/", hash: "team" }}
               className="inline-flex items-center transition-opacity hover:opacity-60"
               style={{ fontSize: 15, color: "#0b0b0b", minHeight: 44 }}
             >
