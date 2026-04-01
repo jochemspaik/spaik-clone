@@ -283,9 +283,8 @@ function DifferentiatorsSection({ slug }: { slug: ServiceSlug }) {
 
 /* ---- Wat Je Krijgt (with descriptions) ---- */
 
-function WhatYouGetFlatList({ slug }: { slug: ServiceSlug }) {
+function WhatYouGetFlatList({ slug, count = 4 }: { slug: ServiceSlug; count?: number }) {
   const t = useTranslations("diensten");
-  const count = 4;
   const items = Array.from({ length: count }, (_, i) => ({
     title: t(`detail.${slug}.get${i + 1}`),
     detail: t(`detail.${slug}.get${i + 1}detail`),
@@ -376,7 +375,7 @@ function WhatYouGetSection({ slug }: { slug: ServiceSlug }) {
           <h2 className="font-heading" style={{ fontSize: 32, fontWeight: 100, color: "#0b0b0b" }}>
             {t("detail.whatYouGet")}
           </h2>
-          {slug === "kickstart" ? <WhatYouGetGrouped /> : <WhatYouGetFlatList slug={slug} />}
+          {slug === "kickstart" ? <WhatYouGetFlatList slug={slug} count={7} /> : <WhatYouGetFlatList slug={slug} />}
         </ScrollReveal>
       </div>
     </section>
@@ -1014,12 +1013,11 @@ export function ServiceDetailPage({ slug }: { slug: ServiceSlug }) {
         <SocialProofStrip slug={slug} />
         <ForWhoSection slug={slug} />
         <DifferentiatorsSection slug={slug} />
-        <SponsorSection slug={slug} />
+        <WhatYouGetSection slug={slug} />
         <HowItWorksSection slug={slug} />
+        <ROISection slug={slug} />
         <PricingSection slug={slug} />
         <MidPageCTA slug={slug} />
-        <ROISection slug={slug} />
-        <TestimonialSection slug={slug} />
         <TwoPathsSection slug={slug} />
       </>
     );
