@@ -15,10 +15,11 @@ interface NavItem {
 }
 
 const NAV_ITEMS: NavItem[] = [
-  { key: "cases", href: "/cases" },
+  { key: "home", href: "/" },
   { key: "services", href: "/diensten" },
-  { key: "trainings", href: "https://traininghub.spaik.io/", external: true },
+  { key: "cases", href: "/cases" },
   { key: "insights", href: "/blog" },
+  { key: "trainings", href: "https://traininghub.spaik.io/", external: true },
 ];
 
 function NavLink({ item, onClick }: { item: NavItem; onClick?: () => void }) {
