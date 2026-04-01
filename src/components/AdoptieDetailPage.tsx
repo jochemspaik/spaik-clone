@@ -587,10 +587,10 @@ function TimelineSection() {
   const t = useTranslations("diensten");
 
   const steps = [
-    { title: t("detail.adoptie.processMonth12"), detail: t("detail.adoptie.processMonth12detail"), intensity: t("detail.adoptie.processIntensity1") },
-    { title: t("detail.adoptie.processMonth34"), detail: t("detail.adoptie.processMonth34detail"), intensity: t("detail.adoptie.processIntensity2") },
-    { title: t("detail.adoptie.processMonth56"), detail: t("detail.adoptie.processMonth56detail"), intensity: t("detail.adoptie.processIntensity3") },
-    { title: t("detail.adoptie.processMonth78"), detail: t("detail.adoptie.processMonth78detail"), intensity: t("detail.adoptie.processIntensity4") },
+    { title: t("detail.adoptie.processMonth12"), detail: t("detail.adoptie.processMonth12detail") },
+    { title: t("detail.adoptie.processMonth34"), detail: t("detail.adoptie.processMonth34detail") },
+    { title: t("detail.adoptie.processMonth56"), detail: t("detail.adoptie.processMonth56detail") },
+    { title: t("detail.adoptie.processMonth78"), detail: t("detail.adoptie.processMonth78detail") },
   ];
 
   return (
@@ -625,18 +625,6 @@ function TimelineSection() {
                     <p className="mt-1" style={{ fontSize: 15, color: "rgba(0,0,0,0.6)", lineHeight: 1.5 }}>
                       {step.detail}
                     </p>
-                    {/* Intensity bar — visualizes SPAIK involvement tapering */}
-                    <div className="mt-3 flex items-center gap-3">
-                      <div
-                        className="rounded-full"
-                        style={{
-                          height: 4,
-                          width: step.intensity,
-                          backgroundColor: "rgba(255,113,80,0.2)",
-                        }}
-                      />
-                      <span style={{ fontSize: 12, color: "rgba(0,0,0,0.4)" }}>{step.intensity}</span>
-                    </div>
                   </div>
                 </div>
               );
