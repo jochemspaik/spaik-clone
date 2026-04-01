@@ -3,6 +3,7 @@ import { Link } from "@/i18n/navigation";
 import Image from "next/image";
 import { blogPosts } from "@/data/blog-posts";
 import { CTASection } from "@/components/CTASection";
+import { ScrollReveal } from "@/components/ScrollReveal";
 import type { Metadata } from "next";
 import { ClockIcon } from "@/components/icons";
 
@@ -44,23 +45,27 @@ export default function BlogPage() {
     <>
     <main className="min-h-[100dvh]">
       {/* Header */}
-      <section className="px-6 pt-32 pb-16 max-w-[1200px] mx-auto">
-        <h1
-          className="font-heading text-[40px] leading-[44px] font-thin md:text-[52px] md:leading-[56px]"
-          style={{ fontWeight: 100 }}
-        >
-          {t("title")}
-        </h1>
-        <p className="mt-4 text-base" style={{ color: "rgba(0,0,0,0.6)" }}>
-          {t("subtitle")}
-        </p>
+      <section className="px-6 md:px-10 pt-32 pb-16 mx-auto" style={{ maxWidth: 1080 }}>
+        <ScrollReveal>
+          <h1
+            className="font-heading text-[40px] leading-[44px] font-thin md:text-[52px] md:leading-[56px]"
+            style={{ fontWeight: 100 }}
+          >
+            {t("title")}
+          </h1>
+          <p className="mt-4 text-base" style={{ color: "rgba(0,0,0,0.6)" }}>
+            {t("subtitle")}
+          </p>
+        </ScrollReveal>
       </section>
 
       {/* Featured post */}
-      <section className="px-6 pb-16">
+      <section className="px-6 md:px-10 pb-16">
+        <ScrollReveal>
         <Link
           href={`/blog/${featured.slug}`}
-          className="block max-w-[1200px] mx-auto group"
+          className="block mx-auto group"
+          style={{ maxWidth: 1080 }}
         >
           <div className="relative rounded-2xl overflow-hidden bg-[#f7f6f2] p-8 md:p-12 flex flex-col md:flex-row gap-8 items-center">
             <div className="flex-1">
@@ -97,10 +102,12 @@ export default function BlogPage() {
             </div>
           </div>
         </Link>
+        </ScrollReveal>
       </section>
 
       {/* All posts grid */}
-      <section className="px-6 pb-24 max-w-[1200px] mx-auto">
+      <section className="px-6 md:px-10 pb-24 mx-auto" style={{ maxWidth: 1080 }}>
+        <ScrollReveal>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {allPosts.map((post) => (
             <Link
@@ -120,11 +127,27 @@ export default function BlogPage() {
                   <h3 className="text-base font-medium leading-snug group-hover:text-[#ff7150] transition-colors">
                     {post.title[locale]}
                   </h3>
+                  <div className="mt-3 flex items-center gap-3 text-xs" style={{ color: "rgba(0,0,0,0.45)" }}>
+                    <span>{post.author}</span>
+                    <span>&middot;</span>
+                    <time>
+                      {new Date(post.date).toLocaleDateString(
+                        locale === "nl" ? "nl-NL" : "en-US",
+                        { day: "numeric", month: "short" }
+                      )}
+                    </time>
+                    <span>&middot;</span>
+                    <span className="flex items-center gap-1">
+                      <ClockIcon />
+                      {post.readTime} min
+                    </span>
+                  </div>
                 </div>
               </div>
             </Link>
           ))}
         </div>
+        </ScrollReveal>
       </section>
     </main>
     <CTASection />

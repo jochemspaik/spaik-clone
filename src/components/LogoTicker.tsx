@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-const LOGO_COUNT = 9;
+const LOGO_COUNT = 15;
 const logos = Array.from({ length: LOGO_COUNT }, (_, i) => ({
   src: `/images/logo-ticker-${i + 1}.jpg`,
   alt: `Client logo ${i + 1}`,
