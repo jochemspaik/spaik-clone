@@ -51,7 +51,7 @@ export default function DienstenPage() {
     <main className="min-h-[100dvh]">
         {/* -------- Hero -------- */}
         <section
-          className="px-6 md:px-10 pt-32 pb-16"
+          className="px-6 md:px-10 pt-28 pb-8"
           style={{ maxWidth: 1080, margin: "0 auto" }}
         >
           <ScrollReveal>
@@ -74,7 +74,7 @@ export default function DienstenPage() {
         <section className="bg-white">
           <ScrollReveal>
             <div
-              className="px-6 md:px-10 py-16 md:py-20"
+              className="px-6 md:px-10 pb-16 pt-6 md:pb-20 md:pt-8"
               style={{ maxWidth: 1080, margin: "0 auto" }}
             >
               {/* Two tracks side by side */}
@@ -359,10 +359,10 @@ export default function DienstenPage() {
           <ScrollReveal>
             <div
               className="px-6 md:px-10 py-16 md:py-20"
-              style={{ maxWidth: 800, margin: "0 auto" }}
+              style={{ maxWidth: 1080, margin: "0 auto" }}
             >
               <h2
-                className="font-heading text-[28px] leading-[32px] md:text-[32px] md:leading-[36px] text-center"
+                className="font-heading text-[28px] leading-[32px] md:text-[32px] md:leading-[36px]"
                 style={{ fontWeight: 300, color: "#0b0b0b" }}
               >
                 {t("faq.title")}
@@ -373,6 +373,7 @@ export default function DienstenPage() {
                     key={i}
                     className="group"
                     style={{ borderBottom: "1px solid rgba(0,0,0,0.08)" }}
+                    {...(i === 1 ? { open: true } : {})}
                   >
                     <summary
                       className="flex items-center justify-between py-5 cursor-pointer list-none text-base font-medium"
