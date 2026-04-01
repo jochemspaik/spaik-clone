@@ -18,8 +18,7 @@ const NAV_ITEMS: NavItem[] = [
   { key: "cases", href: "/cases" },
   { key: "services", href: "/diensten" },
   { key: "trainings", href: "https://traininghub.spaik.io/", external: true },
-  { key: "team", href: { pathname: "/", hash: "team" } },
-  { key: "faq", href: { pathname: "/", hash: "faq" } },
+  { key: "insights", href: "/blog" },
 ];
 
 function NavLink({ item, onClick }: { item: NavItem; onClick?: () => void }) {
