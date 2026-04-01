@@ -2,23 +2,7 @@
 
 import { useTranslations } from "next-intl";
 import { useEffect } from "react";
-
-function CheckIcon() {
-  return (
-    <svg width="18" height="18" viewBox="0 0 20 20" fill="none" className="shrink-0 mt-0.5">
-      <path d="M4 10.5l4 4 8-8" stroke="#FF7150" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-  );
-}
-
-function ShieldIcon() {
-  return (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className="shrink-0 mt-0.5">
-      <path d="M12 2l8 4v6c0 5.5-3.8 10.7-8 12-4.2-1.3-8-6.5-8-12V6l8-4z" stroke="#22c55e" strokeWidth="1.5" fill="rgba(34,197,94,0.08)" />
-      <path d="M9 12l2 2 4-4" stroke="#22c55e" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-  );
-}
+import { ServiceCheckIcon, ShieldIcon } from "@/components/icons";
 
 export function AdoptieBrochure() {
   const t = useTranslations("diensten");
@@ -195,7 +179,7 @@ export function AdoptieBrochure() {
           <div className="flex flex-col" style={{ marginTop: 16 }}>
             {[1, 2, 3, 4, 5].map((i) => (
               <div key={i} className="flex items-start gap-3" style={{ padding: "8px 0" }}>
-                <CheckIcon />
+                <ServiceCheckIcon color="#FF7150" size={18} />
                 <span style={{ fontSize: 15, lineHeight: 1.6 }}>{t(`brochure.outcome${i}`)}</span>
               </div>
             ))}

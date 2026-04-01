@@ -88,3 +88,48 @@ export function ClockIcon() {
     </svg>
   );
 }
+
+/** Compact check icon used in service detail pages and brochure. */
+export function ServiceCheckIcon({
+  color = "#22c55e",
+  className = "shrink-0 mt-0.5",
+  size = 20,
+}: {
+  color?: string;
+  className?: string;
+  size?: number;
+}) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 20 20" fill="none" aria-hidden="true" className={className}>
+      <path d="M4 10.5l4 4 8-8" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
+/** X / cross icon used in service detail pages. */
+export function XIcon({ className = "shrink-0 mt-0.5" }: { className?: string }) {
+  return (
+    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true" className={className}>
+      <path d="M6 6l8 8M14 6l-8 8" stroke="#FF7150" strokeWidth="2" strokeLinecap="round" />
+    </svg>
+  );
+}
+
+/** Back arrow icon used in service detail page hero. */
+export function ArrowLeftIcon({ className = "shrink-0" }: { className?: string }) {
+  return (
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true" className={className}>
+      <path d="M10 12L6 8l4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
+/** Shield with checkmark icon used in brochure trust signals. */
+export function ShieldIcon({ className = "shrink-0 mt-0.5" }: { className?: string }) {
+  return (
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className={className}>
+      <path d="M12 2l8 4v6c0 5.5-3.8 10.7-8 12-4.2-1.3-8-6.5-8-12V6l8-4z" stroke="#22c55e" strokeWidth="1.5" fill="rgba(34,197,94,0.08)" />
+      <path d="M9 12l2 2 4-4" stroke="#22c55e" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}

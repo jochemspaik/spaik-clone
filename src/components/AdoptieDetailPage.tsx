@@ -3,34 +3,9 @@
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { ScrollReveal } from "@/components/ScrollReveal";
+import { ServiceCheckIcon, XIcon, ArrowLeftIcon } from "@/components/icons";
 import { BOOK_CALL_URL } from "@/lib/constants";
 import Image from "next/image";
-
-/* ---- Inline icons ---- */
-
-function CheckIcon({ color = "#22c55e" }: { color?: string }) {
-  return (
-    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true" className="shrink-0 mt-0.5">
-      <path d="M4 10.5l4 4 8-8" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-  );
-}
-
-function XIcon() {
-  return (
-    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true" className="shrink-0 mt-0.5">
-      <path d="M6 6l8 8M14 6l-8 8" stroke="#FF7150" strokeWidth="2" strokeLinecap="round" />
-    </svg>
-  );
-}
-
-function ArrowLeftIcon() {
-  return (
-    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true" className="shrink-0">
-      <path d="M10 12L6 8l4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-  );
-}
 
 /* ---- 1. Hero ---- */
 
@@ -180,7 +155,7 @@ function AlternativesSection() {
                   </p>
                 </div>
                 <div className="mt-3 flex items-start gap-3">
-                  <CheckIcon />
+                  <ServiceCheckIcon />
                   <p style={{ fontSize: 15, color: "rgba(0,0,0,0.6)", lineHeight: 1.5 }}>
                     {alt.diff}
                   </p>
@@ -292,7 +267,7 @@ function ChampionsSection() {
           <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-3">
             {extras.map((item) => (
               <div key={item.title}>
-                <CheckIcon color="#FF7150" />
+                <ServiceCheckIcon color="#FF7150" />
                 <h4 className="mt-2 font-medium" style={{ fontSize: 16, color: "#0b0b0b" }}>
                   {item.title}
                 </h4>
@@ -345,7 +320,7 @@ function QualificationSection() {
               <ul className="flex flex-col gap-4">
                 {yesItems.map((item) => (
                   <li key={item} className="flex items-start gap-3">
-                    <CheckIcon />
+                    <ServiceCheckIcon />
                     <span style={{ fontSize: 16, color: "rgba(0,0,0,0.7)", lineHeight: 1.6 }}>{item}</span>
                   </li>
                 ))}
@@ -395,7 +370,7 @@ function QualificationSection() {
             <ul className="mt-4 flex flex-col gap-3">
               {gateCriteria.map((criterion) => (
                 <li key={criterion} className="flex items-start gap-3">
-                  <CheckIcon color="#FF7150" />
+                  <ServiceCheckIcon color="#FF7150" />
                   <span style={{ fontSize: 15, color: "rgba(0,0,0,0.7)", lineHeight: 1.5 }}>{criterion}</span>
                 </li>
               ))}
@@ -474,7 +449,7 @@ function TiersSection() {
                 <ul className="mt-4 flex flex-col gap-2">
                   {tier.features.map((feature) => (
                     <li key={feature} className="flex items-start gap-2">
-                      <CheckIcon color="#FF7150" />
+                      <ServiceCheckIcon color="#FF7150" />
                       <span style={{ fontSize: 14, color: "rgba(0,0,0,0.6)", lineHeight: 1.5 }}>
                         {feature}
                       </span>
@@ -531,7 +506,7 @@ function GovernanceSection() {
           <ul className="mt-8 flex flex-col gap-4">
             {items.map((item) => (
               <li key={item} className="flex items-start gap-3">
-                <CheckIcon />
+                <ServiceCheckIcon />
                 <span style={{ fontSize: 16, color: "rgba(0,0,0,0.7)", lineHeight: 1.6 }}>{item}</span>
               </li>
             ))}

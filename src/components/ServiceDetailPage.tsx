@@ -3,56 +3,10 @@
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { ScrollReveal } from "@/components/ScrollReveal";
+import { ServiceCheckIcon, XIcon, ArrowLeftIcon } from "@/components/icons";
 import { BOOK_CALL_URL } from "@/lib/constants";
-
-type ServiceSlug = "inspiratie" | "kickstart" | "adoptie" | "fundamentals";
-
-const TEXTURE_MAP: Record<ServiceSlug, string> = {
-  inspiratie: "/images/Texture 2.webp",
-  kickstart: "/images/Texture 1.webp",
-  adoptie: "/images/Texture 3.webp",
-  fundamentals: "/images/Texture 2.webp",
-};
-
-const TESTIMONIAL_AVATAR: Record<ServiceSlug, string> = {
-  inspiratie: "", // no author yet
-  kickstart: "/images/case-maurick.jpg",
-  adoptie: "/images/case-johanneke.jpg",
-  fundamentals: "/images/case-maurick.jpg",
-};
-
-const ICON_MAP: Record<ServiceSlug, string> = {
-  inspiratie: "/images/Discovery.svg",
-  kickstart: "/images/icon-kickstart.svg",
-  adoptie: "/images/Building.svg",
-  fundamentals: "/images/icon-fundamentals.svg",
-};
-
-/* ---- Inline icons ---- */
-
-function CheckIcon({ color = "#22c55e" }: { color?: string }) {
-  return (
-    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true" className="shrink-0 mt-0.5">
-      <path d="M4 10.5l4 4 8-8" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-  );
-}
-
-function XIcon() {
-  return (
-    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true" className="shrink-0 mt-0.5">
-      <path d="M6 6l8 8M14 6l-8 8" stroke="#FF7150" strokeWidth="2" strokeLinecap="round" />
-    </svg>
-  );
-}
-
-function ArrowLeftIcon() {
-  return (
-    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true" className="shrink-0">
-      <path d="M10 12L6 8l4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-  );
-}
+import { getService, type ServiceSlug } from "@/data/services";
+import { CASES } from "@/data/cases";
 
 function TimelineStep({ step, highlight = false }: { step: number; highlight?: boolean }) {
   return (
@@ -85,7 +39,7 @@ function HeroSection({ slug }: { slug: ServiceSlug }) {
     <section className="relative w-full overflow-hidden" style={{ minHeight: 400 }}>
       <div
         className="absolute inset-0"
-        style={{ backgroundImage: `url('${TEXTURE_MAP[slug]}')`, backgroundSize: "cover", backgroundPosition: "center" }}
+        style={{ backgroundImage: `url('${getService(slug).texture}')`, backgroundSize: "cover", backgroundPosition: "center" }}
       />
       <div
         className="absolute inset-0"
@@ -104,7 +58,7 @@ function HeroSection({ slug }: { slug: ServiceSlug }) {
 
           <div className="mb-4 flex flex-wrap items-center gap-3">
             <img
-              src={ICON_MAP[slug]}
+              src={getService(slug).icon}
               alt=""
               aria-hidden="true"
               className="invert opacity-80"
@@ -191,7 +145,7 @@ function ForWhoSection({ slug }: { slug: ServiceSlug }) {
               <ul className="flex flex-col gap-4">
                 {yesItems.map((item) => (
                   <li key={item} className="flex items-start gap-3">
-                    <CheckIcon />
+                    <ServiceCheckIcon />
                     <span style={{ fontSize: 16, color: "rgba(0,0,0,0.7)", lineHeight: 1.6 }}>{item}</span>
                   </li>
                 ))}
@@ -285,7 +239,7 @@ function DifferentiatorsSection({ slug }: { slug: ServiceSlug }) {
 
 function WhatYouGetFlatList({ slug }: { slug: ServiceSlug }) {
   const t = useTranslations("diensten");
-  const count = slug === "adoptie" ? 5 : 4;
+  const count = 4;
   const items = Array.from({ length: count }, (_, i) => ({
     title: t(`detail.${slug}.get${i + 1}`),
     detail: t(`detail.${slug}.get${i + 1}detail`),
@@ -303,7 +257,7 @@ function WhatYouGetFlatList({ slug }: { slug: ServiceSlug }) {
             className="shrink-0 flex items-center justify-center rounded-full"
             style={{ width: 40, height: 40, backgroundColor: "rgba(255,113,80,0.1)" }}
           >
-            <CheckIcon color="#FF7150" />
+            <ServiceCheckIcon color="#FF7150" />
           </div>
           <div>
             <p className="font-medium" style={{ fontSize: 16, color: "#0b0b0b" }}>{item.title}</p>
@@ -349,7 +303,7 @@ function WhatYouGetGrouped() {
             <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
               {catItems.map((item) => (
                 <div key={item.title} className="flex items-start gap-3">
-                  <CheckIcon color="#FF7150" />
+                  <ServiceCheckIcon color="#FF7150" />
                   <div>
                     <p className="font-medium" style={{ fontSize: 16, color: "#0b0b0b" }}>{item.title}</p>
                     <p className="mt-1" style={{ fontSize: 14, color: "rgba(0,0,0,0.55)", lineHeight: 1.5 }}>
@@ -418,7 +372,7 @@ function SponsorSection({ slug }: { slug: ServiceSlug }) {
                     className="shrink-0 flex items-center justify-center rounded-full"
                     style={{ width: 28, height: 28, backgroundColor: "rgba(34,197,94,0.1)" }}
                   >
-                    <CheckIcon color="#22c55e" />
+                    <ServiceCheckIcon color="#22c55e" />
                   </div>
                   <span className="font-medium" style={{ fontSize: 16, color: "#0b0b0b", lineHeight: 1.5 }}>
                     {item}
@@ -454,13 +408,6 @@ function HowItWorksSection({ slug }: { slug: ServiceSlug }) {
       { title: t("detail.fundamentals.processWeek1"), detail: t("detail.fundamentals.processWeek1detail") },
       { title: t("detail.fundamentals.processWeek25"), detail: t("detail.fundamentals.processWeek25detail") },
       { title: t("detail.fundamentals.processWeek6"), detail: t("detail.fundamentals.processWeek6detail") },
-    ];
-  } else if (slug === "adoptie") {
-    steps = [
-      { title: t("detail.adoptie.processMonth12"), detail: t("detail.adoptie.processMonth12detail") },
-      { title: t("detail.adoptie.processMonth34"), detail: t("detail.adoptie.processMonth34detail") },
-      { title: t("detail.adoptie.processMonth56"), detail: t("detail.adoptie.processMonth56detail") },
-      { title: t("detail.adoptie.processMonth78"), detail: t("detail.adoptie.processMonth78detail") },
     ];
   } else if (slug === "inspiratie") {
     steps = [
@@ -607,7 +554,7 @@ function PricingSection({ slug }: { slug: ServiceSlug }) {
             <div className="mt-10 flex flex-col gap-4 max-w-[640px] mx-auto">
               {[1, 2, 3].map((i) => (
                 <div key={i} className="flex items-start gap-4 rounded-2xl border border-[#DEDCCC] bg-white p-6">
-                  <CheckIcon color="#FF7150" />
+                  <ServiceCheckIcon color="#FF7150" />
                   <div>
                     <p className="font-medium" style={{ fontSize: 16, color: "#0b0b0b" }}>
                       {t(`detail.fundamentals.pricingIncludes${i}`)}
@@ -726,9 +673,9 @@ function TestimonialSection({ slug }: { slug: ServiceSlug }) {
           </blockquote>
           {author && (
             <div className="mt-6 flex flex-col items-center gap-3">
-              {TESTIMONIAL_AVATAR[slug] && (
+              {getService(slug).testimonialAvatar && (
                 <img
-                  src={TESTIMONIAL_AVATAR[slug]}
+                  src={getService(slug).testimonialAvatar}
                   alt={author}
                   className="rounded-full object-cover"
                   style={{ width: 48, height: 48 }}
@@ -897,7 +844,7 @@ function TwoPathsSection({ slug }: { slug: ServiceSlug }) {
               <ul className="mt-4 flex flex-col gap-2">
                 {path2Items.map((item) => (
                   <li key={item} className="flex items-start gap-2">
-                    <CheckIcon color="#22c55e" />
+                    <ServiceCheckIcon color="#22c55e" />
                     <span style={{ fontSize: 14, color: "rgba(0,0,0,0.6)", lineHeight: 1.5 }}>{item}</span>
                   </li>
                 ))}
