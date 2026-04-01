@@ -244,32 +244,33 @@ function DifferentiatorsSection({ slug }: { slug: ServiceSlug }) {
   }));
 
   return (
-    <section className="bg-white px-6 md:px-10 py-12 md:py-20">
+    <section className="px-6 md:px-10 py-12 md:py-20" style={{ backgroundColor: "#1a1c1b" }}>
       <div className="mx-auto" style={{ maxWidth: 1080 }}>
         <ScrollReveal>
-          <h2 className="font-heading" style={{ fontSize: 32, fontWeight: 100, color: "#0b0b0b" }}>
+          <h2 className="font-heading" style={{ fontSize: 32, fontWeight: 100, color: "#fff" }}>
             {t("detail.kickstart.diffTitle")}
           </h2>
-          <div className="mt-10 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-            {items.map((item) => (
+          <div className="mt-12 flex flex-col gap-0">
+            {items.map((item, i) => (
               <div
                 key={item.title}
-                className="rounded-2xl bg-white p-6 transition-shadow hover:shadow-md"
-                style={{ border: "1px solid rgba(222,220,204,0.5)" }}
+                className="flex gap-5 md:gap-8 py-7"
+                style={{ borderBottom: i < items.length - 1 ? "1px solid rgba(255,255,255,0.08)" : "none" }}
               >
-                <div className="flex items-start gap-3">
-                  <span
-                    className="shrink-0 mt-1.5 inline-block rounded-full"
-                    style={{ width: 8, height: 8, backgroundColor: "#FF7150" }}
-                  />
-                  <div>
-                    <p className="font-medium" style={{ fontSize: 16, color: "#0b0b0b" }}>
-                      {item.title}
-                    </p>
-                    <p className="mt-1" style={{ fontSize: 15, color: "rgba(0,0,0,0.6)", lineHeight: 1.5 }}>
-                      {item.detail}
-                    </p>
-                  </div>
+                {/* Large number */}
+                <span
+                  className="shrink-0 font-heading"
+                  style={{ fontSize: 40, fontWeight: 100, color: "#FF7150", lineHeight: 1, minWidth: 48 }}
+                >
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <div>
+                  <p className="font-medium" style={{ fontSize: 18, color: "#fff", lineHeight: 1.3 }}>
+                    {item.title}
+                  </p>
+                  <p className="mt-2" style={{ fontSize: 15, color: "rgba(255,255,255,0.5)", lineHeight: 1.6 }}>
+                    {item.detail}
+                  </p>
                 </div>
               </div>
             ))}
@@ -392,22 +393,40 @@ function SponsorSection({ slug }: { slug: ServiceSlug }) {
 
   return (
     <section className="px-6 md:px-10 py-12 md:py-20" style={{ backgroundColor: "#F3EDED" }}>
-      <div className="mx-auto" style={{ maxWidth: 1080 }}>
+      <div className="mx-auto" style={{ maxWidth: 720 }}>
         <ScrollReveal>
-          <h2 className="font-heading" style={{ fontSize: 32, fontWeight: 100, color: "#0b0b0b" }}>
-            {t("detail.kickstart.sponsorTitle")}
-          </h2>
-          <p className="mt-3" style={{ fontSize: 16, color: "rgba(0,0,0,0.55)", lineHeight: 1.6 }}>
-            {t("detail.kickstart.sponsorSubtitle")}
-          </p>
-          <ul className="mt-10 flex flex-col gap-4">
-            {items.map((item, i) => (
-              <li key={i} className="flex items-start gap-3">
-                <CheckIcon color="#22c55e" />
-                <span style={{ fontSize: 16, color: "rgba(0,0,0,0.7)", lineHeight: 1.6 }}>{item}</span>
-              </li>
-            ))}
-          </ul>
+          <div
+            className="rounded-2xl p-8 md:p-12"
+            style={{ backgroundColor: "#fff", boxShadow: "0 1px 3px rgba(0,0,0,0.04), 0 8px 24px rgba(0,0,0,0.06)" }}
+          >
+            {/* Header */}
+            <h2 className="font-heading" style={{ fontSize: 28, fontWeight: 100, color: "#0b0b0b" }}>
+              {t("detail.kickstart.sponsorTitle")}
+            </h2>
+            <p className="mt-2" style={{ fontSize: 15, color: "rgba(0,0,0,0.5)" }}>
+              {t("detail.kickstart.sponsorSubtitle")}
+            </p>
+
+            {/* Divider */}
+            <div className="my-6" style={{ borderTop: "1px solid rgba(0,0,0,0.06)" }} />
+
+            {/* Items — bold checkmarks with strong text */}
+            <ul className="flex flex-col gap-5">
+              {items.map((item, i) => (
+                <li key={i} className="flex items-start gap-4">
+                  <div
+                    className="shrink-0 flex items-center justify-center rounded-full"
+                    style={{ width: 28, height: 28, backgroundColor: "rgba(34,197,94,0.1)" }}
+                  >
+                    <CheckIcon color="#22c55e" />
+                  </div>
+                  <span className="font-medium" style={{ fontSize: 16, color: "#0b0b0b", lineHeight: 1.5 }}>
+                    {item}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </div>
         </ScrollReveal>
       </div>
     </section>
