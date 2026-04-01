@@ -1,7 +1,8 @@
 "use client";
 
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import { Link } from "@/i18n/navigation";
+import Image from "next/image";
 import { ScrollReveal } from "@/components/ScrollReveal";
 import { ServiceCheckIcon, XIcon, ArrowLeftIcon } from "@/components/icons";
 import { BOOK_CALL_URL } from "@/lib/constants";
@@ -267,6 +268,32 @@ function ForWhoSection({ slug }: { slug: ServiceSlug }) {
               </div>
             )}
           </div>
+        </ScrollReveal>
+      </div>
+    </section>
+  );
+}
+
+/* ---- Prisma Visual (kickstart only) ---- */
+
+function PrismaSection({ slug }: { slug: ServiceSlug }) {
+  const locale = useLocale();
+  if (slug !== "kickstart") return null;
+
+  const src = locale === "en" ? "/images/prisma-kickstart-en.webp" : "/images/prisma-kickstart-nl.webp";
+
+  return (
+    <section className="bg-white px-6 md:px-10 py-8 md:py-12">
+      <div className="mx-auto" style={{ maxWidth: 800 }}>
+        <ScrollReveal>
+          <Image
+            src={src}
+            alt="Kickstart: Automatisering × Training × Strategie"
+            width={1920}
+            height={1080}
+            className="w-full h-auto rounded-xl"
+            priority={false}
+          />
         </ScrollReveal>
       </div>
     </section>
@@ -1052,6 +1079,7 @@ export function ServiceDetailPage({ slug }: { slug: ServiceSlug }) {
         <HeroSection slug={slug} />
         <SocialProofStrip slug={slug} />
         <ForWhoSection slug={slug} />
+        <PrismaSection slug={slug} />
         <DifferentiatorsSection slug={slug} />
         <WhatYouGetSection slug={slug} />
         <HowItWorksSection slug={slug} />
@@ -1066,6 +1094,7 @@ export function ServiceDetailPage({ slug }: { slug: ServiceSlug }) {
   return (
     <>
       <HeroSection slug={slug} />
+      <SocialProofStrip slug={slug} />
       <ForWhoSection slug={slug} />
       <DifferentiatorsSection slug={slug} />
       <WhatYouGetSection slug={slug} />
@@ -1073,6 +1102,7 @@ export function ServiceDetailPage({ slug }: { slug: ServiceSlug }) {
       <HowItWorksSection slug={slug} />
       {slug === "fundamentals" && <PricingSection slug={slug} />}
       <ROISection slug={slug} />
+      <MidPageCTA slug={slug} />
       <TestimonialSection slug={slug} />
       <CompanySizeSection slug={slug} />
       <NextStepSection slug={slug} />
