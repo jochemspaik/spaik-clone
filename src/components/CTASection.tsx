@@ -36,9 +36,11 @@ export function CTASection() {
                 style={{ opacity: 0 }}
                 onLoadedData={(e) => {
                   const video = e.currentTarget;
-                  // Skip past the orange intro frame before showing
-                  if (video.currentTime < 0.3) video.currentTime = 0.3;
-                  video.style.opacity = "1";
+                  // Skip past the orange intro frame, show only after seek completes
+                  video.currentTime = 0.5;
+                  video.addEventListener("seeked", () => {
+                    video.style.opacity = "1";
+                  }, { once: true });
                 }}
               >
                 <source src="/videos/secondary-animation.mp4" type="video/mp4" />

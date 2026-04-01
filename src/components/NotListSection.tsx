@@ -27,11 +27,11 @@ export function NotListSection() {
         {t("subtitle")}
       </p>
 
-      <div className="mt-10 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+      <div className="mt-10 flex flex-wrap justify-center gap-4">
         {items.map((item) => (
           <div
             key={item.title}
-            className="rounded-2xl p-6"
+            className="rounded-2xl p-6 w-full md:w-[calc(50%-8px)] lg:w-[calc(33.333%-11px)]"
             style={{ backgroundColor: "#FAFAF8", border: "1px solid #EFEDE5" }}
           >
             <div className="flex items-start gap-3">
