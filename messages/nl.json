@@ -71,7 +71,8 @@
       "ctaCta": "Plan een Kickstart",
       "ctaSecondary": "Bekijk andere cases",
       "backToCase": "Terug naar cases"
-    }
+    },
+    "readMore": "Lees meer"
   },
   "problem": {
     "title": "Je weet dat AI waarde kan opleveren. Maar het gebeurt niet.",
@@ -252,7 +253,7 @@
       "role": "CEO, Movir"
     },
     "notSure": {
-      "title": "Niet zeker welke fase past?",
+      "title": "Niet zeker waar te beginnen?",
       "text": "De meeste bedrijven starten met een Kickstart. In 4 weken weet je waar je staat en wat de volgende stap is.",
       "cta": "Plan een gesprek"
     },

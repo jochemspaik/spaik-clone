@@ -16,7 +16,7 @@ const TEXTURE_MAP: Record<ServiceSlug, string> = {
 
 const TESTIMONIAL_AVATAR: Record<ServiceSlug, string> = {
   inspiratie: "", // no author yet
-  kickstart: "/images/case-vincent.jpg",
+  kickstart: "/images/case-maurick.jpg",
   adoptie: "/images/case-johanneke.jpg",
   fundamentals: "/images/case-maurick.jpg",
 };

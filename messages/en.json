@@ -71,7 +71,8 @@
       "ctaCta": "Plan a Kickstart",
       "ctaSecondary": "View other cases",
       "backToCase": "Back to cases"
-    }
+    },
+    "readMore": "Read more"
   },
   "problem": {
     "title": "You know AI can deliver value. But it's not happening.",
@@ -252,7 +253,7 @@
       "role": "CEO, Movir"
     },
     "notSure": {
-      "title": "Not sure which phase fits?",
+      "title": "Not sure where to start?",
       "text": "Most companies start with a Kickstart. In 4 weeks you know where you stand and what the next step is.",
       "cta": "Schedule a conversation"
     },

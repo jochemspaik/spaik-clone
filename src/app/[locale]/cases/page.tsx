@@ -146,7 +146,7 @@ function CaseCard({
             className="ml-auto text-xs font-medium group-hover:gap-1.5 transition-all"
             style={{ color: accentColor }}
           >
-            Lees meer &rarr;
+            {t("readMore")} &rarr;
           </span>
         </div>
       </div>
