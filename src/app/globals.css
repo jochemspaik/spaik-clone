@@ -305,3 +305,26 @@ h1, h2 {
 .font-mono, [data-tabular] {
   font-variant-numeric: tabular-nums;
 }
+
+@layer utilities {
+  .text-section-heading {
+    font-size: 32px;
+    font-weight: 100;
+    color: #0b0b0b;
+  }
+  .bg-section-warm {
+    background-color: #F3EDED;
+  }
+  .bg-section-muted {
+    background-color: #FAFAF8;
+  }
+  .text-body-primary {
+    color: rgba(0, 0, 0, 0.7);
+  }
+  .text-body-secondary {
+    color: rgba(0, 0, 0, 0.6);
+  }
+  .text-body-muted {
+    color: rgba(0, 0, 0, 0.5);
+  }
+}

@@ -146,7 +146,7 @@ function SocialProofStrip({ slug }: { slug: ServiceSlug }) {
     ];
 
     return (
-      <section className="px-6 md:px-10 py-8" style={{ backgroundColor: "#F3EDED" }}>
+      <section className="bg-section-warm px-6 md:px-10 py-8">
         <div className="mx-auto" style={{ maxWidth: 1080 }}>
           <p className="text-center text-xs font-medium uppercase tracking-wider mb-6" style={{ color: "rgba(0,0,0,0.4)" }}>
             {td(`detail.${slug}.socialProofTitle`)}
@@ -185,7 +185,7 @@ function SocialProofStrip({ slug }: { slug: ServiceSlug }) {
   }));
 
   return (
-    <section className="px-6 md:px-10 py-8" style={{ backgroundColor: "#F3EDED" }}>
+    <section className="bg-section-warm px-6 md:px-10 py-8">
       <div className="mx-auto" style={{ maxWidth: 1080 }}>
         <p className="text-center text-xs font-medium uppercase tracking-wider mb-6" style={{ color: "rgba(0,0,0,0.4)" }}>
           {td(`detail.${slug}.socialProofTitle`)}
@@ -232,7 +232,7 @@ function ForWhoSection({ slug }: { slug: ServiceSlug }) {
     <section className="bg-white px-6 md:px-10 py-10 md:py-14">
       <div className="mx-auto" style={{ maxWidth: 1080 }}>
         <ScrollReveal>
-          <h2 className="font-heading" style={{ fontSize: 32, fontWeight: 100, color: "#0b0b0b" }}>
+          <h2 className="font-heading text-section-heading">
             {t("detail.forWho")}
           </h2>
           <div className={`mt-10 grid grid-cols-1 gap-10 ${isKickstart ? "" : "md:grid-cols-2"}`}>
@@ -449,10 +449,10 @@ function WhatYouGetSection({ slug }: { slug: ServiceSlug }) {
   const t = useTranslations("diensten");
 
   return (
-    <section className="px-6 md:px-10 py-12 md:py-20" style={{ backgroundColor: "#F3EDED" }}>
+    <section className="bg-section-warm px-6 md:px-10 py-12 md:py-20">
       <div className="mx-auto" style={{ maxWidth: 1080 }}>
         <ScrollReveal>
-          <h2 className="font-heading" style={{ fontSize: 32, fontWeight: 100, color: "#0b0b0b" }}>
+          <h2 className="font-heading text-section-heading">
             {t("detail.whatYouGet")}
           </h2>
           {slug === "kickstart" ? <WhatYouGetFlatList slug={slug} count={7} /> : <WhatYouGetFlatList slug={slug} />}
@@ -471,7 +471,7 @@ function SponsorSection({ slug }: { slug: ServiceSlug }) {
   const items = Array.from({ length: 5 }, (_, i) => t(`detail.kickstart.sponsor${i + 1}`));
 
   return (
-    <section className="px-6 md:px-10 py-12 md:py-20" style={{ backgroundColor: "#F3EDED" }}>
+    <section className="bg-section-warm px-6 md:px-10 py-12 md:py-20">
       <div className="mx-auto" style={{ maxWidth: 1080 }}>
         <ScrollReveal>
           <div
@@ -573,7 +573,7 @@ function HowItWorksSection({ slug }: { slug: ServiceSlug }) {
     <section className="bg-white px-6 md:px-10 py-12 md:py-20">
       <div className="mx-auto" style={{ maxWidth: 1080 }}>
         <ScrollReveal>
-          <h2 className="font-heading" style={{ fontSize: 32, fontWeight: 100, color: "#0b0b0b" }}>
+          <h2 className="font-heading text-section-heading">
             {t("detail.howItWorks")}
           </h2>
 
@@ -664,10 +664,10 @@ function PricingSection({ slug }: { slug: ServiceSlug }) {
   const t = useTranslations("diensten");
 
   return (
-    <section className="px-6 md:px-10 py-12 md:py-20" style={{ backgroundColor: "#FAFAF8" }}>
+    <section className="bg-section-muted px-6 md:px-10 py-12 md:py-20">
       <div className="mx-auto" style={{ maxWidth: 1080 }}>
         <ScrollReveal>
-          <h2 className="font-heading" style={{ fontSize: 32, fontWeight: 100, color: "#0b0b0b" }}>
+          <h2 className="font-heading text-section-heading">
             {t("detail.whatItCosts")}
           </h2>
 
@@ -875,7 +875,7 @@ function TestimonialSection({ slug }: { slug: ServiceSlug }) {
   const showBigStat = slug === "fundamentals";
 
   return (
-    <section className="px-6 md:px-10 py-12 md:py-20" style={{ backgroundColor: "#F3EDED" }}>
+    <section className="bg-section-warm px-6 md:px-10 py-12 md:py-20">
       <div className="mx-auto text-center" style={{ maxWidth: 800 }}>
         <ScrollReveal>
           {showBigStat && (
@@ -932,7 +932,7 @@ function NextStepSection({ slug }: { slug: ServiceSlug }) {
     <section className="bg-white px-6 md:px-10 py-12 md:py-20">
       <div className="mx-auto" style={{ maxWidth: 1080 }}>
         <ScrollReveal>
-          <h2 className="font-heading" style={{ fontSize: 32, fontWeight: 100, color: "#0b0b0b" }}>
+          <h2 className="font-heading text-section-heading">
             {t("detail.nextStep")}
           </h2>
           <p className="mt-6" style={{ fontSize: 16, color: "rgba(0,0,0,0.7)", lineHeight: 1.6, maxWidth: 640 }}>
@@ -986,10 +986,10 @@ function CompanySizeSection({ slug }: { slug: ServiceSlug }) {
   ];
 
   return (
-    <section className="px-6 md:px-10 py-12 md:py-20" style={{ backgroundColor: "#FAFAF8" }}>
+    <section className="bg-section-muted px-6 md:px-10 py-12 md:py-20">
       <div className="mx-auto" style={{ maxWidth: 1080 }}>
         <ScrollReveal>
-          <h2 className="font-heading" style={{ fontSize: 32, fontWeight: 100, color: "#0b0b0b" }}>
+          <h2 className="font-heading text-section-heading">
             {t("detail.kickstart.sizeTitle")}
           </h2>
           <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-3">
@@ -1025,7 +1025,7 @@ function TwoPathsSection({ slug }: { slug: ServiceSlug }) {
     <section className="bg-white px-6 md:px-10 py-12 md:py-20">
       <div className="mx-auto" style={{ maxWidth: 1080 }}>
         <ScrollReveal>
-          <h2 className="font-heading" style={{ fontSize: 32, fontWeight: 100, color: "#0b0b0b" }}>
+          <h2 className="font-heading text-section-heading">
             {t("detail.kickstart.pathsTitle")}
           </h2>
           <p className="mt-2" style={{ fontSize: 16, color: "rgba(0,0,0,0.5)" }}>
