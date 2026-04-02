@@ -1,6 +1,4 @@
-"use client";
-
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 import Image from "next/image";
 import { ScrollStagger } from "@/components/ScrollStagger";
 import { LinkedInIcon } from "@/components/icons";
@@ -106,8 +104,8 @@ const TEAM_MEMBERS = [
 ] as const;
 
 
-export function TeamSection() {
-  const t = useTranslations("team");
+export async function TeamSection() {
+  const t = await getTranslations("team");
 
   return (
     <section

@@ -1,6 +1,4 @@
-"use client";
-
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 import Image from "next/image";
 import { RollingTextButton } from "@/components/RollingTextButton";
 import { ScrollStagger } from "@/components/ScrollStagger";
@@ -27,8 +25,8 @@ const SOLUTION_GRADIENTS = [
   "linear-gradient(135deg, #879ed0 0%, #9bb4dc 50%, #b4ccec 100%)",
 ];
 
-export function ProblemSolutionSection() {
-  const t = useTranslations();
+export async function ProblemSolutionSection() {
+  const t = await getTranslations();
 
   return (
     <section

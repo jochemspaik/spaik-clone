@@ -1,11 +1,9 @@
-"use client";
-
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 import { SectionWrapper } from "@/components/SectionWrapper";
 import { XIcon } from "@/components/icons";
 
-export function NotListSection() {
-  const t = useTranslations("notList");
+export async function NotListSection() {
+  const t = await getTranslations("notList");
 
   const items = [1, 2, 3, 4, 5].map((i) => ({
     title: t(`item${i}Title`),
