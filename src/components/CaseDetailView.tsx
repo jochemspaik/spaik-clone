@@ -251,6 +251,7 @@ export function CaseDetailView({ slug, caseData }: Props) {
       {/* ── Related Cases ────────────────────────────────────────── */}
       <section className="py-16 md:py-24 px-6 md:px-10">
         <div className="mx-auto" style={{ maxWidth: "1080px" }}>
+          <ScrollReveal direction="up">
           <div className="flex justify-between items-end mb-10">
             <h2
               className="font-heading text-2xl md:text-3xl italic"
@@ -298,6 +299,7 @@ export function CaseDetailView({ slug, caseData }: Props) {
               </Link>
             ))}
           </div>
+          </ScrollReveal>
         </div>
       </section>
 

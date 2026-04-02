@@ -5,6 +5,7 @@ import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { CheckIcon } from "@/components/icons";
 import { INTAKE_URL } from "@/lib/constants";
+import { ScrollReveal } from "@/components/ScrollReveal";
 
 type Department = "operational" | "marketing" | "data";
 
@@ -98,6 +99,7 @@ export function DiscoverySection() {
         <img src="/images/Gradient 02.webp" alt="" aria-hidden="true" width={600} height={400} className="h-full w-full object-cover" />
       </div>
       <div className="relative z-1 mx-auto" style={{ maxWidth: "1080px" }}>
+        <ScrollReveal>
         <div className="flex flex-col gap-12 lg:flex-row lg:gap-16">
           {/* Left column — title, subtitle, node diagram */}
           <div className="flex flex-col lg:w-[40%]">
@@ -280,8 +282,10 @@ export function DiscoverySection() {
             </div>
           </div>
         </div>
+        </ScrollReveal>
 
         {/* AI Discovery CTA */}
+        <ScrollReveal>
         <div
           className="mt-12 flex flex-col gap-6 rounded-2xl p-8 md:flex-row md:items-center md:gap-10"
           style={{ backgroundColor: "#fff", border: "1px solid #efede5" }}
@@ -316,6 +320,7 @@ export function DiscoverySection() {
         >
           {t("otherChallenge")}
         </p>
+        </ScrollReveal>
       </div>
     </section>
   );

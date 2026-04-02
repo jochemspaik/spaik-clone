@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useTranslations } from "next-intl";
 import { SectionWrapper } from "@/components/SectionWrapper";
+import { ScrollReveal } from "@/components/ScrollReveal";
 
 const FAQ_COUNT = 10;
 const INITIALLY_OPEN = new Set([0, 1, 2, 3]);
@@ -49,6 +50,7 @@ export function FAQSection() {
 
   return (
     <SectionWrapper id="faq" className="bg-[#faf9f7]">
+        <ScrollReveal>
         <h2
           className="mb-10 text-center font-heading text-spaik-black"
           style={{ fontSize: "32px", fontWeight: 100 }}
@@ -103,6 +105,7 @@ export function FAQSection() {
             );
           })}
         </div>
+        </ScrollReveal>
     </SectionWrapper>
   );
 }

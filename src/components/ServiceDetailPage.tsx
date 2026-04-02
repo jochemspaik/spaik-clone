@@ -150,6 +150,7 @@ function SocialProofStrip({ slug }: { slug: ServiceSlug }) {
     return (
       <section className="bg-section-warm px-6 md:px-10 py-8">
         <div className="mx-auto" style={{ maxWidth: 1080 }}>
+          <ScrollReveal>
           <p className="text-center text-xs font-medium uppercase tracking-wider mb-6" style={{ color: "rgba(0,0,0,0.4)" }}>
             {td(`detail.${slug}.socialProofTitle`)}
           </p>
@@ -174,6 +175,7 @@ function SocialProofStrip({ slug }: { slug: ServiceSlug }) {
               </div>
             ))}
           </div>
+          </ScrollReveal>
         </div>
       </section>
     );
@@ -189,6 +191,7 @@ function SocialProofStrip({ slug }: { slug: ServiceSlug }) {
   return (
     <section className="bg-section-warm px-6 md:px-10 py-8">
       <div className="mx-auto" style={{ maxWidth: 1080 }}>
+        <ScrollReveal>
         <p className="text-center text-xs font-medium uppercase tracking-wider mb-6" style={{ color: "rgba(0,0,0,0.4)" }}>
           {td(`detail.${slug}.socialProofTitle`)}
         </p>
@@ -214,6 +217,7 @@ function SocialProofStrip({ slug }: { slug: ServiceSlug }) {
             </div>
           ))}
         </div>
+        </ScrollReveal>
       </div>
     </section>
   );
@@ -789,15 +793,17 @@ function MidPageCTA({ slug }: { slug: ServiceSlug }) {
 
   return (
     <div className="bg-white px-6 md:px-10 py-8 text-center">
-      <a
-        href={BOOK_CALL_URL}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="inline-flex items-center justify-center rounded-xl px-8 py-3 text-sm font-medium text-white transition-colors hover:opacity-90"
-        style={{ backgroundColor: "#FF7150" }}
-      >
-        {t(`detail.${slug}.cta`)}
-      </a>
+      <ScrollReveal>
+        <a
+          href={BOOK_CALL_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center justify-center rounded-xl px-8 py-3 text-sm font-medium text-white transition-colors hover:opacity-90"
+          style={{ backgroundColor: "#FF7150" }}
+        >
+          {t(`detail.${slug}.cta`)}
+        </a>
+      </ScrollReveal>
     </div>
   );
 }

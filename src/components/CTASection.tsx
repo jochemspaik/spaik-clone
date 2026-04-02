@@ -6,12 +6,14 @@ import { RollingTextButton } from "@/components/RollingTextButton";
 import { BOOK_CALL_URL } from "@/lib/constants";
 import { SectionWrapper } from "@/components/SectionWrapper";
 import { LinkedInIcon } from "@/components/icons";
+import { ScrollReveal } from "@/components/ScrollReveal";
 
 export function CTASection() {
   const t = useTranslations("cta");
 
   return (
     <SectionWrapper className="bg-white">
+        <ScrollReveal>
         <div className="flex flex-col gap-10 lg:flex-row lg:items-center lg:gap-16">
           {/* Left column — video with dot-grid overlay */}
           <div className="lg:w-1/2">
@@ -125,6 +127,7 @@ export function CTASection() {
             </div>
           </div>
         </div>
+        </ScrollReveal>
     </SectionWrapper>
   );
 }

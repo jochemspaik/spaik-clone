@@ -4,6 +4,7 @@ import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { SERVICES } from "@/data/services";
 import { BOOK_CALL_URL } from "@/lib/constants";
+import { ScrollReveal } from "@/components/ScrollReveal";
 
 export function ServicesSection() {
   const t = useTranslations();
@@ -47,6 +48,7 @@ export function ServicesSection() {
 
       <div className="relative z-1 mx-auto" style={{ maxWidth: "1080px" }}>
         {/* Section header */}
+        <ScrollReveal>
         <div className="mb-12 text-center">
           <h2 className="font-heading text-[32px] font-thin text-spaik-black">
             {t("services.title")}
@@ -55,9 +57,11 @@ export function ServicesSection() {
             {t("services.subtitle")}
           </p>
         </div>
+        </ScrollReveal>
 
         {/* Kickstart hero card */}
         {kickstart && (
+          <ScrollReveal>
           <div className="relative mb-4 overflow-hidden rounded-2xl">
             {/* Background texture */}
             <div className="absolute inset-0">
@@ -132,9 +136,11 @@ export function ServicesSection() {
               </div>
             </div>
           </div>
+          </ScrollReveal>
         )}
 
         {/* Supporting cards: Inspiratie, Leren & Trainingen, Adoptie */}
+        <ScrollReveal>
         <div className="grid grid-cols-1 gap-3 md:grid-cols-3 md:gap-4">
           {/* 1. Inspiratie Sessie */}
           {inspiratie && (
@@ -247,6 +253,7 @@ export function ServicesSection() {
             </Link>
           )}
         </div>
+        </ScrollReveal>
 
         {/* All services link */}
         <div className="mt-10 text-center">
