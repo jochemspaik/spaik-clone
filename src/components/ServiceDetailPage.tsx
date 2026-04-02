@@ -203,7 +203,7 @@ function SocialProofStrip({ slug }: { slug: ServiceSlug }) {
                   src={item.logo}
                   alt={item.company}
                   className="object-contain"
-                  style={{ maxHeight: 24, width: "auto", opacity: 0.7 }}
+                  style={{ maxHeight: 24, width: "auto", opacity: 0.7, mixBlendMode: "multiply" }}
                 />
               ) : (
                 <span className="font-medium" style={{ fontSize: 16, color: "#0b0b0b" }}>
