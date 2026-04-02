@@ -1,0 +1,133 @@
+---
+session: spaik-clone
+date: 2026-04-02
+status: complete
+outcome: STRONG_PLUS
+---
+
+goal: CRO parity alle detail pages + code review fixes + performance + deploy-ready
+now: Gepushed naar GitHub, klaar voor Vercel deploy door Thijs. Content review in Notion voor Jan.
+
+test: npm run build && npm run dev && open http://localhost:3000
+
+done_this_session:
+  - task: "Adoptie pricing → op aanvraag (detail page, brochure, overview, tier cards)"
+    files: [messages/nl.json, messages/en.json, src/components/AdoptieDetailPage.tsx]
+  - task: "Adoptie brochure knop klikbaar + foto Jochem + booking link"
+    files: [src/components/AdoptieBrochure.tsx]
+  - task: "CTA video oranje frame fix (seek 0.5→1.0s)"
+    files: [src/components/CTASection.tsx]
+  - task: "Homepage card label Fundamentals apart (was Leren & Trainingen)"
+    files: [src/components/ServicesSection.tsx]
+  - task: "Discovery secties gecombineerd (accordion + AI Discovery CTA card)"
+    files: [src/components/DiscoverySection.tsx, src/app/[locale]/page.tsx]
+  - task: "Inspiratie Sessie content herschreven van inspiratie.spaik.io"
+    files: [messages/nl.json, messages/en.json]
+  - task: "EN locale quality pass — 11 issues (em-dashes, Strategy Session refs, €14K, payment split)"
+    files: [messages/nl.json, messages/en.json]
+  - task: "CRO parity: social proof strips + dark differentiators + mid-page CTA voor Inspiratie + Fundamentals"
+    files: [src/components/ServiceDetailPage.tsx, messages/nl.json, messages/en.json]
+  - task: "Kickstart prisma visual (locale-aware NL/EN WebP, 140KB)"
+    files: [src/components/ServiceDetailPage.tsx, public/images/prisma-kickstart-*.webp]
+  - task: "Footer nav herstructureerd (Blog, Contact link, weg met Waarom SPAIK anchor)"
+    files: [src/components/Footer.tsx, messages/nl.json, messages/en.json]
+  - task: "Blog index polish (ScrollReveal, card metadata, maxWidth 1080px)"
+    files: [src/app/[locale]/blog/page.tsx]
+  - task: "Cases page redesign — featured hero card + 2-col grid + CTA section"
+    files: [src/app/[locale]/cases/page.tsx]
+  - task: "Performance P0: tandem-model 16MB→163KB WebP + video preload strategy"
+    files: [src/components/AdoptieBrochure.tsx, src/components/AdoptieDetailPage.tsx, src/components/HeroSection.tsx, src/components/CTASection.tsx]
+  - task: "CSP header toegevoegd in next.config.ts"
+    files: [next.config.ts]
+  - task: "img→Image conversies (22→16, rest zijn icons/decoratief/print)"
+    files: [src/components/HeroSection.tsx, src/components/CTASection.tsx, src/components/CasesSection.tsx, src/components/ProblemSolutionSection.tsx, src/components/ServiceDetailPage.tsx, src/components/AdoptieDetailPage.tsx]
+  - task: "Social proof logos: FedEx, BAM, Philips (Inspiratie) + NN (Fundamentals) + mix-blend-mode fix"
+    files: [src/components/ServiceDetailPage.tsx, messages/nl.json, messages/en.json, public/images/logo-nn.png]
+  - task: "3 componenten → server components (NotListSection, ProblemSolutionSection, TeamSection)"
+    files: [src/components/NotListSection.tsx, src/components/ProblemSolutionSection.tsx, src/components/TeamSection.tsx]
+  - task: "Design tokens: inline styles → Tailwind utility classes (text-section-heading, bg-section-warm, etc.)"
+    files: [src/app/globals.css, src/components/ServiceDetailPage.tsx]
+  - task: "AdoptieDetailPage refactor: 674→435 lines (-35%), shared sections uit ServiceDetailPage"
+    files: [src/components/AdoptieDetailPage.tsx, src/components/ServiceDetailPage.tsx]
+  - task: "ScrollReveal op alle secties alle pagina's"
+    files: [src/components/CTASection.tsx, src/components/CaseDetailView.tsx, src/components/DiscoverySection.tsx, src/components/FAQSection.tsx, src/components/ServiceDetailPage.tsx, src/components/ServicesSection.tsx]
+  - task: "ROI teksten gefixed (Movir: 1 uur→1 minuut, Euphoria: 6 prototypes in 2 dagen)"
+    files: [messages/nl.json, messages/en.json]
+  - task: "Content review Notion pagina voor Jan (alle content, 1 pagina)"
+    external: "https://www.notion.so/3362a5e1b54181a58a35d47988d004c0"
+
+blockers: []
+
+questions:
+  - "Root URL redirected naar /en ipv NL — Thijs moet Vercel/middleware config checken"
+  - "Jan's content feedback verwerken na review"
+
+decisions:
+  - adoptie_pricing: "Alle prijzen weg, overal 'Op aanvraag' / 'On request'"
+  - footer_nav: "Cases, Diensten, Blog, Team, Plan een gesprek (BOOK_CALL_URL), LinkedIn"
+  - cases_layout: "Movir als featured hero card (full-width horizontaal), Euphoria+Reditus als 2-col grid"
+  - discovery_combined: "DiscoverySection accordion + AI Discovery CTA card in 1 sectie, AIDiscoverySection verwijderd"
+  - prisma_position: "Boven ForWho sectie op Kickstart pagina"
+  - roi_teksten: "Movir: 'Van 1 uur naar 1 minuut salesverwerking', Euphoria: '6 werkende prototypes in 2 dagen'"
+  - social_proof_logos: "mix-blend-mode: multiply om witte achtergronden op getinte secties te verbergen"
+
+findings:
+  - "Root URL redirect naar /en ipv NL default — middleware/routing issue"
+  - "AdoptieDetailPage had 400 LOC duplicatie met ServiceDetailPage — gerefactored naar 435 lines"
+  - "tandem-model.png was 16MB — nu 163KB WebP"
+  - "530 inline styles met magic values — design tokens gestart, nog niet volledig"
+  - "8-9 componenten hadden onnodig 'use client' — 3 geconverteerd, rest vereist meer werk"
+
+worked:
+  - "mix-blend-mode: multiply voor logo's op getinte achtergronden — elegant en universeel"
+  - "Prisma visual als WebP (5.4MB PNG → 140KB WebP) — cwebp is geweldig"
+  - "3-agent parallel review (security + performance + patterns) — systematisch en compleet"
+  - "inspiratie.spaik.io scrapen via Exa MCP — rijke content die WebFetch niet kon ophalen"
+  - "AdoptieDetailPage refactor via composition (children prop) — clean en niet-breaking"
+
+failed:
+  - "Full-page screenshots met ScrollReveal tonen lege secties — IntersectionObserver triggert niet in static screenshot"
+  - "Notion export eerste keer te gecondenseerd — moest volledig herschreven worden"
+
+next:
+  - "PRIORITY 1: Jan's content feedback verwerken (Notion pagina)"
+  - "PRIORITY 2: Root URL locale redirect fixen (/ → NL, niet EN)"
+  - "PRIORITY 3: Vercel deploy door Thijs (branch is gepushed)"
+  - "PRIORITY 4: Remaining 'use client' → server component conversies (5-6 componenten)"
+  - "PRIORITY 5: Inline styles sweep — text-body-primary/secondary/muted toepassen op alle componenten"
+  - "PRIORITY 6: Kickstart uren-uitleg toevoegen (geparkeerd vorige sessie)"
+  - "PRIORITY 7: Kickstart Venn diagram SVG (wacht op design keuze)"
+  - "PRIORITY 8: Case study content update wanneer Jochem aanlevert"
+  - "PRIORITY 9: Mobile QA pass op alle pagina's"
+
+files:
+  created:
+    - public/images/prisma-kickstart-nl.webp
+    - public/images/prisma-kickstart-en.webp
+    - public/images/tandem-model.webp
+    - public/images/logo-nn.png
+    - thoughts/shared/handoffs/spaik-clone/2026-04-02_09-30_session-9-cro-parity-review-deploy.yaml
+  modified:
+    - next.config.ts
+    - src/app/globals.css
+    - src/app/[locale]/page.tsx
+    - src/app/[locale]/blog/page.tsx
+    - src/app/[locale]/cases/page.tsx
+    - src/components/ServiceDetailPage.tsx
+    - src/components/AdoptieDetailPage.tsx
+    - src/components/AdoptieBrochure.tsx
+    - src/components/CTASection.tsx
+    - src/components/CaseDetailView.tsx
+    - src/components/DiscoverySection.tsx
+    - src/components/FAQSection.tsx
+    - src/components/Footer.tsx
+    - src/components/HeroSection.tsx
+    - src/components/NotListSection.tsx
+    - src/components/ProblemSolutionSection.tsx
+    - src/components/ServicesSection.tsx
+    - src/components/TeamSection.tsx
+    - src/components/CasesSection.tsx
+    - messages/nl.json
+    - messages/en.json
+  deleted:
+    - public/images/tandem-model.png
