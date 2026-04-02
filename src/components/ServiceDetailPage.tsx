@@ -9,14 +9,14 @@ import { BOOK_CALL_URL } from "@/lib/constants";
 import { getService, type ServiceSlug } from "@/data/services";
 import { CASES } from "@/data/cases";
 
-function TimelineStep({ step, highlight = false }: { step: number; highlight?: boolean }) {
+function TimelineStep({ step, highlight = false, accent = false }: { step: number; highlight?: boolean; accent?: boolean }) {
   return (
     <span
       className="flex items-center justify-center shrink-0 rounded-full text-xs font-medium"
       style={{
         width: 28,
         height: 28,
-        backgroundColor: highlight ? "#FF7150" : "#0b0b0b",
+        backgroundColor: highlight || accent ? "#FF7150" : "#0b0b0b",
         color: "#fff",
       }}
     >
@@ -27,7 +27,7 @@ function TimelineStep({ step, highlight = false }: { step: number; highlight?: b
 
 /* ---- Hero ---- */
 
-function HeroSection({ slug }: { slug: ServiceSlug }) {
+export function HeroSection({ slug }: { slug: ServiceSlug }) {
   const t = useTranslations("diensten");
 
   const metrics = [
@@ -90,11 +90,13 @@ function HeroSection({ slug }: { slug: ServiceSlug }) {
           </div>
 
           <h1 className="font-heading text-white" style={{ fontSize: 48, fontWeight: 100, lineHeight: 1.1 }}>
-            {t(`detail.${slug}.title`)}
+            {t.has(`detail.${slug}.headline`) ? t(`detail.${slug}.headline`) : t(`detail.${slug}.title`)}
           </h1>
 
           <p className="mt-3 text-white/90" style={{ fontSize: 20 }}>
-            {t(`detail.${slug}.price`)} &middot; {t(`detail.${slug}.duration`)}
+            {t(`detail.${slug}.price`)
+              ? <>{t(`detail.${slug}.price`)} &middot; {t(`detail.${slug}.duration`)}</>
+              : t(`detail.${slug}.duration`)}
           </p>
 
           <p className="mt-4 text-white/80" style={{ fontSize: 16, lineHeight: 1.6, maxWidth: 600 }}>
@@ -219,7 +221,7 @@ function SocialProofStrip({ slug }: { slug: ServiceSlug }) {
 
 /* ---- Voor Wie ---- */
 
-function ForWhoSection({ slug }: { slug: ServiceSlug }) {
+export function ForWhoSection({ slug }: { slug: ServiceSlug }) {
   const t = useTranslations("diensten");
   const isKickstart = slug === "kickstart";
   const yesItems = [t(`detail.${slug}.yes1`), t(`detail.${slug}.yes2`), t(`detail.${slug}.yes3`)];
@@ -536,7 +538,7 @@ function SponsorSection({ slug }: { slug: ServiceSlug }) {
 
 /* ---- Hoe Het Werkt (all services with process data) ---- */
 
-function HowItWorksSection({ slug }: { slug: ServiceSlug }) {
+export function HowItWorksSection({ slug }: { slug: ServiceSlug }) {
   const t = useTranslations("diensten");
 
   type Step = { title: string; detail: string; highlight?: boolean };
@@ -562,6 +564,13 @@ function HowItWorksSection({ slug }: { slug: ServiceSlug }) {
       { title: t("detail.inspiratie.processStep2"), detail: t("detail.inspiratie.processStep2detail") },
       { title: t("detail.inspiratie.processStep3"), detail: t("detail.inspiratie.processStep3detail") },
       { title: t("detail.inspiratie.processStep4"), detail: t("detail.inspiratie.processStep4detail") },
+    ];
+  } else if (slug === "adoptie") {
+    steps = [
+      { title: t("detail.adoptie.processMonth12"), detail: t("detail.adoptie.processMonth12detail") },
+      { title: t("detail.adoptie.processMonth34"), detail: t("detail.adoptie.processMonth34detail") },
+      { title: t("detail.adoptie.processMonth56"), detail: t("detail.adoptie.processMonth56detail") },
+      { title: t("detail.adoptie.processMonth78"), detail: t("detail.adoptie.processMonth78detail") },
     ];
   }
 
@@ -864,7 +873,7 @@ function ROISection({ slug }: { slug: ServiceSlug }) {
 
 /* ---- Testimonial ---- */
 
-function TestimonialSection({ slug }: { slug: ServiceSlug }) {
+export function TestimonialSection({ slug }: { slug: ServiceSlug }) {
   const t = useTranslations("diensten");
   const quote = t(`detail.${slug}.testimonialQuote`);
   const author = t(`detail.${slug}.testimonialAuthor`);
