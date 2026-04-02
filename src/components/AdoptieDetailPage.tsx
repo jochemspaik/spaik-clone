@@ -2,100 +2,18 @@
 
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
-import { ScrollReveal } from "@/components/ScrollReveal";
-import { ServiceCheckIcon, XIcon, ArrowLeftIcon } from "@/components/icons";
-import { BOOK_CALL_URL } from "@/lib/constants";
 import Image from "next/image";
+import { ScrollReveal } from "@/components/ScrollReveal";
+import { ServiceCheckIcon, XIcon } from "@/components/icons";
+import { BOOK_CALL_URL } from "@/lib/constants";
+import {
+  HeroSection,
+  ForWhoSection,
+  TestimonialSection,
+  HowItWorksSection,
+} from "@/components/ServiceDetailPage";
 
-/* ---- 1. Hero ---- */
-
-function HeroSection() {
-  const t = useTranslations("diensten");
-
-  const metrics = [
-    { value: t("detail.adoptie.metric1value"), label: t("detail.adoptie.metric1label") },
-    { value: t("detail.adoptie.metric2value"), label: t("detail.adoptie.metric2label") },
-    { value: t("detail.adoptie.metric3value"), label: t("detail.adoptie.metric3label") },
-  ];
-
-  return (
-    <section className="relative w-full overflow-hidden" style={{ minHeight: 400 }}>
-      <div
-        className="absolute inset-0"
-        style={{ backgroundImage: "url('/images/Texture 3.webp')", backgroundSize: "cover", backgroundPosition: "center" }}
-      />
-      <div
-        className="absolute inset-0"
-        style={{ background: "linear-gradient(180deg, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.4) 100%)" }}
-      />
-
-      <div className="relative z-10 mx-auto px-6 md:px-10" style={{ maxWidth: 1080 }}>
-        <div className="flex flex-col justify-end" style={{ minHeight: 400, paddingTop: 120, paddingBottom: 48 }}>
-          <Link
-            href="/diensten"
-            className="mb-6 inline-flex items-center gap-1.5 text-sm text-white/70 transition-colors hover:text-white"
-          >
-            <ArrowLeftIcon />
-            {t("detail.backToOverview")}
-          </Link>
-
-          <div className="mb-4 flex flex-wrap items-center gap-3">
-            <img
-              src="/images/Building.svg"
-              alt=""
-              aria-hidden="true"
-              className="invert opacity-80"
-              style={{ width: 32, height: 32 }}
-            />
-            <span
-              className="inline-block rounded-full px-3 py-1 text-xs font-medium"
-              style={{ backgroundColor: "rgba(255,255,255,0.9)", color: "#0b0b0b" }}
-            >
-              {t("detail.adoptie.phase")}
-            </span>
-          </div>
-
-          <h1 className="font-heading text-white" style={{ fontSize: 48, fontWeight: 100, lineHeight: 1.1 }}>
-            {t("detail.adoptie.headline")}
-          </h1>
-
-          <p className="mt-3 text-white/90" style={{ fontSize: 20 }}>
-            {t("detail.adoptie.duration")}
-          </p>
-
-          <p className="mt-4 text-white/80" style={{ fontSize: 16, lineHeight: 1.6, maxWidth: 600 }}>
-            {t("detail.adoptie.pitch")}
-          </p>
-
-          <div className="mt-8">
-            <a
-              href={BOOK_CALL_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center rounded-xl px-8 py-3 text-sm font-medium transition-colors hover:bg-white/90"
-              style={{ backgroundColor: "#fff", color: "#0b0b0b" }}
-            >
-              {t("detail.adoptie.cta")}
-            </a>
-          </div>
-
-          <div className="mt-10 grid grid-cols-2 gap-6 max-w-[480px] md:grid-cols-3">
-            {metrics.map((m) => (
-              <div key={m.label}>
-                <p className="font-heading text-white" style={{ fontSize: 28, fontWeight: 100, lineHeight: 1.2 }}>
-                  {m.value}
-                </p>
-                <p className="mt-1 text-xs text-white/60">{m.label}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-/* ---- 2. Market Insight ---- */
+/* ---- 1. Market Insight ---- */
 
 function MarketInsightSection() {
   const t = useTranslations("diensten");
@@ -124,7 +42,7 @@ function MarketInsightSection() {
   );
 }
 
-/* ---- 3. Alternatives Teardown ---- */
+/* ---- 2. Alternatives Teardown ---- */
 
 function AlternativesSection() {
   const t = useTranslations("diensten");
@@ -169,7 +87,7 @@ function AlternativesSection() {
   );
 }
 
-/* ---- 4. Tandem Model ---- */
+/* ---- 3. Tandem Model ---- */
 
 function TandemSection() {
   const t = useTranslations("diensten");
@@ -224,7 +142,7 @@ function TandemSection() {
   );
 }
 
-/* ---- 5. Champions Program ---- */
+/* ---- 4. Champions Program ---- */
 
 function ChampionsSection() {
   const t = useTranslations("diensten");
@@ -283,20 +201,11 @@ function ChampionsSection() {
   );
 }
 
-/* ---- 6. Qualification (ForWho + Champion Gate) ---- */
+/* ---- 5. Champion Gate (shown inside ForWhoSection) ---- */
 
-function QualificationSection() {
+function ChampionGate() {
   const t = useTranslations("diensten");
 
-  const yesItems = [
-    t("detail.adoptie.yes1"),
-    t("detail.adoptie.yes2"),
-    t("detail.adoptie.yes3"),
-  ];
-  const noItems = [
-    { text: t("detail.adoptie.no1"), link: t("detail.adoptie.no1link"), href: t("detail.adoptie.no1slug") },
-    { text: t("detail.adoptie.no2"), link: t("detail.adoptie.no2link"), href: t("detail.adoptie.no2slug") },
-  ];
   const gateCriteria = [
     t("detail.adoptie.gateCriteria1"),
     t("detail.adoptie.gateCriteria2"),
@@ -305,84 +214,29 @@ function QualificationSection() {
   ];
 
   return (
-    <section className="bg-white px-6 md:px-10 py-12 md:py-20">
-      <div className="mx-auto" style={{ maxWidth: 1080 }}>
-        <ScrollReveal>
-          <h2 className="font-heading" style={{ fontSize: 32, fontWeight: 100, color: "#0b0b0b" }}>
-            {t("detail.forWho")}
-          </h2>
-
-          <div className="mt-10 grid grid-cols-1 gap-10 md:grid-cols-2">
-            <div>
-              <h3 className="mb-6 text-sm font-medium uppercase tracking-wider" style={{ color: "#22c55e" }}>
-                {t("detail.yes")}
-              </h3>
-              <ul className="flex flex-col gap-4">
-                {yesItems.map((item) => (
-                  <li key={item} className="flex items-start gap-3">
-                    <ServiceCheckIcon />
-                    <span style={{ fontSize: 16, color: "rgba(0,0,0,0.7)", lineHeight: 1.6 }}>{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <h3 className="mb-6 text-sm font-medium uppercase tracking-wider" style={{ color: "#FF7150" }}>
-                {t("detail.no")}
-              </h3>
-              <ul className="flex flex-col gap-4">
-                {noItems.map((item) => (
-                  <li key={item.text} className="flex items-start gap-3">
-                    <XIcon />
-                    <div>
-                      <span style={{ fontSize: 16, color: "rgba(0,0,0,0.7)", lineHeight: 1.6 }}>{item.text}</span>
-                      {item.href ? (
-                        <Link
-                          href={`/diensten/${item.href}` as "/diensten/strategie"}
-                          className="mt-1 inline-flex items-center gap-1 text-sm font-medium transition-colors hover:underline"
-                          style={{ color: "#FF7150", display: "block" }}
-                        >
-                          {item.link} &rarr;
-                        </Link>
-                      ) : (
-                        <span className="mt-1 block text-sm font-medium" style={{ color: "#FF7150" }}>
-                          &rarr; {item.link}
-                        </span>
-                      )}
-                    </div>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-
-          {/* Champion Gate */}
-          <div
-            className="mt-12 rounded-xl p-6"
-            style={{ backgroundColor: "rgba(255,113,80,0.06)", border: "1px solid rgba(255,113,80,0.2)" }}
-          >
-            <h3 className="font-bold" style={{ fontSize: 18, color: "#0b0b0b" }}>
-              {t("detail.adoptie.gateTitle")}
-            </h3>
-            <p className="mt-2" style={{ fontSize: 15, color: "rgba(0,0,0,0.6)", lineHeight: 1.5 }}>
-              {t("detail.adoptie.gateBody")}
-            </p>
-            <ul className="mt-4 flex flex-col gap-3">
-              {gateCriteria.map((criterion) => (
-                <li key={criterion} className="flex items-start gap-3">
-                  <ServiceCheckIcon color="#FF7150" />
-                  <span style={{ fontSize: 15, color: "rgba(0,0,0,0.7)", lineHeight: 1.5 }}>{criterion}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </ScrollReveal>
-      </div>
-    </section>
+    <div
+      className="mt-12 rounded-xl p-6"
+      style={{ backgroundColor: "rgba(255,113,80,0.06)", border: "1px solid rgba(255,113,80,0.2)" }}
+    >
+      <h3 className="font-bold" style={{ fontSize: 18, color: "#0b0b0b" }}>
+        {t("detail.adoptie.gateTitle")}
+      </h3>
+      <p className="mt-2" style={{ fontSize: 15, color: "rgba(0,0,0,0.6)", lineHeight: 1.5 }}>
+        {t("detail.adoptie.gateBody")}
+      </p>
+      <ul className="mt-4 flex flex-col gap-3">
+        {gateCriteria.map((criterion) => (
+          <li key={criterion} className="flex items-start gap-3">
+            <ServiceCheckIcon color="#FF7150" />
+            <span style={{ fontSize: 15, color: "rgba(0,0,0,0.7)", lineHeight: 1.5 }}>{criterion}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 }
 
-/* ---- 7. 3-Tier Pricing ---- */
+/* ---- 6. 3-Tier Pricing ---- */
 
 function TiersSection() {
   const t = useTranslations("diensten");
@@ -485,7 +339,7 @@ function TiersSection() {
   );
 }
 
-/* ---- 8. Governance ---- */
+/* ---- 7. Governance ---- */
 
 function GovernanceSection() {
   const t = useTranslations("diensten");
@@ -521,102 +375,7 @@ function GovernanceSection() {
   );
 }
 
-/* ---- 9. Testimonial ---- */
-
-function TestimonialSection() {
-  const t = useTranslations("diensten");
-
-  return (
-    <section className="px-6 md:px-10 py-12 md:py-20" style={{ backgroundColor: "#F3EDED" }}>
-      <div className="mx-auto text-center" style={{ maxWidth: 800 }}>
-        <ScrollReveal>
-          <blockquote>
-            <p
-              className="font-heading italic"
-              style={{ fontSize: 22, fontWeight: 100, color: "#0b0b0b", lineHeight: 1.5 }}
-            >
-              &ldquo;{t("detail.adoptie.testimonialQuote")}&rdquo;
-            </p>
-          </blockquote>
-          <div className="mt-6 flex flex-col items-center gap-3">
-            <Image
-              src="/images/case-johanneke.jpg"
-              alt={t("detail.adoptie.testimonialAuthor")}
-              width={48}
-              height={48}
-              className="rounded-full object-cover"
-            />
-            <div>
-              <p className="font-medium" style={{ fontSize: 16, color: "#0b0b0b" }}>
-                {t("detail.adoptie.testimonialAuthor")}
-              </p>
-              <p style={{ fontSize: 14, color: "rgba(0,0,0,0.5)" }}>
-                {t("detail.adoptie.testimonialRole")}
-              </p>
-            </div>
-          </div>
-        </ScrollReveal>
-      </div>
-    </section>
-  );
-}
-
-/* ---- 10. Timeline ---- */
-
-function TimelineSection() {
-  const t = useTranslations("diensten");
-
-  const steps = [
-    { title: t("detail.adoptie.processMonth12"), detail: t("detail.adoptie.processMonth12detail") },
-    { title: t("detail.adoptie.processMonth34"), detail: t("detail.adoptie.processMonth34detail") },
-    { title: t("detail.adoptie.processMonth56"), detail: t("detail.adoptie.processMonth56detail") },
-    { title: t("detail.adoptie.processMonth78"), detail: t("detail.adoptie.processMonth78detail") },
-  ];
-
-  return (
-    <section className="bg-white px-6 md:px-10 py-12 md:py-20">
-      <div className="mx-auto" style={{ maxWidth: 1080 }}>
-        <ScrollReveal>
-          <h2 className="font-heading" style={{ fontSize: 32, fontWeight: 100, color: "#0b0b0b" }}>
-            {t("detail.howItWorks")}
-          </h2>
-          <div className="mt-10 flex flex-col gap-6">
-            {steps.map((step, i) => {
-              const isLast = i === steps.length - 1;
-              return (
-                <div key={step.title} className="flex gap-4">
-                  {/* Left: numbered circle + connector line */}
-                  <div className="flex flex-col items-center">
-                    <span
-                      className="flex items-center justify-center shrink-0 rounded-full text-xs font-medium"
-                      style={{ width: 28, height: 28, backgroundColor: "#FF7150", color: "#fff" }}
-                    >
-                      {i + 1}
-                    </span>
-                    {!isLast && (
-                      <div className="flex-1 w-0.5 mt-2" style={{ backgroundColor: "#DEDCCC" }} />
-                    )}
-                  </div>
-                  {/* Right: content */}
-                  <div className="flex-1 pb-2">
-                    <h3 className="font-heading" style={{ fontSize: 18, fontWeight: 400, color: "#0b0b0b" }}>
-                      {step.title}
-                    </h3>
-                    <p className="mt-1" style={{ fontSize: 15, color: "rgba(0,0,0,0.6)", lineHeight: 1.5 }}>
-                      {step.detail}
-                    </p>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </ScrollReveal>
-      </div>
-    </section>
-  );
-}
-
-/* ---- 11. Dual CTA ---- */
+/* ---- 8. Dual CTA ---- */
 
 function DualCtaSection() {
   const t = useTranslations("diensten");
@@ -658,16 +417,18 @@ function DualCtaSection() {
 export function AdoptieDetailPage() {
   return (
     <>
-      <HeroSection />
+      <HeroSection slug="adoptie" />
       <MarketInsightSection />
       <AlternativesSection />
       <TandemSection />
       <ChampionsSection />
-      <QualificationSection />
+      <ForWhoSection slug="adoptie" sectionClassName="bg-white px-6 md:px-10 py-12 md:py-20">
+        <ChampionGate />
+      </ForWhoSection>
       <TiersSection />
       <GovernanceSection />
-      <TestimonialSection />
-      <TimelineSection />
+      <TestimonialSection slug="adoptie" />
+      <HowItWorksSection slug="adoptie" />
       <DualCtaSection />
     </>
   );

@@ -221,7 +221,7 @@ function SocialProofStrip({ slug }: { slug: ServiceSlug }) {
 
 /* ---- Voor Wie ---- */
 
-export function ForWhoSection({ slug }: { slug: ServiceSlug }) {
+export function ForWhoSection({ slug, children, sectionClassName }: { slug: ServiceSlug; children?: React.ReactNode; sectionClassName?: string }) {
   const t = useTranslations("diensten");
   const isKickstart = slug === "kickstart";
   const yesItems = [t(`detail.${slug}.yes1`), t(`detail.${slug}.yes2`), t(`detail.${slug}.yes3`)];
@@ -231,7 +231,7 @@ export function ForWhoSection({ slug }: { slug: ServiceSlug }) {
   ];
 
   return (
-    <section className="bg-white px-6 md:px-10 py-10 md:py-14">
+    <section className={sectionClassName ?? "bg-white px-6 md:px-10 py-10 md:py-14"}>
       <div className="mx-auto" style={{ maxWidth: 1080 }}>
         <ScrollReveal>
           <h2 className="font-heading text-section-heading">
@@ -282,6 +282,7 @@ export function ForWhoSection({ slug }: { slug: ServiceSlug }) {
               </div>
             )}
           </div>
+          {children}
         </ScrollReveal>
       </div>
     </section>
@@ -577,6 +578,7 @@ export function HowItWorksSection({ slug }: { slug: ServiceSlug }) {
   if (steps.length === 0) return null;
 
   const isKickstart = slug === "kickstart";
+  const accentCircles = slug === "adoptie";
 
   return (
     <section className="bg-white px-6 md:px-10 py-12 md:py-20">
@@ -635,7 +637,7 @@ export function HowItWorksSection({ slug }: { slug: ServiceSlug }) {
                   <div key={step.title} className="flex gap-4">
                     {/* Left: numbered circle + connector line */}
                     <div className="flex flex-col items-center">
-                      <TimelineStep step={stepNum} highlight={step.highlight} />
+                      <TimelineStep step={stepNum} highlight={step.highlight} accent={accentCircles} />
                       {!isLast && (
                         <div className="flex-1 w-0.5 mt-2" style={{ backgroundColor: step.highlight ? "#FF7150" : "#DEDCCC" }} />
                       )}
